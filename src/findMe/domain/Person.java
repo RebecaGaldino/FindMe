@@ -1,4 +1,4 @@
-package person;
+package findMe.domain;
 
 public class Person {
 
