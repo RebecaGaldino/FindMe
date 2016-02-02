@@ -2,10 +2,11 @@ package findMe.domain;
 
 import java.sql.Date;
 
+
 public class Student extends Person{
 	
 	private String course;
-	private String year;
+	private String grade;
 	
 	public Student(String id, String cpf, Date birth_dt, String name) {
 		super(id, cpf, birth_dt, name);
@@ -25,11 +26,11 @@ public class Student extends Person{
 		this.course = course;
 	}
 
-	public String getYear() {
-		return year;
+	public String getGrade() {
+		return grade;
 	}
 
-	public void setYear(String year) {
-		this.year = year;
+	public void setGrade(String grade) {
+		this.grade = grade;
 	}
 }
