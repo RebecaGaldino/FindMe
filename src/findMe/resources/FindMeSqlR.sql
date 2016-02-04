@@ -10,4 +10,3 @@
      CONSTRAINT fk_student_person  FOREIGN KEY (id) REFERENCES person(id)
 	 );
     
- 0
