@@ -14,6 +14,8 @@ public class Test {
 		DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 		Date inputDate = dateFormat.parse("11-11-2012");
 		mdb.insertPerson("202020", "083.738.794-98", "thayanne", inputDate );
+		
+		
 	}
 	
 }

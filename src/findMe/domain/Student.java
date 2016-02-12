@@ -12,8 +12,10 @@ public class Student extends Person{
 		super(id, cpf, birth_dt, name);
 	}
 	
-	public Student(String id, String cpf, Date birth_dt, String name, String course, String year) {
+	public Student(String id, String cpf, Date birth_dt, String name, String course, String grade) {
 		super(id, cpf, birth_dt, name);
+		setCourse(course);
+		setGrade(grade);
 	}
 	
 	/*---------------------------------------------------------------------------------------------------------*/
