@@ -6,10 +6,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
 
-public class ManipulateDB {
+public class PersonManipulateDB {
 		private Connection conn;
 		
-		public ManipulateDB() {
+		public PersonManipulateDB() {
 			conn = DBConnection.getConnection();
 			if(conn != null)
 				System.out.println("Conexão estabelecida");
@@ -17,7 +17,7 @@ public class ManipulateDB {
 			
 		}
 		
-		public void insert(String id, String cpf, String name, Date birth_dt ) {
+		public void insertPerson(String id, String cpf, String name, Date birth_dt ) {
 			try {
 				Statement st = conn.createStatement();
 				String q = "insert into Person values(" + id +","+ cpf + "," + name + "," + birth_dt + ")";
@@ -26,6 +26,7 @@ public class ManipulateDB {
 				System.out.println(e.getMessage());
 			}
 		}
+		
 		
 		
 }
