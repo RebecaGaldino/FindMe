@@ -2,9 +2,13 @@ package findMe.dataBase;
 
 import java.sql.Connection;
 import java.util.Date;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
+
+import findMe.domain.Person;
+import findMe.domain.Supervisor;
 
 public class PersonManipulateDB {
 		private Connection conn;
@@ -17,7 +21,8 @@ public class PersonManipulateDB {
 			
 		}
 		
-				public void insertPerson(Person person) {
+		
+		public void insertPerson(Person person) {
 
 			String q = "insert into person (id, cpf, name, birth_dt)values (?,?,?,?)";
 			try {
@@ -38,8 +43,5 @@ public class PersonManipulateDB {
 			} catch (SQLException e) {
 				throw new RuntimeException(e);
 			}
-		}
-		
-		
-		
+		}	
 }
