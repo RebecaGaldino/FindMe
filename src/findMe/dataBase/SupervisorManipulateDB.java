@@ -34,15 +34,11 @@ public class SupervisorManipulateDB {
 			
 			String q = "insert into supervisor (id)values (?)";
 			try {
-				// prepared statement para inserção
+				// prepared statement para inser��o
 				PreparedStatement st = conn.prepareStatement(q);
 
 				// seta os valores
-				/*st.setString(1, person.getId());
-				st.setString(2, person.getCpf());
-				st.setString(3, person.getName());
-				//st.setDate(4, person.getBirth_dt());*/
-				//Buscar informações sobre isso.
+				st.setString(1, getIdPerson(supervisor.getCpf()));
 
 				// executa
 				st.execute();
