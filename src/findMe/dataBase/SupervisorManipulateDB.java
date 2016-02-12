@@ -53,22 +53,23 @@ public class SupervisorManipulateDB {
 			}
 		}
 		
-		public int getIdPessoa(String cpf){
+		public String getIdPerson(String cpf){
+			String idPerson = " "; 
+			String sql = "select id from pessoa where cpf = ?";
+			
+			try{
 				
-				String cpf = ""; 
-				String sql = "select cpf from person where cpf = ?";
-				
-				try{
-					PreparedStatement stmt = conn.prepareStatement(sql);
-					stmt.setString(1,matricula);
-					ResultSet rs = stmt.executeQuery();
-					while (rs.next()) {
-						idPessoa = rs.getInt("idPessoa");
-					}
-					return idPessoa;
-				}catch(Exception e){
-					System.out.println("Exception is :"+e);
+				PreparedStatement st = conn.prepareStatement(sql);
+				st.setString(1,cpf);
+				ResultSet rs = st.executeQuery();
+				while (rs.next()) {
+					 idPerson = rs.getString("id");
 				}
-			return 0;	
-		}
+				return idPerson;
+				
+			} catch(Exception e){
+				System.out.println("Exception is :"+e);
+			}
+			return " ";
+	 }
 }
