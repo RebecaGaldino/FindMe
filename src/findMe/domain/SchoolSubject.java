@@ -1,10 +1,10 @@
 package findMe.domain;
 
-public class Subject {
+public class SchoolSubject {
 	private String name;
 	private String id;
 	
-	public Subject(String name, String id){
+	public SchoolSubject(String name, String id){
 		setName(name);
 		setId(id);
 	}
