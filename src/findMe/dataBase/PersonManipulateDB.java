@@ -12,18 +12,31 @@ public class PersonManipulateDB {
 		public PersonManipulateDB() {
 			conn = DBConnection.getConnection();
 			if(conn != null)
-				System.out.println("Conex�o estabelecida");
-			else System.out.println("Erro na conex�o com o BD");
+				System.out.println("Conexão estabelecida");
+			else System.out.println("Erro na conexão com o BD");
 			
 		}
 		
-		public void insertPerson(String id, String cpf, String name, Date birth_dt ) {
+				public void insertPerson(Person person) {
+
+			String q = "insert into person (id, cpf, name, birth_dt)values (?,?,?,?)";
 			try {
-				Statement st = conn.createStatement();
-				String q = "insert into Person values(" + id +","+ cpf + "," + name + "," + birth_dt + ")";
-				st.executeUpdate(q);
+				// prepared statement para inserção
+				PreparedStatement st = conn.prepareStatement(q);
+
+				// seta os valores
+				st.setString(1, person.getId());
+				st.setString(2, person.getCpf());
+				st.setString(3, person.getName());
+				//st.setDate(4, person.getBirth_dt());
+				//Buscar informações sobre isso.
+
+				// executa
+				st.execute();
+				st.close();
+				System.out.println("Cadastrado com sucesso!");
 			} catch (SQLException e) {
-				System.out.println(e.getMessage());
+				throw new RuntimeException(e);
 			}
 		}
 		
