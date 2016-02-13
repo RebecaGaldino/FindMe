@@ -27,7 +27,7 @@ CREATE TABLE schoolsubject(
 
 CREATE TABLE student (
      course VARCHAR(30),
-     grade VARCHAR(4),
+     grade VARCHAR(7),
   	 id  VARCHAR(11) NOT NULL,
    	 PRIMARY KEY(id),
      CONSTRAINT fk_student_person  FOREIGN KEY (id) REFERENCES person(id)
@@ -52,9 +52,9 @@ CREATE TABLE monitor(
 			("20102001040", "234.897.001-09", '1997-09-06', "Davi");
 
 	insert into student (course, grade, id)
-		values("Inform�tica", "2ano", "20141004019"),
-			("Minera��o", "1ano", "20151004018"),
-			("Petr�leo e g�s", "3ano", "20131004017");
+		values("Informática", "2º ano", "20141004019"),
+			("Mineração", "1º ano", "20151004018"),
+			("Petróleo e gás", "3º ano", "20131004017");
 			
 	insert into supervisor(id) values
  		("20122003011"),
@@ -62,10 +62,10 @@ CREATE TABLE monitor(
  		("20102001040");
  	
  	insert into schoolsubject(id, name) values
- 		("122", "Matem�tica"),
+ 		("122", "Matemática"),
  		("134","Biologia"),
- 		("155","F�sica"),
- 		("110","Porugu�s");
+ 		("155","Física"),
+ 		("110","Português");
  	
  	insert into monitor(id, worktime, roomwork) values
  		("20141004019", '60:00', 12),
