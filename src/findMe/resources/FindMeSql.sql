@@ -52,11 +52,6 @@ insert into student (course, grade, id)
 	values("Informática", "2ano", "20141004019"),
 			("Mineração", "1ano", "20151004018"),
 			("Petróleo e gás", "3ano", "20131004017");
-
-insert into supervisor(id)
-	values("20141004019"),
-		("20151004018"),
-        ("20131004017");
         
 delete from student 
 where id = "20141004019" and id = "20141004018" and id = "20141004017";
