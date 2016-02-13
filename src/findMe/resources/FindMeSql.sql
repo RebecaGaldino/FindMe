@@ -26,8 +26,8 @@ CREATE TABLE schoolsubject(
 );
 
 CREATE TABLE student (
-     course VARCHAR(30),
-     grade VARCHAR(7),
+     course VARCHAR(30) NOT NULL,
+     grade VARCHAR(7) NOT NULL,
   	 id  VARCHAR(11) NOT NULL,
    	 PRIMARY KEY(id),
      CONSTRAINT fk_student_person  FOREIGN KEY (id) REFERENCES person(id)
@@ -57,7 +57,7 @@ CREATE TABLE timetable(
 );
 
 CREATE TABLE supervisor_schoolsubject(
-	id INT AUTO_INCREMENT,
+	id INT AUTO_INCREMENT NOT NULL,
 	id_supervisor VARCHAR(11) NOT NULL,
     id_schoolsubject VARCHAR(100) NOT NULL,
 		
