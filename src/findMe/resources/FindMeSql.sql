@@ -1,4 +1,4 @@
-create schema findme;
+CREATE SCHEMA findme;
 
 USE findme;
 
@@ -20,7 +20,7 @@ CREATE TABLE supervisor(
 
 CREATE TABLE schoolsubject(
 	id VARCHAR(100) NOT NULL,
-    name VARCHAR (100) NOT NULL,
+    namesubject VARCHAR (100) NOT NULL,
     
     PRIMARY KEY (id)
 );
@@ -35,15 +35,40 @@ CREATE TABLE student (
 
 CREATE TABLE monitor(
 	id VARCHAR(11) NOT NULL,
+    id_supervisor VARCHAR (11),
+    id_schoolsubject VARCHAR(100) NOT NULL,
 	worktime DATETIME NOT NULL,
     roomwork VARCHAR(50) NOT NULL,
     
     PRIMARY KEY(id),
-    CONSTRAINT fk_monitor_student  FOREIGN KEY (id) REFERENCES student(id)
+    CONSTRAINT fk_monitor_student  FOREIGN KEY (id) REFERENCES student(id),
+    CONSTRAINT fk_id_supervisorA  FOREIGN KEY (id_supervisor) REFERENCES supervisor(id),
+    CONSTRAINT fk_id_schoolsubjectA  FOREIGN KEY (id_schoolsubject) REFERENCES schoolsubject(id)
+);
+
+CREATE TABLE timetable(
+	id INT UNSIGNED AUTO_INCREMENT NOT NULL,
+    id_monitor VARCHAR(11) NOT NULL,
+    dayname VARCHAR (10) NOT NULL,
+    hours  DATETIME NOT NULL,
+    
+    PRIMARY KEY(id),
+    CONSTRAINT fk_id_monitor  FOREIGN KEY (id_monitor) REFERENCES monitor(id)
+);
+
+CREATE TABLE supervisor_schoolsubject(
+	id INT AUTO_INCREMENT,
+	id_supervisor VARCHAR(11) NOT NULL,
+    id_schoolsubject VARCHAR(100) NOT NULL,
+		
+	PRIMARY KEY (id),
+    
+    CONSTRAINT fk_id_supervisorB  FOREIGN KEY (id_supervisor) REFERENCES supervisor(id),
+    CONSTRAINT fk_id_schoolsubjectB  FOREIGN KEY (id_schoolsubject) REFERENCES schoolsubject(id)
 );
 
 
-	insert into person (id, cpf, birth_dt, namePerson)
+insert into person (id, cpf, birth_dt, namePerson)
 		values("20141004019", "111.222.333-44", '1999-11-07', "Maria"),
 			("20151004018", "555.666.777-88", '1999-11-07', "Joao"),
 			("20131004017", "999.111.000-11", '1998-10-06', "Pedro"),
@@ -61,40 +86,60 @@ CREATE TABLE monitor(
  		("20111002017"),
  		("20102001040");
  	
- 	insert into schoolsubject(id, name) values
+ 	insert into schoolsubject(id, namesubject) values
  		("122", "Matemática"),
  		("134","Biologia"),
  		("155","Física"),
  		("110","Português");
- 	
- 	insert into monitor(id, worktime, roomwork) values
- 		("20141004019", '60:00', 12),
- 		("20151004018", '50:00', 13),
- 		("20131004017", '40:00', 13);
         
+	insert into supervisor_schoolsubject(id_supervisor, id_schoolsubject) values
+		("20122003011", "122"),
+ 		("20111002017", "134"),
+ 		("20102001040", "110");
+ 	
+ 	insert into monitor(id, id_supervisor, id_schoolsubject, worktime, roomwork) values
+ 		("20141004019", "20122003011", "122", '13:00:00', "Sala A"),
+ 		("20151004018", "20111002017", "134", '12:00:00', "Sala B"),
+ 		("20131004017", "20102001040", "110", '16:00:00', "Sala C");
+        
+	insert into timetable(id_monitor, dayname, hours) values
+		("20141004019", "Terça", '13:00:00'),
+ 		("20151004018", "Sexta", '12:00:00'),
+ 		("20131004017", "Segunda", '09:00:00');
+	
+    
+    delete from timetable 
+	where id_monitor = "20141004019" and id = "20141004018" and id = "20141004017";
+    
+    delete from monitor
+ 	where id = "20141004019" and id = "20151004018" and id = "20131004017";
+    
+    delete from supervisor_schoolsubject
+ 	where id = "20122003011" and id = "20111002017" and id = "20151004018";
+    
+    delete from schoolsubject
+ 	where id = "122" and id = "134" and id = "155" and id = "110";
+	
+    delete from supervisor
+ 	where id = "20122003011" and id = "20111002017" and id = "20151004018";
+    
 	delete from student 
 	where id = "20141004019" and id = "20141004018" and id = "20141004017";
 
 	delete from person
 	where id = "20141004019" and id = "20141004018" and id = "20141004017";
 
-	delete from supervisor
- 	where id = "20122003011" and id = "20111002017" and id = "20151004018";
- 	
- 	delete from schoolsubject
- 	where id = "122" and id = "134" and id = "155" and id = "110";
- 	
- 	delete from monitor
- 	where id = "20141004019" and id = "20151004018" and id = "20131004017";
- 	
+drop table timetable;
 
 drop table monitor;
 
-drop table student;
+drop table supervisor_schoolsubject;
+
+drop table schoolsubject;
 
 drop table supervisor;
 
-drop table schoolsubject;
+drop table student;
 
 drop table person;
 
