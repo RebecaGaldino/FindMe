@@ -142,5 +142,3 @@ drop table supervisor;
 drop table student;
 
 drop table person;
-
-drop schema findme;
