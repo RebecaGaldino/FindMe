@@ -6,7 +6,7 @@
  	for each row 
  	BEGIN
 	 	IF length(new.cpf) = 14 THEN
-	 		INSERT person
+	 		SET new.cpf = new.cpf;
 	 	END IF;
  	END
  	
@@ -33,11 +33,29 @@
  	begin
 	 	if (new.begin_time is not null and new.end_time is not null)
 	 		then 
-	 			person.begin_time = new.begin_time;
-	 			person.end_time = new.end_time;
+	 			set begin_time = new.begin_time,
+	 			end_time = new.end_time;
 	 		end if;
  	end 
  	
+ 	create trigger afterUpdate_timetable after update on timetable
+ 	for each row 
+ 	begin 
+	 	if (new.dayname is null) then
+	 		set new.dayname = old.dayname;
+	 	end if;
+ 	end 
  	
+ 	create trigger beforeDelete_timetable before delete on timetable  /*Histórico dos horários*/
+ 	for each row 
+ 	begin
+	 	insert into timetableHistory 
+	 	set id_timetable = old.id,
+	 	id_monitor = old.id_monitor,
+	 	dayname = old.dayname,
+	 	begin_time = old.begin_time,
+	 	end_time = old.end_time,
+	 	modificadoem = NOW();
+ 	end 
  	
     

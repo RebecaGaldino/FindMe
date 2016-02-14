@@ -48,13 +48,23 @@ CREATE TABLE monitor(
 CREATE TABLE timetable(
 	id INT UNSIGNED AUTO_INCREMENT NOT NULL,
     id_monitor VARCHAR(11) NOT NULL,
-    dayname VARCHAR (10) NOT NULL,
+    dayname VARCHAR (10),
     begin_time DATETIME,
     end_time DATETIME,
     
     PRIMARY KEY(id),
     CONSTRAINT fk_id_monitor  FOREIGN KEY (id_monitor) REFERENCES monitor(id)
 );
+
+/* para o trigger */
+CREATE TABLE timetableHistory(
+	id_timetable INT UNSIGNED;
+	id_monitor VARCHAR(11) NOT NULL,
+    dayname VARCHAR (10),
+    begin_time DATETIME,
+    end_time DATETIME,
+    modificadoem DATETIME
+)
 
 CREATE TABLE supervisor_schoolsubject(
 	id INT AUTO_INCREMENT NOT NULL,
