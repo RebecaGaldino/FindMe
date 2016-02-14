@@ -26,6 +26,17 @@
 	 	delete from monitor where id = OLD.id;
  	end 
  	
+ 	/*--------------------------------------------------------------*/
+ 	
+ 	create trigger beforeInsert_timetable before insert on timetable
+ 	for each row 
+ 	begin
+	 	if (new.begin_time is not null and new.end_time is not null)
+	 		then 
+	 			person.begin_time = new.begin_time;
+	 			person.end_time = new.end_time;
+	 		end if;
+ 	end 
  	
  	
  	

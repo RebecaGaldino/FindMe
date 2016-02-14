@@ -49,8 +49,8 @@ CREATE TABLE timetable(
 	id INT UNSIGNED AUTO_INCREMENT NOT NULL,
     id_monitor VARCHAR(11) NOT NULL,
     dayname VARCHAR (10) NOT NULL,
-    begin_time DATETIME NOT NULL,
-    end_time DATETIME NOT NULL,
+    begin_time DATETIME,
+    end_time DATETIME,
     
     PRIMARY KEY(id),
     CONSTRAINT fk_id_monitor  FOREIGN KEY (id_monitor) REFERENCES monitor(id)
