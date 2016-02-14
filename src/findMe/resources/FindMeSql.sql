@@ -37,7 +37,6 @@ CREATE TABLE monitor(
 	id VARCHAR(11) NOT NULL,
     id_supervisor VARCHAR (11),
     id_schoolsubject VARCHAR(100) NOT NULL,
-	worktime DATETIME NOT NULL,
     roomwork VARCHAR(50) NOT NULL,
     
     PRIMARY KEY(id),
@@ -50,7 +49,8 @@ CREATE TABLE timetable(
 	id INT UNSIGNED AUTO_INCREMENT NOT NULL,
     id_monitor VARCHAR(11) NOT NULL,
     dayname VARCHAR (10) NOT NULL,
-    hours  DATETIME NOT NULL,
+    begin_time DATETIME NOT NULL,
+    end_time DATETIME NOT NULL,
     
     PRIMARY KEY(id),
     CONSTRAINT fk_id_monitor  FOREIGN KEY (id_monitor) REFERENCES monitor(id)
@@ -97,15 +97,15 @@ insert into person (id, cpf, birth_dt, namePerson)
  		("20111002017", "134"),
  		("20102001040", "110");
  	
- 	insert into monitor(id, id_supervisor, id_schoolsubject, worktime, roomwork) values
- 		("20141004019", "20122003011", "122", '13:00:00', "Sala A"),
- 		("20151004018", "20111002017", "134", '12:00:00', "Sala B"),
- 		("20131004017", "20102001040", "110", '16:00:00', "Sala C");
+ 	insert into monitor(id, id_supervisor, id_schoolsubject, roomwork) values
+ 		("20141004019", "20122003011", "122", "Sala A"),
+ 		("20151004018", "20111002017", "134", "Sala B"),
+ 		("20131004017", "20102001040", "110", "Sala C");
         
-	insert into timetable(id_monitor, dayname, hours) values
-		("20141004019", "Terça", '13:00:00'),
- 		("20151004018", "Sexta", '12:00:00'),
- 		("20131004017", "Segunda", '09:00:00');
+	insert into timetable(id_monitor, dayname, begin_time, end_time) values
+		("20141004019", "Terça", '13:00:00', '15:00:00'),
+ 		("20151004018", "Sexta", '12:00:00', '13:00:00'),
+ 		("20131004017", "Segunda", '09:00:00', '16:00:00');
 	
     
     delete from timetable 
