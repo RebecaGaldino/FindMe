@@ -2,6 +2,7 @@
  
  use findme;
  
+ /* Os cod n tão funfando por erro de sintaxe, pls corrige */
  	CREATE TRIGGER beforeIsrt_person BEFORE INSERT ON person
  	for each row 
  	BEGIN
