@@ -6,7 +6,7 @@ CREATE TABLE person(
 	id VARCHAR(11) NOT NULL,
     cpf VARCHAR(14) NOT NULL,
     birth_dt datetime NOT NULL,
-    namePerson VARCHAR(100) NOT NULL,
+    namePerson VARCHAR(100),
     
     PRIMARY KEY (id)
 );
