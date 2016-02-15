@@ -2,14 +2,16 @@
  
  use findme;
  
- /* Os cod n t„o funfando por erro de sintaxe, pls corrige */
- 	CREATE TRIGGER beforeIsrt_person BEFORE INSERT ON person
- 	for each row 
+ /* Os cod n t√£o funfando por erro de sintaxe, pls corrige */
+ /*Corre√ß√£o*/
+ DELIMITER $$
+	CREATE TRIGGER beforeIsrt_person BEFORE INSERT ON person
+ 	FOR EACH ROW
  	BEGIN
-	 	IF length(new.cpf) = 14 THEN
-	 		SET new.cpf = new.cpf;
+	 	IF length(new.cpf) != 14 THEN
+	 		SET new.cpf = "--Invalid CPF-";
 	 	END IF;
- 	END
+	END$$
  	
  	create trigger beforeUpdt_person before update on person
  	for each row
@@ -47,7 +49,7 @@
 	 	end if;
  	end 
  	
- 	create trigger beforeDelete_timetable before delete on timetable  /*HistÛrico dos hor·rios*/
+ 	create trigger beforeDelete_timetable before delete on timetable  /*Hist√≥rico dos hor√°rios*/
  	for each row 
  	begin
 	 	insert into timetableHistory 
