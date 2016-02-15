@@ -59,4 +59,13 @@
 	 	modificadoem = NOW();
  	end 
  	
-    
+   	/*--------------------------------------------------------------*/
+
+ 	/* Verificar se ha numero na string do nome*/
+ 	create trigger beforeUpdate_schoolsubject before update on schoolsubject
+ 	for each row 
+ 	begin
+	 	if (SELECT CAST(new.namesubject AS UNSIGNED)) == 0 then
+	 		new.namesubject = new.subject;
+	 	end if;
+ 	end 
