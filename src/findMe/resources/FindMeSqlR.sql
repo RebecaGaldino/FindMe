@@ -85,7 +85,22 @@ CREATE TRIGGER beforeDelete_person BEFORE DELETE ON person
 
 	/*--------------------------------------------------------------*/
 
- 
+ 	DELIMITER $$
+ 	create trigger beforeUpdate_student before update on student
+ 	for each row
+ 	begin
+	 	if (SELECT CAST(new.course AS UNSIGNED)) = 0 then
+	 		set new.namecourse = "";
+	 	else
+	 		set new.namesubject = new.subject;
+	 		if (SELECT CAST(new.grade AS UNSIGNED)) = 0 then
+	 			set new.grade = "";
+	 		else
+	 			set new.grade = new.grade;
+	 		end if;;
+	 	end if;
+ 	end 
+ END$$
  
  	/*--------------------------------------------------------------*/
  
