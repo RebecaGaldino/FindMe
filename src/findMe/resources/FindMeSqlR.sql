@@ -2,32 +2,41 @@
  
  use findme;
  
- /* Os cod n tão funfando por erro de sintaxe, pls corrige */
- /*Correção*/
- DELIMITER $$
-	CREATE TRIGGER beforeIsrt_person BEFORE INSERT ON person
+/*Triggers de Person*/
+DELIMITER $$
+CREATE TRIGGER beforeIsrt_person BEFORE INSERT ON person
  	FOR EACH ROW
  	BEGIN
 	 	IF length(new.cpf) != 14 THEN
-	 		SET new.cpf = "--Invalid CPF-";
+	 		SET new.cpf = "";
 	 	END IF;
 	END$$
- 	
- 	create trigger beforeUpdt_person before update on person
- 	for each row
- 	begin
-	 	if (new.namePerson is not null) then
-	 		update person;
-	 	end if;
- 	end 
- 	
- 	create trigger afterDelete_person after delete on person
- 	for each row 
- 	begin
-	 	delete from student where id = OLD.id;
-	 	delete from supervisor where id = OLD.id;
-	 	delete from monitor where id = OLD.id;
- 	end 
+    
+    
+DELIMITER $$
+CREATE TRIGGER beforeUpdt_person BEFORE UPDATE ON person
+ 	FOR EACH ROW
+ 	BEGIN
+		IF length(new.cpf) != 14 THEN
+			IF length(OLD.cpf) != 14 THEN
+				SET new.cpf = "";
+			ELSE
+				SET new.cpf = old.cpf;
+			END if;
+		ELSE 
+            SET new.cpf = new.cpf;
+	 	END IF;
+	END$$
+    
+    
+DELIMITER $$
+CREATE TRIGGER beforeDelete_person BEFORE DELETE ON person
+ 	FOR EACH ROW
+ 	BEGIN
+		DELETE FROM monitor WHERE id = OLD.id;
+	 	DELETE FROM student WHERE id = OLD.id;
+	 	DELETE FROM supervisor WHERE id = OLD.id;
+	end$$
  	
  	/*--------------------------------------------------------------*/
  	
