@@ -81,7 +81,8 @@ CREATE TRIGGER beforeDelete_schoolsubject BEFORE DELETE ON schoolsubject
 		SET id_schoolsubject = null
         WHERE id_schoolsubject = old.id;
 	END$$
- 	/*--------------------------------------------------------------*/
+	
+ /*Triggers de timetable--------------------------------------------------------------*/
  	
  	create trigger beforeInsert_timetable before insert on timetable
  	for each row 
@@ -113,9 +114,9 @@ CREATE TRIGGER beforeDelete_schoolsubject BEFORE DELETE ON schoolsubject
 	 	modificadoem = NOW();
  	end 
  	
-   	/*--------------------------------------------------------------*/
+   	
 
-	/*--------------------------------------------------------------*/
+/*Triggers de student--------------------------------------------------------------*/
 
  	DELIMITER $$
  	create trigger beforeinsert_student before insert on student
@@ -134,10 +135,35 @@ CREATE TRIGGER beforeDelete_schoolsubject BEFORE DELETE ON schoolsubject
  	end 
  END$$
  
- 	/*--------------------------------------------------------------*/
+ DELIMITER $$
+	CREATE TRIGGER beforeDelete_student BEFORE DELETE ON student
+	 	FOR EACH ROW
+	 	BEGIN
+			UPDATE person
+			SET id = null
+	        WHERE id = old.id;
+	    end;    
+		END$$
+		
+
+DELIMITER $$
+	create trigger beforeUpdate_student before update on student
+	 	for each row 
+	 	begin
+		 	UPDATE person
+			SET id = new.id
+	        WHERE id  = old.id;
+	        
+	        UPDATE monitor
+			SET id = new.id
+	        WHERE id = old.id;
+	       end;
+	 	end$$
+
+/*Triggers de monitor--------------------------------------------------------------*/
  
  	DELIMITER $$
- 	CREATE TRIGGER beforeInsert_monitor before INSERT ON 
+ 	CREATE TRIGGER beforeInsert_monitor before INSERT ON monitor
  	FOR EACH ROW
  	BEGIN
 		if (SELECT CHARINDEX(new.roomwork, '0123456789')) = 0 then
@@ -147,4 +173,40 @@ CREATE TRIGGER beforeDelete_schoolsubject BEFORE DELETE ON schoolsubject
 	 	end if;
  	END 
  	END$$
+ 	
+ 	DELIMITER $$
+	create trigger beforeUpdate_monitor before update on monitor
+ 	for each row 
+ 	begin
+	 	UPDATE student
+		SET id  = new.id
+        WHERE id = old.id;
+     end   
+    
+ 	end$$
+    
+    
+    
+DELIMITER $$
+CREATE TRIGGER beforeDelete_monitor BEFORE DELETE ON monitor
+ 	FOR EACH ROW
+ 	BEGIN
+		UPDATE timetable
+		SET id_monitor = null
+        WHERE id_monitor = old.id_monitor;
+        
+    end
+	END$$
+	
+/*Triggers de supervisor--------------------------------------------------------------*/
+ 	
+DELIMITER $$
+	create trigger beforeUpdate_supervisor before update on supervisor
+ 	for each row 
+ 	begin
+	 	UPDATE monitor
+		SET id_monitor  = new.id_monitor
+        WHERE id_monitor = old.id_monitor;
+   end 
+ 	end$$
  
