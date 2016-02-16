@@ -58,13 +58,13 @@ CREATE TABLE timetable(
 
 /* para o trigger */
 CREATE TABLE timetableHistory(
-	id_timetable INT UNSIGNED;
+	id_timetable INT UNSIGNED,
 	id_monitor VARCHAR(11) NOT NULL,
     dayname VARCHAR (10),
     begin_time DATETIME,
     end_time DATETIME,
     modificadoem DATETIME
-)
+);
 
 CREATE TABLE supervisor_schoolsubject(
 	id INT AUTO_INCREMENT NOT NULL,

@@ -76,7 +76,18 @@ CREATE TRIGGER beforeDelete_person BEFORE DELETE ON person
  	create trigger beforeUpdate_schoolsubject before update on schoolsubject
  	for each row 
  	begin
-	 	if (SELECT CAST(new.namesubject AS UNSIGNED)) == 0 then
-	 		new.namesubject = new.subject;
+	 	if (SELECT CAST(new.namesubject AS UNSIGNED)) = 0 then
+	 		set new.namesubject = "";
+	 	else
+	 		set new.namesubject = new.subject;
 	 	end if;
  	end 
+
+	/*--------------------------------------------------------------*/
+
+ 
+ 
+ 	/*--------------------------------------------------------------*/
+ 
+ 
+ 
