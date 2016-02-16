@@ -86,7 +86,7 @@ CREATE TRIGGER beforeDelete_person BEFORE DELETE ON person
 	/*--------------------------------------------------------------*/
 
  	DELIMITER $$
- 	create trigger beforeUpdate_student before update on student
+ 	create trigger beforeinsert_student before insert on student
  	for each row
  	begin
 	 	if (SELECT CAST(new.course AS UNSIGNED)) = 0 then
@@ -104,5 +104,11 @@ CREATE TRIGGER beforeDelete_person BEFORE DELETE ON person
  
  	/*--------------------------------------------------------------*/
  
+ 	DELIMITER $$
+ 	CREATE TRIGGER beforeInsert_monitor before INSERT ON 
+ 	FOR EACH ROW
+ 	BEGIN
+	 	
+ 	END 
  
  
