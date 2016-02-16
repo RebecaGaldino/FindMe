@@ -115,17 +115,6 @@ CREATE TRIGGER beforeDelete_schoolsubject BEFORE DELETE ON schoolsubject
  	
    	/*--------------------------------------------------------------*/
 
- 	/* Verificar se ha numero na string do nome*/
- 	create trigger beforeUpdate_schoolsubject before update on schoolsubject
- 	for each row 
- 	begin
-	 	if (SELECT CAST(new.namesubject AS UNSIGNED)) = 0 then
-	 		set new.namesubject = "";
-	 	else
-	 		set new.namesubject = new.subject;
-	 	end if;
- 	end 
-
 	/*--------------------------------------------------------------*/
 
  	DELIMITER $$
