@@ -130,7 +130,7 @@ CREATE TRIGGER beforeDelete_schoolsubject BEFORE DELETE ON schoolsubject
 	 			set new.grade = "";
 	 		else
 	 			set new.grade = new.grade;
-	 		end if;;
+	 		end if;
 	 	end if;
  	end 
  END$$
