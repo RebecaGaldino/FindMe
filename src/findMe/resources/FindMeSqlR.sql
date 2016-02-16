@@ -2,7 +2,7 @@
  
  use findme;
  
-/*Triggers de Person*/
+/*Triggers de Person -----------------------------------------*/
 DELIMITER $$
 CREATE TRIGGER beforeIsrt_person BEFORE INSERT ON person
  	FOR EACH ROW
@@ -37,7 +37,50 @@ CREATE TRIGGER beforeDelete_person BEFORE DELETE ON person
 	 	DELETE FROM student WHERE id = OLD.id;
 	 	DELETE FROM supervisor WHERE id = OLD.id;
 	end$$
- 	
+ 
+ 
+ /*Triggers de School Subject ------------------------------------------------*/
+
+DELIMITER $$
+create trigger beforeUpdate_schoolsubject before update on schoolsubject
+ 	for each row 
+ 	begin
+	 	if (SELECT CAST(new.namesubject AS UNSIGNED)) = 0 then
+			UPDATE schoolsubject
+            SET namesubject = new.namesubject
+	 		WHERE id = id;
+	 	end if;
+ 	end$$
+    
+    
+    
+DELIMITER $$
+create trigger beforeUpdate_schoolsubject_id before update on schoolsubject
+ 	for each row 
+ 	begin
+	 	UPDATE monitor
+		SET id_schoolsubject = new.id
+        WHERE id_schoolsubject = old.id;
+        
+        UPDATE supervisor_schoolsubject
+		SET id_schoolsubject = new.id
+        WHERE id_schoolsubject = old.id;
+ 	end$$
+    
+    
+    
+DELIMITER $$
+CREATE TRIGGER beforeDelete_schoolsubject BEFORE DELETE ON schoolsubject
+ 	FOR EACH ROW
+ 	BEGIN
+		UPDATE monitor
+		SET id_schoolsubject = null
+        WHERE id_schoolsubject = old.id;
+        
+        UPDATE supervisor_schoolsubject
+		SET id_schoolsubject = null
+        WHERE id_schoolsubject = old.id;
+	END$$
  	/*--------------------------------------------------------------*/
  	
  	create trigger beforeInsert_timetable before insert on timetable
