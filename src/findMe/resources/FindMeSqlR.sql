@@ -92,7 +92,7 @@ CREATE TRIGGER beforeDelete_person BEFORE DELETE ON person
 	 	if (SELECT CAST(new.course AS UNSIGNED)) = 0 then
 	 		set new.namecourse = "";
 	 	else
-	 		set new.namesubject = new.subject;
+	 		set new.course = new.course;
 	 		if (SELECT CAST(new.grade AS UNSIGNED)) = 0 then
 	 			set new.grade = "";
 	 		else
