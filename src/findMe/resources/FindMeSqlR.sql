@@ -132,11 +132,11 @@ CREATE TRIGGER beforeDelete_schoolsubject BEFORE DELETE ON schoolsubject
  	create trigger beforeinsert_student before insert on student
  	for each row
  	begin
-	 	if (SELECT CAST(new.course AS UNSIGNED)) = 0 then
-	 		set new.namecourse = "";
+	 	if (SELECT CHARINDEX(new.course, '0123456789')) = 0 then
+	 		set new.course = "";
 	 	else
 	 		set new.course = new.course;
-	 		if (SELECT CAST(new.grade AS UNSIGNED)) = 0 then
+	 		if (SELECT CHARINDEX(new.grade, '0123456789')) = 0 then
 	 			set new.grade = "";
 	 		else
 	 			set new.grade = new.grade;
@@ -151,7 +151,11 @@ CREATE TRIGGER beforeDelete_schoolsubject BEFORE DELETE ON schoolsubject
  	CREATE TRIGGER beforeInsert_monitor before INSERT ON 
  	FOR EACH ROW
  	BEGIN
-	 	
+		if (SELECT CHARINDEX(new.course, '0123456789')) = 0 then
+	 		set new.roomwork = "";
+	 	else
+	 		set new.course = new.course;
+	 	end if;
  	END 
- 
+ 	END$$
  
