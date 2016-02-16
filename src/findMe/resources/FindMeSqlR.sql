@@ -140,10 +140,10 @@ CREATE TRIGGER beforeDelete_schoolsubject BEFORE DELETE ON schoolsubject
  	CREATE TRIGGER beforeInsert_monitor before INSERT ON 
  	FOR EACH ROW
  	BEGIN
-		if (SELECT CHARINDEX(new.course, '0123456789')) = 0 then
+		if (SELECT CHARINDEX(new.roomwork, '0123456789')) = 0 then
 	 		set new.roomwork = "";
 	 	else
-	 		set new.course = new.course;
+	 		set new.roomwork = new.roomwork;
 	 	end if;
  	END 
  	END$$
