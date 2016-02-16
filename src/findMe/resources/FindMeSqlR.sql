@@ -89,8 +89,8 @@ CREATE TRIGGER beforeDelete_schoolsubject BEFORE DELETE ON schoolsubject
  	begin
 	 	if (new.begin_time is not null and new.end_time is not null)
 	 		then 
-	 			set begin_time = new.begin_time,
-	 			end_time = new.end_time;
+	 			set new.begin_time = new.begin_time,
+	 			new.end_time = new.end_time;
 	 		end if;
  	end 
  	
