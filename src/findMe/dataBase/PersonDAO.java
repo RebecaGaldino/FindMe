@@ -16,8 +16,8 @@ public class PersonManipulateDB {
 		public PersonManipulateDB() {
 			conn = DBConnection.getConnection();
 			if(conn != null)
-				System.out.println("Conex„o estabelecida");
-			else System.out.println("Erro na conex√£o com o BD");
+				System.out.println("Conex√£o estabelecida");
+			else System.out.println("Erro na conex√É¬£o com o BD");
 			
 		}
 		
@@ -26,7 +26,7 @@ public class PersonManipulateDB {
 
 			String q = "insert into person (id, cpf, name, birth_dt)values (?,?,?,?)";
 			try {
-				// prepared statement para inserÁ„o
+				// prepared statement para inser√ß√£o
 				PreparedStatement st = conn.prepareStatement(q);
 
 				// seta os valores
@@ -34,7 +34,7 @@ public class PersonManipulateDB {
 				st.setString(2, person.getCpf());
 				st.setString(3, person.getName());
 				//st.setDate(4, person.getBirth_dt());
-				//Buscar informaÁıes sobre isso.
+				//Buscar informa√ß√µes sobre isso.
 
 				// executa
 				st.execute();
