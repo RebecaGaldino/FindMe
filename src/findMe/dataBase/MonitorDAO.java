@@ -11,10 +11,10 @@ import java.sql.PreparedStatement;
 
 import findMe.domain.Monitor;
 
-public class MonitorManipulateDB {
+public class MonitorDAO {
 	private Connection conn;
 	
-	public MonitorManipulateDB() {
+	public MonitorDAO() {
 		conn = DBConnection.getConnection();
 		if(conn != null)
 			System.out.println("Conexão estabelecida");
