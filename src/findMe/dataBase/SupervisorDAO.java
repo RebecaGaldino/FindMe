@@ -9,10 +9,10 @@ import java.sql.ResultSet;
 
 import findMe.domain.Supervisor;
 
-public class SupervisorManipulateDB {
+public class SupervisorDAO{
 		private Connection conn;
 		
-		public SupervisorManipulateDB() {
+		public SupervisorDAO{
 			conn = DBConnection.getConnection();
 			if(conn != null)
 				System.out.println("ConexÃ£o estabelecida");
