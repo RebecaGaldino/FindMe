@@ -9,12 +9,12 @@ import findMe.domain.Student;
 
 
 
-public class StudentManipulateDB {
+public class StudentDAO{
 
 	
 		private Connection conn;
 		
-		public StudentManipulateDB() {
+		public StudentDAO() {
 			conn = DBConnection.getConnection();
 			if(conn != null)
 				System.out.println("Conexão estabelecida");
