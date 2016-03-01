@@ -15,8 +15,8 @@ public class SupervisorManipulateDB {
 		public SupervisorManipulateDB() {
 			conn = DBConnection.getConnection();
 			if(conn != null)
-				System.out.println("Conexão estabelecida");
-			else System.out.println("Erro na conexão com o BD");
+				System.out.println("ConexÃ£o estabelecida");
+			else System.out.println("Erro na conexÃ£o com o BD");
 			
 		}
 		
@@ -34,7 +34,7 @@ public class SupervisorManipulateDB {
 			
 			String q = "insert into supervisor (id)values (?)";
 			try {
-				// prepared statement para inser��o
+				// prepared statement para inserção
 				PreparedStatement st = conn.prepareStatement(q);
 
 				// seta os valores
