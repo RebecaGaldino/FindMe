@@ -10,10 +10,10 @@ import java.sql.ResultSet;
 import findMe.domain.Person;
 import findMe.domain.Supervisor;
 
-public class PersonManipulateDB {
+public class PersonDAO {
 		private Connection conn;
 		
-		public PersonManipulateDB() {
+		public PersonDAO() {
 			conn = DBConnection.getConnection();
 			if(conn != null)
 				System.out.println("Conexão estabelecida");
