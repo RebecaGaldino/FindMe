@@ -17,8 +17,8 @@ public class StudentManipulateDB {
 		public StudentManipulateDB() {
 			conn = DBConnection.getConnection();
 			if(conn != null)
-				System.out.println("Conex„o estabelecida");
-			else System.out.println("Erro na conex„o com o BD");
+				System.out.println("Conex√£o estabelecida");
+			else System.out.println("Erro na conex√£o com o BD");
 			
 		}
 		
