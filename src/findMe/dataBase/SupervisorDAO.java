@@ -7,45 +7,33 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
 
+import findMe.domain.Monitor;
 import findMe.domain.Supervisor;
 
 public class SupervisorDAO{
 		private Connection conn;
 		
-		public SupervisorDAO{
+		public SupervisorDAO(){
 			conn = DBConnection.getConnection();
 			if(conn != null)
 				System.out.println("ConexÃ£o estabelecida");
 			else System.out.println("Erro na conexÃ£o com o BD");
 			
-		}
-		
-		public void insertSupervisora(String id, String name) {
-			try {
-				Statement st = conn.createStatement();
-				String q = "insert into person values(" + id +"," + name  + ")";
-				st.executeUpdate(q);
-			} catch (SQLException e) {
-				System.out.println(e.getMessage());
-			}
 		}	
 		
+		/*------------------------INSERT----------------------------*/
 		public void insertSupervisor(Supervisor supervisor) {
-			
-			String q = "insert into supervisor (id)values (?)";
+			String sql = "insert into monitor (id) values (?)";
 			try {
-				// prepared statement para inserção
-				PreparedStatement st = conn.prepareStatement(q);
-
-				// seta os valores
+				
+				PreparedStatement st = conn.prepareStatement(sql);
+				
 				st.setString(1, getIdPerson(supervisor.getCpf()));
-
-				// executa
+				
 				st.execute();
 				st.close();
-				System.out.println("Cadastrado com sucesso!");
 			} catch (SQLException e) {
-				throw new RuntimeException(e);
+				System.out.println(e.getMessage());
 			}
 		}
 		
