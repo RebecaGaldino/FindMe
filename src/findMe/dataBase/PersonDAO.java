@@ -21,7 +21,7 @@ public class PersonDAO {
 			
 		}
 		
-		
+		/*------------------------INSERT----------------------------*/
 		public void insertPerson(Person person) {
 
 			String q = "insert into person (id, cpf, name, birth_dt)values (?,?,?,?)";

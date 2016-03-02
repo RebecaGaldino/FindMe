@@ -22,6 +22,7 @@ public class MonitorDAO {
 		
 	}
 	
+	/*------------------------INSERT----------------------------*/
 	public void insertMonitor(Monitor monitor) {
 		String sql = "insert into monitor (id, subject) values (?, ?)";
 		try {

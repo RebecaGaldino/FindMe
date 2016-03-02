@@ -4,14 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import findMe.domain.Student;
-
-
 
 public class StudentDAO{
 
-	
 		private Connection conn;
 		
 		public StudentDAO() {
@@ -22,6 +18,7 @@ public class StudentDAO{
 			
 		}
 		
+		/*------------------------INSERT----------------------------*/
 		public void insertStudent(Student student) {
 			String sql = "insert into student (id, course, year) values (?, ?, ?)";
 			try {
