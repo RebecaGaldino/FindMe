@@ -24,7 +24,7 @@ public class PersonDAO {
 		/*------------------------INSERT----------------------------*/
 		public void insertPerson(Person person) {
 
-			String q = "insert into person (id, cpf, name, birth_dt)values (?,?,?,?)";
+			String q = "insert into person (id, cpf, namePerson, birth_dt)values (?,?,?,?)";
 			try {
 				// prepared statement para inserção
 				PreparedStatement st = conn.prepareStatement(q);

@@ -20,7 +20,7 @@ public class StudentDAO{
 		
 		/*------------------------INSERT----------------------------*/
 		public void insertStudent(Student student) {
-			String sql = "insert into student (id, course, year) values (?, ?, ?)";
+			String sql = "insert into student (id, course, grade) values (?, ?, ?)";
 			try {
 				
 				PreparedStatement st = conn.prepareStatement(sql);

@@ -24,13 +24,14 @@ public class MonitorDAO {
 	
 	/*------------------------INSERT----------------------------*/
 	public void insertMonitor(Monitor monitor) {
-		String sql = "insert into monitor (id, subject) values (?, ?)";
+		String sql = "insert into monitor (id, id_schoolsubject, id_supervisor) values (?, ?, ?)";
 		try {
 			
 			PreparedStatement st = conn.prepareStatement(sql);
 			
 			st.setString(1, getIdStudent(monitor.getCpf()));
 			st.setString(2, monitor.getSubject().getId());
+			st.setString(3, monitor.getSupervisor().getId());
 			
 			st.execute();
 			st.close();
