@@ -37,6 +37,23 @@ public class SupervisorDAO{
 			}
 		}
 		
+		
+		/*------------------------DELETE----------------------------*/
+		public void deleteSupervisor(String id) {
+			String sql = "delete from supervisor where id = ?";
+			try {
+				
+				PreparedStatement st = conn.prepareStatement(sql);
+				
+				st.setString(1, id);
+				
+				st.execute();
+				st.close();
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		
 		public String getIdPerson(String cpf){
 			String idPerson = " "; 
 			String sql = "select id from pessoa where cpf = ?";

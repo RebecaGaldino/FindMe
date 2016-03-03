@@ -44,4 +44,20 @@ public class PersonDAO {
 				throw new RuntimeException(e);
 			}
 		}	
+		
+		/*------------------------DELETE----------------------------*/
+		public void deletePerson(String id) {
+			String sql = "delete from person where id = ?";
+			try {
+				
+				PreparedStatement st = conn.prepareStatement(sql);
+				
+				st.setString(1, id);
+				
+				st.execute();
+				st.close();
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+		}
 }

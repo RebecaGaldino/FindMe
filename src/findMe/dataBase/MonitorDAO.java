@@ -40,6 +40,22 @@ public class MonitorDAO {
 		}
 	}
 	
+	/*------------------------DELETE----------------------------*/
+	public void deleteMonitor(String id) {
+		String sql = "delete from monitor where id = ?";
+		try {
+			
+			PreparedStatement st = conn.prepareStatement(sql);
+			
+			st.setString(1, id);
+			
+			st.execute();
+			st.close();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
 	public String getIdStudent(String cpf){
 		
 		String idStudent = " "; 

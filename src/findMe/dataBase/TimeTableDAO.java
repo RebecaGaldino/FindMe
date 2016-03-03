@@ -41,5 +41,21 @@ public class TimeTableDAO {
 			System.out.println(e.getMessage());
 		}
 	}
-
+	
+	
+	/*------------------------DELETE----------------------------*/
+	public void deleteTimeTable(int id) {
+		String sql = "delete from timetable where id = ?";
+		try {
+			
+			PreparedStatement st = conn.prepareStatement(sql);
+			
+			st.setInt(1, id);
+			
+			st.execute();
+			st.close();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
 }

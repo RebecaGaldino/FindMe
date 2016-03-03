@@ -36,5 +36,21 @@ private Connection conn;
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	/*------------------------DELETE----------------------------*/
+	public void deleteSupervisor_SchoolSubject(int id) {
+		String sql = "delete from supervisor_schoolsubject where id = ?";
+		try {
+			
+			PreparedStatement st = conn.prepareStatement(sql);
+			
+			st.setInt(1, id);
+			
+			st.execute();
+			st.close();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
 
 }

@@ -36,4 +36,20 @@ public class SchoolSubjectDAO {
 		}
 	}
 	
+	/*------------------------DELETE----------------------------*/
+	public void deleteSchoolSubject(String id) {
+		String sql = "delete from schoolsubject where id = ?";
+		try {
+			
+			PreparedStatement st = conn.prepareStatement(sql);
+			
+			st.setString(1, id);
+			
+			st.execute();
+			st.close();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
 }
