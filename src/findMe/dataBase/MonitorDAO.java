@@ -24,7 +24,7 @@ public class MonitorDAO {
 	
 	/*------------------------INSERT----------------------------*/
 	public void insertMonitor(Monitor monitor) {
-		String sql = "insert into monitor (id, id_schoolsubject, id_supervisor) values (?, ?, ?)";
+		String sql = "insert into monitor (id, id_schoolsubject, id_supervisor, roomwork) values (?, ?, ?, ?)";
 		try {
 			
 			PreparedStatement st = conn.prepareStatement(sql);
@@ -32,6 +32,7 @@ public class MonitorDAO {
 			st.setString(1, getIdStudent(monitor.getCpf()));
 			st.setString(2, monitor.getSubject().getId());
 			st.setString(3, monitor.getSupervisor().getId());
+			st.setString(4, monitor.getRoomWork());
 			
 			st.execute();
 			st.close();
@@ -48,6 +49,26 @@ public class MonitorDAO {
 			PreparedStatement st = conn.prepareStatement(sql);
 			
 			st.setString(1, id);
+			
+			st.execute();
+			st.close();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	
+	/*------------------------UPDATE----------------------------*/
+	public void updateMonitor(Monitor monitor) {
+		String sql = "update monitor set id_supervisor = ?, id_schoolsubject = ?, roomwork = ? where id = ?";
+		try {
+			
+			PreparedStatement st = conn.prepareStatement(sql);
+			
+			st.setString(1, monitor.getSupervisor().getId());
+			st.setString(2, monitor.getSubject().getId());
+			st.setString(3, monitor.getRoomWork());
+			st.setString(4, monitor.getId());
 			
 			st.execute();
 			st.close();

@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import findMe.domain.Monitor;
+import findMe.domain.Student;
 import findMe.domain.TimeTable;
 
 public class TimeTableDAO {
@@ -58,4 +59,25 @@ public class TimeTableDAO {
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	
+	/*------------------------UPDATE----------------------------*/
+	public void updateTimeTable(TimeTable timetable) {
+		String sql = "update timetable set id_monitor = ?, dayname = ?, begin_time = ?, end_time = ? where id = ?";
+		try {
+			
+			PreparedStatement st = conn.prepareStatement(sql);
+			
+			st.setString(1, timetable.getMonitor().getId());
+			st.setString(2, timetable.getDayName());
+			/*st.setString(3, timetable.getBegin_time());
+			st.setString(3, timetable.getEnd_time());*/
+			
+			st.execute();
+			st.close();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
 }

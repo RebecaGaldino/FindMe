@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
 
+import findMe.domain.Monitor;
 import findMe.domain.Person;
 import findMe.domain.Supervisor;
 
@@ -53,6 +54,26 @@ public class PersonDAO {
 				PreparedStatement st = conn.prepareStatement(sql);
 				
 				st.setString(1, id);
+				
+				st.execute();
+				st.close();
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		
+		
+		/*------------------------UPDATE----------------------------*/
+		public void updatePerson(Person person) {
+			String sql = "update person set cpf = ?, namePerson = ?, birth_dt = ? where id = ?";
+			try {
+				
+				PreparedStatement st = conn.prepareStatement(sql);
+				
+				st.setString(1, person.getCpf());
+				st.setString(2, person.getName());
+				//st.setString(3, person.getBirth_dt());
+				st.setString(4, person.getId());
 				
 				st.execute();
 				st.close();

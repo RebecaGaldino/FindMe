@@ -6,8 +6,9 @@ public class Monitor extends Student{
 	
 	private SchoolSubject subject;
 	private Supervisor supervisor;
+	private String roomWork;
 	
-	public Monitor(String id, String cpf, Date birth_dt, String name, String course, String year, SchoolSubject subject) {
+	public Monitor(String id, String cpf, Date birth_dt, String name, String course, String year, SchoolSubject subject, String roomWork) {
 		super(id, cpf, birth_dt, name, course, year);
 		setSubject(subject);
 	}
@@ -35,6 +36,16 @@ public class Monitor extends Student{
 	public void setSubject(SchoolSubject subject) {
 		this.subject = subject;
 	}
+
+	public String getRoomWork() {
+		return roomWork;
+	}
+
+	public void setRoomWork(String roomWork) {
+		this.roomWork = roomWork;
+	}
+	
+	
 	
 	
 }

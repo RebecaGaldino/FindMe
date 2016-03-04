@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import findMe.domain.Person;
 import findMe.domain.SchoolSubject;
 
 public class SchoolSubjectDAO {
@@ -44,6 +45,24 @@ public class SchoolSubjectDAO {
 			PreparedStatement st = conn.prepareStatement(sql);
 			
 			st.setString(1, id);
+			
+			st.execute();
+			st.close();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	
+	/*------------------------UPDATE----------------------------*/
+	public void updateSchoolSubject(SchoolSubject schoolSubject) {
+		String sql = "update schoolsubject set name = ? where id = ?";
+		try {
+			
+			PreparedStatement st = conn.prepareStatement(sql);
+			
+			st.setString(1, schoolSubject.getName());
+			st.setString(2, schoolSubject.getId());
 			
 			st.execute();
 			st.close();
