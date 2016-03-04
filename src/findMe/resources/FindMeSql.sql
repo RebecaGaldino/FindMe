@@ -2,13 +2,14 @@ CREATE SCHEMA findme;
 
 USE findme;
 
+
 CREATE TABLE person( 
 
 id VARCHAR(11) NOT NULL,
 
     cpf VARCHAR(14) NOT NULL,
 
-    birth_dt datetime NOT NULL,
+    birth_dt date NOT NULL,
 
     namePerson VARCHAR(100) NOT NULL,
 
@@ -102,7 +103,7 @@ id INT UNSIGNED AUTO_INCREMENT NOT NULL,
 
 );
 
-/* para o trigger */
+/* para o trigger*/ 
 
 CREATE TABLE timetableHistory( 
 
@@ -158,11 +159,11 @@ values("20141004019", "111.222.333-44", '1999-11-07', "Maria"),
 
 insert into student (course, grade, id) 
 
-values("Informática", "2º ano", "20141004019"), 
+values("InformÃ¡tica", "2Âº ano", "20141004019"), 
 
-("Mineração", "1º ano", "20151004018"), 
+("MineraÃ§Ã£o", "1Âº ano", "20151004018"), 
 
-("Petróleo e gás", "3º ano", "20131004017"); 
+("PetrÃ³leo e gÃ¡s", "3Âº ano", "20131004017"); 
 
 insert into supervisor(id) values
 
@@ -176,13 +177,13 @@ insert into supervisor(id) values
 
  insert into schoolsubject(id, namesubject) values
 
- ("122", "Matemática"),
+ ("122", "MatemÃ¡tica"),
 
  ("134","Biologia"),
 
- ("155","Física"),
+ ("155","FÃ­sica"),
 
- ("110","Português");
+ ("110","PortuguÃªs");
 
         
 
@@ -228,7 +229,7 @@ where id_monitor = "20141004019" and id = "20141004018" and id =
 
 ("20122003011", "122"),
 
-("20141004019", "Terça", '13:00:00', '15:00:00'),
+("20141004019", "TerÃ§a", '13:00:00', '15:00:00'),
 
     delete from supervisor_schoolsubject
 
@@ -330,7 +331,7 @@ END$$
 
 /*Triggers de Supervisor------------------------------------------------*/
 
-/*OBS: Supervisor só possui o ID de person, logo sem opções de fazer triggers*/
+/*OBS: Supervisor sÃ³ possui o ID de person, logo sem opÃ§Ãµes de fazer triggers*/
 
 DELIMITER $$
 
@@ -622,9 +623,9 @@ create trigger beforeInsert_timetable before insert on timetable
 
     DELIMITER $$
 
- create trigger beforeDelete_timetable before delete on timetable  /*Histórico dos 
+ create trigger beforeDelete_timetable before delete on timetable  /*HistÃ³rico dos 
 
-horários*/
+horÃ¡rios*/
 
  for each row 
 
