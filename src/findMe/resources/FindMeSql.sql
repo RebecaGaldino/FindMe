@@ -161,11 +161,11 @@ values("20141004019", "111.222.333-44", '1999-11-07', "Maria"),
 
 insert into student (course, grade, id) 
 
-values("Informatica", "2� ano", "20141004019"), 
+values("Informatica", "2º ano", "20141004019"), 
 
-("Mineracao", "1� ano", "20151004018"), 
+("Mineracao", "1º ano", "20151004018"), 
 
-("Petroleo e gas", "3� ano", "20131004017"); 
+("Petroleo e gas", "3º ano", "20131004017"); 
 
 insert into supervisor(id) values
 
@@ -197,13 +197,21 @@ insert into supervisor_schoolsubject(id_supervisor, id_schoolsubject) values
 
  
 
- insert into monitor(id, id_supervisor, id_schoolsubject, roomwork) values
+ insert into monitor(id, id_supervisor, id_schoolsubject, roomwork, bankaccount) values
 
- ("20141004019", "20122003011", "122", "Sala A"),
+ ("20141004019", "20122003011", "122", "Sala A", "1212121"),
 
- ("20151004018", "20111002017", "134", "Sala B"),
+ ("20151004018", "20111002017", "134", "Sala B", "989898989"),
 
- ("20131004017", "20102001040", "110", "Sala C");
+ ("20131004017", "20102001040", "110", "Sala C", "6892929");
+
+        
+
+insert into timetable(id_monitor, dayname, begin_time, end_time) values 
+
+ ("20151004018", "Sexta", '12:00:00', '13:00:00'),
+
+ ("20131004017", "Segunda", '09:00:00', '16:00:00'); 
 
         
 
@@ -231,7 +239,7 @@ where id_monitor = "20141004019" and id = "20141004018" and id =
 
 ("20122003011", "122"),
 
-("20141004019", "Terça", '13:00:00', '15:00:00'),
+("20141004019", "TerÃ§a", '13:00:00', '15:00:00'),
 
     delete from supervisor_schoolsubject
 
@@ -333,7 +341,7 @@ END$$
 
 /*Triggers de Supervisor------------------------------------------------*/
 
-/*OBS: Supervisor só possui o ID de person, logo sem opções de fazer triggers*/
+/*OBS: Supervisor sÃ³ possui o ID de person, logo sem opÃ§Ãµes de fazer triggers*/
 
 DELIMITER $$
 
@@ -625,9 +633,9 @@ create trigger beforeInsert_timetable before insert on timetable
 
     DELIMITER $$
 
- create trigger beforeDelete_timetable before delete on timetable  /*Histórico dos 
+ create trigger beforeDelete_timetable before delete on timetable  /*HistÃ³rico dos 
 
-horários*/
+horÃ¡rios*/
 
  for each row 
 
