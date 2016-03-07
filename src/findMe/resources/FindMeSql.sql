@@ -66,6 +66,8 @@ id VARCHAR(11) NOT NULL,
     id_schoolsubject VARCHAR(100),
 
     roomwork VARCHAR(50) NOT NULL,
+    
+    bankaccount VARCHAR(50) NOT NULL,
 
     
 

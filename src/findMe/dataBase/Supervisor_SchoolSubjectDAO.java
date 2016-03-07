@@ -15,8 +15,8 @@ private Connection conn;
 	public Supervisor_SchoolSubjectDAO() {
 		conn = DBConnection.getConnection();
 		if(conn != null)
-			System.out.println("Conexão estabelecida");
-		else System.out.println("Erro na conexão com o BD");
+			System.out.println("Connection established");
+		else System.out.println("Error in DB connection");
 		
 	}
 	

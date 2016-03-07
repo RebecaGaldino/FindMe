@@ -16,8 +16,8 @@ public class SupervisorDAO{
 		public SupervisorDAO(){
 			conn = DBConnection.getConnection();
 			if(conn != null)
-				System.out.println("ConexÃ£o estabelecida");
-			else System.out.println("Erro na conexÃ£o com o BD");
+				System.out.println("Connection established");
+			else System.out.println("Error in DB connection");
 			
 		}	
 		

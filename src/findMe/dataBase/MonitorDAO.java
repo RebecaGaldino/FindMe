@@ -17,14 +17,14 @@ public class MonitorDAO {
 	public MonitorDAO() {
 		conn = DBConnection.getConnection();
 		if(conn != null)
-			System.out.println("Conexão estabelecida");
-		else System.out.println("Erro na conexão com o BD");
+			System.out.println("Connection established");
+		else System.out.println("Error in DB connection");
 		
 	}
 	
 	/*------------------------INSERT----------------------------*/
 	public void insertMonitor(Monitor monitor) {
-		String sql = "insert into monitor (id, id_schoolsubject, id_supervisor, roomwork) values (?, ?, ?, ?)";
+		String sql = "insert into monitor (id, id_schoolsubject, id_supervisor, roomwork, bankaccount) values (?, ?, ?, ?)";
 		try {
 			
 			PreparedStatement st = conn.prepareStatement(sql);
@@ -33,6 +33,7 @@ public class MonitorDAO {
 			st.setString(2, monitor.getSubject().getId());
 			st.setString(3, monitor.getSupervisor().getId());
 			st.setString(4, monitor.getRoomWork());
+			st.setString(5, monitor.getBankAccount());
 			
 			st.execute();
 			st.close();
@@ -60,7 +61,7 @@ public class MonitorDAO {
 	
 	/*------------------------UPDATE----------------------------*/
 	public void updateMonitor(Monitor monitor) {
-		String sql = "update monitor set id_supervisor = ?, id_schoolsubject = ?, roomwork = ? where id = ?";
+		String sql = "update monitor set id_supervisor = ?, id_schoolsubject = ?, roomwork = ?, bankAccount = ? where id = ?";
 		try {
 			
 			PreparedStatement st = conn.prepareStatement(sql);
@@ -68,7 +69,8 @@ public class MonitorDAO {
 			st.setString(1, monitor.getSupervisor().getId());
 			st.setString(2, monitor.getSubject().getId());
 			st.setString(3, monitor.getRoomWork());
-			st.setString(4, monitor.getId());
+			st.setString(4, monitor.getBankAccount());
+			st.setString(5, monitor.getId());
 			
 			st.execute();
 			st.close();
