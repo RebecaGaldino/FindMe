@@ -161,11 +161,11 @@ values("20141004019", "111.222.333-44", '1999-11-07', "Maria"),
 
 insert into student (course, grade, id) 
 
-values("Informática", "2º ano", "20141004019"), 
+values("Informatica", "2� ano", "20141004019"), 
 
-("Mineração", "1º ano", "20151004018"), 
+("Mineracao", "1� ano", "20151004018"), 
 
-("Petróleo e gás", "3º ano", "20131004017"); 
+("Petroleo e gas", "3� ano", "20131004017"); 
 
 insert into supervisor(id) values
 
@@ -179,13 +179,13 @@ insert into supervisor(id) values
 
  insert into schoolsubject(id, namesubject) values
 
- ("122", "Matemática"),
+ ("122", "Matematica"),
 
  ("134","Biologia"),
 
- ("155","Física"),
+ ("155","Fisica"),
 
- ("110","Português");
+ ("110","Portugues");
 
         
 
@@ -667,12 +667,4 @@ drop table person;
 
 drop schema findme;
 
-/*Consultas
 
-SELECT A3.namePerson
-
-FROM monitor A1, student A2, person A3
-
-WHERE A1.id = A2.id and A2.id = A3.id
-
-GROUP BY A3.namePerson;*/
