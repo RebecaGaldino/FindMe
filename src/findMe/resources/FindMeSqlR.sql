@@ -51,3 +51,11 @@ GROUP BY A1.namePerson
 /* ORDER BY A2.dayname(A2.dayname, 'Segunda-feira', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sabado', 'Domingo'); - Tenta se isso funciona pra ordenar pelo dia */
 
 
+/* Select the monitors and theirs classrooms */
+SELECT A1.namePerson, A2.roomwork
+
+FROM person A1, monitor A2
+
+WHERE A1.id = A2.id
+
+GROUP BY A1.namePerson;
