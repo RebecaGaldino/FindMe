@@ -12,6 +12,20 @@ WHERE A1.id = A2.id
 GROUP BY A2.namePerson; #Exibe os supervisores
 
 
+/* Select monitor's informations from the father table, within the others where there's the same id */
+SELECT A3.*, A1.id_supervisor, A1.id_schoolsubject, A1.roomwork, A1.bankaccount 
+FROM monitor A1, student A2, person A3
+WHERE A1.id = A2.id and A2.id = A3.id
+GROUP BY A3.id; #Exibe todas as informações dos monitores
+
+
+/* Select supervisor's informations from the father table, within the others where there's the same id */
+SELECT A2.*, A4.namesubject 
+FROM supervisor A1, person A2, supervisor_schoolsubject A3, schoolsubject A4
+WHERE A1.id = A2.id and A1.id = A3.id_supervisor and A3.id_schoolsubject = A4.id
+GROUP BY A2.id; #Exibe todas as informações dos supervisores
+
+
 /* Select monitors' names that are supervisioned by the same supervisor
 SELECT A2.namePerson, A2.namePerson FROM monitor A1, person A2, supervisor A3
 WHERE A1.id = A2.id and A1.id_supervisor = A3.id and A3.id = A2.id
