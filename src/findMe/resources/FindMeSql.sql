@@ -19,6 +19,22 @@ id VARCHAR(11) NOT NULL,
 
 );
 
+CREATE TABLE bankaccount( 
+
+    id VARCHAR(6) NOT NULL,
+
+    numberaccount VARCHAR (10),
+
+    agency VARCHAR(10),
+    
+    typeaccount VARCHAR(3),
+    
+    notes VARCHAR(500),
+    
+    PRIMARY KEY(id),
+
+);
+
 CREATE TABLE supervisor( 
 
 id VARCHAR(11) NOT NULL,
@@ -64,10 +80,11 @@ id VARCHAR(11) NOT NULL,
     id_supervisor VARCHAR (11),
 
     id_schoolsubject VARCHAR(100),
+    
+    id_bankaccount VARCHAR(50),
 
     roomwork VARCHAR(50) NOT NULL,
     
-    bankaccount VARCHAR(50) NOT NULL,
 
     
 
@@ -75,13 +92,11 @@ id VARCHAR(11) NOT NULL,
 
     CONSTRAINT fk_monitor_student  FOREIGN KEY (id) REFERENCES student(id),
 
-    CONSTRAINT fk_id_supervisorA  FOREIGN KEY (id_supervisor) REFERENCES 
+    CONSTRAINT fk_id_supervisorA  FOREIGN KEY (id_supervisor) REFERENCES supervisor(id),
 
-supervisor(id),
-
-    CONSTRAINT fk_id_schoolsubjectA  FOREIGN KEY (id_schoolsubject) 
-
-REFERENCES schoolsubject(id)
+    CONSTRAINT fk_id_schoolsubjectA  FOREIGN KEY (id_schoolsubject) REFERENCES schoolsubject(id),
+    
+    CONSTRAINT fk_id_bankaccount FOREIGN KEY (id_bankaccount) REFERENCES bankaccount(id),
 
 );
 
