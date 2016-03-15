@@ -26,7 +26,7 @@ public class PersonDAO {
 		/*------------------------INSERT----------------------------*/
 		public void insertPerson(Person person) {
 
-			String q = "insert into person (id, cpf, namePerson, birth_dt)values (?,?,?,?)";
+			String sql = "insert into person (id, cpf, namePerson, birth_dt)values (?,?,?,?)";
 			try {
 				// prepared statement para inserção
 				PreparedStatement st = conn.prepareStatement(q);
@@ -53,7 +53,7 @@ public class PersonDAO {
 		 */
 		public void insertPerson(Supervisor supervisor) {
 
-			String q = "insert into person (id, cpf, namePerson, birth_dt)values (?,?,?,?)";
+			String sql = "insert into person (id, cpf, namePerson, birth_dt)values (?,?,?,?)";
 			try {
 				// prepared statement para inserção
 				PreparedStatement st = conn.prepareStatement(q);
@@ -79,7 +79,7 @@ public class PersonDAO {
 		 */
 		public void insertPerson(Student student) {
 
-			String q = "insert into person (id, cpf, namePerson, birth_dt)values (?,?,?,?)";
+			String sql = "insert into person (id, cpf, namePerson, birth_dt)values (?,?,?,?)";
 			try {
 				// prepared statement para inserção
 				PreparedStatement st = conn.prepareStatement(q);
@@ -105,7 +105,7 @@ public class PersonDAO {
 		 */
 		public void insertPerson(Monitor monitor) {
 
-			String q = "insert into person (id, cpf, namePerson, birth_dt)values (?,?,?,?)";
+			String sql = "insert into person (id, cpf, namePerson, birth_dt)values (?,?,?,?)";
 			try {
 				// prepared statement para inserção
 				PreparedStatement st = conn.prepareStatement(q);
