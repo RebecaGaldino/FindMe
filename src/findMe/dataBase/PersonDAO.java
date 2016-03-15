@@ -1,7 +1,7 @@
 package findMe.dataBase;
 
 import java.sql.Connection;
-import java.util.Date;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 
 import findMe.domain.Monitor;
 import findMe.domain.Person;
+import findMe.domain.Student;
 import findMe.domain.Supervisor;
 
 public class PersonDAO {
@@ -34,7 +35,7 @@ public class PersonDAO {
 				st.setString(1, person.getId());
 				st.setString(2, person.getCpf());
 				st.setString(3, person.getName());
-				//st.setDate(4, person.getBirth_dt());
+				st.setDate(4, (Date) person.getBirth_dt());
 				//Buscar informações sobre isso.
 
 				// executa
@@ -45,6 +46,85 @@ public class PersonDAO {
 				throw new RuntimeException(e);
 			}
 		}	
+		
+		/**
+		 * 
+		 * @param person
+		 */
+		public void insertPerson(Supervisor supervisor) {
+
+			String q = "insert into person (id, cpf, namePerson, birth_dt)values (?,?,?,?)";
+			try {
+				// prepared statement para inserção
+				PreparedStatement st = conn.prepareStatement(q);
+
+				// seta os valores
+				st.setString(1, supervisor.getId());
+				st.setString(2, supervisor.getCpf());
+				st.setString(3, supervisor.getName());
+				st.setDate(4, (Date) supervisor.getBirth_dt());
+
+				// executa
+				st.execute();
+				st.close();
+				System.out.println("Cadastrado com sucesso!");
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
+		}
+		
+		/**
+		 * 
+		 * @param person
+		 */
+		public void insertPerson(Student student) {
+
+			String q = "insert into person (id, cpf, namePerson, birth_dt)values (?,?,?,?)";
+			try {
+				// prepared statement para inserção
+				PreparedStatement st = conn.prepareStatement(q);
+
+				// seta os valores
+				st.setString(1, student.getId());
+				st.setString(2, student.getCpf());
+				st.setString(3, student.getName());
+				st.setDate(4, (Date) student.getBirth_dt());
+				
+
+				// executa
+				st.execute();
+				st.close();
+				System.out.println("Cadastrado com sucesso!");
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
+		}
+		/**
+		 * 
+		 * @param person
+		 */
+		public void insertPerson(Monitor monitor) {
+
+			String q = "insert into person (id, cpf, namePerson, birth_dt)values (?,?,?,?)";
+			try {
+				// prepared statement para inserção
+				PreparedStatement st = conn.prepareStatement(q);
+
+				// seta os valores
+				st.setString(1, monitor.getId());
+				st.setString(2, monitor.getCpf());
+				st.setString(3, monitor.getName());
+				st.setDate(4, (Date) monitor.getBirth_dt());
+				
+
+				// executa
+				st.execute();
+				st.close();
+				System.out.println("Cadastrado com sucesso!");
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
+		}
 		
 		/*------------------------DELETE----------------------------*/
 		public void deletePerson(String id) {

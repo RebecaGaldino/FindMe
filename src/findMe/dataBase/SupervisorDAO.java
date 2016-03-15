@@ -23,12 +23,16 @@ public class SupervisorDAO{
 		
 		/*------------------------INSERT----------------------------*/
 		public void insertSupervisor(Supervisor supervisor) {
-			String sql = "insert into monitor (id) values (?)";
+			String sql = "insert into supervisor_schoolsubject(id_supervisor, id_schoolsubject) values(?)";
 			try {
 				
 				PreparedStatement st = conn.prepareStatement(sql);
+				PersonDAO pdao = new PersonDAO();
+				pdao.insertPerson(supervisor);
 				
-				st.setString(1, getIdPerson(supervisor.getCpf()));
+				st.setString(1, supervisor.getId());
+				
+				
 				
 				st.execute();
 				st.close();
