@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import findMe.domain.BankAccount;
+import findMe.domain.Monitor;
 import findMe.domain.Supervisor;
 
 public class BankAccountDAO {
@@ -17,15 +19,17 @@ public class BankAccountDAO {
 		
 	}
 	
-	public void insertSupervisor(Supervisor supervisor) {
-		String sql = "insert into supervisor_schoolsubject(id_supervisor, id_schoolsubject) values(?)";
+	public void insertBankAccount(Monitor monitor) {
+		String sql = "insert into bankaccount(id, numberaccount, agency, typeaccount, notes) values(?, ?, ?, ?)";
 		try {
 			
 			PreparedStatement st = conn.prepareStatement(sql);
-			PersonDAO pdao = new PersonDAO();
-			pdao.insertPerson(supervisor);
 			
-			st.setString(1, supervisor.getId());
+			st.setString(1, monitor.getBankAccount().getId());
+			st.setString(2, monitor.getBankAccount().getAccountNumber());
+			st.setString(3, monitor.getBankAccount().getAgency());
+			st.setString(4, monitor.getBankAccount().getTypeAccount());
+			st.setString(5, monitor.getBankAccount().getNotes());
 			
 			
 			
@@ -36,8 +40,8 @@ public class BankAccountDAO {
 		}
 	}
 	
-	public void deleteSupervisor(String id) {
-		String sql = "delete from supervisor where id = ?";
+	public void deleteBankAccount(String id) {
+		String sql = "delete from bankaccount where id = ?";
 		try {
 			
 			PreparedStatement st = conn.prepareStatement(sql);
