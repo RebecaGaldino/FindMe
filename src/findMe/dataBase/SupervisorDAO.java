@@ -1,7 +1,7 @@
 package findMe.dataBase;
 
 import java.sql.Connection;
-import java.util.Date;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -23,7 +23,7 @@ public class SupervisorDAO{
 		
 		/*------------------------INSERT----------------------------*/
 		public void insertSupervisor(Supervisor supervisor) {
-			String sql = "insert into supervisor_schoolsubject(id_supervisor, id_schoolsubject) values(?)";
+			String sql = "insert into supervisor(id) values(?)";
 			try {
 				
 				PreparedStatement st = conn.prepareStatement(sql);
@@ -76,5 +76,5 @@ public class SupervisorDAO{
 				System.out.println("Exception is :"+e);
 			}
 			return " ";
-	 }
+		}
 }

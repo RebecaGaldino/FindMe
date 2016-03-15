@@ -32,6 +32,8 @@ public class StudentDAO{
 				pdao.insertPerson(student);
 				
 				st.setString(1, student.getId());
+				st.setString(2, student.getCourse());
+				st.setString(3, student.getGrade());
 				
 				st.execute();
 				st.close();
@@ -40,17 +42,23 @@ public class StudentDAO{
 			}
 		}
 		
+		
+		/**
+		 * Insere na tabela Student a partir de um objeto Monitor
+		 * @param monitor
+		 */
 		public void insertStudent(Monitor monitor) {
-			String sql = "insert into monitor (id, course, grade) values (?, ?, ?)";
+			String sql = "insert into student(id, course, grade) values (?, ?, ?)";
 			try {
 				
 				PreparedStatement st = conn.prepareStatement(sql);
 				PersonDAO pdao = new PersonDAO();
 				
-				
 				pdao.insertPerson(monitor);
 				
 				st.setString(1, monitor.getId());
+				st.setString(1, monitor.getCourse());
+				st.setString(1, monitor.getGrade());
 				
 				st.execute();
 				st.close();
