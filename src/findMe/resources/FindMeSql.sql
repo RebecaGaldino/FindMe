@@ -35,6 +35,7 @@ CREATE TABLE bankaccount(
 
 );
 
+
 CREATE TABLE supervisor( 
 
 id VARCHAR(11) NOT NULL,
@@ -159,6 +160,14 @@ supervisor(id),
 REFERENCES schoolsubject(id)
 
 );
+
+insert into bankaccount (id, numberaccount, agency, typeaccount, notes) 
+
+values("000001", "1234567891", "43", "Corrente", "."),
+
+("000002", "9876543211", "55", "Corrente", "."),
+
+("000003", "9876543210", "76", "Poupanca", ".");
 
 insert into person (id, cpf, birth_dt, namePerson) 
 
