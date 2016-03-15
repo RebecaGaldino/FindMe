@@ -81,7 +81,7 @@ id VARCHAR(11) NOT NULL,
 
     id_schoolsubject VARCHAR(100),
     
-    id_bankaccount VARCHAR(50),
+    id_bankaccount VARCHAR(6),
 
     roomwork VARCHAR(50) NOT NULL,
     
