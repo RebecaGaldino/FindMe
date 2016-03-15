@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import findMe.domain.Monitor;
 import findMe.domain.Person;
 import findMe.domain.Student;
 
@@ -26,10 +27,30 @@ public class StudentDAO{
 			try {
 				
 				PreparedStatement st = conn.prepareStatement(sql);
+				PersonDAO pdao = new PersonDAO();
 				
-				st.setString(1, getIdPerson(student.getCpf()));
-				st.setString(2, student.getCourse());
-				st.setString(3, student.getGrade());
+				pdao.insertPerson(student);
+				
+				st.setString(1, student.getId());
+				
+				st.execute();
+				st.close();
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		
+		public void insertStudent(Monitor monitor) {
+			String sql = "insert into monitor (id, course, grade) values (?, ?, ?)";
+			try {
+				
+				PreparedStatement st = conn.prepareStatement(sql);
+				PersonDAO pdao = new PersonDAO();
+				
+				
+				pdao.insertPerson(monitor);
+				
+				st.setString(1, monitor.getId());
 				
 				st.execute();
 				st.close();
