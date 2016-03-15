@@ -18,7 +18,7 @@ public class Test {
 		Date inputDate = dateFormat.parse("11-11-2012");
 		SupervisorDAO s = new SupervisorDAO();
 		
-		Person person = new Person("202020", "083.738.794-98", inputDate, "thayanne");
+		Person monitor = new Person("202020", "083.738.794-98", inputDate, "thayanne");
 		mdb.insertPerson(person);
 		
 		//s.insertSupervisor(id, name);
