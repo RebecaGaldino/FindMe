@@ -7,16 +7,18 @@ public class Monitor extends Student{
 	private SchoolSubject subject;
 	private Supervisor supervisor;
 	private String roomWork;
-	private String bankAccount;
+	private BankAccount bankAccount;
 	
-	public Monitor(String id, String cpf, Date birth_dt, String name, String course, String year, SchoolSubject subject, String roomWor, String bankAccount) {
+	public Monitor(String id, String cpf, Date birth_dt, String name, String course, String year, SchoolSubject subject, String roomWork, BankAccount bankAccount) {
 		super(id, cpf, birth_dt, name, course, year);
 		setSubject(subject);
 		setBankAccount(bankAccount);
+		setRoomWork(roomWork);
+		setSupervisor(supervisor);
 	}
 	
 	//Cria um monitor com o id do supervisor
-	public Monitor(String id, String cpf, Date birth_dt, String name, String course, String year, SchoolSubject subject, String bankAccount, Supervisor supervisor) {
+	public Monitor(String id, String cpf, Date birth_dt, String name, String course, String year, SchoolSubject subject, String roomWork, BankAccount bankAccount, Supervisor supervisor) {
 		super(id, cpf, birth_dt, name, course, year);
 		setSubject(subject);
 		setBankAccount(bankAccount);
@@ -48,11 +50,11 @@ public class Monitor extends Student{
 		this.roomWork = roomWork;
 	}
 
-	public String getBankAccount() {
+	public BankAccount getBankAccount() {
 		return bankAccount;
 	}
 
-	public void setBankAccount(String bankAccount) {
+	public void setBankAccount(BankAccount bankAccount) {
 		this.bankAccount = bankAccount;
 	}
 	

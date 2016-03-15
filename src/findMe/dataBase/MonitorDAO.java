@@ -1,9 +1,12 @@
 package findMe.dataBase;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
+
+
 
 
 
@@ -24,16 +27,20 @@ public class MonitorDAO {
 	
 	/*------------------------INSERT----------------------------*/
 	public void insertMonitor(Monitor monitor) {
-		String sql = "insert into monitor (id, id_schoolsubject, id_supervisor, roomwork, bankaccount) values (?, ?, ?, ?)";
+	
+		String sql = "insert into monitor (id, id_schoolsubject, id_supervisor, roomwork, id_bankaccount) values (?, ?, ?, ?)";
 		try {
 			
 			PreparedStatement st = conn.prepareStatement(sql);
 			
-			st.setString(1, getIdStudent(monitor.getCpf()));
+			StudentDAO sdao = new StudentDAO();
+			sdao.insertStudent(monitor);
+			
+			st.setString(1, monitor.getId());
 			st.setString(2, monitor.getSubject().getId());
 			st.setString(3, monitor.getSupervisor().getId());
 			st.setString(4, monitor.getRoomWork());
-			st.setString(5, monitor.getBankAccount());
+			st.setString(5, monitor.getBankAccount().getId());
 			
 			st.execute();
 			st.close();
@@ -61,7 +68,7 @@ public class MonitorDAO {
 	
 	/*------------------------UPDATE----------------------------*/
 	public void updateMonitor(Monitor monitor) {
-		String sql = "update monitor set id_supervisor = ?, id_schoolsubject = ?, roomwork = ?, bankAccount = ? where id = ?";
+		String sql = "update monitor set id_supervisor = ?, id_schoolsubject = ?, roomwork = ?, id_bankAccount = ? where id = ?";
 		try {
 			
 			PreparedStatement st = conn.prepareStatement(sql);
@@ -69,7 +76,7 @@ public class MonitorDAO {
 			st.setString(1, monitor.getSupervisor().getId());
 			st.setString(2, monitor.getSubject().getId());
 			st.setString(3, monitor.getRoomWork());
-			st.setString(4, monitor.getBankAccount());
+			st.setString(4, monitor.getBankAccount().getId());
 			st.setString(5, monitor.getId());
 			
 			st.execute();
@@ -86,7 +93,9 @@ public class MonitorDAO {
 		
 		try{
 			PreparedStatement stmt = conn.prepareStatement(sql);
+			
 			stmt.setString(1,cpf);
+			
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				 idStudent = rs.getString("id");
