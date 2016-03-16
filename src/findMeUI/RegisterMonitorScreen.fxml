@@ -7,17 +7,17 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="483.0" prefWidth="673.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="/RegisterMonitorScreenFXMLController.java">
+<AnchorPane prefHeight="483.0" prefWidth="673.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="findMeUI.RegisterMonitorScreenFXMLController">
    <children>
       <ScrollBar layoutX="659.0" orientation="VERTICAL" prefHeight="483.0" prefWidth="13.0" />
-      <Text layoutX="14.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Informações Pessoais" wrappingWidth="232.15853881835938" AnchorPane.leftAnchor="19.0">
+      <Text layoutX="14.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Informaï¿½ï¿½es Pessoais" wrappingWidth="232.15853881835938" AnchorPane.leftAnchor="19.0">
          <font>
             <Font size="22.0" />
          </font>
       </Text>
       <Separator layoutX="264.0" layoutY="42.0" prefHeight="3.0" prefWidth="395.0" />
       <Separator layoutY="41.0" prefHeight="3.0" prefWidth="0.0" />
-      <TextField layoutX="130.0" layoutY="89.0" prefHeight="26.0" prefWidth="298.0" promptText="Ex: João da Silva" AnchorPane.leftAnchor="128.0" />
+      <TextField layoutX="130.0" layoutY="89.0" prefHeight="26.0" prefWidth="298.0" promptText="Ex: Joï¿½o da Silva" AnchorPane.leftAnchor="128.0" />
       <Text layoutX="10.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome Completo" AnchorPane.leftAnchor="15.0" />
       <Text layoutX="14.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF" AnchorPane.leftAnchor="15.0" />
       <TextField layoutX="131.0" layoutY="135.0" prefHeight="26.0" prefWidth="143.0" promptText="Ex: 123.456.78-00" AnchorPane.leftAnchor="128.0" />

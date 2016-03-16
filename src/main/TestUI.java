@@ -14,8 +14,8 @@ public class TestUI extends Application{
 	/*Método que dá inicio a toda aplicação*/
 	public void start(Stage primaryStage) throws IOException {
 		
-		/* "root1" diz respeito a tela inicial*/
-		Parent root = FXMLLoader.load(getClass().getResource("/findMe.UI/RegisterMonitorScreen.fxml"));
+		/* "root" diz respeito a tela inicial*/
+		Parent root = FXMLLoader.load(getClass().getResource("/findMeUI/RegisterMonitorScreen.fxml"));
 
 		Scene scene = new Scene(root);
 		

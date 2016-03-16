@@ -1,4 +1,4 @@
-package findMe.UI;
+package findMeUI;
 
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -17,7 +17,7 @@ import javafx.stage.Stage;
 
 public class RegisterMonitorScreenFXMLController implements Initializable{
 
-	@FXML private Button btIniciar;
+	//@FXML private Button btIniciar;
 	
 	@FXML
 	/*Método que exibe a tela de seleção das opções (menu)*/
