@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="483.0" prefWidth="673.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="findMeUI.RegisterMonitorScreenFXMLController">
    <children>
-      <ScrollBar layoutX="659.0" orientation="VERTICAL" prefHeight="483.0" prefWidth="13.0" />
+      <ScrollBar fx:id="onScrollBar" layoutX="659.0" orientation="VERTICAL" prefHeight="483.0" prefWidth="13.0" />
       <Text layoutX="14.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Informa��es Pessoais" wrappingWidth="232.15853881835938" AnchorPane.leftAnchor="19.0">
          <font>
             <Font size="22.0" />
