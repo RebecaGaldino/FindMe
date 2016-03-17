@@ -5,31 +5,31 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="928.0" style="-fx-background-color: orange; -fx-border-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="findMeUI.InitialScreenFXMLController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="830.0" style="-fx-background-color: orange; -fx-border-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="findMeUI.InitialScreenFXMLController">
    <children>
-      <Label layoutX="88.0" layoutY="74.0" prefHeight="276.0" prefWidth="322.0" text="Monitor Manager" textFill="WHITE" wrapText="true">
+      <Label layoutX="78.0" layoutY="81.0" prefHeight="276.0" prefWidth="322.0" text="Monitor Manager" textFill="WHITE" wrapText="true">
          <font>
             <Font name="PoplarStd" size="96.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="499.0" layoutY="1.0" prefHeight="621.0" prefWidth="428.0" style="-fx-background-color: white;">
+      <AnchorPane layoutX="467.0" prefHeight="589.0" prefWidth="363.0" style="-fx-background-color: white;">
          <children>
             <Label layoutX="53.0" layoutY="90.0" style="-fx-text-fill: orange;" text="Entrar como:" textFill="#ffa629">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
-            <Button fx:id="btGerenciador" layoutX="151.0" layoutY="317.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="126.0" style="-fx-background-color: orange;" text="Gerenciador" textFill="WHITE">
+            <Button fx:id="btGerenciador" layoutX="126.0" layoutY="303.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="126.0" style="-fx-background-color: orange;" text="Gerenciador" textFill="WHITE">
                <font>
                   <Font size="17.0" />
                </font>
             </Button>
-            <Button fx:id="btMonitor" layoutX="150.0" layoutY="162.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="126.0" style="-fx-background-color: orange;" text="Monitor" textFill="WHITE">
+            <Button fx:id="btMonitor" layoutX="128.0" layoutY="165.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="126.0" style="-fx-background-color: orange;" text="Monitor" textFill="WHITE">
                <font>
                   <Font size="17.0" />
                </font>
             </Button>
-            <Button fx:id="btProfessor" layoutX="152.0" layoutY="236.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="126.0" style="-fx-background-color: orange;" text="Professor" textFill="WHITE">
+            <Button fx:id="btProfessor" layoutX="129.0" layoutY="236.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="126.0" style="-fx-background-color: orange;" text="Professor" textFill="WHITE">
                <font>
                   <Font size="17.0" />
                </font>
