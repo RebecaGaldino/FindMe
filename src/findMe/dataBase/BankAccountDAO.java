@@ -20,7 +20,7 @@ public class BankAccountDAO {
 	}
 	
 	public void insertBankAccount(Monitor monitor) {
-		String sql = "insert into bankaccount(id, numberaccount, agency, typeaccount, notes) values(?, ?, ?, ?)";
+		String sql = "insert into bankaccount(id, numberaccount, agency, typeaccount, notes) values(?, ?, ?, ?, ?)";
 		try {
 			
 			PreparedStatement st = conn.prepareStatement(sql);
