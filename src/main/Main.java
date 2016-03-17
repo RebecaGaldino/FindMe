@@ -20,6 +20,7 @@ public class Main extends Application{
 		
 		primaryStage.setTitle("MonitorManager");
 		primaryStage.setScene(scene);
+		primaryStage.setMaximized(true);
 		primaryStage.show();
 	}
 	
