@@ -15,17 +15,17 @@
                   <Font size="19.0" />
                </font>
             </Label>
-            <Button fx:id="btGerenciador" layoutX="129.0" layoutY="400.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="126.0" style="-fx-background-color: orange;" text="Gerenciador" textFill="WHITE">
+            <Button fx:id="btGerenciador" layoutX="129.0" layoutY="400.0" mnemonicParsing="false" onAction="#btManager" prefHeight="40.0" prefWidth="126.0" style="-fx-background-color: orange;" text="Gerenciador" textFill="WHITE">
                <font>
                   <Font size="17.0" />
                </font>
             </Button>
-            <Button fx:id="btMonitor" layoutX="128.0" layoutY="200.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="126.0" style="-fx-background-color: orange;" text="Monitor" textFill="WHITE">
+            <Button fx:id="btMonitor" layoutX="128.0" layoutY="200.0" mnemonicParsing="false" onAction="#btMonitor" prefHeight="40.0" prefWidth="126.0" style="-fx-background-color: orange;" text="Monitor" textFill="WHITE">
                <font>
                   <Font size="17.0" />
                </font>
             </Button>
-            <Button fx:id="btProfessor" layoutX="129.0" layoutY="300.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="126.0" style="-fx-background-color: orange;" text="Professor" textFill="WHITE">
+            <Button fx:id="btProfessor" layoutX="129.0" layoutY="300.0" mnemonicParsing="false" onAction="#btSupervisor" prefHeight="40.0" prefWidth="126.0" style="-fx-background-color: orange;" text="Professor" textFill="WHITE">
                <font>
                   <Font size="17.0" />
                </font>

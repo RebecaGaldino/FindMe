@@ -22,39 +22,38 @@ public class InitialScreenFXMLController implements Initializable{
 	private Button btSupervisor;
 	@FXML
 	private Button btManager;
-
+	
 	@FXML
 	private void btMonitor() throws IOException{
 
-		Parent root2 = FXMLLoader.load(getClass().getResource("LoginMonitor.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("LoginMonitor.fxml"));
 		
-		Scene loginMonitorScreen = new Scene(root2, 541, 131);
-		Stage stage = new Stage();
-		stage.setTitle("Monitor Manager");
-		stage.setScene(loginMonitorScreen);
-		stage.show();
+		Scene loginMonitorScreen = new Scene(root, 600, 400);
+		Main.primaryStage.setTitle("Monitor Manager");
+		Main.primaryStage.setScene(loginMonitorScreen);
+		Main.primaryStage.show();
 	}
 	
 	@FXML
 	private void btSupervisor() throws IOException{
 		Parent root2 = FXMLLoader.load(getClass().getResource("LoginSupervisor.fxml"));
 		
-		Scene loginSupervisorScreen = new Scene(root2, 541, 131);
-		Stage stage = new Stage();
-		stage.setTitle("Monitor Manager");
-		stage.setScene(loginSupervisorScreen);
-		stage.show();
+		Scene loginSupervisorScreen = new Scene(root2, 600, 400);
+		
+		Main.primaryStage.setTitle("Monitor Manager");
+		Main.primaryStage.setScene(loginSupervisorScreen);
+		Main.primaryStage.show();
 	}
 	
 	@FXML
 	private void btManager() throws IOException{
 		Parent root2 = FXMLLoader.load(getClass().getResource("LoginManager.fxml"));
 		
-		Scene loginManagerScreen = new Scene(root2, 541, 131);
-		Stage stage = new Stage();
-		stage.setTitle("Monitor Manager");
-		stage.setScene(loginManagerScreen);
-		stage.show();
+		Scene loginManagerScreen = new Scene(root2, 600, 400);
+		
+		Main.primaryStage.setTitle("Monitor Manager");
+		Main.primaryStage.setScene(loginManagerScreen);
+		Main.primaryStage.show();
 	}
 	
 	@Override
