@@ -13,7 +13,7 @@ public class Main extends Application {
 	
 	public static Stage primaryStage;
 	public static Object stage;
-	
+	public static Scene scene;
 	public void start(Stage primaryStage) throws Exception{
 		try {
 
@@ -21,10 +21,11 @@ public class Main extends Application {
 			
 			Parent root = FXMLLoader.load(getClass().getResource("InitialScreen.fxml"));
 			
-			Scene scene1 = new Scene(root);
+			this.scene = new Scene(root);
 			
 			primaryStage.setTitle("Monitor Manager");
-			primaryStage.setScene(scene1);
+			primaryStage.setScene(scene);
+			primaryStage.setMaximized(true);
 			primaryStage.show();
 
 		} catch (Exception e) {

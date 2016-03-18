@@ -8,14 +8,14 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="827.0" style="-fx-background-color: orange; -fx-border-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="findMeUI.InitialScreenFXMLController">
    <children>
-      <AnchorPane layoutX="467.0" maxHeight="589.0" maxWidth="363.0" prefHeight="589.0" prefWidth="363.0" style="-fx-background-color: white;">
+      <AnchorPane layoutX="469.0" maxHeight="596.0" prefHeight="590.0" prefWidth="358.0" style="-fx-background-color: white;">
          <children>
             <Label layoutX="53.0" layoutY="90.0" style="-fx-text-fill: orange;" text="Entrar como:" textFill="#ffa629">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
-            <Button fx:id="btGerenciador" layoutX="129.0" layoutY="400.0" mnemonicParsing="false" onAction="#btManager" prefHeight="40.0" prefWidth="126.0" style="-fx-background-color: orange;" text="Gerenciador" textFill="WHITE">
+            <Button fx:id="btManager" layoutX="129.0" layoutY="400.0" mnemonicParsing="false" onAction="#btManager" prefHeight="40.0" prefWidth="126.0" style="-fx-background-color: orange;" text="Gerenciador" textFill="WHITE">
                <font>
                   <Font size="17.0" />
                </font>
@@ -25,7 +25,7 @@
                   <Font size="17.0" />
                </font>
             </Button>
-            <Button fx:id="btProfessor" layoutX="129.0" layoutY="300.0" mnemonicParsing="false" onAction="#btSupervisor" prefHeight="40.0" prefWidth="126.0" style="-fx-background-color: orange;" text="Professor" textFill="WHITE">
+            <Button fx:id="btSupervisor" layoutX="129.0" layoutY="300.0" mnemonicParsing="false" onAction="#btSupervisor" prefHeight="40.0" prefWidth="126.0" style="-fx-background-color: orange;" text="Professor" textFill="WHITE">
                <font>
                   <Font size="17.0" />
                </font>
@@ -47,24 +47,24 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <ImageView fitHeight="180.0" fitWidth="186.0" layoutY="110.0">
+      <ImageView fitHeight="180.0" fitWidth="186.0" layoutX="25.0" layoutY="72.0">
          <image>
             <Image url="@../../../../Desktop/man-icon.png" />
          </image>
       </ImageView>
-      <Text fill="WHITE" layoutX="178.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="M" wrappingWidth="102.68292617797852">
+      <Text fill="WHITE" layoutX="200.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="M" wrappingWidth="102.68292617797852">
          <font>
             <Font size="80.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="257.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="onitor">
+      <Text fill="WHITE" layoutX="268.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="onitor">
          <font>
             <Font size="60.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="223.0" layoutY="262.0" nodeOrientation="LEFT_TO_RIGHT" strokeType="OUTSIDE" strokeWidth="0.0" text="a n a g e r" wrappingWidth="43.56097602844238">
+      <Text fill="WHITE" layoutX="220.0" layoutY="236.0" nodeOrientation="LEFT_TO_RIGHT" strokeType="OUTSIDE" strokeWidth="0.0" text="anager" textAlignment="CENTER" wrappingWidth="30.666671752929688">
          <font>
-            <Font size="40.0" />
+            <Font size="45.0" />
          </font>
       </Text>
    </children>
