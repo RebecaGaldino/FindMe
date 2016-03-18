@@ -1,21 +1,26 @@
 package findMe.domain;
 
 import java.sql.Date;
-
+/**
+ * 
+ * @author thayanneLuiza, ViniFarias, RebecaGaldino
+ *
+ */
 public class Person {
 	
 	private String id;
 	private String cpf;
 	private Date birth_dt;
 	private String name;
+	private String password;
 	
 	
-	
-	public Person(String id, String cpf, Date birth_dt, String name){
+	public Person(String id, String cpf, Date birth_dt, String name, String password){
 		setId(id);
 		setCpf(cpf);
 		setBirth_dt(birth_dt);
 		setName(name);
+		setPassword(password);
 	}
 	
 	public Person(String id){
@@ -52,6 +57,14 @@ public class Person {
 	
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 	

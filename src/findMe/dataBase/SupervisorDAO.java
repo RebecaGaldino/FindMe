@@ -21,7 +21,10 @@ public class SupervisorDAO{
 			
 		}	
 		
-		/*------------------------INSERT----------------------------*/
+		/**
+		 * 
+		 * @param supervisor
+		 */
 		public void insertSupervisor(Supervisor supervisor) {
 			String sql = "insert into supervisor(id) values(?)";
 			try {
@@ -41,8 +44,10 @@ public class SupervisorDAO{
 			}
 		}
 		
-		
-		/*------------------------DELETE----------------------------*/
+		/**
+		 * 
+		 * @param id
+		 */
 		public void deleteSupervisor(String id) {
 			String sql = "delete from supervisor where id = ?";
 			try {
@@ -58,6 +63,11 @@ public class SupervisorDAO{
 			}
 		}
 		
+		/**
+		 * 
+		 * @param cpf
+		 * @return
+		 */
 		public String getIdPerson(String cpf){
 			String idPerson = " "; 
 			String sql = "select id from pessoa where cpf = ?";
@@ -77,4 +87,26 @@ public class SupervisorDAO{
 			}
 			return " ";
 		}
+		
+		/**
+		 * 
+		 */
+		public void updateSupervisor(Supervisor supervisor){
+			String sql = "update person set cpf = ?, namePerson = ?, birth_dt = ?, password = ? where id = ?";
+			try {
+				
+				PreparedStatement st = conn.prepareStatement(sql);
+				
+				st.setString(1, supervisor.getCpf());
+				st.setString(2, supervisor.getName());
+				st.setDate(3, (java.sql.Date)supervisor.getBirth_dt());
+				st.setString(4, supervisor.getId());
+				
+				st.execute();
+				st.close();
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		
 }

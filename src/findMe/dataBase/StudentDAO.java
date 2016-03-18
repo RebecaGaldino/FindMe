@@ -87,13 +87,14 @@ public class StudentDAO{
 		
 		/*------------------------UPDATE----------------------------*/
 		public void updateStudent(Student student) {
-			String sql = "update person set course = ?, grade = ? where id = ?";
+			String sql = "update person set course = ?, grade = ?, password = ? where id = ?";
 			try {
 				
 				PreparedStatement st = conn.prepareStatement(sql);
 				
 				st.setString(1, student.getCourse());
 				st.setString(2, student.getGrade());
+				st.setString(3, student.getPassword());
 				st.setString(3, student.getId());
 				
 				st.execute();

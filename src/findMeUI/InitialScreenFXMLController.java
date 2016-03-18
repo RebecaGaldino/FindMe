@@ -13,7 +13,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-
+/**
+ * 
+ * @author thayanneLuiza, ViniFarias, RebecaGaldino
+ *
+ */
 public class InitialScreenFXMLController implements Initializable{
 
 	@FXML

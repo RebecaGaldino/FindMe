@@ -18,7 +18,7 @@
             </Text>
             <ImageView fitHeight="59.0" fitWidth="61.0" layoutX="37.0" layoutY="48.0">
                <image>
-                  <Image url="@../../../../Desktop/enrol.png" />
+                  <Image url="@../../lib/media/enrol.png" />
                </image>
             </ImageView>
             <Button fx:id="btCancel" layoutX="98.0" layoutY="360.0" mnemonicParsing="false" onAction="#btCancel" style="-fx-background-color: transparent;" text="Cancelar">
@@ -47,7 +47,7 @@
       </AnchorPane>
       <ImageView fitHeight="180.0" fitWidth="186.0" layoutX="25.0" layoutY="72.0">
          <image>
-            <Image url="@../../../../Desktop/man-icon.png" />
+            <Image url="@../../lib/media/man-icon.png" />
          </image>
       </ImageView>
       <Text fill="WHITE" layoutX="200.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="M" wrappingWidth="102.68292617797852">

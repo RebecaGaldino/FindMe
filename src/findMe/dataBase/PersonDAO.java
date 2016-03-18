@@ -24,21 +24,25 @@ public class PersonDAO {
 		}
 		
 		/*------------------------INSERT----------------------------*/
+		/**
+		 * 
+		 * @param person
+		 */
 		public void insertPerson(Person person) {
 
-			String sql = "insert into person (id, cpf, namePerson, birth_dt)values (?,?,?,?)";
+			String sql = "insert into person (id, cpf, namePerson, birth_dt, password)values (?,?,?,?,?)";
 			try {
-				// prepared statement para inserção
+				
 				PreparedStatement st = conn.prepareStatement(sql);
 
-				// seta os valores
+				
 				st.setString(1, person.getId());
 				st.setString(2, person.getCpf());
 				st.setString(3, person.getName());
-				st.setDate(4,  person.getBirth_dt());
-				//Buscar informações sobre isso.
+				st.setDate(4, person.getBirth_dt());
+				st.setString(5,person.getPassword());
 
-				// executa
+				
 				st.execute();
 				st.close();
 				System.out.println("Cadastrado com sucesso!");
@@ -53,18 +57,18 @@ public class PersonDAO {
 		 */
 		public void insertPerson(Supervisor supervisor) {
 
-			String sql = "insert into person (id, cpf, namePerson, birth_dt)values (?,?,?,?)";
+			String sql = "insert into person (id, cpf, namePerson, birth_dt, password)values (?,?,?,?,?)";
 			try {
-				// prepared statement para inserção
+				
 				PreparedStatement st = conn.prepareStatement(sql);
 
-				// seta os valores
+				
 				st.setString(1, supervisor.getId());
 				st.setString(2, supervisor.getCpf());
 				st.setString(3, supervisor.getName());
 				st.setDate(4, supervisor.getBirth_dt());
-
-				// executa
+				st.setString(5, supervisor.getPassword());
+				
 				st.execute();
 				st.close();
 				System.out.println("Cadastrado com sucesso!");
@@ -79,19 +83,19 @@ public class PersonDAO {
 		 */
 		public void insertPerson(Student student) {
 
-			String sql = "insert into person (id, cpf, namePerson, birth_dt)values (?,?,?,?)";
+			String sql = "insert into person (id, cpf, namePerson, birth_dt, password)values (?,?,?,?,?)";
 			try {
-				// prepared statement para inserção
+				
 				PreparedStatement st = conn.prepareStatement(sql);
 
-				// seta os valores
+				
 				st.setString(1, student.getId());
 				st.setString(2, student.getCpf());
 				st.setString(3, student.getName());
 				st.setDate(4,  student.getBirth_dt());
-				
+				st.setString(5, student.getPassword());
 
-				// executa
+				
 				st.execute();
 				st.close();
 				System.out.println("Cadastrado com sucesso!");
@@ -105,19 +109,17 @@ public class PersonDAO {
 		 */
 		public void insertPerson(Monitor monitor) {
 
-			String sql = "insert into person (id, cpf, namePerson, birth_dt)values (?,?,?,?)";
+			String sql = "insert into person (id, cpf, namePerson, birth_dt, password)values (?,?,?,?,?)";
 			try {
-				// prepared statement para inserção
 				PreparedStatement st = conn.prepareStatement(sql);
 
-				// seta os valores
 				st.setString(1, monitor.getId());
 				st.setString(2, monitor.getCpf());
 				st.setString(3, monitor.getName());
 				st.setDate(4, monitor.getBirth_dt());
-				
+				st.setString(5, monitor.getPassword());
 
-				// executa
+				
 				st.execute();
 				st.close();
 				System.out.println("Cadastrado com sucesso!");
@@ -143,9 +145,12 @@ public class PersonDAO {
 		}
 		
 		
-		/*------------------------UPDATE----------------------------*/
+		/**
+		 * 
+		 * @param person
+		 */
 		public void updatePerson(Person person) {
-			String sql = "update person set cpf = ?, namePerson = ?, birth_dt = ? where id = ?";
+			String sql = "update person set cpf = ?, namePerson = ?, birth_dt = ?, password = ? where id = ?";
 			try {
 				
 				PreparedStatement st = conn.prepareStatement(sql);
@@ -153,7 +158,8 @@ public class PersonDAO {
 				st.setString(1, person.getCpf());
 				st.setString(2, person.getName());
 				st.setDate(3, (java.sql.Date)person.getBirth_dt());
-				st.setString(4, person.getId());
+				st.setString(4, person.getPassword());
+				st.setString(5, person.getId());
 				
 				st.execute();
 				st.close();
@@ -161,4 +167,5 @@ public class PersonDAO {
 				System.out.println(e.getMessage());
 			}
 		}
+		
 }

@@ -8,21 +8,47 @@ public class Monitor extends Student{
 	private Supervisor supervisor;
 	private String roomWork;
 	private BankAccount bankAccount;
-	
-	public Monitor(String id, String cpf, Date birth_dt, String name, String course, String year, SchoolSubject subject, String roomWork, BankAccount bankAccount) {
-		super(id, cpf, birth_dt, name, course, year);
+	/**
+	 * 
+	 * @param id
+	 * @param cpf
+	 * @param birth_dt
+	 * @param name
+	 * @param course
+	 * @param year
+	 * @param subject
+	 * @param roomWork
+	 * @param bankAccount
+	 * @param password
+	 */
+	public Monitor(String id, String cpf, Date birth_dt, String name, String course, String year, SchoolSubject subject, String roomWork, BankAccount bankAccount, String password) {
+		super(id, cpf, birth_dt, name, course, year, password);
 		setSubject(subject);
 		setBankAccount(bankAccount);
 		setRoomWork(roomWork);
-		setSupervisor(supervisor);
+		
 	}
 	
-	//Cria um monitor com o id do supervisor
-	public Monitor(String id, String cpf, Date birth_dt, String name, String course, String year, SchoolSubject subject, String roomWork, BankAccount bankAccount, Supervisor supervisor) {
-		super(id, cpf, birth_dt, name, course, year);
+	/**
+	 * Constructor with Supervisor ID
+	 * @param id
+	 * @param cpf
+	 * @param birth_dt
+	 * @param name
+	 * @param course
+	 * @param year
+	 * @param subject
+	 * @param roomWork
+	 * @param bankAccount
+	 * @param supervisor
+	 * @param password
+	 */
+	public Monitor(String id, String cpf, Date birth_dt, String name, String course, String year, SchoolSubject subject, String roomWork, BankAccount bankAccount, Supervisor supervisor, String password) {
+		super(id, cpf, birth_dt, name, course, year, password);
 		setSubject(subject);
 		setBankAccount(bankAccount);
 		setSupervisor(supervisor);
+		
 	}
 	/*---------------------------------------------------------------------------------------------------------*/
 	

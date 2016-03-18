@@ -2,18 +2,20 @@ package findMe.domain;
 
 import java.sql.Date;
 
-
+/**
+ * 
+ * @author thayanneLuiza, ViniFarias, RebecaGaldino
+ *
+ */
 public class Student extends Person{
 	
 	private String course;
 	private String grade;
 	
-	public Student(String id, String cpf, Date birth_dt, String name) {
-		super(id, cpf, birth_dt, name);
-	}
 	
-	public Student(String id, String cpf, Date birth_dt, String name, String course, String grade) {
-		super(id, cpf, birth_dt, name);
+	
+	public Student(String id, String cpf, Date birth_dt, String name, String course, String grade, String password) {
+		super(id, cpf, birth_dt, name, password);
 		setCourse(course);
 		setGrade(grade);
 	}
