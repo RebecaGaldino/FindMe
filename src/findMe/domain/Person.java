@@ -1,6 +1,6 @@
 package findMe.domain;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Person {
 	

@@ -36,6 +36,9 @@ public class MonitorDAO {
 			StudentDAO sdao = new StudentDAO();
 			sdao.insertStudent(monitor);
 			
+			BankAccountDAO badao = new BankAccountDAO();
+			badao.insertBankAccount(monitor);
+			
 			st.setString(1, monitor.getId());
 			st.setString(2, monitor.getSubject().getId());
 			st.setString(3, monitor.getSupervisor().getId());

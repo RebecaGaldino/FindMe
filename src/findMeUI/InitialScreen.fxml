@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="827.0" style="-fx-background-color: orange; -fx-border-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="findMeUI.InitialScreenFXMLController">
+   <children>
+      <AnchorPane layoutX="467.0" maxHeight="589.0" maxWidth="363.0" prefHeight="589.0" prefWidth="363.0" style="-fx-background-color: white;">
+         <children>
+            <Label layoutX="53.0" layoutY="90.0" style="-fx-text-fill: orange;" text="Entrar como:" textFill="#ffa629">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Button fx:id="btGerenciador" layoutX="129.0" layoutY="400.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="126.0" style="-fx-background-color: orange;" text="Gerenciador" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+            <Button fx:id="btMonitor" layoutX="128.0" layoutY="200.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="126.0" style="-fx-background-color: orange;" text="Monitor" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+            <Button fx:id="btProfessor" layoutX="129.0" layoutY="300.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="126.0" style="-fx-background-color: orange;" text="Professor" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="53.0" fitWidth="54.0" layoutX="64.0" layoutY="194.0">
+               <image>
+                  <Image url="@../../../../Desktop/enrol.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="53.0" fitWidth="54.0" layoutX="64.0" layoutY="394.0">
+               <image>
+                  <Image url="@../../../../Desktop/icon_returning_students.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="62.0" fitWidth="84.0" layoutX="49.0" layoutY="289.0">
+               <image>
+                  <Image url="@../../../../Desktop/logoMonitorManager.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="180.0" fitWidth="186.0" layoutY="110.0">
+         <image>
+            <Image url="@../../../../Desktop/man-icon.png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="178.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="M" wrappingWidth="102.68292617797852">
+         <font>
+            <Font size="80.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="257.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="onitor">
+         <font>
+            <Font size="60.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="223.0" layoutY="262.0" nodeOrientation="LEFT_TO_RIGHT" strokeType="OUTSIDE" strokeWidth="0.0" text="a n a g e r" wrappingWidth="43.56097602844238">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
