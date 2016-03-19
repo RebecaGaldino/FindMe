@@ -1,4 +1,4 @@
-package findMeUI;
+package findMe.UI.Controller;
 
 import javafx.application.Application;
 import javafx.stage.Stage;

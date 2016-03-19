@@ -1,4 +1,4 @@
-package findMeUI;
+package findMe.UI.Controller;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -23,7 +23,7 @@ public class Main extends Application {
 
 			this.primaryStage = primaryStage;
 			
-			Parent root = FXMLLoader.load(getClass().getResource("InitialScreen.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/InitialScreen.fxml"));
 			
 			this.scene = new Scene(root);
 			

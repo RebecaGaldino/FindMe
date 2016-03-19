@@ -1,4 +1,4 @@
-package findMeUI;
+package findMe.UI.Controller;
 
 import java.io.IOException;
 
@@ -9,9 +9,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 
-public class LoginManagerFXMLController {
-	
+public class LoginScreenFXMLController {
+	@FXML
+	ImageView imagePerson;
+	@FXML
+	Text textPerson;
 	@FXML
 	private Button btCancel;
 	@FXML
@@ -43,5 +48,4 @@ public class LoginManagerFXMLController {
 		Main.primaryStage.setScene(scene);
 		Main.primaryStage.show();
 	}
-
 }

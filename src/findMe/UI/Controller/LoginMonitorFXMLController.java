@@ -1,4 +1,4 @@
-package findMeUI;
+package findMe.UI.Controller;
 
 import java.io.IOException;
 
@@ -10,7 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-public class LoginSupervisorFXMLController  {
+public class LoginMonitorFXMLController  {
 	
 	@FXML
 	private Button btCancel;
@@ -21,10 +21,11 @@ public class LoginSupervisorFXMLController  {
 	@FXML
 	private PasswordField txtPassword;
 	
+	
 	@FXML
 	public void btLogin() throws IOException{
 
-		Parent root = FXMLLoader.load(getClass().getResource("LoginSupervisor.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("LoginMonitor.fxml"));
 		
 		Scene loginMonitorScreen = new Scene(root);
 		Main.primaryStage.setTitle("Monitor Manager");
