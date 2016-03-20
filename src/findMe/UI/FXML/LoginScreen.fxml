@@ -39,7 +39,21 @@
                   <Font size="22.0" />
                </font>
             </Text>
-            <ImageView fx:id="imageView" fitHeight="71.0" fitWidth="85.0" layoutX="28.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView id="logoManager" fx:id="logoManager" fitHeight="61.0" fitWidth="67.0" layoutX="46.0" layoutY="57.0" visible="false">
+               <image>
+                  <Image url="@../../../../lib/media/logoGerenciador.png" />
+               </image>
+            </ImageView>
+            <ImageView id="logoMonitor" fx:id="logoMonitor" fitHeight="61.0" fitWidth="67.0" layoutX="46.0" layoutY="57.0" visible="false">
+               <image>
+                  <Image url="@../../../../lib/media/logoMonitor.png" />
+               </image>
+            </ImageView>
+            <ImageView id="logoSupervisor" fx:id="logoSupervisor" fitHeight="81.0" fitWidth="120.0" layoutX="20.0" layoutY="47.0" visible="false">
+               <image>
+                  <Image url="@../../../../lib/media/logoTeacher.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
       <Text fill="WHITE" layoutX="200.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="M" wrappingWidth="102.68292617797852">

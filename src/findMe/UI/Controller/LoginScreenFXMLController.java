@@ -19,7 +19,11 @@ import javafx.scene.text.Text;
 
 public class LoginScreenFXMLController implements Initializable {
 	@FXML
-	private ImageView imagePerson;
+	private ImageView logoSupervisor;
+	@FXML
+	private ImageView logoManager;
+	@FXML
+	private ImageView logoMonitor;
 	@FXML
 	Text textPerson;
 	@FXML
@@ -36,12 +40,7 @@ public class LoginScreenFXMLController implements Initializable {
 	private String choice = InitialScreenFXMLController.choice;
 	@FXML
 	public void btLogin() throws IOException{
-		Parent root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/LoginManager.fxml"));
 		
-		Scene loginMonitorScreen = new Scene(root);
-		Main.primaryStage.setTitle("Monitor Manager");
-		Main.primaryStage.setScene(loginMonitorScreen);
-		Main.primaryStage.show();
 	}
 	
 	
@@ -57,17 +56,24 @@ public class LoginScreenFXMLController implements Initializable {
 	}
 	
 	
-
+	private void choice(){
+		if(choice == "Professor"){
+			logoSupervisor.setVisible(true);
+		}
+		else if(choice == "Gerente"){
+			logoManager.setVisible(true);
+		}
+		else if(choice == "Monitor"){
+			logoMonitor.setVisible(true);
+		}
+	}
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		textPerson.setText("Área Do "+ choice);
-		/* PROBLEMA EM ABRIR A IMAGEM
-		 * final ImageView imageView = new ImageView();   
-        Image image = new Image(LoginScreenFXMLController.class.getResourceAsStream("/lib/media/logoMonitor.png"));
-        
-        imageView.setImage(image); */
+		choice();		
+		  
         
 		
 	}
