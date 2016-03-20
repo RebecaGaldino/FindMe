@@ -1,25 +1,191 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ScrollPane layoutX="124.0" layoutY="26.0" prefHeight="200.0" prefWidth="200.0">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+      <ScrollPane layoutY="-1.0" prefHeight="400.0" prefWidth="600.0" vbarPolicy="ALWAYS">
+         <content>
+            <AnchorPane prefHeight="1460.0" prefWidth="600.0" style="-fx-background-color: white;">
                <children>
-                  <Pane prefHeight="200.0" prefWidth="200.0">
+                  <Label layoutX="60.0" layoutY="40.0" style="-fx-background-color: orange;" text="Dados pessoais" textFill="WHITE">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="21.0" layoutY="59.0" prefHeight="0.0" prefWidth="34.0" />
+                  <Separator layoutX="247.0" layoutY="60.0" prefHeight="4.0" prefWidth="301.0" />
+                  <GridPane layoutX="75.0" layoutY="114.0" prefHeight="166.0" prefWidth="407.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="191.0" minWidth="10.0" prefWidth="114.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="293.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
                      <children>
-                        <Label layoutX="14.0" layoutY="30.0" text="bla" />
-                        <Label layoutX="123.0" layoutY="152.0" text="Label" />
+                        <Label style="-fx-background-color: orange;" text="Nome" textFill="WHITE">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Label style="-fx-background-color: orange;" text="CPF" textFill="WHITE" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Label style="-fx-background-color: orange;" text="Nascimento" textFill="WHITE" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <TextField promptText="Ex: 122.123.124-25" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField promptText="Ex: Joao Joaquim Emanuel" style="-fx-border-color: orange;" GridPane.columnIndex="1" />
+                        <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="141.0" minWidth="10.0" prefWidth="90.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="207.0" minWidth="10.0" prefWidth="106.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="207.0" minWidth="10.0" prefWidth="97.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <ComboBox editable="true" prefHeight="25.0" prefWidth="66.0" promptText="Dia" />
+                              <ComboBox editable="true" prefHeight="25.0" prefWidth="77.0" promptText="Mês" GridPane.columnIndex="1" />
+                              <ComboBox editable="true" prefHeight="25.0" prefWidth="82.0" promptText="Ano" GridPane.columnIndex="2" />
+                           </children>
+                        </GridPane>
                      </children>
-                  </Pane>
+                  </GridPane>
+                  <Separator layoutX="26.0" layoutY="380.0" prefHeight="0.0" prefWidth="34.0" />
+                  <Label layoutX="70.0" layoutY="364.0" style="-fx-background-color: orange;" text="Dados acadêmicos" textFill="WHITE">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="291.0" layoutY="381.0" prefHeight="3.0" prefWidth="244.0" />
+                  <GridPane layoutX="79.0" layoutY="440.0" prefHeight="173.0" prefWidth="407.0">
+                     <children>
+                        <Label style="-fx-background-color: orange;" text="Série" textFill="WHITE">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Label style="-fx-background-color: orange;" text="Matrícula" textFill="WHITE" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <TextField promptText="Ex: 2" style="-fx-border-color: orange;" GridPane.columnIndex="1" />
+                        <TextField promptText="Ex: 20112001014" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <ComboBox editable="true" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label style="-fx-background-color: orange;" text="Curso" textFill="WHITE" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="191.0" minWidth="10.0" prefWidth="114.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="293.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+                  <Separator layoutX="24.0" layoutY="729.0" prefHeight="0.0" prefWidth="34.0" />
+                  <Label layoutX="72.0" layoutY="708.0" style="-fx-background-color: orange;" text="Informações sobre a monitoria" textFill="WHITE">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <GridPane layoutX="79.0" layoutY="786.0" prefHeight="173.0" prefWidth="488.0">
+                     <children>
+                        <Label style="-fx-background-color: orange;" text="Disciplina" textFill="WHITE">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Label style="-fx-background-color: orange;" text="Local de atendimento" textFill="WHITE" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <TextField promptText="Ex: Matemática" style="-fx-border-color: orange;" GridPane.columnIndex="1" />
+                        <TextField promptText="Ex: Sala 1" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label style="-fx-background-color: orange;" text="Supervisor" textFill="WHITE" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <TextField promptText="Ex: Henrique Cunha" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="191.0" minWidth="10.0" prefWidth="114.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="293.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+                  <Separator layoutX="23.0" layoutY="1072.0" prefHeight="2.0" prefWidth="34.0" />
+                  <Label layoutX="65.0" layoutY="1055.0" style="-fx-background-color: orange;" text="Dados bancários" textFill="WHITE">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <GridPane layoutX="79.0" layoutY="1130.0" prefHeight="206.0" prefWidth="488.0">
+                     <children>
+                        <Label style="-fx-background-color: orange;" text="Número" textFill="WHITE">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Label style="-fx-background-color: orange;" text="Agência" textFill="WHITE" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <TextField promptText="Ex: 12344242" style="-fx-border-color: orange;" GridPane.columnIndex="1" />
+                        <TextField promptText="Ex: 14333-9" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label style="-fx-background-color: orange;" text="Variação" textFill="WHITE" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <TextField promptText="Ex: 12" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label style="-fx-background-color: orange;" text="Observações" textFill="WHITE" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <TextArea prefHeight="200.0" prefWidth="200.0" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="191.0" minWidth="10.0" prefWidth="114.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="293.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
                </children>
             </AnchorPane>
-        </content>
+         </content>
       </ScrollPane>
    </children>
 </AnchorPane>
