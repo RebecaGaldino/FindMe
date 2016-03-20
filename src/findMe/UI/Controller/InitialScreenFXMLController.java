@@ -19,7 +19,9 @@ import javafx.stage.Stage;
  *
  */
 public class InitialScreenFXMLController implements Initializable{
-
+	
+	public static String choice;
+	
 	@FXML
 	private Button btMonitor;
 	@FXML
@@ -29,18 +31,22 @@ public class InitialScreenFXMLController implements Initializable{
 	
 	@FXML
 	private void btMonitor() throws IOException{
+		choice = "Monitor";
 
-		Parent root2 = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/LoginMonitor.fxml"));
+		
+		
+		Parent root2 = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/LoginScreen.fxml"));
 		
 		Scene loginMonitorScreen = new Scene(root2);
 		Main.primaryStage.setTitle("Monitor Manager");
 		Main.primaryStage.setScene(loginMonitorScreen);
-		Main.primaryStage.show();
+		Main.primaryStage.show(); 
 	}
 	
 	@FXML
 	private void btSupervisor() throws IOException{
-		Parent root2 = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/LoginSupervisor.fxml"));
+		choice = "Professor";
+		Parent root2 = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/LoginScreen.fxml"));
 		
 		Scene loginSupervisorScreen = new Scene(root2);
 		
@@ -51,7 +57,9 @@ public class InitialScreenFXMLController implements Initializable{
 	
 	@FXML
 	private void btManager() throws IOException{
-		Parent root2 = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/LoginManager.fxml"));
+		choice = "Gerente";
+
+		Parent root2 = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/LoginScreen.fxml"));
 		
 		Scene loginManagerScreen = new Scene(root2);
 		

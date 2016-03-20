@@ -11,11 +11,6 @@
    <children>
       <AnchorPane layoutX="469.0" prefHeight="590.0" prefWidth="358.0" style="-fx-background-color: white;">
          <children>
-            <Text fill="#ff9000" layoutX="113.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Text>
             <Button fx:id="btCancel" layoutX="98.0" layoutY="360.0" mnemonicParsing="false" onAction="#btCancel" style="-fx-background-color: transparent;" text="Cancelar">
                <font>
                   <Font size="15.0" />
@@ -38,7 +33,13 @@
                   <Font size="19.0" />
                </font>
             </Text>
-            <ImageView fx:id="ImagePerson" fitHeight="62.0" fitWidth="61.0" layoutX="38.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="ImagePerson" fitHeight="36.0" fitWidth="239.0" layoutX="110.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true" />
+            <Text fx:id="textPerson" layoutX="127.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: orange;" wrappingWidth="200.0">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Text>
+            <ImageView fx:id="imageView" fitHeight="71.0" fitWidth="85.0" layoutX="28.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
       <Text fill="WHITE" layoutX="200.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="M" wrappingWidth="102.68292617797852">
