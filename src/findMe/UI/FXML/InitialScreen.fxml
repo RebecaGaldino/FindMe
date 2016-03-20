@@ -54,19 +54,19 @@
                   <Font size="17.0" />
                </font>
             </Button>
-            <ImageView fitHeight="53.0" fitWidth="54.0" layoutX="64.0" layoutY="194.0">
+            <ImageView fitHeight="53.0" fitWidth="54.0" layoutX="53.0" layoutY="194.0">
                <image>
-                  <Image url="@../../../../lib/media/enrol.png" />
+                  <Image url="@../../../../lib/media/logoMonitor.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="53.0" fitWidth="54.0" layoutX="64.0" layoutY="394.0">
+            <ImageView fitHeight="53.0" fitWidth="52.0" layoutX="56.0" layoutY="296.0">
                <image>
-                  <Image url="@../../../../lib/media/icon_returning_students.png" />
+                  <Image url="@../../../../lib/media/logoProfessor.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="53.0" fitWidth="54.0" layoutX="64.0" layoutY="289.0">
+            <ImageView fitHeight="53.0" fitWidth="51.0" layoutX="55.0" layoutY="394.0">
                <image>
-                  <Image url="@../../../../lib/media/orange-circle-edu.png" />
+                  <Image url="@../../../../lib/media/logoGerenciador.png" />
                </image>
             </ImageView>
          </children>
