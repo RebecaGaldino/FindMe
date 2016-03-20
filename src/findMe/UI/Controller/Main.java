@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import findMe.UI.FXML.*;
 /**
  * 
  * @author thayanneLuiza, ViniFarias, RebecaGaldino
@@ -18,6 +19,7 @@ public class Main extends Application {
 	public static Stage primaryStage;
 	public static Object stage;
 	public static Scene scene;
+	
 	public void start(Stage primaryStage) throws Exception{
 		try {
 

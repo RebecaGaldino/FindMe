@@ -30,7 +30,7 @@ public class InitialScreenFXMLController implements Initializable{
 	@FXML
 	private void btMonitor() throws IOException{
 
-		Parent root2 = FXMLLoader.load(getClass().getResource("LoginMonitor.fxml"));
+		Parent root2 = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/LoginMonitor.fxml"));
 		
 		Scene loginMonitorScreen = new Scene(root2);
 		Main.primaryStage.setTitle("Monitor Manager");
@@ -40,7 +40,7 @@ public class InitialScreenFXMLController implements Initializable{
 	
 	@FXML
 	private void btSupervisor() throws IOException{
-		Parent root2 = FXMLLoader.load(getClass().getResource("LoginSupervisor.fxml"));
+		Parent root2 = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/LoginSupervisor.fxml"));
 		
 		Scene loginSupervisorScreen = new Scene(root2);
 		
@@ -51,7 +51,7 @@ public class InitialScreenFXMLController implements Initializable{
 	
 	@FXML
 	private void btManager() throws IOException{
-		Parent root2 = FXMLLoader.load(getClass().getResource("LoginManager.fxml"));
+		Parent root2 = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/LoginManager.fxml"));
 		
 		Scene loginManagerScreen = new Scene(root2);
 		

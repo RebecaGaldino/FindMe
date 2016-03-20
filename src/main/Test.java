@@ -32,8 +32,8 @@ public class Test {
 		BankAccount bankAccount = new BankAccount("123456", "6538291937", "34", "nao gosto desse banco");
 		//Supervisor supervisor = new Supervisor();
 		
-		Monitor monitor = new Monitor("2014", "1223099", (java.sql.Date) '2014-11-18' , "blouakiss", "Infor", "2º", schoolSubject, "salaNada", bankAccount);
-		mdb.insertMonitor(monitor);
+		//Monitor monitor = new Monitor("2014", "1223099", (java.sql.Date) '2014-11-18' , "blouakiss", "Infor", "2º", schoolSubject, "salaNada", bankAccount);
+		//mdb.insertMonitor(monitor);
 		
 		//s.insertSupervisor(id, name);
 		//Supervisor supervisor = new Supervisor();

@@ -29,7 +29,7 @@ public class LoginScreenFXMLController {
 	@FXML
 	public void btLogin() throws IOException{
 
-		Parent root = FXMLLoader.load(getClass().getResource("LoginManager.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/LoginManager.fxml"));
 		
 		Scene loginMonitorScreen = new Scene(root);
 		Main.primaryStage.setTitle("Monitor Manager");
@@ -41,7 +41,7 @@ public class LoginScreenFXMLController {
 	@FXML
 	public void btCancel() throws IOException{
 		
-		Parent root = FXMLLoader.load(getClass().getResource("InitialScreen.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/InitialScreen.fxml"));
 		
 		Scene scene = new Scene(root);
 		Main.primaryStage.setTitle("Initial Screen");
