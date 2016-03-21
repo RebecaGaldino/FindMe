@@ -39,7 +39,7 @@ public class PersonDAO {
 				st.setString(1, person.getId());
 				st.setString(2, person.getCpf());
 				st.setString(3, person.getName());
-				st.setDate(4, person.getBirth_dt());
+				st.setDate(4, new java.sql.Date(person.getBirth_dt().getTime()));
 				st.setString(5,person.getPassword());
 
 				
@@ -66,7 +66,7 @@ public class PersonDAO {
 				st.setString(1, supervisor.getId());
 				st.setString(2, supervisor.getCpf());
 				st.setString(3, supervisor.getName());
-				st.setDate(4, supervisor.getBirth_dt());
+				st.setDate(4, new java.sql.Date(supervisor.getBirth_dt().getTime()));
 				st.setString(5, supervisor.getPassword());
 				
 				st.execute();
@@ -92,7 +92,7 @@ public class PersonDAO {
 				st.setString(1, student.getId());
 				st.setString(2, student.getCpf());
 				st.setString(3, student.getName());
-				st.setDate(4,  student.getBirth_dt());
+				st.setDate(4,  new java.sql.Date(student.getBirth_dt().getTime()));
 				st.setString(5, student.getPassword());
 
 				
@@ -116,7 +116,7 @@ public class PersonDAO {
 				st.setString(1, monitor.getId());
 				st.setString(2, monitor.getCpf());
 				st.setString(3, monitor.getName());
-				st.setDate(4, monitor.getBirth_dt());
+				st.setDate(4, new java.sql.Date(monitor.getBirth_dt().getTime()));
 				st.setString(5, monitor.getPassword());
 
 				
@@ -157,7 +157,7 @@ public class PersonDAO {
 				
 				st.setString(1, person.getCpf());
 				st.setString(2, person.getName());
-				st.setDate(3, (java.sql.Date)person.getBirth_dt());
+				st.setDate(3, new java.sql.Date(person.getBirth_dt().getTime()));
 				st.setString(4, person.getPassword());
 				st.setString(5, person.getId());
 				

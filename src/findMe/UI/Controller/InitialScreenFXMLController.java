@@ -32,8 +32,6 @@ public class InitialScreenFXMLController implements Initializable{
 	@FXML
 	private void btMonitor() throws IOException{
 		choice = "Monitor";
-
-		
 		
 		Parent root2 = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/LoginScreen.fxml"));
 		
@@ -46,6 +44,7 @@ public class InitialScreenFXMLController implements Initializable{
 	@FXML
 	private void btSupervisor() throws IOException{
 		choice = "Professor";
+		
 		Parent root2 = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/LoginScreen.fxml"));
 		
 		Scene loginSupervisorScreen = new Scene(root2);

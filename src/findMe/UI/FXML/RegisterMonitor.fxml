@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RegisterMonitorFXMLController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="findMe.UI.Controller.RegisterMonitorFXMLController">
    <children>
       <ScrollPane hbarPolicy="NEVER" layoutY="-1.0" prefHeight="400.0" prefWidth="600.0">
          <content>
@@ -47,21 +47,7 @@
                         </Label>
                         <TextField fx:id="txtCpf" promptText="Ex: 122.123.124-25" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <TextField fx:id="txtName" promptText="Ex: Joao Joaquim Emanuel" style="-fx-border-color: orange;" GridPane.columnIndex="1" />
-                        <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="141.0" minWidth="10.0" prefWidth="90.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="207.0" minWidth="10.0" prefWidth="106.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="207.0" minWidth="10.0" prefWidth="97.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <children>
-                              <ComboBox fx:id="cBxDay" editable="true" prefHeight="25.0" prefWidth="66.0" promptText="Dia" />
-                              <ComboBox fx:id="cBxMouth" editable="true" prefHeight="25.0" prefWidth="77.0" promptText="Mês" GridPane.columnIndex="1" />
-                              <ComboBox fx:id="cBxYear" editable="true" prefHeight="25.0" prefWidth="82.0" promptText="Ano" GridPane.columnIndex="2" />
-                           </children>
-                        </GridPane>
+                        <TextField fx:id="txtBirth_dt" promptText="Ex: 03/02/1999" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
                   <Separator layoutX="26.0" layoutY="380.0" prefHeight="0.0" prefWidth="34.0" />

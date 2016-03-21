@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="findMe.UI.Controller.RegisterMonitorFXMLController">
    <children>
       <ScrollPane hbarPolicy="NEVER" layoutY="-1.0" prefHeight="400.0" prefWidth="600.0">
          <content>
@@ -36,23 +36,9 @@
                               <Font size="17.0" />
                            </font>
                         </Label>
-                        <TextField promptText="Ex: 122.123.124-25" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField promptText="Ex: Joao Joaquim Emanuel" style="-fx-border-color: orange;" GridPane.columnIndex="1" />
-                        <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2">
-                           <children>
-                              <ComboBox editable="true" prefHeight="25.0" prefWidth="66.0" promptText="Dia" />
-                              <ComboBox editable="true" prefHeight="25.0" prefWidth="77.0" promptText="Mês" GridPane.columnIndex="1" />
-                              <ComboBox editable="true" prefHeight="25.0" prefWidth="82.0" promptText="Ano" GridPane.columnIndex="2" />
-                           </children>
-                           <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="141.0" minWidth="10.0" prefWidth="90.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="207.0" minWidth="10.0" prefWidth="106.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="207.0" minWidth="10.0" prefWidth="97.0" />
-                           </columnConstraints>
-                           <rowConstraints>
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                           </rowConstraints>
-                        </GridPane>
+                        <TextField fx:id="txtCpf" promptText="Ex: 122.123.124-25" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="txtName" promptText="Ex: Joao Joaquim Emanuel" style="-fx-border-color: orange;" GridPane.columnIndex="1" />
+                        <TextField fx:id="txtBirth_dt" prefHeight="27.0" prefWidth="225.0" promptText="Ex: 03/02/1999" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      </children>
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="191.0" minWidth="10.0" prefWidth="114.0" />
@@ -78,13 +64,13 @@
                               <Font size="17.0" />
                            </font>
                         </Label>
-                        <TextField promptText="Ex: 20112001014" style="-fx-border-color: orange;" GridPane.columnIndex="1" />
+                        <TextField fx:id="txtid" promptText="Ex: 20112001014" style="-fx-border-color: orange;" GridPane.columnIndex="1" />
                         <Label style="-fx-background-color: orange;" text="Disciplina" textFill="WHITE" GridPane.rowIndex="1">
                            <font>
                               <Font size="17.0" />
                            </font>
                         </Label>
-                        <TextField promptText="Ex: FIlosofia" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="txtSchoolSubject" promptText="Ex: FIlosofia" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      </children>
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="191.0" minWidth="10.0" prefWidth="114.0" />

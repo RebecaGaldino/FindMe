@@ -1,14 +1,16 @@
 package main;
 
 import java.text.*;
-import java.sql.Date;
+import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import findMe.dataBase.MonitorDAO;
+import findMe.dataBase.PersonDAO;
 import findMe.dataBase.SupervisorDAO;
 import findMe.domain.BankAccount;
 import findMe.domain.Monitor;
+import findMe.domain.Person;
 import findMe.domain.SchoolSubject;
 
 public class Test {
@@ -16,27 +18,23 @@ public class Test {
 		
 		MonitorDAO mdb = new MonitorDAO();
 		
-		String inputStr = "11-11-2012";
+		String inputStr = "02/03/2014";
 		
-		/*DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+		Date dt;
 		
-		DateFormat data = DateFormat.getDateInstance();
-		
-		Date inputDate = (Date) dateFormat.parse("11-11-2012");*/
+		DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        dt = (java.util.Date)formatter.parse(inputStr);
 		
 		SupervisorDAO s = new SupervisorDAO();
+		PersonDAO p = new PersonDAO();
 		
 		
 		
 		SchoolSubject schoolSubject = new SchoolSubject("info", "123");
 		BankAccount bankAccount = new BankAccount("123456", "6538291937", "34", "nao gosto desse banco");
-		//Supervisor supervisor = new Supervisor();
+		Person person = new Person("2014111", "2174282", dt, "Marcus", "123456");
+		p.insertPerson(person);
 		
-		//Monitor monitor = new Monitor("2014", "1223099", (java.sql.Date) '2014-11-18' , "blouakiss", "Infor", "2º", schoolSubject, "salaNada", bankAccount);
-		//mdb.insertMonitor(monitor);
-		
-		//s.insertSupervisor(id, name);
-		//Supervisor supervisor = new Supervisor();
 		
 	}
 	

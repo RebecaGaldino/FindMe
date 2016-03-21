@@ -12,6 +12,8 @@ id VARCHAR(11) NOT NULL,
     birth_dt date NOT NULL,
 
     namePerson VARCHAR(100) NOT NULL,
+    
+    password VARCHAR(100) NOT NULL,
 
     
 
@@ -31,7 +33,7 @@ CREATE TABLE bankaccount(
     
     notes VARCHAR(500),
     
-    PRIMARY KEY(id),
+    PRIMARY KEY(id)
 
 );
 
@@ -97,7 +99,7 @@ id VARCHAR(11) NOT NULL,
 
     CONSTRAINT fk_id_schoolsubjectA  FOREIGN KEY (id_schoolsubject) REFERENCES schoolsubject(id),
     
-    CONSTRAINT fk_id_bankaccount FOREIGN KEY (id_bankaccount) REFERENCES bankaccount(id),
+    CONSTRAINT fk_id_bankaccount FOREIGN KEY (id_bankaccount) REFERENCES bankaccount(id)
 
 );
 

@@ -31,8 +31,8 @@ public class TimeTableDAO {
 			
 			st.setInt(1, timeTable.getId());
 			st.setString(2, timeTable.getDayName());
-			st.setDate(3, timeTable.getBegin_time());
-			st.setDate(4, timeTable.getEnd_time());
+			st.setDate(3, new java.sql.Date(timeTable.getBegin_time().getTime()));
+			st.setDate(4, new java.sql.Date(timeTable.getEnd_time().getTime()));
 			st.setString(5, timeTable.getMonitor().getId());
 			
 			
@@ -70,8 +70,8 @@ public class TimeTableDAO {
 			
 			st.setString(1, timetable.getMonitor().getId());
 			st.setString(2, timetable.getDayName());
-			/*st.setString(3, timetable.getBegin_time());
-			st.setString(3, timetable.getEnd_time());*/
+			st.setDate(3, new java.sql.Date(timetable.getBegin_time().getTime()));
+			st.setDate(3, new java.sql.Date(timetable.getEnd_time().getTime()));
 			
 			st.execute();
 			st.close();

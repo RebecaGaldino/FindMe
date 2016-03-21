@@ -25,7 +25,7 @@ public class LoginScreenFXMLController implements Initializable {
 	@FXML
 	private ImageView logoMonitor;
 	@FXML
-	Text textPerson;
+	private Text textPerson;
 	@FXML
 	private Button btCancel;
 	@FXML
@@ -71,7 +71,7 @@ public class LoginScreenFXMLController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		textPerson.setText("√Årea Do "+ choice);
+		textPerson.setText("¡rea do "+ choice);
 		choice();		
 		  
         
