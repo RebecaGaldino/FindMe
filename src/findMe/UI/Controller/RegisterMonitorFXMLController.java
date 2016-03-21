@@ -12,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -49,7 +50,14 @@ public class RegisterMonitorFXMLController implements Initializable{
 	private TextArea txtAreaNotes;
 	@FXML
 	private TextField txtBirth_dt;
-	
+	@FXML
+	private PasswordField txtPassword;
+	@FXML
+	private PasswordField txtConfirmPassword;
+	@FXML
+	private Button btRegister;
+	@FXML
+	private Button btCancel;
 	
 	
 	@Override

@@ -53,6 +53,9 @@ public class Monitor extends Student{
 	/*---------------------------------------------------------------------------------------------------------*/
 	
 	public Supervisor getSupervisor() {
+		if( supervisor == null){
+			return null;
+		}
 		return supervisor;
 	}
 

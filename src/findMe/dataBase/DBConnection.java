@@ -12,7 +12,7 @@ public class DBConnection {
 			// Carregando o driver JDBC para MySQL. Cada SGBD tem seu proprio driver
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
 			
-			String url = "jdbc:mysql://localhost/findme?user=root&password=ifpbinfo";
+			String url = "jdbc:mysql://localhost/findme?user=root&password=12345";
 
 			conn = DriverManager.getConnection(url);
 			

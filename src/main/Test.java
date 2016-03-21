@@ -18,23 +18,35 @@ public class Test {
 		
 		MonitorDAO mdb = new MonitorDAO();
 		
+		
+		/*Inserção de Pessoa - OK
 		String inputStr = "02/03/2014";
-		
 		Date dt;
-		
 		DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         dt = (java.util.Date)formatter.parse(inputStr);
-		
-		SupervisorDAO s = new SupervisorDAO();
 		PersonDAO p = new PersonDAO();
-		
-		
-		
 		SchoolSubject schoolSubject = new SchoolSubject("info", "123");
 		BankAccount bankAccount = new BankAccount("123456", "6538291937", "34", "nao gosto desse banco");
 		Person person = new Person("2014111", "2174282", dt, "Marcus", "123456");
-		p.insertPerson(person);
+		p.insertPerson(person);*/
 		
+		/*Inserção de Monitor - */
+		String inputStr = "01/05/2011";
+		Date dt;
+		DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        dt = (java.util.Date)formatter.parse(inputStr);
+		MonitorDAO p = new MonitorDAO();
+		SchoolSubject schoolSubject = new SchoolSubject("info", "123");
+		BankAccount bankAccount = new BankAccount("123456", "6538291937", "34", "nao gosto desse banco");
+		Monitor monitor = new Monitor("2014112", "133.222.999-10", dt, "Vinicius", "Mineração", "2", schoolSubject, "Sala2", bankAccount, null, "1443422");
+		p.insertMonitor(monitor);
+		/*
+		MonitorDAO p = new MonitorDAO();
+		p.deleteMonitor("2014112");*/
+		
+		/*Delete Person - OK
+		PersonDAO p = new PersonDAO();
+		p.deletePerson("2014112");*/
 		
 	}
 	
