@@ -28,7 +28,7 @@ public class MonitorDAO {
 	/*------------------------INSERT----------------------------*/
 	public void insertMonitor(Monitor monitor) {
 	
-		String sql = "insert into monitor (id, id_schoolsubject, id_supervisor, roomwork, id_bankaccount) values (?, ?, ?, ?)";
+		String sql = "insert into monitor (id, id_schoolsubject, id_supervisor, roomwork, id_bankaccount) values (?, ?, ?, ?, ?)";
 		try {
 			
 			PreparedStatement st = conn.prepareStatement(sql);
@@ -47,6 +47,7 @@ public class MonitorDAO {
 			
 			st.execute();
 			st.close();
+			System.out.println("Monitor cadastrado com sucesso!");
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
@@ -84,6 +85,7 @@ public class MonitorDAO {
 			
 			st.execute();
 			st.close();
+			System.out.println("Monitor cadastrado com sucesso!");
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}

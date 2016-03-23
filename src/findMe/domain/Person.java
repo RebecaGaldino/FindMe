@@ -23,9 +23,19 @@ public class Person {
 		setPassword(password);
 	}
 	
-	public Person(String id){
-		setId(id);
+	/**
+	 * Constructor default
+	 */
+	public Person(){
+		setId("0");
+		setCpf("0");
+		Date dt = null;
+		setBirth_dt(dt);
+		setName("0");
+		setPassword("000");
 	}
+	
+	/*---------------------------------------------------------------------------------------------------------*/
 	
 	public String getId() {
 		return id;

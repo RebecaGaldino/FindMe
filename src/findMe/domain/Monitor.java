@@ -8,25 +8,17 @@ public class Monitor extends Student{
 	private Supervisor supervisor;
 	private String roomWork;
 	private BankAccount bankAccount;
+	
+	
 	/**
-	 * 
-	 * @param id
-	 * @param cpf
-	 * @param birth_dt
-	 * @param name
-	 * @param course
-	 * @param year
-	 * @param subject
-	 * @param roomWork
-	 * @param bankAccount
-	 * @param password
+	 * Constructor default
 	 */
-	public Monitor(String id, String cpf, Date birth_dt, String name, String course, String year, SchoolSubject subject, String roomWork, BankAccount bankAccount, String password) {
-		super(id, cpf, birth_dt, name, course, year, password);
+	public Monitor(){
+		super();
 		setSubject(subject);
+		setSupervisor(supervisor);
+		setRoomWork("0");
 		setBankAccount(bankAccount);
-		setRoomWork(roomWork);
-		
 	}
 	
 	/**
@@ -36,20 +28,22 @@ public class Monitor extends Student{
 	 * @param birth_dt
 	 * @param name
 	 * @param course
-	 * @param year
+	 * @param grade
 	 * @param subject
 	 * @param roomWork
 	 * @param bankAccount
 	 * @param supervisor
 	 * @param password
 	 */
-	public Monitor(String id, String cpf, Date birth_dt, String name, String course, String year, SchoolSubject subject, String roomWork, BankAccount bankAccount, Supervisor supervisor, String password) {
-		super(id, cpf, birth_dt, name, course, year, password);
+	public Monitor(String id, String cpf, Date birth_dt, String name, String course, String grade, SchoolSubject subject, String roomWork, BankAccount bankAccount, Supervisor supervisor, String password) {
+		super(id, cpf, birth_dt, name, course, grade, password);
 		setSubject(subject);
 		setBankAccount(bankAccount);
 		setSupervisor(supervisor);
+		setRoomWork(roomWork);
 		
 	}
+	
 	/*---------------------------------------------------------------------------------------------------------*/
 	
 	public Supervisor getSupervisor() {

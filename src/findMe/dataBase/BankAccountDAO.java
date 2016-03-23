@@ -35,6 +35,7 @@ public class BankAccountDAO {
 			
 			st.execute();
 			st.close();
+			System.out.println("Bank Account Cadastrado com sucesso");
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}

@@ -45,7 +45,7 @@ public class PersonDAO {
 				
 				st.execute();
 				st.close();
-				System.out.println("Cadastrado com sucesso!");
+				System.out.println("Person cadastrado com sucesso!");
 			} catch (SQLException e) {
 				throw new RuntimeException(e);
 			}
@@ -71,7 +71,7 @@ public class PersonDAO {
 				
 				st.execute();
 				st.close();
-				System.out.println("Cadastrado com sucesso!");
+				System.out.println("Person cadastrado com sucesso!");
 			} catch (SQLException e) {
 				throw new RuntimeException(e);
 			}
@@ -98,7 +98,7 @@ public class PersonDAO {
 				
 				st.execute();
 				st.close();
-				System.out.println("Cadastrado com sucesso!");
+				System.out.println("Person cadastrado com sucesso!");
 			} catch (SQLException e) {
 				throw new RuntimeException(e);
 			}
@@ -122,7 +122,7 @@ public class PersonDAO {
 				
 				st.execute();
 				st.close();
-				System.out.println("Cadastrado com sucesso!");
+				System.out.println("Person cadastrado com sucesso!");
 			} catch (SQLException e) {
 				throw new RuntimeException(e);
 			}

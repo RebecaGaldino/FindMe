@@ -37,6 +37,7 @@ public class StudentDAO{
 				
 				st.execute();
 				st.close();
+				System.out.println("Studant cadastrado com sucesso!");
 			} catch (SQLException e) {
 				System.out.println(e.getMessage());
 			}
@@ -57,11 +58,12 @@ public class StudentDAO{
 				pdao.insertPerson(monitor);
 				
 				st.setString(1, monitor.getId());
-				st.setString(1, monitor.getCourse());
-				st.setString(1, monitor.getGrade());
+				st.setString(2, monitor.getCourse());
+				st.setString(3, monitor.getGrade());
 				
 				st.execute();
 				st.close();
+				System.out.println("Studant cadastrado com sucesso!");
 			} catch (SQLException e) {
 				System.out.println(e.getMessage());
 			}

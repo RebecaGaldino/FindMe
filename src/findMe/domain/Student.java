@@ -12,7 +12,14 @@ public class Student extends Person{
 	private String course;
 	private String grade;
 	
-	
+	/**
+	 * Constructor default
+	 */
+	public Student(){
+		super();
+		setCourse("0");
+		setGrade("0");
+	}
 	
 	public Student(String id, String cpf, Date birth_dt, String name, String course, String grade, String password) {
 		super(id, cpf, birth_dt, name, password);
