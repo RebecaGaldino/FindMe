@@ -39,8 +39,6 @@ public class Main extends Application {
 		    // generic exception handling
 		    e.printStackTrace();
 		}
-		
-
 	}
 	
 	public static void main(String[] args){

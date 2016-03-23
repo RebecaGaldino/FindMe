@@ -18,6 +18,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
 public class LoginScreenFXMLController implements Initializable {
+	
 	@FXML
 	private ImageView logoSupervisor;
 	@FXML
@@ -35,9 +36,11 @@ public class LoginScreenFXMLController implements Initializable {
 	@FXML
 	private PasswordField txtPassword;
 	@FXML
-	private ImageView imageView;
-	
+	private ImageView logoUser;
+	@FXML
 	private String choice = InitialScreenFXMLController.choice;
+	
+	
 	@FXML
 	public void btLogin() throws IOException{
 		
@@ -57,13 +60,13 @@ public class LoginScreenFXMLController implements Initializable {
 	
 	
 	private void choice(){
-		if(choice == "Professor"){
+		if(choice.equals("Professor")){
 			logoSupervisor.setVisible(true);
 		}
-		else if(choice == "Gerente"){
+		else if(choice.equals("Gerente")){
 			logoManager.setVisible(true);
 		}
-		else if(choice == "Monitor"){
+		else if(choice.equals("Monitor")){
 			logoMonitor.setVisible(true);
 		}
 	}
