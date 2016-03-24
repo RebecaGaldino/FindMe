@@ -6,11 +6,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="findMe.UI.Controller.RegisterMonitorFXMLController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0" prefWidth="732.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="findMe.UI.Controller.RegisterMonitorFXMLController">
    <children>
-      <ScrollPane hbarPolicy="NEVER" layoutY="-1.0" prefHeight="400.0" prefWidth="600.0">
+      <ScrollPane hbarPolicy="NEVER" layoutY="-1.0" prefHeight="475.0" prefWidth="732.0">
          <content>
-            <AnchorPane prefHeight="661.0" prefWidth="600.0" style="-fx-background-color: white;">
+            <AnchorPane prefHeight="1141.0" prefWidth="732.0" style="-fx-background-color: white;">
                <children>
                   <Label layoutX="60.0" layoutY="40.0" style="-fx-background-color: orange;" text="Dados pessoais" textFill="WHITE">
                      <font>
@@ -19,37 +19,6 @@
                   </Label>
                   <Separator layoutX="21.0" layoutY="59.0" prefHeight="0.0" prefWidth="34.0" />
                   <Separator layoutX="247.0" layoutY="60.0" prefHeight="4.0" prefWidth="301.0" />
-                  <GridPane layoutX="75.0" layoutY="114.0" prefHeight="166.0" prefWidth="407.0">
-                     <children>
-                        <Label style="-fx-background-color: orange;" text="Nome" textFill="WHITE">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </Label>
-                        <Label style="-fx-background-color: orange;" text="CPF" textFill="WHITE" GridPane.rowIndex="1">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </Label>
-                        <Label style="-fx-background-color: orange;" text="Nascimento" textFill="WHITE" GridPane.rowIndex="2">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="txtCpf" promptText="Ex: 122.123.124-25" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField fx:id="txtName" promptText="Ex: Joao Joaquim Emanuel" style="-fx-border-color: orange;" GridPane.columnIndex="1" />
-                        <TextField fx:id="txtBirth_dt" prefHeight="27.0" prefWidth="225.0" promptText="Ex: 03/02/1999" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                     </children>
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="191.0" minWidth="10.0" prefWidth="114.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="293.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                  </GridPane>
                   <Separator layoutX="26.0" layoutY="380.0" prefHeight="0.0" prefWidth="34.0" />
                   <Label layoutX="70.0" layoutY="364.0" style="-fx-background-color: orange;" text="Dados acadêmicos" textFill="WHITE">
                      <font>
@@ -57,7 +26,7 @@
                      </font>
                   </Label>
                   <Separator layoutX="291.0" layoutY="381.0" prefHeight="3.0" prefWidth="244.0" />
-                  <GridPane layoutX="79.0" layoutY="440.0" prefHeight="131.0" prefWidth="407.0">
+                  <GridPane layoutX="75.0" layoutY="440.0" prefHeight="84.0" prefWidth="407.0">
                      <children>
                         <Label style="-fx-background-color: orange;" text="Matrícula" textFill="WHITE">
                            <font>
@@ -78,6 +47,127 @@
                      </columnConstraints>
                      <rowConstraints>
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+                  <GridPane layoutX="75.0" layoutY="93.0" prefHeight="206.0" prefWidth="407.0">
+                     <children>
+                        <Label style="-fx-background-color: orange;" text="Nome" textFill="WHITE">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Label style="-fx-background-color: orange;" text="Nascimento" textFill="WHITE" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtName" promptText="Ex: Joao Joaquim Emanuel" style="-fx-border-color: orange;" GridPane.columnIndex="1" />
+                        <TextField fx:id="txtBirth_dt" promptText="Ex: 03/02/1999" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label style="-fx-background-color: orange;" text="Sexo" textFill="WHITE" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Label style="-fx-background-color: orange;" text="CPF" textFill="WHITE" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtCpf" promptText="Ex: 122.123.124-25" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label style="-fx-background-color: orange;" text="RG" textFill="WHITE" GridPane.rowIndex="4">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtRg" promptText="Ex: 4.123.145" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <ComboBox fx:id="cbSex" editable="true" prefWidth="150.0" promptText="Sexo" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="191.0" minWidth="10.0" prefWidth="114.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="293.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+                  <Separator layoutX="169.0" layoutY="612.0" prefHeight="3.0" prefWidth="380.0" />
+                  <Label layoutX="67.0" layoutY="592.0" style="-fx-background-color: orange;" text="Contato" textFill="WHITE">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="17.0" layoutY="610.0" prefHeight="2.0" prefWidth="34.0" />
+                  <GridPane layoutX="75.0" layoutY="669.0" prefHeight="30.0" prefWidth="372.0">
+                     <children>
+                        <Label style="-fx-background-color: orange;" text="Email" textFill="WHITE">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtEmail" prefHeight="27.0" prefWidth="212.0" promptText="Ex: example@example.com" style="-fx-border-color: orange;" GridPane.columnIndex="1" />
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.0" minWidth="10.0" prefWidth="86.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="299.0" minWidth="10.0" prefWidth="201.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+                  <GridPane layoutX="75.0" layoutY="842.0" prefHeight="103.0" prefWidth="488.0">
+                     <children>
+                        <Label style="-fx-background-color: orange;" text="Senha" textFill="WHITE">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Label style="-fx-background-color: orange;" text="Confirmar Senha" textFill="WHITE" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <PasswordField fx:id="txtPassword" promptText="***********" style="-fx-border-color: orange;" GridPane.columnIndex="1" />
+                        <PasswordField fx:id="txtConfirmPassword" promptText="**********" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="191.0" minWidth="10.0" prefWidth="114.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="293.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+                  <Separator layoutX="260.0" layoutY="792.0" prefHeight="3.0" prefWidth="265.0" />
+                  <Label layoutX="61.0" layoutY="773.0" style="-fx-background-color: orange;" text="Dados de acesso" textFill="WHITE">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="17.0" layoutY="790.0" prefHeight="2.0" prefWidth="34.0" />
+                  <GridPane layoutX="359.0" layoutY="1060.0">
+                     <children>
+                        <Button fx:id="btCancel" mnemonicParsing="false" onAction="#btCancel" style="-fx-background-color: transparent;" text="Cancelar">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btRegister" mnemonicParsing="false" onAction="#btRegister" prefHeight="36.0" prefWidth="90.0" style="-fx-background-color: orange; -fx-text-fill: white;" text="Cadastrar" GridPane.columnIndex="1">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                   </GridPane>

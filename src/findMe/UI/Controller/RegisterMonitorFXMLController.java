@@ -4,6 +4,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import findMe.domain.Monitor;
+import findMe.domain.Supervisor;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -58,11 +62,33 @@ public class RegisterMonitorFXMLController implements Initializable{
 	private Button btRegister;
 	@FXML
 	private Button btCancel;
+	@FXML
+	private TextField txtRg;
+	@FXML
+	private TextField txtEmail;
+	@FXML
+	private ComboBox cbSex;
 	
+	ObservableList<String> optionsCBSEX = 
+		    FXCollections.observableArrayList("Masculino","Feminino");
+	
+	
+	
+	public void btRegister(){
+		
+		Monitor m = new Monitor();
+		Supervisor s = new Supervisor();
+	}
+	
+	
+	public void btCancel(){
+		
+		
+	}
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
+		cbSex.setItems(optionsCBSEX);
 		
 	}
 
