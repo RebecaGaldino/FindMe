@@ -89,3 +89,7 @@ on monitor.id = person.id
 inner join schoolsubject
 on monitor.id_schoolsubject = schoolsubject.id
 group by namesubject;
+
+/* ----------------------------------------------------- NEW ONES: Manager's triggers */
+
+SELECT * from manager;
