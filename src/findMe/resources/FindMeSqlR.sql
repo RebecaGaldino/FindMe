@@ -61,3 +61,5 @@ GROUP BY A1.namePerson; #Exibe os horários dos monitores
 SELECT A1.namePerson, A2.roomwork FROM person A1, monitor A2
 WHERE A2.id = A1.id
 GROUP BY A1.namePerson; #Exibe os monitores e suas salas de atendimento
+
+/* NEW ONES: Schoolsubject's triggers */
