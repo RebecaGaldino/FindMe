@@ -13,18 +13,35 @@ public class Person {
 	private Date birth_dt;
 	private String name;
 	private String password;
+	private String sex;
+	private String rg;
+	private String email;
 	
 	
-	public Person(String id, String cpf, Date birth_dt, String name, String password){
+	/**
+	 * Person's constructor
+	 * @param id
+	 * @param cpf
+	 * @param birth_dt
+	 * @param name
+	 * @param password
+	 * @param sex
+	 * @param rg
+	 * @param email
+	 */
+	public Person(String id, String cpf, Date birth_dt, String name, String password, String sex, String rg, String email){
 		setId(id);
 		setCpf(cpf);
 		setBirth_dt(birth_dt);
 		setName(name);
 		setPassword(password);
+		setSex(sex);
+		setRg(rg);
+		setEmail(email);
 	}
 	
 	/**
-	 * Constructor default
+	 * Person's default constructor
 	 */
 	public Person(){
 		setId("0");
@@ -33,6 +50,8 @@ public class Person {
 		setBirth_dt(dt);
 		setName("0");
 		setPassword("000");
+		setSex("0");
+		setRg("example@example.com");
 	}
 	
 	/*---------------------------------------------------------------------------------------------------------*/
@@ -76,6 +95,28 @@ public class Person {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
+
+	public String getSex() {
+		return sex;
+	}
+
+	public void setSex(String sex) {
+		sex = sex;
+	}
+
+	public String getRg() {
+		return rg;
+	}
+
+	public void setRg(String rg) {
+		this.rg = rg;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 }

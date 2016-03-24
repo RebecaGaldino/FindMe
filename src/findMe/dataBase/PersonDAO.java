@@ -30,7 +30,7 @@ public class PersonDAO {
 		 */
 		public void insertPerson(Person person) {
 
-			String sql = "insert into person (id, cpf, namePerson, birth_dt, password)values (?,?,?,?,?)";
+			String sql = "insert into person (id, cpf, namePerson, birth_dt, password, sex, email, rg)values (?,?,?,?,?,?,?,?)";
 			try {
 				
 				PreparedStatement st = conn.prepareStatement(sql);
@@ -41,6 +41,9 @@ public class PersonDAO {
 				st.setString(3, person.getName());
 				st.setDate(4, new java.sql.Date(person.getBirth_dt().getTime()));
 				st.setString(5,person.getPassword());
+				st.setString(6,person.getSex());
+				st.setString(7,person.getEmail());
+				st.setString(8,person.getRg());
 
 				
 				st.execute();
@@ -57,7 +60,7 @@ public class PersonDAO {
 		 */
 		public void insertPerson(Supervisor supervisor) {
 
-			String sql = "insert into person (id, cpf, namePerson, birth_dt, password)values (?,?,?,?,?)";
+			String sql = "insert into person (id, cpf, namePerson, birth_dt, password, sex, email, rg)values (?,?,?,?,?,?,?,?)";
 			try {
 				
 				PreparedStatement st = conn.prepareStatement(sql);
@@ -68,6 +71,9 @@ public class PersonDAO {
 				st.setString(3, supervisor.getName());
 				st.setDate(4, new java.sql.Date(supervisor.getBirth_dt().getTime()));
 				st.setString(5, supervisor.getPassword());
+				st.setString(6, supervisor.getSex());
+				st.setString(7, supervisor.getEmail());
+				st.setString(8, supervisor.getRg());
 				
 				st.execute();
 				st.close();
@@ -83,7 +89,7 @@ public class PersonDAO {
 		 */
 		public void insertPerson(Student student) {
 
-			String sql = "insert into person (id, cpf, namePerson, birth_dt, password)values (?,?,?,?,?)";
+			String sql = "insert into person (id, cpf, namePerson, birth_dt, password, sex, email, rg)values (?,?,?,?,?,?,?,?)";
 			try {
 				
 				PreparedStatement st = conn.prepareStatement(sql);
@@ -94,6 +100,9 @@ public class PersonDAO {
 				st.setString(3, student.getName());
 				st.setDate(4,  new java.sql.Date(student.getBirth_dt().getTime()));
 				st.setString(5, student.getPassword());
+				st.setString(6, student.getSex());
+				st.setString(7, student.getEmail());
+				st.setString(8, student.getRg());
 
 				
 				st.execute();
@@ -109,7 +118,7 @@ public class PersonDAO {
 		 */
 		public void insertPerson(Monitor monitor) {
 
-			String sql = "insert into person (id, cpf, namePerson, birth_dt, password)values (?,?,?,?,?)";
+			String sql = "insert into person (id, cpf, namePerson, birth_dt, password, sex, email, rg)values (?,?,?,?,?,?,?,?)";
 			try {
 				PreparedStatement st = conn.prepareStatement(sql);
 
@@ -118,6 +127,9 @@ public class PersonDAO {
 				st.setString(3, monitor.getName());
 				st.setDate(4, new java.sql.Date(monitor.getBirth_dt().getTime()));
 				st.setString(5, monitor.getPassword());
+				st.setString(6, monitor.getSex());
+				st.setString(7, monitor.getEmail());
+				st.setString(8, monitor.getRg());
 
 				
 				st.execute();
@@ -150,7 +162,7 @@ public class PersonDAO {
 		 * @param person
 		 */
 		public void updatePerson(Person person) {
-			String sql = "update person set cpf = ?, namePerson = ?, birth_dt = ?, password = ? where id = ?";
+			String sql = "update person set cpf = ?, namePerson = ?, birth_dt = ?, password = ?, sex = ?, email = ?, rg = ? where id = ?";
 			try {
 				
 				PreparedStatement st = conn.prepareStatement(sql);
@@ -159,7 +171,10 @@ public class PersonDAO {
 				st.setString(2, person.getName());
 				st.setDate(3, new java.sql.Date(person.getBirth_dt().getTime()));
 				st.setString(4, person.getPassword());
-				st.setString(5, person.getId());
+				st.setString(5, person.getSex());
+				st.setString(6, person.getEmail());
+				st.setString(7, person.getRg());
+				st.setString(8, person.getId());
 				
 				st.execute();
 				st.close();

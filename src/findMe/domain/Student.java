@@ -13,7 +13,7 @@ public class Student extends Person{
 	private String grade;
 	
 	/**
-	 * Constructor default
+	 * Student's default constructor
 	 */
 	public Student(){
 		super();
@@ -21,8 +21,21 @@ public class Student extends Person{
 		setGrade("0");
 	}
 	
-	public Student(String id, String cpf, Date birth_dt, String name, String course, String grade, String password) {
-		super(id, cpf, birth_dt, name, password);
+	/**
+	 * Student's constructor
+	 * @param id
+	 * @param cpf
+	 * @param birth_dt
+	 * @param name
+	 * @param course
+	 * @param grade
+	 * @param password
+	 * @param sex
+	 * @param rg
+	 * @param email
+	 */
+	public Student(String id, String cpf, Date birth_dt, String name, String course, String grade, String password, String sex, String rg, String email) {
+		super(id, cpf, birth_dt, name, password, sex, rg, email);
 		setCourse(course);
 		setGrade(grade);
 	}

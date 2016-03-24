@@ -9,15 +9,25 @@ import java.util.Date;
 public class Supervisor extends Person{
 	
 	/**
-	 * Constructor default
+	 * Supervisor's default constructor
 	 */
 	public Supervisor(){
 		super();
 	}
 	
-	
-	public Supervisor(String id, String cpf, Date birth_dt, String name, String password) {
-		super(id, cpf, birth_dt, name, password);
+	/**
+	 * Supervisor's constructor
+	 * @param id
+	 * @param cpf
+	 * @param birth_dt
+	 * @param name
+	 * @param password
+	 * @param sex
+	 * @param rg
+	 * @param email
+	 */
+	public Supervisor(String id, String cpf, Date birth_dt, String name, String password, String sex, String rg, String email) {
+		super(id, cpf, birth_dt, name, password, sex, rg, email);
 	}
 	
 }

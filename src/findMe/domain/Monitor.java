@@ -11,7 +11,7 @@ public class Monitor extends Student{
 	
 	
 	/**
-	 * Constructor default
+	 * Monitor's default constructor
 	 */
 	public Monitor(){
 		super();
@@ -22,26 +22,28 @@ public class Monitor extends Student{
 	}
 	
 	/**
-	 * Constructor with Supervisor ID
+	 * Monitor's constructor
 	 * @param id
 	 * @param cpf
 	 * @param birth_dt
 	 * @param name
+	 * @param password
+	 * @param sex
+	 * @param rg
+	 * @param email
 	 * @param course
 	 * @param grade
 	 * @param subject
 	 * @param roomWork
 	 * @param bankAccount
 	 * @param supervisor
-	 * @param password
 	 */
-	public Monitor(String id, String cpf, Date birth_dt, String name, String course, String grade, SchoolSubject subject, String roomWork, BankAccount bankAccount, Supervisor supervisor, String password) {
-		super(id, cpf, birth_dt, name, course, grade, password);
+	public Monitor(String id, String cpf, Date birth_dt, String name, String password, String sex, String rg, String email, String course, String grade, SchoolSubject subject, String roomWork, BankAccount bankAccount, Supervisor supervisor) {
+		super(id, cpf, birth_dt, name, password, sex, rg, email, course, grade);
 		setSubject(subject);
 		setBankAccount(bankAccount);
 		setSupervisor(supervisor);
 		setRoomWork(roomWork);
-		
 	}
 	
 	/*---------------------------------------------------------------------------------------------------------*/
