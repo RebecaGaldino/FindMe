@@ -171,11 +171,11 @@ REFERENCES schoolsubject(id)
 
 insert into bankaccount (id, numberaccount, agency, typeaccount, notes) 
 
-values("000001", "1234567891", "43", "Corrente", "."),
+values("000001", "1234567891", "Corrente", "43", "."),
 
-("000002", "9876543211", "55", "Corrente", "."),
+("000002", "9876543211", "Corrente", "34", "."),
 
-("000003", "9876543210", "76", "Poupanca", ".");
+("000003", "9876543210", "Poupanca", "56", ".");
 
 insert into person (id, cpf, birth_dt, namePerson, password,  sex, email, rg) 
 
@@ -229,13 +229,13 @@ insert into supervisor_schoolsubject(id_supervisor, id_schoolsubject) values
 
  
 
- insert into monitor(id, id_supervisor, id_schoolsubject, roomwork, bankaccount) values
+ insert into monitor(id, id_supervisor, id_schoolsubject, id_bankaccount, roomwork) values
 
- ("20141004019", "20122003011", "122", "Sala A", "1212121"),
+ ("20141004019", "20122003011", "122", "000001", "Sala A"),
 
- ("20151004018", "20111002017", "134", "Sala B", "989898989"),
+ ("20151004018", "20111002017", "134", "000002", "Sala B"),
 
- ("20131004017", "20102001040", "110", "Sala C", "6892929");
+ ("20131004017", "20102001040", "110", "000003", "Sala C");
 
         
 
