@@ -64,7 +64,7 @@ id VARCHAR(11) NOT NULL,
 
     PRIMARY KEY(id),
 
-    CONSTRAINT fk_supervisor_person  FOREIGN KEY (id) REFERENCES person(id)
+    CONSTRAINT fk_manager_person  FOREIGN KEY (id) REFERENCES person(id)
 
 );
 
