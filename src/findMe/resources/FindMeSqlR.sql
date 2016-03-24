@@ -63,3 +63,5 @@ WHERE A2.id = A1.id
 GROUP BY A1.namePerson; #Exibe os monitores e suas salas de atendimento
 
 /* NEW ONES: Schoolsubject's triggers */
+
+
