@@ -5,7 +5,7 @@ USE findme;
 
 CREATE TABLE person( 
 
-id VARCHAR(11) NOT NULL,
+	id VARCHAR(11) NOT NULL,
 
     cpf VARCHAR(14) NOT NULL,
 
@@ -14,6 +14,12 @@ id VARCHAR(11) NOT NULL,
     namePerson VARCHAR(100) NOT NULL,
     
     password VARCHAR(100) NOT NULL,
+    
+    sex VARCHAR(10) NOT NULL,
+    
+    email VARCHAR(100) NOT NULL,
+    
+    rg VARCHAR(9) NOT NULL,
 
     
 
@@ -171,19 +177,19 @@ values("000001", "1234567891", "43", "Corrente", "."),
 
 ("000003", "9876543210", "76", "Poupanca", ".");
 
-insert into person (id, cpf, birth_dt, namePerson) 
+insert into person (id, cpf, birth_dt, namePerson, password,  sex, email, rg) 
 
-values("20141004019", "111.222.333-44", '1999-11-07', "Maria"), 
+values("20141004019", "111.222.333-44", '1999-11-07', "Maria", "euamoarroz","feminino", "maria@gmail.com", "67894584"), 
 
-("20151004018", "555.666.777-88", '1999-11-07', "Joao"), 
+("20151004018", "555.666.777-88", '1999-11-07', "Joao",  "thezueraneverends", "masculino", "joaoluis@hotmail.com", "45672346"), 
 
-("20131004017", "999.111.000-11", '1998-10-06', "Pedro"), 
+("20131004017", "999.111.000-11", '1998-10-06', "Pedro", "metralhadora", "masculino", "pedroot@ymail.com", "87903456"), 
 
-("20122003011", "555.667.001-25", '1995-09-05', "Joana"), 
+("20122003011", "555.667.001-25", '1995-09-05', "Joana", "iamafeminist", "feminino", "joaninha@gmail.com", "783465738"), 
 
-("20111002017", "434.567.090-11", '1995-05-03', "Mateus"), 
+("20111002017", "434.567.090-11", '1995-05-03', "Mateus", "littlemonster4life", "masculino", "matt023@hotmail.com", "23459683"), 
 
-("20102001040", "234.897.001-09", '1997-09-06', "Davi"); 
+("20102001040", "234.897.001-09", '1997-09-06', "Davi", "easpedrinhas", "masculino", "davinodabilia@gmail.com", "48573909"); 
 
 insert into student (course, grade, id) 
 
