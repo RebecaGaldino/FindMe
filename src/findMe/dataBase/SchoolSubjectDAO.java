@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.*;
 
+import findMe.domain.AuxiliarObject;
 import findMe.domain.Person;
 import findMe.domain.SchoolSubject;
 import findMe.domain.Supervisor;
@@ -137,12 +138,11 @@ public class SchoolSubjectDAO {
 				
 	}
 	
-     //IMPORTANTE: TESTE E TEMPORÁRIA
+     /* IMPORTANTE: TESTE E TEMPORÁRIA
 	 /**
 	 * Return the subjects's name and the supervisor related to them 
 	 * @return List with the supervisors and subjects' names 
 	 * @author Rebeca Galdino  
-	 */
 	public Map<List<SchoolSubject>,List<Supervisor>> getSubjectsandSupervisorsMap(){
 		String sql = "SELECT schoolsubject.namesubject as Disciplina, person.nameperson as Supervisor from person "
 				+"inner join supervisor on supervisor.id = person.id "
@@ -184,9 +184,9 @@ public class SchoolSubjectDAO {
 	
 
 	}
+	*/
 	
-	/* A SER USADA CASO A COM MAP NAO FUNCIONAR 
-	public List<Person> getSubjectsandSupervisors(){
+	public List<AuxiliarObject> getSubjectsandSupervisors(){
 		String sql = "SELECT schoolsubject.namesubject as Disciplina, person.nameperson as Supervisor from person "
 				+"inner join supervisor on supervisor.id = person.id "
 				+"inner join schoolsubject on schoolsubject.id is not null "
@@ -194,7 +194,7 @@ public class SchoolSubjectDAO {
 				+"order by Disciplina";
 		
 	try {
-		List<Person> persons = new ArrayList<Person>();
+		List<AuxiliarObject> subjectsandsupervisors = new ArrayList<AuxiliarObject>();
 		
 		PreparedStatement st = conn.prepareStatement(sql);
 		
@@ -202,17 +202,19 @@ public class SchoolSubjectDAO {
 		
 		while(rs.next()){
 			
-			Person p = new Person();
-			p.setId(rs.getString("Disciplina"));
-			p.setName(rs.getString("Supervisor"));
+
+			AuxiliarObject a = new AuxiliarObject();
+			a.setA(rs.getString("Disciplina"));
+			a.setB(rs.getString("Supervisor"));
 			
-			persons.add(p);
+			subjectsandsupervisors.add(a);
+			
 			
 		}
 		
 		rs.close();
 		st.close();
-		return persons;
+		return subjectsandsupervisors;
 			
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -221,20 +223,20 @@ public class SchoolSubjectDAO {
 	
 
 	}
-	*/
+	
 	/**
 	 * Show all the names of a subject's monitor
 	 * @return List with names of subjects and their monitors
 	 * @author Rebeca Galdino
 	 */
-	public List<Person> getMonitorsofasubject(){
+	public List<AuxiliarObject> getMonitorsofasubject(){
 		String sql = "SELECT schoolsubject.namesubject as Disciplina, person.nameperson as Monitor from person "
 				+"inner join monitor on monitor.id = person.id "
 				+"inner join schoolsubject on monitor.id_schoolsubject = schoolsubject.id "
 				+"order by Disciplina";
 	try {
 				
-				List<Person> persons = new ArrayList<Person>();
+				List<AuxiliarObject> monitorsandsubjects = new ArrayList<AuxiliarObject>();
 				
 				PreparedStatement st = conn.prepareStatement(sql);
 				
@@ -243,17 +245,17 @@ public class SchoolSubjectDAO {
 				
 				while(rs.next()){
 					
-					Person p = new Person();
-					p.setId(rs.getString("Disciplina"));
-					p.setName(rs.getString("Monitor"));
+					AuxiliarObject a = new AuxiliarObject();
+					a.setA(rs.getString("Disciplina"));
+					a.setB(rs.getString("Monitor"));
 					
-					persons.add(p);
+					monitorsandsubjects.add(a);
 					
 				}
 				
 				rs.close();
 				st.close();
-				return persons;
+				return monitorsandsubjects;
 			} catch (SQLException e) {
 				System.out.println(e.getMessage());
 			}
