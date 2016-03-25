@@ -43,7 +43,7 @@ public class TestR {
 		for(Person p : s.getMonitorsofasubject()){
 			
 			System.out.println(p.getId()+" "+p.getName());
-		}		
+		}
 		*/
 		
 		/*-------------- Subjects and supervisors test (COM o MAP) --------------- */
@@ -61,7 +61,7 @@ public class TestR {
 		    showSupervisors(entry.getValue()); */
 			System.out.println(entry.getKey().get(i).getName() + " " + entry.getValue().get(i).getName());
 			i++;
-		}
+		} 
 		
 	}	
 	/* Para ser usado caso vá manualmente e separado 
