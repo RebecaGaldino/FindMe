@@ -4,17 +4,13 @@ import java.util.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+import findMe.dataBase.ManagerDAO;
 import findMe.dataBase.MonitorDAO;
 import findMe.dataBase.PersonDAO;
 import findMe.dataBase.SchoolSubjectDAO;
 import findMe.dataBase.StudentDAO;
 import findMe.dataBase.SupervisorDAO;
-import findMe.domain.BankAccount;
-import findMe.domain.Monitor;
-import findMe.domain.AuxiliarObject;
-import findMe.domain.SchoolSubject;
-import findMe.domain.Student;
-import findMe.domain.Supervisor;
+import findMe.domain.*;
 
 public class TestR {
 	public static void main(String[] args) throws ParseException {
@@ -46,6 +42,12 @@ public class TestR {
 		}*/
 		
 		
-		
+		/*-----------------Manager exposion of info test-------------*/
+		/*ManagerDAO m = new ManagerDAO();
+		for(Person p : m.getManagersInformations()){
+			System.out.println(p.getName() + " " + p.getSex() + " " + p.getId() + " " + p.getCpf() + " " + p.getRg() + " " + p.getBirth_dt() + " "
+		   + " " + p.getEmail() + " "+ p.getPassword() );
+		}
+		*/
 	}
 }
