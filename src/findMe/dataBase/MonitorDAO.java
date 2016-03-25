@@ -132,8 +132,8 @@ public class MonitorDAO{
 			while(rs.next()){
 				
 				Person p = new Person();
-				p.setId(rs.getString("Nome"));
-				p.setName(rs.getString("Matricula"));
+				p.setId(rs.getString("Matricula"));
+				p.setName(rs.getString("Nome"));
 				
 				persons.add(p);
 				

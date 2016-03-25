@@ -23,12 +23,12 @@ public class Test {
 		
 		
 		/*----------------Teste getMonitorsAndIds-----------------------*/
-		/*MonitorDAO m = new MonitorDAO();
+		MonitorDAO m = new MonitorDAO();
 		for(Person p : m.getMonitorsAndIds()){
 			
-			System.out.println(p.getId()+" "+p.getName());
+			System.out.println(p.getName()+" "+p.getId());
 		
-		}*/
+		}
 		
 		
 		
@@ -57,6 +57,16 @@ public class Test {
 		PersonDAO p = new PersonDAO();
 		Person person = new Person("20141009157", "2174282", convertStringToSqlString(inputStr), "Marcus", "123456", "Masculino", "4.112.544", "example@example.com");
 		p.insertPerson(person);*/
+		
+		
+		/*-----------Teste userChecks-----------------------------------*/
+		/*PersonDAO p = new PersonDAO();
+		if(p.userChecks("20192001040", "easperinhas")){
+			System.out.println("S");
+		}
+		else{
+			System.out.println("N");
+		}*/
 		
 	}
 	
