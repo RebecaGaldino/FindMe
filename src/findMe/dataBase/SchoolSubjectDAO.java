@@ -138,53 +138,6 @@ public class SchoolSubjectDAO {
 				
 	}
 	
-     /* IMPORTANTE: TESTE E TEMPORÁRIA
-	 /**
-	 * Return the subjects's name and the supervisor related to them 
-	 * @return List with the supervisors and subjects' names 
-	 * @author Rebeca Galdino  
-	public Map<List<SchoolSubject>,List<Supervisor>> getSubjectsandSupervisorsMap(){
-		String sql = "SELECT schoolsubject.namesubject as Disciplina, person.nameperson as Supervisor from person "
-				+"inner join supervisor on supervisor.id = person.id "
-				+"inner join schoolsubject on schoolsubject.id is not null "
-				+"inner join supervisor_schoolsubject on supervisor.id = supervisor_schoolsubject.id_supervisor and schoolsubject.id = supervisor_schoolsubject.id_schoolsubject " 
-				+"order by Disciplina";
-		
-	try {
-		
-		List<SchoolSubject> subjects = new ArrayList<SchoolSubject>();
-		List<Supervisor> supervisors = new ArrayList<Supervisor>();
-		Map<List<SchoolSubject>,List<Supervisor>> subjectsandsupervisors = new HashMap<List<SchoolSubject>,List<Supervisor>>();
-		
-		PreparedStatement st = conn.prepareStatement(sql);
-		
-		ResultSet rs = st.executeQuery();
-		
-		while(rs.next()){
-			
-			SchoolSubject s = new SchoolSubject();
-			s.setName(rs.getString("Disciplina"));
-			Supervisor su = new Supervisor();
-			su.setName(rs.getString("Supervisor"));
-			
-			subjects.add(s);
-			supervisors.add(su);
-			
-		}
-		
-		subjectsandsupervisors.put(subjects, supervisors);
-		rs.close();
-		st.close();
-		return subjectsandsupervisors;
-			
-		} catch (SQLException e) {
-			System.out.println(e.getMessage());
-		}
-		return null;
-	
-
-	}
-	*/
 	
 	public List<AuxiliarObject> getSubjectsandSupervisors(){
 		String sql = "SELECT schoolsubject.namesubject as Disciplina, person.nameperson as Supervisor from person "
