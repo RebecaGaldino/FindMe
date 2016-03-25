@@ -88,18 +88,16 @@ public class SupervisorDAO{
 			return " ";
 		}
 		
-		/**
-		 * 
-		 */
 		public void updateSupervisor(Supervisor supervisor){
 			String sql = "update person set cpf = ?, namePerson = ?, birth_dt = ?, password = ? where id = ?";
 			try {
 				
 				PreparedStatement st = conn.prepareStatement(sql);
+				PersonDAO p = new PersonDAO();
 				
 				st.setString(1, supervisor.getCpf());
 				st.setString(2, supervisor.getName());
-				st.setDate(3, (java.sql.Date)supervisor.getBirth_dt());
+				st.setDate(3, p.convertStringToDate(supervisor.getBirth_dt()));
 				st.setString(4, supervisor.getId());
 				
 				st.execute();

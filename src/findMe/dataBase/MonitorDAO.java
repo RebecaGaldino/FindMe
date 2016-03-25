@@ -115,8 +115,9 @@ public class MonitorDAO{
 	/**
 	 * Lista e exibe todos os monitores e suas matrículas
 	 * @return ArrayList
+	 * @author ViniFarias
 	 */
-	public List<Person> getMonitoresAndIds(){
+	public List<Person> getMonitorsAndIds(){
 		String sql = "SELECT person.namePerson Nome, person.id Matricula FROM monitor "
 					+"INNER JOIN student ON monitor.id = student.id "
 					+"INNER JOIN person ON student.id = person.id ORDER BY person.namePerson";
