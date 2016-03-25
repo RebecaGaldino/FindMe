@@ -44,6 +44,16 @@ public class LoginScreenFXMLController implements Initializable {
 	@FXML
 	public void btLogin() throws IOException{
 		
+		if(choice.equals("Professor")){
+			Parent root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/InitialScreen.fxml"));
+		}
+		else if(choice.equals("Gerente")){
+			Parent root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/ManagersScreen.fxml"));
+		}
+		else if(choice.equals("Monitor")){
+			Parent root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/InitialScreen.fxml"));
+		}
+		
 	}
 	
 	

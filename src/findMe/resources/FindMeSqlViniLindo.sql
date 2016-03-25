@@ -5,7 +5,6 @@ FOR EACH ROW
 BEGIN
 	DELETE FROM person WHERE id = OLD.id;
 END$$
-
 DELIMITER $$
 
 /*Antes de deletar um supervisor apaga na tabela supervisor_schoolsubject a linha com mesmo id
@@ -44,3 +43,96 @@ BEGIN
 END$$
 DELIMITER $$
 
+/*-----------------------------------------------------------------------------------------*/
+
+/*Exibe todos os monitores e suas matrículas*/
+SELECT person.namePerson Nome, person.id Matricula
+FROM monitor
+INNER JOIN student
+ON monitor.id = student.id
+INNER JOIN person
+ON student.id = person.id
+ORDER BY person.namePerson;
+
+
+/*Exibe todas as informações dos monitores - 
+ * person, student e e ids do supervisor, schoolsubject e banckaccount*/
+SELECT person.*, student.course, student.grade, monitor.id_supervisor, monitor.id_schoolsubject, monitor.id_bankaccount, monitor.roomwork
+FROM monitor
+INNER JOIN student
+ON monitor.id = student.id
+INNER JOIN person
+ON student.id = person.id
+ORDER BY person.namePerson;
+
+
+/*Exibe todas as informações de um monitor - 
+ * person, student e e ids do supervisor, schoolsubject e banckaccount*/
+SELECT person.*, student.course, student.grade, monitor.id_supervisor, monitor.id_schoolsubject, monitor.id_bankaccount, monitor.roomwork
+FROM monitor
+INNER JOIN student
+ON monitor.id = student.id
+INNER JOIN person
+ON student.id = person.id
+WHERE monitor.id = "20151004018";/*No DAO substituir isso por uma variavel*/
+
+
+/*Exibe os horários de um monitor*/
+SELECT timetable.dayname, timetable.begin_time, timetable.end_time
+FROM person p
+INNER JOIN monitor
+ON p.id = monitor.id
+INNER JOIN timetable
+ON monitor.id = timetable.id_monitor
+WHERE monitor.id = "20151004018";/*No DAO substituir isso por uma variavel*/
+
+
+/*Exibe os horários de todos os monitores, em ordem alfabética */
+SELECT p.namePerson, timetable.dayname, timetable.begin_time, timetable.end_time
+FROM person p
+INNER JOIN monitor
+ON p.id = monitor.id
+INNER JOIN timetable
+ON monitor.id = timetable.id_monitor
+ORDER BY namePerson;
+
+
+/*Exibe os horários de todos os monitores em um dia específico*/
+SELECT p.namePerson, timetable.dayname, timetable.begin_time, timetable.end_time
+FROM person p
+INNER JOIN monitor
+ON p.id = monitor.id
+INNER JOIN timetable
+ON monitor.id = timetable.id_monitor
+HAVING timetable.dayname = "Quarta";/*No DAO substituir isso por uma variavel*/
+
+
+/*Exibe as informações bancárias de um monitor*/
+SELECT bankaccount.*
+FROM person p
+INNER JOIN monitor
+ON p.id = monitor.id
+INNER JOIN bankaccount
+ON monitor.id_bankaccount = bankaccount.id
+WHERE monitor.id = "20151004018";/*No DAO substituir isso por uma variavel*/
+
+
+/*Exibe os monitores de um supervisor*/
+SELECT p.*
+FROM person p
+INNER JOIN monitor
+ON p.id = monitor.id
+INNER JOIN supervisor
+ON monitor.id_supervisor = supervisor.id
+WHERE supervisor.id = "20111002017"/*No DAO substituir isso por uma variavel*/
+ORDER BY p.id;
+
+
+/*Exibe todas as contas bancarias de todos os monitores, por ordem alfabética do namePerson*/
+SELECT p.namePerson, bankaccount.*
+FROM person p
+INNER JOIN monitor
+ON p.id = monitor.id
+INNER JOIN bankaccount
+ON monitor.id_bankaccount = bankaccount.id
+ORDER BY p.namePerson;

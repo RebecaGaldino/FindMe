@@ -56,6 +56,18 @@ id VARCHAR(11) NOT NULL,
 
 );
 
+CREATE TABLE manager( 
+
+id VARCHAR(11) NOT NULL,
+
+    
+
+    PRIMARY KEY(id),
+
+    CONSTRAINT fk_manager_person  FOREIGN KEY (id) REFERENCES person(id)
+
+);
+
 CREATE TABLE schoolsubject(
 
 id VARCHAR(100) NOT NULL,
@@ -189,7 +201,9 @@ values("20141004019", "111.222.333-44", '1999-11-07', "Maria", "euamoarroz","fem
 
 ("20111002017", "434.567.090-11", '1995-05-03', "Mateus", "littlemonster4life", "masculino", "matt023@hotmail.com", "23459683"), 
 
-("20102001040", "234.897.001-09", '1997-09-06', "Davi", "easpedrinhas", "masculino", "davinodabilia@gmail.com", "48573909"); 
+("20102001040", "234.897.001-09", '1997-09-06', "Davi", "easpedrinhas", "masculino", "davinodabilia@gmail.com", "48573909"),
+
+("20122671058", "274.950.032-14", '1976-10-10', "El grande", "poderosochefao", "masculino", "admin@gmail.com", "32173969"); 
 
 insert into student (course, grade, id) 
 
@@ -207,7 +221,9 @@ insert into supervisor(id) values
 
  ("20102001040");
 
+ insert into manager(id) values
  
+ ("20122671058");
 
  insert into schoolsubject(id, namesubject) values
 
@@ -277,6 +293,9 @@ where id_monitor = "20141004019" and id = "20141004018" and id =
 
  where id = "20122003011" and id = "20111002017" and id = "20151004018";
 
+	 delete from manager 
+ 
+ where id = "20122671058";
     
 
     delete from schoolsubject
@@ -700,6 +719,8 @@ drop table supervisor_schoolsubject;
 drop table schoolsubject;
 
 drop table supervisor;
+
+drop table manager;
 
 drop table student;
 
