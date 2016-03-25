@@ -1,6 +1,6 @@
 package main;
 import java.text.*;
-import java.util.Date;
+import java.util.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -30,7 +30,7 @@ public class TestR {
 		}*/
 		
 		
-		/*-------------- Subjects and supervisors test --------------- */
+		/*-------------- Subjects and supervisors test (SEM o MAP) --------------- */
 		/*SchoolSubjectDAO s = new SchoolSubjectDAO();
 		for(Person p : s.getSubjectsandSupervisors()){
 			
@@ -38,7 +38,7 @@ public class TestR {
 		}		
 		*/
 		
-		/*-------------- Subjects and supervisors test --------------- */
+		/*-------------- Subjects and monitors test --------------- */
 		/*SchoolSubjectDAO s = new SchoolSubjectDAO();
 		for(Person p : s.getMonitorsofasubject()){
 			
@@ -46,8 +46,36 @@ public class TestR {
 		}		
 		*/
 		
-	
+		/*-------------- Subjects and supervisors test (COM o MAP) --------------- */
+		SchoolSubjectDAO s = new SchoolSubjectDAO();
+		Map<List<SchoolSubject>,List<Supervisor>> map = s.getSubjectsandSupervisorsMap();
+		
+		Iterator<Map.Entry<List<SchoolSubject>,List<Supervisor>>> entries = map.entrySet().iterator();
+		int i = 0;
+		while (entries.hasNext()) {
+			
+			Map.Entry<List<SchoolSubject>,List<Supervisor>> entry = entries.next();
+		   /* System.out.println("Key = ");
+		    showSubjects(entry.getKey()); 
+		    System.out.println(" Value = ");
+		    showSupervisors(entry.getValue()); */
+			System.out.println(entry.getKey().get(i).getName() + " " + entry.getValue().get(i).getName());
+			i++;
+		}
+		
+	}	
+	/* Para ser usado caso vá manualmente e separado 
+	public static void showSubjects(List<SchoolSubject> s){
+		for(int p = 0; p < s.size(); p++)
+			System.out.println("Name: " + s.get(p).getName());
 	}
+	
+	public static void showSupervisors(List<Supervisor> s){
+		for(int p = 0; p < s.size(); p++)
+			System.out.println("Name: " + s.get(p).getName());
+	}
+	
+	*/
 	
 	
 	/**
