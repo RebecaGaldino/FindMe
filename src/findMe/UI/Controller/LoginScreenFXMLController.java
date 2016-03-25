@@ -37,23 +37,14 @@ public class LoginScreenFXMLController implements Initializable {
 	private PasswordField txtPassword;
 	@FXML
 	private ImageView logoUser;
-	@FXML
-	private String choice = InitialScreenFXMLController.choice;
 	
+	
+	private String choice = InitialScreenFXMLController.choice;
+	private String rootFXML;
 	
 	@FXML
 	public void btLogin() throws IOException{
-		
-		if(choice.equals("Professor")){
-			Parent root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/InitialScreen.fxml"));
-		}
-		else if(choice.equals("Gerente")){
-			Parent root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/ManagersScreen.fxml"));
-		}
-		else if(choice.equals("Monitor")){
-			Parent root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/InitialScreen.fxml"));
-		}
-		
+		Parent root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/"+rootFXML));	
 	}
 	
 	
@@ -72,12 +63,15 @@ public class LoginScreenFXMLController implements Initializable {
 	private void choice(){
 		if(choice.equals("Professor")){
 			logoSupervisor.setVisible(true);
+			rootFXML = "SupervisorsScreen.fxml";
 		}
 		else if(choice.equals("Gerente")){
 			logoManager.setVisible(true);
+			rootFXML = "ManagersScreen.fxml";
 		}
 		else if(choice.equals("Monitor")){
 			logoMonitor.setVisible(true);
+			rootFXML = "MonitorsScreen.fxml";
 		}
 	}
 	

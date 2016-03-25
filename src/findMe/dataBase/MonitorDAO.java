@@ -4,17 +4,13 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.sql.PreparedStatement;
-
-
-
-
-
-
-
 import findMe.domain.Monitor;
+import findMe.domain.Person;
 
-public class MonitorDAO {
+public class MonitorDAO{
 	private Connection conn;
 	
 	public MonitorDAO() {
@@ -102,9 +98,11 @@ public class MonitorDAO {
 			stmt.setString(1,cpf);
 			
 			ResultSet rs = stmt.executeQuery();
+			
 			while (rs.next()) {
 				 idStudent = rs.getString("id");
-				}
+			}
+			
 			return idStudent;
 			
 		} catch(Exception e){
@@ -112,6 +110,41 @@ public class MonitorDAO {
 			System.out.println("Exception is :"+e);
 		}
 			return " ";
+	}
+	
+	/**
+	 * Lista e exibe todos os monitores e suas matrículas
+	 * @return ArrayList
+	 */
+	public List<Person> getMonitoresAndIds(){
+		String sql = "SELECT person.namePerson Nome, person.id Matricula FROM monitor "
+					+"INNER JOIN student ON monitor.id = student.id "
+					+"INNER JOIN person ON student.id = person.id ORDER BY person.namePerson";
+		try {
+			
+			List<Person> persons = new ArrayList<Person>();
+			
+			PreparedStatement st = conn.prepareStatement(sql);
+			
+			ResultSet rs = st.executeQuery();
+			
+			while(rs.next()){
+				
+				Person p = new Person();
+				p.setId(rs.getString("Nome"));
+				p.setName(rs.getString("Matricula"));
+				
+				persons.add(p);
+				
+			}
+			
+			rs.close();
+			st.close();
+			return persons;
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
 		}
+		return null;
+	}
 	
 }

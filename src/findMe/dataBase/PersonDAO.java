@@ -5,6 +5,8 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.sql.ResultSet;
 
 import findMe.domain.Monitor;
@@ -181,6 +183,33 @@ public class PersonDAO {
 			} catch (SQLException e) {
 				System.out.println(e.getMessage());
 			}
+		}
+		
+		/**
+		 * Verifica se existe uma pessoa cadastrada com determinado id no banco
+		 * @param id
+		 * @return boolean
+		 */
+		public boolean checksId(String id){
+			String sql = "SELECT id from person where id = "+id;
+			
+			try {
+			
+				PreparedStatement st = conn.prepareStatement(sql);
+			
+				ResultSet rs = st.executeQuery();
+			
+				if(rs.next()){
+					return true;
+				}
+				else{
+					return false;
+				}
+			
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+				return false;
 		}
 		
 }

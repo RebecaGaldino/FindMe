@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 
 import findMe.dataBase.MonitorDAO;
 import findMe.dataBase.PersonDAO;
+import findMe.dataBase.SchoolSubjectDAO;
 import findMe.dataBase.StudentDAO;
 import findMe.dataBase.SupervisorDAO;
 import findMe.domain.BankAccount;
@@ -44,7 +45,7 @@ public class Test {
 		Student student = new Student("2014112", "133.222.999-10", dt, "Vinicius", "Mineração", "2", "123456");
 		p.insertStudent(student);*/
 		
-		/*Inserção de Monitor - */
+		/*Inserção de Monitor - 
 		String inputStr = "01/05/2011";
 		Date dt;
 		DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
@@ -54,7 +55,9 @@ public class Test {
 		BankAccount bankAccount = new BankAccount("123459", "6538291937", "34", "nao gosto desse banco");
 		Supervisor supervisor = new Supervisor("20141005", "122.223.345-90", dt, "Joao", "134y248");
 		Monitor monitor = new Monitor("2014119", "133.222.999-10", dt, "Vinicius", "Mineração", "2", schoolSubject, "Sala2", bankAccount, supervisor, "1443422");
-		p.insertMonitor(monitor);
+		p.insertMonitor(monitor);*/
+		
+		
 		
 		
 		/*Inserção de Monitor - 
@@ -75,6 +78,32 @@ public class Test {
 		/*Delete Person - OK
 		PersonDAO p = new PersonDAO();
 		p.deletePerson("2014112");*/
+		
+		/*------------------------------------------------------------*/
+		MonitorDAO m = new MonitorDAO();
+		for(Person p : m.getMonitoresAndIds()){
+			
+			System.out.println(p.getId()+" "+p.getName());
+			
+		}
+		
+		//Teste do checksId
+		/*PersonDAO p = new PersonDAO();
+		if(p.checksId("20102001039")){
+			System.out.println("S");
+		}
+		else{
+			System.out.println("N");
+		}*/
+		
+		//Teste do checksNameSubject
+		/*SchoolSubjectDAO s = new SchoolSubjectDAO();
+		if(s.checksNameSubject("Fisica")){
+			System.out.println("S");
+		}
+		else{
+			System.out.println("N");
+		}*/
 		
 	}
 	

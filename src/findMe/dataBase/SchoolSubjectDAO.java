@@ -71,4 +71,31 @@ public class SchoolSubjectDAO {
 		}
 	}
 	
+	/**
+	 * Verifica se existe uma disciplina cadastrada com determinado nome no banco
+	 * @param nameSubject
+	 * @return boolean
+	 */
+	public boolean checksNameSubject(String nameSubject){
+		String sql = "SELECT schoolsubject.namesubject "
+					+"FROM schoolsubject WHERE schoolsubject.namesubject = \""+nameSubject+"\"";
+		try {
+		
+			PreparedStatement st = conn.prepareStatement(sql);
+		
+			ResultSet rs = st.executeQuery();
+		
+			if(rs.next()){
+				return true;
+			}
+			else{
+				return false;
+			}
+		
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+			return false;
+	}
+	
 }
