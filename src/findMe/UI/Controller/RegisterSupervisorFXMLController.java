@@ -65,7 +65,7 @@ public class RegisterSupervisorFXMLController implements Initializable{
 	 * Necessario criar um Bot�oMenu onde o manager seleciona as disciplinas do supervisor
 	 * Necessario validar as informa��es que s�o setadas na interface
 	 */
-	public void btRegister() throws IOException, ParseException, SQLException{
+	public Supervisor btRegister() throws IOException, ParseException, SQLException{
 		try {
 			
 			
@@ -78,13 +78,14 @@ public class RegisterSupervisorFXMLController implements Initializable{
 			supervisor.setId(txtId.getText());
 			
 			DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-			supervisor.setBirth_dt((java.util.Date)formatter.parse(txtBirth_dt.getText()));
+			supervisor.setBirth_dt(txtBirth_dt.getText());
 			
 			supervisor.setCpf(txtCpf.getText());
 			supervisor.setRg(txtRg.getText());
 			supervisor.setEmail(txtEmail.getText());
 			supervisor.setPassword(txtPassword.getText());
 			
+			return supervisor;
 			
 			
 			
@@ -93,6 +94,7 @@ public class RegisterSupervisorFXMLController implements Initializable{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return null;
 	}
 	
 	

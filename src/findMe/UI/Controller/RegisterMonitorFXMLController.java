@@ -2,8 +2,11 @@ package findMe.UI.Controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 
+import findMe.actions.ManagerActions;
 import findMe.domain.Monitor;
 import findMe.domain.Supervisor;
 import javafx.collections.FXCollections;
@@ -27,7 +30,9 @@ import javafx.stage.Stage;
  *
  */
 public class RegisterMonitorFXMLController implements Initializable{
-		
+	ObservableList<String> optionsCBSEX = 
+		    FXCollections.observableArrayList("Masculino","Feminino");
+	
 	@FXML
 	private TextField txtId;
 	@FXML
@@ -69,16 +74,35 @@ public class RegisterMonitorFXMLController implements Initializable{
 	@FXML
 	private ComboBox cbSex;
 	
-	ObservableList<String> optionsCBSEX = 
-		    FXCollections.observableArrayList("Masculino","Feminino");
 	
 	
 	
-	public void btRegister(){
-		
-		Monitor m = new Monitor();
-		Supervisor s = new Supervisor();
+	
+	public Monitor btRegister(){
+		try {
+			ManagerActions mAct = new ManagerActions();
+			
+			Monitor monitor = new Monitor();
+			monitor.setName(txtName.getText());
+			monitor.setId(txtId.getText());
+			monitor.setBirth_dt(txtBirth_dt.getText());
+			monitor.setCpf(txtCpf.getText());
+			monitor.setRg(txtRg.getText());
+			monitor.setEmail(txtEmail.getText());
+			monitor.setPassword(txtPassword.getText());
+			
+			return monitor;
+			
+			
+			
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
+	
 	
 	
 	public void btCancel(){
