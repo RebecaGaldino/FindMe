@@ -1,7 +1,7 @@
 package findMe.domain;
 /**
  * Auxiliar class to be used in DAO manipulations, within selects
- * @author Rebeca Galdino and Vini Farias 
+ * @author Rebeca Galdino 
  *
  */
 public class AuxiliarObject {
