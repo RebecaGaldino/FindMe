@@ -25,7 +25,8 @@ public class Main extends Application {
 
 			this.primaryStage = primaryStage;
 			
-			Parent root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/TesteFXML.fxml"));
+			//Parent root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/InitialScreen.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/findMe/TestTableView/TestFXML.fxml"));
 			
 			this.scene = new Scene(root);
 			

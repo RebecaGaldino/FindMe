@@ -185,6 +185,7 @@ public class PersonDAO {
 			}
 		}
 		
+		
 		/**
 		 * Verifica se existe uma pessoa cadastrada com determinado id no banco
 		 * @param id
@@ -213,6 +214,45 @@ public class PersonDAO {
 				return false;
 		}
 		
+		
+		/**
+		 * Verifica a senha e id do usuário
+		 * @param id
+		 * @param password
+		 * @return boolean
+		 * @
+		 */
+		public boolean userChecks(String id, String password){
+			String sql = "SELECT person.password from person where id = "+id;
+			
+			try {
+			
+				PreparedStatement st = conn.prepareStatement(sql);
+			
+				ResultSet rs = st.executeQuery();
+			
+				if(rs.next()){
+					String pass = rs.getString("password");
+					
+					if(password.equals(pass)){
+						return true;
+					}
+					else{
+						return false;
+					}
+				}
+				else{
+					return false;
+				}
+			
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+				return false;
+		}
+		
+		
+		/*----------Métodos Auxiliares----------------*/
 		/**
 		 * Convert String to sql date
 		 * @param date
