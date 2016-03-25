@@ -240,6 +240,7 @@ public class SchoolSubjectDAO {
 				
 				ResultSet rs = st.executeQuery();
 				
+				
 				while(rs.next()){
 					
 					Person p = new Person();
