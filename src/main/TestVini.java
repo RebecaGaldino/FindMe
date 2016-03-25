@@ -17,18 +17,18 @@ import findMe.domain.SchoolSubject;
 import findMe.domain.Student;
 import findMe.domain.Supervisor;
 
-public class Test {
+public class TestVini {
 	public static void main(String[] args) throws ParseException {
 		
 		
 		
 		/*----------------Teste getMonitorsAndIds-----------------------*/
-		MonitorDAO m = new MonitorDAO();
+		/*MonitorDAO m = new MonitorDAO();
 		for(Person p : m.getMonitorsAndIds()){
 			
 			System.out.println(p.getName()+" "+p.getId());
 		
-		}
+		}*/
 		
 		
 		
@@ -41,6 +41,8 @@ public class Test {
 			System.out.println("N");
 		}*/
 		
+		
+		
 		/*------------------Teste do checksNameSubject------------------*/
 		/*SchoolSubjectDAO s = new SchoolSubjectDAO();
 		if(s.checksNameSubject("Fisica")){
@@ -49,6 +51,7 @@ public class Test {
 		else{
 			System.out.println("N");
 		}*/
+		
 		
 		
 		/*-----------Teste convertStringToSqlString---------------------*/
@@ -68,6 +71,13 @@ public class Test {
 			System.out.println("N");
 		}*/
 		
+		
+		
+		/*----------------Teste getSupervisorsAndIds-----------------------*/
+		/*SupervisorDAO s = new SupervisorDAO();
+		for(Person p : s.getSupervisorsAndIds()){
+			System.out.println(p.getName()+" "+p.getId());
+		}*/
 	}
 	
 	/**

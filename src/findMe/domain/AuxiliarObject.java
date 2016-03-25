@@ -13,6 +13,8 @@ public class AuxiliarObject {
 	private int e;
 	private double f;
 	private double g;
+	
+	
 	public String getA() {
 		return a;
 	}
