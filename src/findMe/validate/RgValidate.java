@@ -15,10 +15,14 @@ public class RgValidate {
 	 * 
 	 * @param name
 	 * @return
+	 * @throws CustomException 
 	 */
-	public static boolean validate(final String name){
+	public static boolean validate(final String name) throws CustomException{
 		pattern = Pattern.compile(RG_PATTERN);
 		matcher = pattern.matcher(name.trim());
-		return matcher.matches();
+		if(matcher.matches())
+			return true;
+		else
+	    	  throw new CustomException("RG inválido!");
 	}
 }

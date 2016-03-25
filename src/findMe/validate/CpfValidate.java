@@ -1,49 +1,42 @@
 package findMe.validate;
-
+/**
+ * CPF Validate made by Carlos Caldas
+ * Link: https://www.vivaolinux.com.br/script/Codigo-para-validar-CPF-e-CNPJ-otimizado
+ * @author thayanneLuiza
+ *
+ */
 public class CpfValidate {
+	private static final int[] pesoCPF = {11, 10, 9, 8, 7, 6, 5, 4, 3, 2};	
+		
+	
+	private static int calcularDigito(String str, int[] peso) {
+	      int soma = 0;
+	      for (int indice=str.length()-1, digito; indice >= 0; indice-- ) {
+	         digito = Integer.parseInt(str.substring(indice,indice+1));
+	         soma += digito*peso[peso.length-str.length()+indice];
+	      }
+	      soma = 11 - soma % 11;
+	      return soma > 9 ? 0 : soma;
+	  }
 
-		/**
-		 * Cpf validate
-		 * @param cpf
-		 * @return boolean validation
-		 */
-		public static boolean ifCpf (String cpf )
-	   {
-
-			String aux = cpf.substring(0, 2) + cpf.substring(3, 6) + cpf.substring(7, 10) + cpf.substring(11, 15);
-
-			int[] multi1 = { 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
-			int sum = 0;
-
-			for (int i = 1; i < 13; i++) {
-				sum += multi1[i - 1] * Integer.parseInt(aux.substring(i - 1, i));
-			}
-
-			if (sum % 11 < 2) {
-				aux += "0";
-			} else {
-				aux += String.format("%d", 11 - (sum % 11));
-			}
-
-			int[] multi2 = { 6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
-			sum = 0;
-
-			for (int i = 1; i < 14; i++) {
-				sum += multi2[i - 1] * Integer.parseInt(aux.substring(i - 1, i));
-			}
-
-			if (sum % 11 < 2) {
-				aux += "0";
-			} else {
-				aux += String.format("%d", 11 - (sum % 11));
-			}
-
-			if (aux.charAt(aux.length() - 1) == cpf.charAt(cpf.length() - 1)
-					&& aux.charAt(aux.length() - 2) == cpf.charAt(cpf.length() - 2)) {
-				return true;
-			}
-
-			return false;
-		}
+	/**
+	 * Validate CPF
+	 * @param cpf
+	 * @return True if is validate, False if is invalid
+	 * @throws CustomException 
+	 */
+	public static boolean validate(String cpf) throws CustomException {
+	      if ((cpf==null) || (cpf.length()!=11)){
+	    	  throw new CustomException("CPF inválido!");
+	    	  
+	      }
+	
+	      Integer digito1 = calcularDigito(cpf.substring(0,9), pesoCPF);
+	      Integer digito2 = calcularDigito(cpf.substring(0,9) + digito1, pesoCPF);
+	      if(cpf.equals(cpf.substring(0,9) + digito1.toString() + digito2.toString()))
+	    	  return true;
+	      else
+	    	  throw new CustomException("CPF inválido!");
+	   }
 	
 }

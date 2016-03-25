@@ -62,8 +62,8 @@ public class RegisterSupervisorFXMLController implements Initializable{
 	
 	
 	/*!!!!!!!!!
-	 * Necessario criar um BotãoMenu onde o manager seleciona as disciplinas do supervisor
-	 * Necessario validar as informações que são setadas na interface
+	 * Necessario criar um Botï¿½oMenu onde o manager seleciona as disciplinas do supervisor
+	 * Necessario validar as informaï¿½ï¿½es que sï¿½o setadas na interface
 	 */
 	public void btRegister() throws IOException, ParseException, SQLException{
 		try {
@@ -89,7 +89,7 @@ public class RegisterSupervisorFXMLController implements Initializable{
 			
 			
 			
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
