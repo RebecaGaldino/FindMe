@@ -65,13 +65,13 @@ GROUP BY A1.namePerson; #Exibe os monitores e suas salas de atendimento
 /* ----------------------------------------------------- NEW ONES: Schoolsubject's triggers */
 
 -- Show the subjects' names
-SELECT namesubject 
+SELECT namesubject as Disciplinas
 from schoolsubject
-group by namesubject;
+order by Disciplinas;
 
 
 -- Show all the supervisors of a subject
-SELECT schoolsubject.namesubject as subject, person.nameperson as supervisor
+SELECT schoolsubject.namesubject as Disciplina, person.nameperson as Supervisor
 from person
 inner join supervisor
 on supervisor.id = person.id
@@ -79,16 +79,16 @@ inner join schoolsubject
 on schoolsubject.id is not null
 inner join supervisor_schoolsubject
 on supervisor.id = supervisor_schoolsubject.id_supervisor and schoolsubject.id = supervisor_schoolsubject.id_schoolsubject 
-group by namesubject;
+order by Disciplina;
 
 -- Show the subject's monitor name
-SELECT schoolsubject.namesubject as subject, person.nameperson as name
+SELECT schoolsubject.namesubject as Disciplina, person.nameperson as Monitor
 from person
 inner join monitor
 on monitor.id = person.id
 inner join schoolsubject
 on monitor.id_schoolsubject = schoolsubject.id
-group by namesubject;
+order by Disciplina;
 
 /* ----------------------------------------------------- NEW ONES: Manager's triggers */
 

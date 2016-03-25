@@ -8,6 +8,10 @@ public class SchoolSubject {
 		setName(name);
 		setId(id);
 	}
+	
+	public SchoolSubject(){
+		
+	}
 
 	public String getName() {
 		return name;
