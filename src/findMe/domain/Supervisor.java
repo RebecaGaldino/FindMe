@@ -26,7 +26,7 @@ public class Supervisor extends Person{
 	 * @param rg
 	 * @param email
 	 */
-	public Supervisor(String id, String cpf, Date birth_dt, String name, String password, String sex, String rg, String email) {
+	public Supervisor(String id, String cpf, String birth_dt, String name, String password, String sex, String rg, String email) {
 		super(id, cpf, birth_dt, name, password, sex, rg, email);
 	}
 	

@@ -10,7 +10,7 @@ public class RgValidate {
 	 *Pattern with only letters 
 	 */
 	
-	private static final String RG_PATTERN = "[0-9]{1}*."+"[0-9]{3}*." + "[0-9]{3}";
+	private static final String RG_PATTERN = "[0-9]{1}?\\.[0-9]{3}?\\.[0-9]{3}?";
 	/**
 	 * 
 	 * @param name

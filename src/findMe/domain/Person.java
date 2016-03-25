@@ -10,7 +10,7 @@ public class Person {
 	
 	private String id;
 	private String cpf;
-	private Date birth_dt;
+	private String birth_dt;
 	private String name;
 	private String password;
 	private String sex;
@@ -29,7 +29,9 @@ public class Person {
 	 * @param rg
 	 * @param email
 	 */
-	public Person(String id, String cpf, Date birth_dt, String name, String password, String sex, String rg, String email){
+	public Person(String id, String cpf, String birth_dt, String name, String password, String sex, 
+			String rg, String email){
+		
 		setId(id);
 		setCpf(cpf);
 		setBirth_dt(birth_dt);
@@ -46,8 +48,7 @@ public class Person {
 	public Person(){
 		setId("0");
 		setCpf("0");
-		Date dt = null;
-		setBirth_dt(dt);
+		setBirth_dt("00/00/0000");
 		setName("0");
 		setPassword("000");
 		setSex("0");
@@ -72,11 +73,11 @@ public class Person {
 		this.cpf = cpf;
 	}
 	
-	public Date getBirth_dt() {
+	public String getBirth_dt() {
 		return birth_dt;
 	}
 	
-	public void setBirth_dt(Date birth_dt) {
+	public void setBirth_dt(String birth_dt) {
 		this.birth_dt = birth_dt;
 	}
 	
@@ -101,7 +102,7 @@ public class Person {
 	}
 
 	public void setSex(String sex) {
-		sex = sex;
+		this.sex = sex;
 	}
 
 	public String getRg() {

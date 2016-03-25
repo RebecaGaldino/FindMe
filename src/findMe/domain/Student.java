@@ -34,7 +34,7 @@ public class Student extends Person{
 	 * @param rg
 	 * @param email
 	 */
-	public Student(String id, String cpf, Date birth_dt, String name, String course, String grade, String password, String sex, String rg, String email) {
+	public Student(String id, String cpf, String birth_dt, String name, String course, String grade, String password, String sex, String rg, String email) {
 		super(id, cpf, birth_dt, name, password, sex, rg, email);
 		setCourse(course);
 		setGrade(grade);

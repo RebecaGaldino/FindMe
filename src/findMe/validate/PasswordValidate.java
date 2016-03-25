@@ -5,17 +5,18 @@ import java.util.regex.Pattern;
 
 public class PasswordValidate {
 	
-	private Pattern patternPassword;
-	private Matcher matcher;
+	private static Pattern pattern;
+	private static Matcher matcher;
 	/**
 	 * Formart: Lower case, Upper case, letters, symbols and numbers
 	 */
-	private static final String PASSWORD_PATTERN = "([0-9])([a-z])([A-Z]).{6,25}";
+	private static final String PASSWORD_PATTERN = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})";
 	
-	public boolean validate(final String password) throws CustomException {
+	public static boolean validate(final String password) throws CustomException {
 		if (password == null || password.trim().equals(""))
 			return false;
-		matcher = patternPassword.matcher(password);
+		pattern = Pattern.compile(PASSWORD_PATTERN);
+		matcher = pattern.matcher(password);
 		if(matcher.matches())
 			return true;
 		else
