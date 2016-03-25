@@ -76,6 +76,7 @@ public class SchoolSubjectDAO {
 		}
 	}
 	
+	/*--------------------------CONSULTS--------------------------*/
 	/**
 	 * Verify if one subject is already in the database 
 	 * @param nameSubject
@@ -138,7 +139,11 @@ public class SchoolSubjectDAO {
 				
 	}
 	
-	
+	/**
+	 * Return the subjects's name and the supervisor related to them 
+	 * @return List with the supervisors and subjects' names 
+	 * @author Rebeca Galdino 
+	 */
 	public List<AuxiliarObject> getSubjectsandSupervisors(){
 		String sql = "SELECT schoolsubject.namesubject as Disciplina, person.nameperson as Supervisor from person "
 				+"inner join supervisor on supervisor.id = person.id "

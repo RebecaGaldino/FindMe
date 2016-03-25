@@ -92,4 +92,8 @@ order by Disciplina;
 
 /* ----------------------------------------------------- NEW ONES: Manager's triggers */
 
-SELECT * from manager;
+SELECT person.id, person.cpf, person.birth_dt as 'Data de nascimento', person.namePerson as 'Nome', person.password as 'Senha',
+person.sex as 'Sexo', person.email, person.rg
+from manager
+left join person
+on manager.id = person.id;
