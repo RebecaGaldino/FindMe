@@ -40,17 +40,17 @@
             </Text>
             <ImageView id="logoManager" fx:id="logoMonitor" fitHeight="61.0" fitWidth="67.0" layoutX="46.0" layoutY="57.0" visible="false">
                <image>
-                  <Image url="@../../../../lib/media/logoMonitor.png" />
+                  <Image url="@../../media/logoMonitor.png" />
                </image>
             </ImageView>
             <ImageView id="logoManager" fx:id="logoSupervisor" fitHeight="61.0" fitWidth="67.0" layoutX="46.0" layoutY="57.0" visible="false">
                <image>
-                  <Image url="@../../../../lib/media/logoProfessor.png" />
+                  <Image url="@../../media/logoProfessor.png" />
                </image>
             </ImageView>
             <ImageView id="logoManager" fx:id="logoManager" fitHeight="61.0" fitWidth="67.0" layoutX="46.0" layoutY="57.0" visible="false">
                <image>
-                  <Image url="@../../../../lib/media/logoGerenciador.png" />
+                  <Image url="@../../media/logoGerenciador.png" />
                </image>
             </ImageView>
          </children>
@@ -72,7 +72,7 @@
       </Text>
       <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="8.0" layoutY="68.0">
          <image>
-            <Image url="@../../../../lib/media/man-icon.png" />
+            <Image url="@../../media/man-icon.png" />
          </image>
       </ImageView>
    </children>

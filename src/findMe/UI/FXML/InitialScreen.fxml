@@ -12,7 +12,7 @@
          <children>
             <ImageView fitHeight="180.0" fitWidth="186.0" layoutX="25.0" layoutY="72.0">
                <image>
-                  <Image url="@../../../../lib/media/man-icon.png" />
+                  <Image url="@../../media/man-icon.png" />
                </image>
             </ImageView>
             <Text fill="WHITE" layoutX="220.0" layoutY="236.0" nodeOrientation="LEFT_TO_RIGHT" strokeType="OUTSIDE" strokeWidth="0.0" text="anager" textAlignment="CENTER" wrappingWidth="30.666671752929688">
@@ -56,17 +56,17 @@
             </Button>
             <ImageView fitHeight="53.0" fitWidth="54.0" layoutX="53.0" layoutY="194.0">
                <image>
-                  <Image url="@../../../../lib/media/logoMonitor.png" />
+                  <Image url="@../../media/logoMonitor.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="53.0" fitWidth="52.0" layoutX="56.0" layoutY="296.0">
                <image>
-                  <Image url="@../../../../lib/media/logoProfessor.png" />
+                  <Image url="@../../media/logoProfessor.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="53.0" fitWidth="51.0" layoutX="55.0" layoutY="394.0">
                <image>
-                  <Image url="@../../../../lib/media/logoGerenciador.png" />
+                  <Image url="@../../media/logoGerenciador.png" />
                </image>
             </ImageView>
          </children>

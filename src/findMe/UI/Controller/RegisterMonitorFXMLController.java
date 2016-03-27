@@ -171,7 +171,7 @@ public class RegisterMonitorFXMLController implements Initializable{
 			txtName.setStyle("-fx-border-color: red;");
 			//nameError.setVisible(true);
 			//pessoalPane.add(new ImageView("file:///lib/media/Error.png"), 2, 0);
-			ImageView im = new ImageView("file://lib/media/Error.png");
+			ImageView im = new ImageView("findMe/media/Error.png");
 			pessoalPane.add(im, 2, 0);
 		}
 		
