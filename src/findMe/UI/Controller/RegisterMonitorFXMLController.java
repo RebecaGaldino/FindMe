@@ -132,7 +132,7 @@ public class RegisterMonitorFXMLController implements Initializable{
 	public void btRegister(){
 		try {
 			
-			BankAccount bankAccount = new BankAccount();
+			//BankAccount bankAccount = new BankAccount();
 			Monitor monitor = new Monitor();
 			monitor.setName(txtName.getText());
 			monitor.setId(txtId.getText());
@@ -169,8 +169,10 @@ public class RegisterMonitorFXMLController implements Initializable{
 			System.out.println(NameValidate.validate(monitor.getName()));
 			valid = false;
 			txtName.setStyle("-fx-border-color: red;");
-			nameError.setVisible(true);
-			//pessoalPane.add("oi", 2, 0);
+			//nameError.setVisible(true);
+			//pessoalPane.add(new ImageView("file:///lib/media/Error.png"), 2, 0);
+			ImageView im = new ImageView("file://lib/media/Error.png");
+			pessoalPane.add(im, 2, 0);
 		}
 		
 		/**
