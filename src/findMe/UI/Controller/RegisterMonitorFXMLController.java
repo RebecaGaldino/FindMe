@@ -14,9 +14,11 @@ import findMe.validate.CpfValidate;
 import findMe.validate.CustomException;
 import findMe.validate.DateValidate;
 import findMe.validate.EmailValidate;
+import findMe.validate.GradeValidate;
 import findMe.validate.IdValidate;
 import findMe.validate.MonitorValidate;
 import findMe.validate.NameValidate;
+import findMe.validate.NumberValidate;
 import findMe.validate.PasswordValidate;
 import findMe.validate.RgValidate;
 import javafx.collections.FXCollections;
@@ -159,6 +161,9 @@ public class RegisterMonitorFXMLController implements Initializable{
 	
 	public  boolean validate(Monitor monitor) throws CustomException{
 		boolean valid = true;
+		/**
+		 * NAME
+		 */
 		if(NameValidate.validate(monitor.getName()) != null){
 			System.out.println(NameValidate.validate(monitor.getName()));
 			valid = false;
@@ -167,48 +172,90 @@ public class RegisterMonitorFXMLController implements Initializable{
 			//pessoalPane.add("oi", 2, 0);
 		}
 		
-		
+		/**
+		 * PASSWORD
+		 */
 		if((PasswordValidate.validate(monitor.getPassword())) != null){
 			valid = false;
 			txtPassword.setStyle("-fx-border-color: red;");
 			passwordError.setVisible(true);
 			//pessoalPane.add(new ImageView("file:///lib/media/Error.png"), 2, 0);	
 		}
+		/**
+		 * CPF
+		 */
 		if((CpfValidate.validate(monitor.getCpf())) != null){
 			valid = false;
 			txtCpf.setStyle("-fx-border-color: red;");
 			cpfError.setVisible(true);
 			//pessoalPane.add(new ImageView("file:///lib/media/Error.png"), 2, 0);	
 		}
+		/**
+		 * CPF
+		 */
 		if((RgValidate.validate(monitor.getRg())) != null ){
 			valid = false;
 			txtRg.setStyle("-fx-border-color: red;");
 			rgError.setVisible(true);
 			//pessoalPane.add(new ImageView("file:///lib/media/Error.png"), 2, 0);	
 		}
+		/**
+		 * DATE
+		 */
 		if((DateValidate.validate((monitor.getBirth_dt()))) != null){
 			valid = false;
 			txtBirth_dt.setStyle("-fx-border-color: red;");
 			dateError.setVisible(true);
 			//pessoalPane.add(new ImageView("file:///lib/media/Error.png"), 2, 0);	
 		}
+		/**
+		 * EMAIL
+		 */
 		if((EmailValidate.validate((monitor.getEmail()))) != null){
 			valid = false;
 			txtEmail.setStyle("-fx-border-color: red;");
 			emailError.setVisible(true);
 			//pessoalPane.add(new ImageView("file:///lib/media/Error.png"), 2, 0);	
 		}
-		
-		
-		
-		/*
-		if(!(IdValidate.validate((monitor.getId())))){
+		/**
+		 * ID
+		 */
+		if((IdValidate.validate((monitor.getId()))) != null){
 			valid = false;
-			txtName.setStyle("-fx-border-color: red;");
-			nameError.setVisible(true);
+			txtId.setStyle("-fx-border-color: red;");
+			idError.setVisible(true);
+			//pessoalPane.add(new ImageView("file:///lib/media/Error.png"), 2, 0);	
+		} 
+		/**
+		 * GRADE
+		 */
+		if((GradeValidate.validate((monitor.getGrade()))) != null){
+			valid = false;
+			txtGrade.setStyle("-fx-border-color: red;");
+			gradeError.setVisible(true);
 			//pessoalPane.add(new ImageView("file:///lib/media/Error.png"), 2, 0);	
 		}
-		  */
+		
+		
+		/**
+		 * NUMBER
+		 */
+		if( (NumberValidate.validate((monitor.getBankAccount().getAccountNumber() ))) != null){
+			valid = false;
+			txtNumberAccount.setStyle("-fx-border-color: red;");
+			numberError.setVisible(true);
+			//pessoalPane.add(new ImageView("file:///lib/media/Error.png"), 2, 0);	
+		}
+		
+		/**
+		 * NUMBER
+		 */
+		if( (NumberValidate.validate((monitor.getBankAccount().getAccountNumber() ))) != null){
+			valid = false;
+			txtNumberAccount.setStyle("-fx-border-color: red;");
+			numberError.setVisible(true);
+		}
+		
 		return valid;
 	}
 	
