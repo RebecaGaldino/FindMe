@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 
 import findMe.actions.ManagerActions;
+import findMe.domain.BankAccount;
 import findMe.domain.Monitor;
 import findMe.domain.Person;
 import findMe.domain.Supervisor;
@@ -131,7 +132,7 @@ public class RegisterMonitorFXMLController implements Initializable{
 	public void btRegister(){
 		try {
 			
-			
+			BankAccount bankAccount = new BankAccount();
 			Monitor monitor = new Monitor();
 			monitor.setName(txtName.getText());
 			monitor.setId(txtId.getText());
@@ -179,7 +180,7 @@ public class RegisterMonitorFXMLController implements Initializable{
 			valid = false;
 			txtPassword.setStyle("-fx-border-color: red;");
 			passwordError.setVisible(true);
-			//pessoalPane.add(new ImageView("file:///lib/media/Error.png"), 2, 0);	
+			pessoalPane.add(new ImageView("file:///lib/media/Error.png"), 2, 0);	
 		}
 		/**
 		 * CPF
@@ -255,6 +256,9 @@ public class RegisterMonitorFXMLController implements Initializable{
 			txtNumberAccount.setStyle("-fx-border-color: red;");
 			numberError.setVisible(true);
 		}
+		/**
+		 * 
+		 */
 		
 		return valid;
 	}
