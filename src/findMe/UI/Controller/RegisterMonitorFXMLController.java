@@ -103,9 +103,27 @@ public class RegisterMonitorFXMLController implements Initializable{
 	@FXML
 	private ImageView passwordError;
 	@FXML
-	private ImageView rgError;
+	private ImageView gradeError;
 	@FXML
-	private ImageView passwordError;
+	private ImageView sexError;
+	@FXML
+	private ImageView idError;
+	@FXML
+	private ImageView confirmError;
+	@FXML
+	private ImageView courseError;
+	@FXML
+	private ImageView subjectError;
+	@FXML
+	private ImageView roomError;
+	@FXML
+	private ImageView supervisorError;
+	@FXML
+	private ImageView numberError;
+	@FXML
+	private ImageView agencyError;
+	@FXML
+	private ImageView typeError;
 	
 	
 	public void btRegister(){
