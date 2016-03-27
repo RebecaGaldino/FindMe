@@ -5,6 +5,8 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.sql.ResultSet;
 
 import findMe.domain.Monitor;
@@ -39,7 +41,7 @@ public class PersonDAO {
 				st.setString(1, person.getId());
 				st.setString(2, person.getCpf());
 				st.setString(3, person.getName());
-				st.setDate(4, new java.sql.Date(person.getBirth_dt().getTime()));
+				st.setDate(4, convertStringToDate(person.getBirth_dt()));
 				st.setString(5,person.getPassword());
 				st.setString(6,person.getSex());
 				st.setString(7,person.getEmail());
@@ -69,7 +71,7 @@ public class PersonDAO {
 				st.setString(1, supervisor.getId());
 				st.setString(2, supervisor.getCpf());
 				st.setString(3, supervisor.getName());
-				st.setDate(4, new java.sql.Date(supervisor.getBirth_dt().getTime()));
+				st.setDate(4, convertStringToDate(supervisor.getBirth_dt()));
 				st.setString(5, supervisor.getPassword());
 				st.setString(6, supervisor.getSex());
 				st.setString(7, supervisor.getEmail());
@@ -98,7 +100,7 @@ public class PersonDAO {
 				st.setString(1, student.getId());
 				st.setString(2, student.getCpf());
 				st.setString(3, student.getName());
-				st.setDate(4,  new java.sql.Date(student.getBirth_dt().getTime()));
+				st.setDate(4,  convertStringToDate(student.getBirth_dt()));
 				st.setString(5, student.getPassword());
 				st.setString(6, student.getSex());
 				st.setString(7, student.getEmail());
@@ -125,7 +127,7 @@ public class PersonDAO {
 				st.setString(1, monitor.getId());
 				st.setString(2, monitor.getCpf());
 				st.setString(3, monitor.getName());
-				st.setDate(4, new java.sql.Date(monitor.getBirth_dt().getTime()));
+				st.setDate(4, convertStringToDate(monitor.getBirth_dt()));
 				st.setString(5, monitor.getPassword());
 				st.setString(6, monitor.getSex());
 				st.setString(7, monitor.getEmail());
@@ -169,7 +171,7 @@ public class PersonDAO {
 				
 				st.setString(1, person.getCpf());
 				st.setString(2, person.getName());
-				st.setDate(3, new java.sql.Date(person.getBirth_dt().getTime()));
+				st.setDate(3, convertStringToDate(person.getBirth_dt()));
 				st.setString(4, person.getPassword());
 				st.setString(5, person.getSex());
 				st.setString(6, person.getEmail());
@@ -183,4 +185,82 @@ public class PersonDAO {
 			}
 		}
 		
+		
+		/**
+		 * Verifica se existe uma pessoa cadastrada com determinado id no banco
+		 * @param id
+		 * @return boolean
+		 * @author ViniFarias
+		 */
+		public boolean checksId(String id){
+			String sql = "SELECT id from person where id = "+id;
+			
+			try {
+			
+				PreparedStatement st = conn.prepareStatement(sql);
+			
+				ResultSet rs = st.executeQuery();
+			
+				if(rs.next()){
+					return true;
+				}
+				else{
+					return false;
+				}
+			
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+				return false;
+		}
+		
+		
+		/**
+		 * Verifica a senha e id do usuário
+		 * @param id
+		 * @param password
+		 * @return boolean
+		 * @
+		 */
+		public boolean userChecks(String id, String password){
+			String sql = "SELECT person.password from person where id = "+id;
+			
+			try {
+			
+				PreparedStatement st = conn.prepareStatement(sql);
+			
+				ResultSet rs = st.executeQuery();
+			
+				if(rs.next()){
+					String pass = rs.getString("password");
+					
+					if(password.equals(pass)){
+						return true;
+					}
+					else{
+						return false;
+					}
+				}
+				else{
+					return false;
+				}
+			
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+				return false;
+		}
+		
+		
+		/*----------Métodos Auxiliares----------------*/
+		/**
+		 * Convert String to sql date
+		 * @param date
+		 * @return
+		 * @author ViniFarias
+		 */
+		public java.sql.Date convertStringToDate(String date){
+			java.sql.Date dt = java.sql.Date.valueOf(date);
+			return dt;
+		}
 }

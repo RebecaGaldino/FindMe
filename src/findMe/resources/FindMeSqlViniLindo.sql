@@ -45,7 +45,7 @@ DELIMITER $$
 
 /*-----------------------------------------------------------------------------------------*/
 
-/*Exibe todos os monitores e suas matrículas*/
+/*Exibe todos os monitores e suas matrículas ---- getMonitorsAndIds() ---- OK*/
 SELECT person.namePerson Nome, person.id Matricula
 FROM monitor
 INNER JOIN student

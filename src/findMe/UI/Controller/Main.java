@@ -31,7 +31,7 @@ public class Main extends Application {
 			
 			primaryStage.setTitle("Monitor Manager");
 			primaryStage.setScene(scene);
-			primaryStage.setMaximized(true);
+			primaryStage.setMaximized(false);
 			primaryStage.show();
 
 		} catch (Exception e) {
