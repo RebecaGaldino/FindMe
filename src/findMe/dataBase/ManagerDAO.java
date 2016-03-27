@@ -60,6 +60,33 @@ public class ManagerDAO {
 		}
 	}
 	
+	/*------------------------UPDATE----------------------------*/
+	public void updateManager(Manager manager) {
+		String sql = "update person set id = ?, cpf = ?, namePerson = ?, birth_dt = ?, password = ?, sex = ?, email = ?, rg = ? "
+				+ "where id = ?";
+		try {
+			
+			PreparedStatement st = conn.prepareStatement(sql);
+			PersonDAO p = new PersonDAO();
+			
+			st.setString(1, manager.getId());
+			st.setString(2, manager.getCpf());
+			st.setString(3, manager.getName());
+			st.setDate(4, p.convertStringToDate(manager.getBirth_dt()));
+			st.setString(5, manager.getPassword());
+			st.setString(6, manager.getSex());
+			st.setString(7, manager.getEmail());
+			st.setString(8, manager.getRg());
+			st.setString(9, manager.getId());
+			
+			st.execute();
+			st.close();
+			System.out.println("Gerenciador cadastrado com sucesso!");
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
 	/*-------------------------CONSULTS-------------------------*/
 	
 	/**
@@ -103,4 +130,5 @@ public class ManagerDAO {
 			return null;
 				
 	}
+	
 }

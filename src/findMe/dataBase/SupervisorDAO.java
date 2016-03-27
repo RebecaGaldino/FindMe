@@ -14,6 +14,7 @@ import findMe.domain.Person;
 import findMe.domain.Supervisor;
 
 public class SupervisorDAO{
+	/*------------------------Connection method-----------------*/
 		private Connection conn;
 		
 		public SupervisorDAO(){
@@ -23,7 +24,7 @@ public class SupervisorDAO{
 			else System.out.println("Error in DB connection");
 			
 		}	
-		
+		/*------------------------INSERT----------------------------*/
 		/**
 		 * 
 		 * @param supervisor
@@ -47,6 +48,7 @@ public class SupervisorDAO{
 			}
 		}
 		
+		/*------------------------DELETE----------------------------*/
 		/**
 		 * 
 		 * @param id
@@ -90,18 +92,24 @@ public class SupervisorDAO{
 			}
 			return " ";
 		}
-		
+		/*------------------------UPDATE----------------------------*/
 		public void updateSupervisor(Supervisor supervisor){
-			String sql = "update person set cpf = ?, namePerson = ?, birth_dt = ?, password = ? where id = ?";
+			String sql = "update person set id = ?, cpf = ?, namePerson = ?, birth_dt = ?, password = ?, sex = ?, email = ?, rg = ? "
+					+ "where id = ?";
 			try {
 				
 				PreparedStatement st = conn.prepareStatement(sql);
 				PersonDAO p = new PersonDAO();
 				
-				st.setString(1, supervisor.getCpf());
-				st.setString(2, supervisor.getName());
-				st.setDate(3, p.convertStringToDate(supervisor.getBirth_dt()));
-				st.setString(4, supervisor.getId());
+				st.setString(1, supervisor.getId());
+				st.setString(2, supervisor.getCpf());
+				st.setString(3, supervisor.getName());
+				st.setDate(4, p.convertStringToDate(supervisor.getBirth_dt()));
+				st.setString(5, supervisor.getPassword());
+				st.setString(6, supervisor.getSex());
+				st.setString(7, supervisor.getEmail());
+				st.setString(8, supervisor.getRg());
+				st.setString(9, supervisor.getId());
 				
 				st.execute();
 				st.close();
@@ -110,6 +118,7 @@ public class SupervisorDAO{
 			}
 		}
 		
+		/*-------------------------CONSULTS-------------------------*/
 		/**
 		 * Lista e exibe todos os supervisores e suas matrículas
 		 * @return ArrayList
