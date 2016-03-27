@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 
 import findMe.actions.ManagerActions;
 import findMe.domain.Supervisor;
+import findMe.validate.PersonValidate;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -77,15 +78,21 @@ public class RegisterSupervisorFXMLController implements Initializable{
 			supervisor.setName(txtName.getText());
 			supervisor.setId(txtId.getText());
 			
-			DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+			
 			supervisor.setBirth_dt(txtBirth_dt.getText());
 			
 			supervisor.setCpf(txtCpf.getText());
 			supervisor.setRg(txtRg.getText());
 			supervisor.setEmail(txtEmail.getText());
 			supervisor.setPassword(txtPassword.getText());
+			if(PersonValidate.validate(supervisor) == null){
+				mAct.registerSupervisor(supervisor);
+			}
+			else{
+				
+			}
 			
-			return supervisor;
+			
 			
 			
 			

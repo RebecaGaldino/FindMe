@@ -20,14 +20,14 @@ public class EmailValidate {
 	 * @return
 	 * @throws CustomException 
 	 */
-	public static boolean validate(final String email) throws CustomException {
+	public static CustomException validate(final String email) throws CustomException {
 		pattern = Pattern.compile(EMAIL_PATTERN);
 		matcher = pattern.matcher(email.trim());
 		if(matcher.matches()){
-			return true;
+			return null;
 		}
 		else
-	    	  throw new CustomException("Email inválido!");
+	    	  return new CustomException("Email inválido!");
 
 	}
 			

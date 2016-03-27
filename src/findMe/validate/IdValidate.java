@@ -18,9 +18,9 @@ public class IdValidate {
 	 * @return
 	 * @throws CustomException 
 	 */
-	public static boolean validate(final String email) throws CustomException {
+	public static boolean validate(final String id) throws CustomException {
 		pattern = Pattern.compile(Id_PATTERN);
-		matcher = pattern.matcher(email.trim());
+		matcher = pattern.matcher(id.trim());
 		if(matcher.matches()){
 			return true;
 		}

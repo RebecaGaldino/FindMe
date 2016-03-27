@@ -8,10 +8,10 @@ public static final String FORMATO_DATA = "dd/MM/yyyy";
 	
 	public static final int ANO_ZERO = 0;
 
-	public static boolean validate(final String value) throws CustomException {
+	public static CustomException validate(final String value) throws CustomException {
 
 		if (value == null || value.trim().equals(""))
-			return false;
+			return new CustomException("Preencha este campo!");
 
 
 		try {
@@ -22,9 +22,9 @@ public static final String FORMATO_DATA = "dd/MM/yyyy";
 			
 		} catch (ParseException e) {
 			
-			throw new CustomException("Data inválida!");
+			return new CustomException("Data inválida!");
 		}
 
-		return true;
+		return null;
 	}
 }

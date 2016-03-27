@@ -25,18 +25,18 @@ public class CpfValidate {
 	 * @return True if is validate, False if is invalid
 	 * @throws CustomException 
 	 */
-	public static boolean validate(String cpf) throws CustomException {
+	public static CustomException validate(String cpf) throws CustomException {
 	      if ((cpf==null) || (cpf.length()!=11)){
-	    	  throw new CustomException("CPF inválido!");
+	    	  return new CustomException("Preencha este campo!");
 	    	  
 	      }
 	
 	      Integer digito1 = calcularDigito(cpf.substring(0,9), pesoCPF);
 	      Integer digito2 = calcularDigito(cpf.substring(0,9) + digito1, pesoCPF);
 	      if(cpf.equals(cpf.substring(0,9) + digito1.toString() + digito2.toString()))
-	    	  return true;
+	    	  return null;
 	      else
-	    	  throw new CustomException("CPF inválido!");
+	    	  return new CustomException("CPF inválido!");
 	   }
 	
 }

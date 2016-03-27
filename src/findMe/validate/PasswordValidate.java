@@ -12,14 +12,14 @@ public class PasswordValidate {
 	 */
 	private static final String PASSWORD_PATTERN = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})";
 	
-	public static boolean validate(final String password) throws CustomException {
+	public static CustomException validate(final String password) throws CustomException {
 		if (password == null || password.trim().equals(""))
-			return false;
+			return new CustomException("Preencha este campo!");
 		pattern = Pattern.compile(PASSWORD_PATTERN);
 		matcher = pattern.matcher(password);
 		if(matcher.matches())
-			return true;
+			return null;
 		else
-	    	  throw new CustomException("Senha inválida!");
+	    	  return new CustomException("Senha inválida!");
 	}
 }

@@ -3,7 +3,7 @@ package findMe.validate;
 import findMe.domain.Person;
 
 public class PersonValidate {
-	public static boolean validate(Person person) throws CustomException{
+	public static Boolean validate(Person person) throws CustomException{
 		if(!(NameValidate.validate(person.getName())))
 			return false;
 		if(!(PasswordValidate.validate(person.getPassword())))

@@ -18,13 +18,13 @@ public class NameValidate {
 	 * @return
 	 * @throws CustomException 
 	 */
-	public static boolean validate(final String name) throws CustomException{
+	public static CustomException validate(final String name) throws CustomException{
 		pattern = Pattern.compile(NAME_PATTERN);
 		matcher = pattern.matcher(name.trim());
 		if(matcher.matches())
-			return true;
+			return null;
 		else
-	    	  throw new CustomException("Nome inválido!");
+	    	  return new CustomException("Nome inválido!");
 
 	}
 }

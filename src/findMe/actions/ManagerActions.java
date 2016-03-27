@@ -28,9 +28,14 @@ public class ManagerActions {
 	 */
 	public void registerSupervisor(Supervisor supervisor){
 		try {
-			PersonValidate.validate(supervisor);
-			SupervisorDAO sdao = new SupervisorDAO();
-			sdao.insertSupervisor(supervisor);
+			if(PersonValidate.validate(supervisor) == null){
+				SupervisorDAO sdao = new SupervisorDAO();
+				sdao.insertSupervisor(supervisor);
+			}
+			else{
+				
+			}
+			
 		} catch (CustomException e) {
 			e.printStackTrace();
 		}

@@ -3,10 +3,16 @@ package findMe.validate;
 import findMe.domain.Monitor;
 
 public class MonitorValidate {
-	public static boolean validate(Monitor monitor) throws CustomException{
-		if(!IdValidate.validate(monitor.getRoomWork()))
-			return false;
-		return true;
+	public static void validate(Monitor monitor) throws CustomException{
+		PersonValidate.validate(monitor);
+		if(!IdValidate.validate(monitor.getRoomWork()){
+			
+		}
+		if(!GradeValidate.validate(monitor.getGrade())){
+			 
+		}
+		
+		
 		
 	}
 }
