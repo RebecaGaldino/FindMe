@@ -1,10 +1,10 @@
 package findMe.actions;
 
+import findMe.customExceptions.CustomException;
 import findMe.dataBase.MonitorDAO;
 import findMe.dataBase.SupervisorDAO;
 import findMe.domain.Monitor;
 import findMe.domain.Supervisor;
-import findMe.validate.CustomException;
 import findMe.validate.MonitorValidate;
 import findMe.validate.PersonValidate;
 

@@ -3,6 +3,8 @@ package findMe.validate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import findMe.customExceptions.CustomException;
+
 public class GradeValidate {
 	private static Pattern pattern;
 	private static Matcher matcher;

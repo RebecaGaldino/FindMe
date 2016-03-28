@@ -1,4 +1,7 @@
 package findMe.validate;
+
+import findMe.customExceptions.CustomException;
+
 /**
  * CPF Validate made by Carlos Caldas
  * Link: https://www.vivaolinux.com.br/script/Codigo-para-validar-CPF-e-CNPJ-otimizado

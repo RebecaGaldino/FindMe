@@ -1,5 +1,6 @@
 package findMe.validate;
 
+import findMe.customExceptions.CustomException;
 import findMe.domain.Person;
 
 public class PersonValidate {

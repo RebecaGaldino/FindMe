@@ -3,6 +3,8 @@ package findMe.validate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import findMe.customExceptions.CustomException;
+
 public class EmailValidate {
 	
 	private static Pattern pattern;

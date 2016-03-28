@@ -7,12 +7,12 @@ import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 
 import findMe.actions.ManagerActions;
+import findMe.customExceptions.CustomException;
 import findMe.domain.BankAccount;
 import findMe.domain.Monitor;
 import findMe.domain.Person;
 import findMe.domain.Supervisor;
 import findMe.validate.CpfValidate;
-import findMe.validate.CustomException;
 import findMe.validate.DateValidate;
 import findMe.validate.EmailValidate;
 import findMe.validate.GradeValidate;

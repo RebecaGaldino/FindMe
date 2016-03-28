@@ -3,6 +3,8 @@ package findMe.validate;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+import findMe.customExceptions.CustomException;
+
 public class DateValidate {
 public static final String FORMATO_DATA = "dd/MM/yyyy";
 	
