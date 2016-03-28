@@ -47,6 +47,8 @@ import javafx.stage.Stage;
  *
  */
 public class RegisterMonitorFXMLController implements Initializable{
+
+	
 	ObservableList<String> optionsCBSEX = 
 		    FXCollections.observableArrayList("Masculino","Feminino");
 	@FXML
@@ -169,10 +171,11 @@ public class RegisterMonitorFXMLController implements Initializable{
 			System.out.println(NameValidate.validate(monitor.getName()));
 			valid = false;
 			txtName.setStyle("-fx-border-color: red;");
-			//nameError.setVisible(true);
+			nameError.setVisible(true);
 			//pessoalPane.add(new ImageView("file:///lib/media/Error.png"), 2, 0);
-			ImageView im = new ImageView("findMe/media/Error.png");
-			pessoalPane.add(im, 2, 0);
+			//ImageView im = new ImageView("findMe/media/Error.png");
+			//im.setStyle('fitHeight="15.0" fitWidth="17.0" visible="true" GridPane.columnIndex="2" GridPane.halignment="CENTER"');
+			//pessoalPane.add(im, 2, 0);
 		}
 		
 		/**
