@@ -170,6 +170,7 @@ public class RegisterSupervisorFXMLController implements Initializable{
 		}
 		
 		
+		
 		return valid;
 	}
 	

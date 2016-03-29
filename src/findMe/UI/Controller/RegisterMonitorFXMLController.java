@@ -19,6 +19,7 @@ import findMe.validate.validator.EmailValidator;
 import findMe.validate.validator.GradeValidator;
 import findMe.validate.validator.MonitorValidate;
 import findMe.validate.validator.NumberValidator;
+import findMe.validate.validator.PersonValidate;
 import findMe.validate.validator.RgValidator;
 import findMe.validate.validator.StringValidator;
 import javafx.collections.FXCollections;
@@ -179,121 +180,74 @@ public class RegisterMonitorFXMLController implements Initializable{
 		
 	}
 	
-	public  boolean validate(Monitor monitor) throws CustomException{
+	public boolean validate(Monitor monitor){
 		boolean valid = true;
 		/**
-		 * NAME
+		 * Name validator
 		 */
-		if(!(StringValidator.onlyLetters(monitor.getName()))){
+		if( !(StringValidator.onlyLetters(monitor.getName()) ) ){
 			valid = false;
 			txtName.setStyle("-fx-border-color: red;");
-			
-			//pessoalPane.add(new ImageView("file:///lib/media/Error.png"), 2, 0);
-			//ImageView im = new ImageView("findMe/media/Error.png");
-			//im.setStyle('fitHeight="15.0" fitWidth="17.0" visible="true" GridPane.columnIndex="2" GridPane.halignment="CENTER"');
-			//pessoalPane.add(im, 2, 0);
-		}
-		
-		/**
-		 * PASSWORD
-		 */
-		if(StringValidator.password(monitor.getPassword())){
-			valid = false;
-			txtPassword.setStyle("-fx-border-color: red;");
-			//passwordError.setVisible(true);
-			pessoalPane.add(new ImageView("file:///lib/media/Error.png"), 2, 0);	
 		}
 		/**
-		 * CPF
+		 * Birth_dt validator
 		 */
-		if(CpfValidator.validate(monitor.getCpf())){
-			valid = false;
-			txtCpf.setStyle("-fx-border-color: red;");
-			//cpfError.setVisible(true);
-			//pessoalPane.add(new ImageView("file:///lib/media/Error.png"), 2, 0);	
-		}
-		/**
-		 * RG
-		 */
-		if((RgValidator.validate(monitor.getRg()))  ){
-			valid = false;
-			txtRg.setStyle("-fx-border-color: red;");
-			//rgError.setVisible(true);
-			//pessoalPane.add(new ImageView("file:///lib/media/Error.png"), 2, 0);	
-		}
-		/**
-		 * DATE
-		 */
-		if( DateValidator.validate(monitor.getBirth_dt()) )   {
+		if( !(DateValidator.validate(monitor.getBirth_dt())) ){
 			valid = false;
 			txtBirth_dt.setStyle("-fx-border-color: red;");
-			dateError.setVisible(true);
-			//pessoalPane.add(new ImageView("file:///lib/media/Error.png"), 2, 0);	
 		}
 		/**
-		 * EMAIL
+		 * CPF validator
 		 */
-		if( EmailValidator.validate(monitor.getEmail())  ){
+		if( !(CpfValidator.validate(monitor.getCpf()) ) ){
 			valid = false;
-			txtEmail.setStyle("-fx-border-color: red;");
-			//emailError.setVisible(true);
-			//pessoalPane.add(new ImageView("file:///lib/media/Error.png"), 2, 0);	
+			txtCpf.setStyle("-fx-border-color: red;");
 		}
 		/**
-		 * ID
+		 * Rg validator
 		 */
-		if( !( NumberValidator.validate(monitor.getId())) ){
+		if( !(RgValidator.validate(monitor.getRg()) ) ){
+			valid = false;
+			txtRg.setStyle("-fx-border-color: red;");
+		}
+		/**
+		 * ID validator
+		 */
+		if( !(NumberValidator.validate(monitor.getId()) ) ){
 			valid = false;
 			txtId.setStyle("-fx-border-color: red;");
-			//idError.setVisible(true);
-			//pessoalPane.add(new ImageView("file:///lib/media/Error.png"), 2, 0);	
-		} 
-		/**
-		 * GRADE
-		 */
-		if( ! (GradeValidator.validate((monitor.getGrade())))){
-			valid = false;
-			txtGrade.setStyle("-fx-border-color: red;");
-			//gradeError.setVisible(true);
-			//pessoalPane.add(new ImageView("file:///lib/media/Error.png"), 2, 0);	
 		}
-		
-		
 		/**
-		 * NUMBER
+		 * Email validator
 		 */
-		if( !(NumberValidator.validate((monitor.getBankAccount().getAccountNumber() ))) ){
+		if( !(EmailValidator.validate(monitor.getEmail()) ) ){
 			valid = false;
-			txtNumberAccount.setStyle("-fx-border-color: red;");
-			//numberError.setVisible(true);
-			//pessoalPane.add(new ImageView("file:///lib/media/Error.png"), 2, 0);	
+			txtEmail.setStyle("-fx-border-color: red;");
+		}
+		/**
+		 * Password validator
+		 */
+		if( !(StringValidator.password(monitor.getPassword()) ) ){
+			valid = false;
+			txtEmail.setStyle("-fx-border-color: red;");
+			
+			if( txtConfirmPassword.getText().equals(txtPassword.getText()) ) {
+				valid = false;
+				txtConfirmPassword.setStyle("-fx-border-color: red;");
+			}
 		}
 		
 		/**
-		 * Sex
+		 * Grade validator
 		 */
+		if(!(NumberValidator.validate(monitor.getGrade()))){
+			 valid = false;
+			 txtGrade.setStyle("-fx-border-color: red;");
+		}
 		
-		/**
-		 * Course
-		 */
-		
-		/**
-		 * RoomWork
-		 */
 		
 		return valid;
 	}
-	/*
-	public boolean validate(BankAccount bankAccount){
-		/**
-		 * NUMBER
-		 
-		if( !(NumberValidator.validate( bankAccount.getAccountNumber() ) ) ){
-			boolean valid = false;
-			txtNumberAccount.setStyle("-fx-border-color: red;");
-			//numberError.setVisible(true);
-			//pessoalPane.add(new ImageView("file:///lib/media/Error.png"), 2, 0);	
-		} */
 	
 	
 	public boolean isNull(String value){
