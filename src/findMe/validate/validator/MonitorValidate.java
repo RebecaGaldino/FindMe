@@ -18,6 +18,8 @@ public class MonitorValidate {
 			return false;
 		if(!(StringValidator.onlyLetters(monitor.getName())))
 			return false;
+		
+		
 		return true;
 		
 		
