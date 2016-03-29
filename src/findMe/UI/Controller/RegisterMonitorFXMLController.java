@@ -17,7 +17,6 @@ import findMe.validate.validator.CpfValidator;
 import findMe.validate.validator.DateValidator;
 import findMe.validate.validator.EmailValidator;
 import findMe.validate.validator.GradeValidator;
-import findMe.validate.validator.IdValidate;
 import findMe.validate.validator.MonitorValidate;
 import findMe.validate.validator.NumberValidator;
 import findMe.validate.validator.RgValidator;

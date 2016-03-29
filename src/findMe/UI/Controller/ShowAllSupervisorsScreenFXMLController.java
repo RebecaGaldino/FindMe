@@ -58,7 +58,7 @@ public class ShowAllSupervisorsScreenFXMLController implements Initializable{
 	@FXML
 	private TextField txtSchoolSubject;
 	
-	private int posMonitor;
+	private int posSupervisor;
 	
 	ObservableList<Supervisor> list = FXCollections.observableArrayList();
 	
@@ -71,8 +71,8 @@ public class ShowAllSupervisorsScreenFXMLController implements Initializable{
 		tcName.setCellValueFactory(new PropertyValueFactory<Supervisor, String>("name"));
         tcId.setCellValueFactory(new PropertyValueFactory<Supervisor, String>("id"));
         
-        ObservableList<Supervisor> tableMonitorSel = tvTableView.getSelectionModel().getSelectedItems();
-        tableMonitorSel.addListener(selectorTableMonitor);
+        ObservableList<Supervisor> tableSupervisorSel = tvTableView.getSelectionModel().getSelectedItems();
+        tableSupervisorSel.addListener(selectorTableSupervisor);
 		
         
         initFilter();
@@ -105,7 +105,7 @@ public class ShowAllSupervisorsScreenFXMLController implements Initializable{
 	 * Listener da Tabela tvTableView
 	 * @author RicardoMoya - https://github.com/jarroba/Tablas-JavaFX--FXML-
 	 */
-	private final ListChangeListener<Supervisor> selectorTableMonitor =
+	private final ListChangeListener<Supervisor> selectorTableSupervisor =
             new ListChangeListener<Supervisor>() {
                 @Override
                 public void onChanged(ListChangeListener.Change<? extends Supervisor> c) {
@@ -139,7 +139,7 @@ public class ShowAllSupervisorsScreenFXMLController implements Initializable{
      */
     private void putPersonSelected() {
         final Supervisor supervisor = getTableSupervisorSelected();
-        posMonitor = list.indexOf(supervisor);
+        posSupervisor = list.indexOf(supervisor);
 
         if (supervisor != null) {
 

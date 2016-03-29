@@ -50,6 +50,8 @@ public class ShowAllMonitorsScreenFXMLController implements Initializable{
 	@FXML
 	private Button btShow;
 	@FXML
+	private Button btDelete;
+	@FXML
 	private TextField txtName;
 	@FXML
 	private TextField txtId;
@@ -88,6 +90,15 @@ public class ShowAllMonitorsScreenFXMLController implements Initializable{
 		Main.primaryStage.setScene(scene);
 		Main.primaryStage.show();
 	}
+	
+	
+	@FXML
+	public void btDelete() throws IOException{
+		
+		
+		
+	}
+	
 	
 	@FXML
 	public void btShow(){

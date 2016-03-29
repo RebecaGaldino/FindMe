@@ -1,11 +1,19 @@
 package findMe.validate.validator;
 
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
+import findMe.UI.FXML.*;
+/**
+ * 
+ * @author thayanneLuiza, ViniFarias, RebecaGaldino
+ *
+ */
 public class Main extends Application {
 	
 	public static Stage primaryStage;
@@ -23,7 +31,7 @@ public class Main extends Application {
 			
 			primaryStage.setTitle("Monitor Manager");
 			primaryStage.setScene(scene);
-			primaryStage.setMaximized(true);
+			primaryStage.setMaximized(false);
 			primaryStage.show();
 
 		} catch (Exception e) {
