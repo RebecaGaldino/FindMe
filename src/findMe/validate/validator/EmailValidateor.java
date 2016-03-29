@@ -1,11 +1,11 @@
-package findMe.validate;
+package findMe.validate.validator;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import findMe.customExceptions.CustomException;
 
-public class EmailValidate {
+public class EmailValidateor {
 	
 	private static Pattern pattern;
 	private static Matcher matcher;
@@ -22,14 +22,13 @@ public class EmailValidate {
 	 * @return
 	 * @throws CustomException 
 	 */
-	public static CustomException validate(final String email) throws CustomException {
+	public static boolean validate(final String email)  {
 		pattern = Pattern.compile(EMAIL_PATTERN);
 		matcher = pattern.matcher(email.trim());
-		if(matcher.matches()){
-			return null;
-		}
-		else
-	    	  return new CustomException("Email inválido!");
+		if(matcher.matches())
+			return true;
+		
+		return false;
 
 	}
 			

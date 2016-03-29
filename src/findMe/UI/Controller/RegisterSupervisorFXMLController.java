@@ -10,7 +10,7 @@ import java.util.ResourceBundle;
 
 import findMe.actions.ManagerActions;
 import findMe.domain.Supervisor;
-import findMe.validate.PersonValidate;
+import findMe.validate.validator.PersonValidate;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

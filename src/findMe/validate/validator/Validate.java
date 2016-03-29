@@ -1,4 +1,4 @@
-package findMe.validate;
+package findMe.validate.validator;
 
 public class Validate {
 	public static 

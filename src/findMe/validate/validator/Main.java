@@ -1,4 +1,4 @@
-package findMe.validate;
+package findMe.validate.validator;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

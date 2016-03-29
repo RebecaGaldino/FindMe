@@ -1,4 +1,4 @@
-package findMe.validate;
+package findMe.validate.validator;
 
 import findMe.customExceptions.CustomException;
 import findMe.domain.Person;

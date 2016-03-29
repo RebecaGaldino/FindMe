@@ -1,4 +1,4 @@
-package findMe.validate;
+package findMe.validate.validator;
 
 import findMe.customExceptions.CustomException;
 import findMe.domain.Person;
@@ -9,13 +9,13 @@ public class PersonValidate {
 			return false;
 		if(!(PasswordValidate.validate(person.getPassword())))
 			return false;
-		if(!(CpfValidate.validate(person.getCpf())))
+		if(!(CpfValidator.validate(person.getCpf())))
 			return false;
-		if(!(RgValidate.validate(person.getRg())))
+		if(!(RgValidator.validate(person.getRg())))
 			return false;
-		if(!(DateValidate.validate((person.getBirth_dt()))))
+		if(!(DateValidator.validate((person.getBirth_dt()))))
 			return false;
-		if(!(EmailValidate.validate((person.getEmail()))))
+		if(!(EmailValidateor.validate((person.getEmail()))))
 				return false;
 		if(!(IdValidate.validate((person.getId()))))
 			return false;

@@ -1,17 +1,17 @@
-package findMe.validate;
+package findMe.validate.validator;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import findMe.customExceptions.CustomException;
 
-public class NumberValidate {
+public class IdValidate {
 	private static Pattern pattern;
 	private static Matcher matcher;
 	/**
 	 * Accept only numbers
 	 */
-	private static final String NUMBER_PATTERN = ("[0-9]*");
+	private static final String Id_PATTERN = ("[0-9]*");
 	
 	
 	/**
@@ -21,13 +21,13 @@ public class NumberValidate {
 	 * @throws CustomException 
 	 */
 	public static CustomException validate(final String id) throws CustomException {
-		pattern = Pattern.compile(NUMBER_PATTERN);
+		pattern = Pattern.compile(Id_PATTERN);
 		matcher = pattern.matcher(id.trim());
 		if(matcher.matches()){
 			return null;
 		}
 		else
-	    	  return new CustomException("Inválido!");
+	    	  return new CustomException("Id inválido!");
 
 	}
 }

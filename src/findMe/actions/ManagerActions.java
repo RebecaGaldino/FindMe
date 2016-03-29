@@ -5,8 +5,8 @@ import findMe.dataBase.MonitorDAO;
 import findMe.dataBase.SupervisorDAO;
 import findMe.domain.Monitor;
 import findMe.domain.Supervisor;
-import findMe.validate.MonitorValidate;
-import findMe.validate.PersonValidate;
+import findMe.validate.validator.MonitorValidate;
+import findMe.validate.validator.PersonValidate;
 
 public class ManagerActions {
 

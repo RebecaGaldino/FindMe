@@ -1,11 +1,11 @@
-package findMe.validate;
+package findMe.validate.validator;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import findMe.customExceptions.CustomException;
 
-public class GradeValidate {
+public class GradeValidator {
 	private static Pattern pattern;
 	private static Matcher matcher;
 	/**
