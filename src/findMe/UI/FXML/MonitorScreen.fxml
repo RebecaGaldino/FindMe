@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="findMe.UI.Controller.MonitorScreenFXMLController">
    <children>
       <ScrollPane hbarPolicy="NEVER" prefHeight="600.0" prefWidth="900.0" vbarPolicy="NEVER">
          <content>
@@ -39,7 +39,7 @@
                         <Font size="15.0" />
                      </font>
                   </Text>
-                  <Button fx:id="btReporter" layoutX="521.0" layoutY="237.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="250.0" style="-fx-background-color: orange;" text="Gerar Relatório" textFill="WHITE">
+                  <Button fx:id="btReport" layoutX="521.0" layoutY="237.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="250.0" style="-fx-background-color: orange;" text="Gerar Relatório" textFill="WHITE">
                      <font>
                         <Font size="25.0" />
                      </font>

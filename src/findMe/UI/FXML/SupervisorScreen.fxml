@@ -6,7 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="findMe.UI.Controller.SupervisorScreenFXMLController">
    <children>
       <ScrollPane hbarPolicy="NEVER" prefHeight="600.0" prefWidth="900.0" vbarPolicy="NEVER">
          <content>
@@ -43,7 +43,7 @@
                         <Font size="25.0" />
                      </font>
                   </Button>
-                  <Button layoutX="813.0" layoutY="44.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="67.0" style="-fx-background-color: transparent;" />
+                  <Button fx:id="btLogout" layoutX="813.0" layoutY="44.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="67.0" style="-fx-background-color: transparent;" />
                </children>
             </AnchorPane>
          </content>
