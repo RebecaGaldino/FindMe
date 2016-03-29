@@ -1,5 +1,6 @@
 package findMe.UI.Controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +20,10 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -75,9 +79,14 @@ public class ShowAllMonitorsScreenFXMLController implements Initializable{
 	}
 	
 	@FXML
-	public void btBack(){
+	public void btBack() throws IOException{
 		
+		Parent root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/ManagerScreen.fxml"));
 		
+		Scene scene = new Scene(root);
+		Main.primaryStage.setTitle("Initial Screen");
+		Main.primaryStage.setScene(scene);
+		Main.primaryStage.show();
 	}
 	
 	@FXML

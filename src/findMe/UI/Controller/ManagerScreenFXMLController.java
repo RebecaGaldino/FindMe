@@ -47,13 +47,18 @@ public class ManagerScreenFXMLController implements Initializable{
 
 	/**
 	 * Supervisor
+	 * @throws IOException 
 	 */
 	
-	public void btShowSupervisors(){
-		
+	public void btShowSupervisors() throws IOException{
+		Parent root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/ShowAllSupervisorsScreen.fxml"));	
+		Scene scene = new Scene(root);
+		Main.primaryStage.setTitle("Initial Screen");
+		Main.primaryStage.setScene(scene);
+		Main.primaryStage.show();
 	}
 	
-	public void btRemoveSupervisors(){
+	public void btRemoveSupervisor(){
 		
 	}
 	

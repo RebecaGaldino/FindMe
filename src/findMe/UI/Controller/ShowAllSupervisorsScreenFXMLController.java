@@ -1,5 +1,6 @@
 package findMe.UI.Controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +22,10 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -77,8 +81,14 @@ public class ShowAllSupervisorsScreenFXMLController implements Initializable{
 	}
 	
 	@FXML
-	public void btBack(){
+	public void btBack() throws IOException{
 		
+		Parent root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/ManagerScreen.fxml"));
+		
+		Scene scene = new Scene(root);
+		Main.primaryStage.setTitle("Initial Screen");
+		Main.primaryStage.setScene(scene);
+		Main.primaryStage.show();
 		
 	}
 	
@@ -109,12 +119,12 @@ public class ShowAllSupervisorsScreenFXMLController implements Initializable{
      * Método que retorna o monitor selecionado
      * @author RicardoMoya - https://github.com/jarroba/Tablas-JavaFX--FXML-
      */
-    public Monitor getTableMonitorSelected() {
+    public Supervisor getTableSupervisorSelected() {
         if (tvTableView != null) {
             List<Supervisor> table = tvTableView.getSelectionModel().getSelectedItems();
             if (table.size() == 1) {
-                final Supervisor monitorSelected = table.get(0);
-                return monitorSelected;
+                final Supervisor supervisorSelected = table.get(0);
+                return supervisorSelected;
             }
         }
         return null;
@@ -128,7 +138,7 @@ public class ShowAllSupervisorsScreenFXMLController implements Initializable{
      * @author RicardoMoya - https://github.com/jarroba/Tablas-JavaFX--FXML-
      */
     private void putPersonSelected() {
-        final Supervisor supervisor = getTableMonitorSelected();
+        final Supervisor supervisor = getTableSupervisorSelected();
         posMonitor = list.indexOf(supervisor);
 
         if (supervisor != null) {
@@ -136,7 +146,7 @@ public class ShowAllSupervisorsScreenFXMLController implements Initializable{
             // Pongo los textFields con los datos correspondientes
             txtName.setText(supervisor.getName());
             txtId.setText(supervisor.getId());
-            txtSchoolSubject.setText(supervisor.getSubject().getName());
+            //txtSchoolSubject.setText(supervisor.getSubject().getName());
 
         }
     }
@@ -150,10 +160,10 @@ public class ShowAllSupervisorsScreenFXMLController implements Initializable{
 		/**
          * @author Marco Jakob
          */
-		FilteredList<Monitor> filteredData = new FilteredList<>(list, p -> true);
+		FilteredList<Supervisor> filteredData = new FilteredList<>(list, p -> true);
 				
 		txtFilter.textProperty().addListener((observable, oldValue, newValue) -> {
-			filteredData.setPredicate(monitor -> {
+			filteredData.setPredicate(supervisor -> {
 		
 				if (newValue == null || newValue.isEmpty()) {
 					return true;
@@ -161,16 +171,16 @@ public class ShowAllSupervisorsScreenFXMLController implements Initializable{
 							
 				String lowerCaseFilter = newValue.toLowerCase();
 							
-				if (monitor.getId().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+				if (supervisor.getId().toLowerCase().indexOf(lowerCaseFilter) != -1) {
 					return true;
-				} else if (monitor.getName().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+				} else if (supervisor.getName().toLowerCase().indexOf(lowerCaseFilter) != -1) {
 					return true;
 				}
 				return false;
 				});
 			});
 					
-		SortedList<Monitor> sortedData = new SortedList<>(filteredData);
+		SortedList<Supervisor> sortedData = new SortedList<>(filteredData);
 
 		sortedData.comparatorProperty().bind(tvTableView.comparatorProperty());
 				
