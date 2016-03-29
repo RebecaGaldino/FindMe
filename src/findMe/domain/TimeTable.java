@@ -9,7 +9,14 @@ public class TimeTable {
 	private Date end_time;
 	private Monitor monitor;
 	
-	public TimeTable(int id, String dayName, Date begin_time, Date end_time, Monitor monitor) {
+	public TimeTable(){
+		setDayName("0");
+		setBegin_time(begin_time);
+		setEnd_time(end_time);
+		setMonitor(monitor);
+	}
+	
+	public TimeTable(String dayName, Date begin_time, Date end_time, Monitor monitor) {
 		setId(id);
 		setDayName(dayName);
 		setBegin_time(begin_time);

@@ -29,7 +29,7 @@ public class ManagerScreenFXMLController implements Initializable{
 	 * Monitor
 	 */
 	@FXML
-	private Button btShowMonitores;
+	private Button btShowMonitors;
 	@FXML
 	private Button btRegisterMonitor;
 	@FXML
@@ -38,11 +38,11 @@ public class ManagerScreenFXMLController implements Initializable{
 	 * Subject
 	 */
 	@FXML
-	private Button btShowDisciplina;
+	private Button btShowSchoolSubjects;
 	@FXML
-	private Button btRemoveDisciplina;
+	private Button btRemoveSubject;
 	@FXML
-	private Button btRegisterDisciplina;
+	private Button btRegisterSchoolSubject;
 
 
 	/**
@@ -75,13 +75,20 @@ public class ManagerScreenFXMLController implements Initializable{
 	
 	/**
 	 * Monitor
+	 * @throws IOException 
 	 */
 	
-	public void btShowMonitores(){
+	public void btShowMonitors() throws IOException{
+			
+		Parent root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/ShowAllMonitorsScreen.fxml"));	
+		Scene scene = new Scene(root);
+		Main.primaryStage.setTitle("Initial Screen");
+		Main.primaryStage.setScene(scene);
+		Main.primaryStage.show();
 		
 	}
 	
-	public void btRemoveMonitores(){
+	public void btRemoveMonitor(){
 		
 	}
 	
@@ -104,15 +111,15 @@ public class ManagerScreenFXMLController implements Initializable{
 	 * Subject
 	 */
 	
-	public void btShowDisciplina(){
+	public void btShowSchoolSubjects(){
 		
 	}
 	
-	public void btRemoveDisciplina(){
+	public void btRemoveSchoolSubject(){
 		
 	}
 	
-	public void btRegisterDisciplina(){
+	public void btRegisterSchoolSubject(){
 		
 	}
 	

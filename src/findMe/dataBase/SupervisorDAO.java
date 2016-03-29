@@ -9,8 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.sql.ResultSet;
 
+import findMe.domain.BankAccount;
 import findMe.domain.Monitor;
 import findMe.domain.Person;
+import findMe.domain.SchoolSubject;
 import findMe.domain.Supervisor;
 
 public class SupervisorDAO{
@@ -154,4 +156,51 @@ public class SupervisorDAO{
 			return null;
 		}
 		
+		
+		
+		public List<Supervisor> getAllInfoSupervisors(){
+			String sql = "SELECT schoolsubject.id id_subject, schoolsubject.namesubject, person.* "
+					+"from person inner join supervisor on supervisor.id = person.id "
+					+"inner join schoolsubject on schoolsubject.id is not null "
+					+"inner join supervisor_schoolsubject on supervisor.id = supervisor_schoolsubject.id_supervisor "
+					+"and schoolsubject.id = supervisor_schoolsubject.id_schoolsubject "
+					+"order by person.namePerson";
+			
+			try {
+				
+				List<Supervisor> tb = new ArrayList<Supervisor>();
+				
+				PreparedStatement st = conn.prepareStatement(sql);
+				
+				ResultSet rs = st.executeQuery();
+				
+				while(rs.next()){
+					
+					Supervisor supervisor = new Supervisor();
+					SchoolSubject ss = new SchoolSubject();
+					
+					supervisor.setId(rs.getString("id"));
+					supervisor.setCpf(rs.getString("cpf"));
+					supervisor.setBirth_dt(rs.getString("birth_dt"));
+					supervisor.setName(rs.getString("namePerson"));
+					supervisor.setPassword(rs.getString("password"));
+					supervisor.setSex(rs.getString("sex"));
+					supervisor.setEmail(rs.getString("email"));
+					supervisor.setRg(rs.getString("rg"));
+					
+					ss.setId(rs.getString("id_subject"));
+					ss.setName(rs.getString("namesubject"));
+					
+					tb.add(supervisor);
+					
+				}
+				
+				rs.close();
+				st.close();
+				return tb;
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+			return null;
+		}
 }

@@ -6,9 +6,17 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.security.auth.Subject;
+
 import java.sql.PreparedStatement;
+
+import findMe.domain.BankAccount;
 import findMe.domain.Monitor;
 import findMe.domain.Person;
+import findMe.domain.SchoolSubject;
+import findMe.domain.Supervisor;
+import findMe.domain.TimeTable;
 
 public class MonitorDAO{
 	private Connection conn;
@@ -142,6 +150,109 @@ public class MonitorDAO{
 			rs.close();
 			st.close();
 			return persons;
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return null;
+	}
+	
+	
+	
+	public List<TimeTable> getMonitorsTimes(String id){
+		String sql = "	SELECT timetable.dayname DayName, timetable.begin_time BeginTime, timetable.end_time EndTime "
+						+"FROM person p INNER JOIN monitor ON p.id = monitor.id "
+						+"INNER JOIN timetable ON monitor.id = timetable.id_monitor "
+						+"WHERE monitor.id = "+id;
+		
+		try {
+			
+			List<TimeTable> tb = new ArrayList<TimeTable>();
+			
+			PreparedStatement st = conn.prepareStatement(sql);
+			
+			ResultSet rs = st.executeQuery();
+			
+			while(rs.next()){
+				
+				TimeTable tms = new TimeTable();
+				tms.setDayName(rs.getString("DayName"));
+				tms.setBegin_time(rs.getDate("BeginTime"));
+				tms.setEnd_time(rs.getDate("EndTime"));
+				
+				tb.add(tms);
+				
+			}
+			
+			rs.close();
+			st.close();
+			return tb;
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return null;
+	}
+	
+	/**
+	 * Retorna uma lista de monitores, com todas as suas informações relacionadas com outras tabelas
+	 * @param id
+	 * @return
+	 */
+	public List<Monitor> getAllInfoMonitors(){
+		String sql = "SELECT p1.*, student.course course, student.grade grade, monitor.id_supervisor idSupervisor, "
+				+"p2.namePerson namePersonSupervisor, schoolsubject.namesubject, bankaccount.*, monitor.roomwork "
+				+"FROM monitor INNER JOIN student ON monitor.id = student.id INNER JOIN person as p1 "
+				+"ON student.id = p1.id INNER JOIN person as p2 ON monitor.id_supervisor = p2.id INNER JOIN schoolsubject "
+				+"ON monitor.id_schoolsubject = schoolsubject.id INNER JOIN bankaccount ON monitor.id_bankaccount = bankaccount.id "
+				+"ORDER BY p1.namePerson";
+		
+		try {
+			
+			List<Monitor> tb = new ArrayList<Monitor>();
+			
+			PreparedStatement st = conn.prepareStatement(sql);
+			
+			ResultSet rs = st.executeQuery();
+			
+			while(rs.next()){
+				
+				Monitor m = new Monitor();
+				Supervisor supervisor = new Supervisor();
+				SchoolSubject ss = new SchoolSubject();
+				BankAccount ba = new BankAccount();
+				
+				m.setId(rs.getString("id"));
+				m.setCpf(rs.getString("cpf"));
+				m.setBirth_dt(rs.getString("birth_dt"));
+				m.setName(rs.getString("namePerson"));
+				m.setPassword(rs.getString("password"));
+				m.setSex(rs.getString("sex"));
+				m.setEmail(rs.getString("email"));
+				m.setRg(rs.getString("rg"));
+				m.setCourse(rs.getString("course"));
+				m.setGrade(rs.getString("grade"));
+				
+				supervisor.setName(rs.getString("namePersonSupervisor"));
+				m.setSupervisor(supervisor);
+				
+				ss.setName(rs.getString("namesubject"));
+				m.setSubject(ss);
+				
+				ba.setId(rs.getString("id"));
+				ba.setAccountNumber(rs.getString("numberaccount"));
+				ba.setAgency(rs.getString("agency"));
+				ba.setTypeAccount(rs.getString("typeaccount"));
+				ba.setNotes(rs.getString("notes"));
+				
+				m.setBankAccount(ba);
+				m.setRoomWork(rs.getString("roomwork"));
+				
+				tb.add(m);
+				
+			}
+			
+			rs.close();
+			st.close();
+			return tb;
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}

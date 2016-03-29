@@ -23,7 +23,7 @@
                      </font>
                   </Text>
                   <Separator layoutX="132.0" layoutY="141.0" prefHeight="0.0" prefWidth="758.0" />
-                  <Button fx:id="btEdit" layoutX="133.0" layoutY="308.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="250.0" style="-fx-background-color: orange;" text="Editar Informações" textFill="WHITE">
+                  <Button fx:id="btEdit" layoutX="133.0" layoutY="308.0" mnemonicParsing="false" onAction="#btEdit" prefHeight="57.0" prefWidth="250.0" style="-fx-background-color: orange;" text="Editar Informações" textFill="WHITE">
                      <font>
                         <Font size="25.0" />
                      </font>
@@ -38,12 +38,12 @@
                         <Font size="15.0" />
                      </font>
                   </Text>
-                  <Button fx:id="btAskMonitor" layoutX="469.0" layoutY="308.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="260.0" style="-fx-background-color: orange;" text="Requerir Monitores" textFill="WHITE">
+                  <Button fx:id="btAskMonitor" layoutX="469.0" layoutY="308.0" mnemonicParsing="false" onAction="#btAskMonitor" prefHeight="57.0" prefWidth="260.0" style="-fx-background-color: orange;" text="Requerir Monitores" textFill="WHITE">
                      <font>
                         <Font size="25.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btLogout" layoutX="813.0" layoutY="44.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="67.0" style="-fx-background-color: transparent;" />
+                  <Button fx:id="btLogout" layoutX="813.0" layoutY="44.0" mnemonicParsing="false" onAction="#btLogout" prefHeight="80.0" prefWidth="67.0" style="-fx-background-color: transparent;" />
                </children>
             </AnchorPane>
          </content>

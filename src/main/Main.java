@@ -25,9 +25,10 @@ public class Main extends Application {
 
 			this.primaryStage = primaryStage;
 			
-			Parent root = FXMLLoader.load(getClass().getResource("/findMe/TestTableView/ShowAllMonitorsScreen.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/ShowAllMonitorsScreen.fxml"));
 			
 			this.scene = new Scene(root);
+			scene.getStylesheets().add("/styles/Styles.css");
 			
 			primaryStage.setTitle("Monitor Manager");
 			primaryStage.setScene(scene);
@@ -45,3 +46,5 @@ public class Main extends Application {
 		launch(args);
 	}
 }
+
+
