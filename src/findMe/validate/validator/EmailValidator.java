@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 import findMe.customExceptions.CustomException;
 
-public class EmailValidateor {
+public class EmailValidator {
 	
 	private static Pattern pattern;
 	private static Matcher matcher;

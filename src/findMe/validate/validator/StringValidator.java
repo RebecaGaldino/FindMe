@@ -41,7 +41,7 @@ public class StringValidator {
 	 * @return
 	 * @throws CustomException
 	 */
-	public static boolean password(final String password) throws CustomException {
+	public static boolean password(final String password)  {
 		
 		pattern = Pattern.compile(PASSWORD_PATTERN);
 		matcher = pattern.matcher(password);

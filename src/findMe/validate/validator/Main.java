@@ -17,7 +17,7 @@ public class Main extends Application {
 
 			this.primaryStage = primaryStage;
 			
-			Parent root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/RegisterMonitor.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/RegisterSupervisor.fxml"));
 			
 			this.scene = new Scene(root);
 			
