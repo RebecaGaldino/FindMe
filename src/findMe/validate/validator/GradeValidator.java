@@ -20,18 +20,17 @@ public class GradeValidator {
 	 * @return
 	 * @throws CustomException 
 	 */
-	public static CustomException validate(final String grade) throws CustomException {
+	public static boolean validate(final String grade) {
 		if(grade == null)
-			return new CustomException("Preencha a série!");
+			return false;
 		
 		pattern = Pattern.compile(Grade_PATTERN);
 		matcher = pattern.matcher(grade.trim());
 		
 		if(matcher.matches()){
-			return null;
+			return true;
 		}
-		else
-	    	  return new CustomException("Série inválido!");
+		return false;
 
 	}
 }

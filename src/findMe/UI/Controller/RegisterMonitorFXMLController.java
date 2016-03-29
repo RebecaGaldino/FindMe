@@ -15,7 +15,7 @@ import findMe.domain.SchoolSubject;
 import findMe.domain.Supervisor;
 import findMe.validate.validator.CpfValidator;
 import findMe.validate.validator.DateValidator;
-import findMe.validate.validator.EmailValidateor;
+import findMe.validate.validator.EmailValidator;
 import findMe.validate.validator.GradeValidator;
 import findMe.validate.validator.IdValidate;
 import findMe.validate.validator.MonitorValidate;
@@ -135,24 +135,21 @@ public class RegisterMonitorFXMLController implements Initializable{
 	public void btRegister(){
 		try {
 			
-			BankAccount bankAccount = new BankAccount();
-			SchoolSubject subject = new SchoolSubject();
-			Supervisor supervisor = new Supervisor();
-			Monitor monitor = new Monitor();
-			monitor.setName(txtName.getText());
-			monitor.setId(txtId.getText());
-			monitor.setBirth_dt(txtBirth_dt.getText());
-			monitor.setCpf(txtCpf.getText());
-			monitor.setRg(txtRg.getText());
-			monitor.setEmail(txtEmail.getText());
-			monitor.setPassword(txtPassword.getText());
 			
-			monitor.setCourse((cBxCourse.getSelectionModel().getSelectedItem().toString()));
-			monitor.setGrade(txtGrade.getText());
-			monitor.setRoomWork(txtRoomWork.getText());
-			monitor.setSex(cbSex.getSelectionModel().getSelectedItem().toString());
-			monitor.setSubject(subject);
-			monitor.setSupervisor(supervisor);
+			Monitor monitor = new Monitor();
+			//monitor.setName(txtName.getText());
+			//monitor.setId(txtId.getText());
+			//monitor.setBirth_dt(txtBirth_dt.getText());
+			//monitor.setCpf(txtCpf.getText());
+			//monitor.setRg(txtRg.getText());
+			//monitor.setEmail(txtEmail.getText());
+			//monitor.setPassword(txtPassword.getText());
+			//monitor.setCourse((cBxCourse.getSelectionModel().getSelectedItem().toString()));
+			//monitor.setGrade(txtGrade.getText());
+			//monitor.setRoomWork(txtRoomWork.getText());
+			//monitor.setSex(cbSex.getSelectionModel().getSelectedItem().toString());
+			//monitor.setSubject(subject);
+			//monitor.setSupervisor(supervisor);
 			
 			validate(monitor);
 			
@@ -191,7 +188,7 @@ public class RegisterMonitorFXMLController implements Initializable{
 		if(!(StringValidator.onlyLetters(monitor.getName()))){
 			valid = false;
 			txtName.setStyle("-fx-border-color: red;");
-			nameError.setVisible(true);
+			
 			//pessoalPane.add(new ImageView("file:///lib/media/Error.png"), 2, 0);
 			//ImageView im = new ImageView("findMe/media/Error.png");
 			//im.setStyle('fitHeight="15.0" fitWidth="17.0" visible="true" GridPane.columnIndex="2" GridPane.halignment="CENTER"');
@@ -204,7 +201,7 @@ public class RegisterMonitorFXMLController implements Initializable{
 		if(StringValidator.password(monitor.getPassword())){
 			valid = false;
 			txtPassword.setStyle("-fx-border-color: red;");
-			passwordError.setVisible(true);
+			//passwordError.setVisible(true);
 			pessoalPane.add(new ImageView("file:///lib/media/Error.png"), 2, 0);	
 		}
 		/**
@@ -213,7 +210,7 @@ public class RegisterMonitorFXMLController implements Initializable{
 		if(CpfValidator.validate(monitor.getCpf())){
 			valid = false;
 			txtCpf.setStyle("-fx-border-color: red;");
-			cpfError.setVisible(true);
+			//cpfError.setVisible(true);
 			//pessoalPane.add(new ImageView("file:///lib/media/Error.png"), 2, 0);	
 		}
 		/**
@@ -222,7 +219,7 @@ public class RegisterMonitorFXMLController implements Initializable{
 		if((RgValidator.validate(monitor.getRg()))  ){
 			valid = false;
 			txtRg.setStyle("-fx-border-color: red;");
-			rgError.setVisible(true);
+			//rgError.setVisible(true);
 			//pessoalPane.add(new ImageView("file:///lib/media/Error.png"), 2, 0);	
 		}
 		/**
@@ -237,28 +234,28 @@ public class RegisterMonitorFXMLController implements Initializable{
 		/**
 		 * EMAIL
 		 */
-		if( EmailValidateor.validate(monitor.getEmail())  ){
+		if( EmailValidator.validate(monitor.getEmail())  ){
 			valid = false;
 			txtEmail.setStyle("-fx-border-color: red;");
-			emailError.setVisible(true);
+			//emailError.setVisible(true);
 			//pessoalPane.add(new ImageView("file:///lib/media/Error.png"), 2, 0);	
 		}
 		/**
 		 * ID
 		 */
-		if((IdValidate.validate((monitor.getId()))) != null){
+		if( !( NumberValidator.validate(monitor.getId())) ){
 			valid = false;
 			txtId.setStyle("-fx-border-color: red;");
-			idError.setVisible(true);
+			//idError.setVisible(true);
 			//pessoalPane.add(new ImageView("file:///lib/media/Error.png"), 2, 0);	
 		} 
 		/**
 		 * GRADE
 		 */
-		if((GradeValidator.validate((monitor.getGrade()))) != null){
+		if( ! (GradeValidator.validate((monitor.getGrade())))){
 			valid = false;
 			txtGrade.setStyle("-fx-border-color: red;");
-			gradeError.setVisible(true);
+			//gradeError.setVisible(true);
 			//pessoalPane.add(new ImageView("file:///lib/media/Error.png"), 2, 0);	
 		}
 		
@@ -266,10 +263,10 @@ public class RegisterMonitorFXMLController implements Initializable{
 		/**
 		 * NUMBER
 		 */
-		if( (NumberValidator.validate((monitor.getBankAccount().getAccountNumber() ))) ){
+		if( !(NumberValidator.validate((monitor.getBankAccount().getAccountNumber() ))) ){
 			valid = false;
 			txtNumberAccount.setStyle("-fx-border-color: red;");
-			numberError.setVisible(true);
+			//numberError.setVisible(true);
 			//pessoalPane.add(new ImageView("file:///lib/media/Error.png"), 2, 0);	
 		}
 		
@@ -287,6 +284,18 @@ public class RegisterMonitorFXMLController implements Initializable{
 		
 		return valid;
 	}
+	/*
+	public boolean validate(BankAccount bankAccount){
+		/**
+		 * NUMBER
+		 
+		if( !(NumberValidator.validate( bankAccount.getAccountNumber() ) ) ){
+			boolean valid = false;
+			txtNumberAccount.setStyle("-fx-border-color: red;");
+			//numberError.setVisible(true);
+			//pessoalPane.add(new ImageView("file:///lib/media/Error.png"), 2, 0);	
+		} */
+	
 	
 	public boolean isNull(String value){
 		if(value == null)

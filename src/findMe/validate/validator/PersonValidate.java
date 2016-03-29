@@ -4,21 +4,32 @@ import findMe.customExceptions.CustomException;
 import findMe.domain.Person;
 
 public class PersonValidate {
-	public static Boolean validate(Person person) throws CustomException{
-		if(!(NameValidate.validate(person.getName())))
+	
+	/**
+	 * Validate all atributtes on person
+	 * @param person
+	 * @return
+	 * @throws CustomException
+	 */
+	public static boolean validate(Person person) {
+		
+		if(!(StringValidator.onlyLetters(person.getName())))
 			return false;
-		if(!(PasswordValidate.validate(person.getPassword())))
+		if(!(StringValidator.password(person.getPassword())))
 			return false;
 		if(!(CpfValidator.validate(person.getCpf())))
 			return false;
 		if(!(RgValidator.validate(person.getRg())))
 			return false;
-		if(!(DateValidator.validate((person.getBirth_dt()))))
+		if( !(DateValidator.validate((person.getBirth_dt()))))
 			return false;
-		if(!(EmailValidateor.validate((person.getEmail()))))
+		if( !(EmailValidator.validate((person.getEmail()))))
 				return false;
-		if(!(IdValidate.validate((person.getId()))))
+		if( !(NumberValidator.validate((person.getId()))))
 			return false;
+		if( !(person.getSex() == "Feminino") || !(person.getSex() == "Masculino") )
+			return false;
+		
 		return true;
 	}
 }
