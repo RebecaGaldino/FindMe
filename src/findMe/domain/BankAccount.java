@@ -7,6 +7,8 @@ public class BankAccount {
 	private String notes;
 	private String typeAccount;
 	
+	public BankAccount(){
+	}
 
 	public BankAccount(String id, String accountNumber, String agency, String notes){
 		setId(id);

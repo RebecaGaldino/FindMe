@@ -10,7 +10,7 @@
 
 <AnchorPane fx:id="principal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0" prefWidth="732.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="findMe.UI.Controller.RegisterMonitorFXMLController">
    <children>
-      <ScrollPane hbarPolicy="NEVER" layoutY="-1.0" prefHeight="2000.0" prefWidth="732.0">
+      <ScrollPane hbarPolicy="NEVER" layoutY="-1.0" prefHeight="600.0" prefWidth="732.0">
          <content>
             <AnchorPane prefHeight="1781.0" prefWidth="732.0" style="-fx-background-color: white;">
                <children>
@@ -65,7 +65,7 @@
                            </font>
                         </Label>
                         <TextField fx:id="txtRg" promptText="Ex: 4.123.145" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <ComboBox fx:id="cbSex" editable="true" prefWidth="150.0" promptText="Sexo" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <ComboBox fx:id="cbSex" prefWidth="150.0" promptText="Sexo" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <ImageView fx:id="dateError" fitHeight="15.0" fitWidth="17.0" visible="false" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                            <image>
                               <Image url="@../../../../lib/media/Error.png" />
@@ -114,7 +114,7 @@
                         </Label>
                         <TextField fx:id="txtGrade" promptText="Ex: 2" style="-fx-border-color: orange;" GridPane.columnIndex="1" />
                         <TextField fx:id="txtId" promptText="Ex: 20112001014" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <ComboBox fx:id="cBxCourse" editable="true" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <ComboBox fx:id="cBxCourse" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <Label style="-fx-background-color: orange;" text="Curso" textFill="WHITE" GridPane.rowIndex="2">
                            <font>
                               <Font size="17.0" />

@@ -134,7 +134,8 @@ public class RegisterMonitorFXMLController implements Initializable{
 	public void btRegister(){
 		try {
 			
-			//BankAccount bankAccount = new BankAccount();
+			BankAccount bankAccount = new BankAccount();
+			
 			Monitor monitor = new Monitor();
 			monitor.setName(txtName.getText());
 			monitor.setId(txtId.getText());
@@ -143,6 +144,14 @@ public class RegisterMonitorFXMLController implements Initializable{
 			monitor.setRg(txtRg.getText());
 			monitor.setEmail(txtEmail.getText());
 			monitor.setPassword(txtPassword.getText());
+			
+			monitor.setCourse((cBxCourse.getSelectionModel().getSelectedItem().toString());
+			monitor.setGrade(grade);
+			monitor.setRoomWork(roomWork);
+			monitor.setSex(sex);
+			monitor.setSubject(subject);
+			monitor.setSupervisor(supervisor);
+			
 			validate(monitor);
 			
 			
