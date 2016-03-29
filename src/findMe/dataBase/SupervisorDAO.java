@@ -203,4 +203,74 @@ public class SupervisorDAO{
 			}
 			return null;
 		}
+		
+		
+		/**
+		 * Verifica a senha e id do usuário Supervisor
+		 * @param id
+		 * @param password
+		 * @return boolean
+		 * @author ViniFarias
+		 */
+		public boolean userChecksSupervisor(String id, String password){
+			String sql = "SELECT p1.password from supervisor INNER JOIN person as p1 "
+					+"ON supervisor.id = p1.id where supervisor.id = "+id;
+			
+			try {
+			
+				PreparedStatement st = conn.prepareStatement(sql);
+			
+				ResultSet rs = st.executeQuery();
+			
+				if(rs.next()){
+					String pass = rs.getString("password");
+					
+					if(password.equals(pass)){
+						return true;
+					}
+					else{
+						return false;
+					}
+				}
+				else{
+					return false;
+				}
+			
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+				return false;
+		}
+		
+		
+		
+		/**
+		 * Verifica se um supervisor ja existe no bd a partir do id
+		 * @param id
+		 * @param password
+		 * @return boolean
+		 * @author ViniFarias
+		 */
+		public boolean userChecksSupervisorId(String id, String password){
+			String sql = "SELECT p1.id from supervisor INNER JOIN person as p1 ON supervisor.id = p1.id "
+					+"where supervisor.id = "+id;
+			
+			try {
+			
+				PreparedStatement st = conn.prepareStatement(sql);
+			
+				ResultSet rs = st.executeQuery();
+			
+				if(rs.next()){
+					return true;
+				}
+				else{
+					return false;
+				}
+			
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+				return false;
+		}
 }

@@ -6,7 +6,6 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="findMe.UI.Controller.MonitorScreenFXMLController">
    <children>
       <ScrollPane hbarPolicy="NEVER" prefHeight="600.0" prefWidth="900.0" vbarPolicy="NEVER">
@@ -24,7 +23,7 @@
                      </font>
                   </Text>
                   <Separator layoutX="132.0" layoutY="141.0" prefHeight="0.0" prefWidth="758.0" />
-                  <Button fx:id="btEdit" layoutX="155.0" layoutY="236.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="250.0" style="-fx-background-color: orange;" text="Editar Informações" textFill="WHITE">
+                  <Button fx:id="btEdit" layoutX="155.0" layoutY="236.0" mnemonicParsing="false" onAction="#btEdit" prefHeight="57.0" prefWidth="250.0" style="-fx-background-color: orange;" text="Editar Informações" textFill="WHITE">
                      <font>
                         <Font size="25.0" />
                      </font>
@@ -39,17 +38,17 @@
                         <Font size="15.0" />
                      </font>
                   </Text>
-                  <Button fx:id="btReport" layoutX="521.0" layoutY="237.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="250.0" style="-fx-background-color: orange;" text="Gerar Relatório" textFill="WHITE">
+                  <Button fx:id="btReport" layoutX="521.0" layoutY="237.0" mnemonicParsing="false" onAction="#btReport" prefHeight="57.0" prefWidth="250.0" style="-fx-background-color: orange;" text="Gerar Relatório" textFill="WHITE">
                      <font>
                         <Font size="25.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btTimeTable" layoutX="323.0" layoutY="347.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="250.0" style="-fx-background-color: orange;" text="Horários" textFill="WHITE">
+                  <Button fx:id="btTimeTable" layoutX="323.0" layoutY="347.0" mnemonicParsing="false" onAction="#btTimeTable" prefHeight="57.0" prefWidth="250.0" style="-fx-background-color: orange;" text="Horários" textFill="WHITE">
                      <font>
                         <Font size="25.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btLogout" layoutX="818.0" layoutY="47.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="58.0" style="-fx-background-color: transparent;" />
+                  <Button fx:id="btLogout" layoutX="818.0" layoutY="47.0" mnemonicParsing="false" onAction="#btLogout" prefHeight="73.0" prefWidth="58.0" style="-fx-background-color: transparent;" />
                </children>
             </AnchorPane>
          </content>

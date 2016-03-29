@@ -131,4 +131,41 @@ public class ManagerDAO {
 				
 	}
 	
+	/**
+	 * Verifica a senha e id do usuário Manager
+	 * @param id
+	 * @param password
+	 * @return boolean
+	 * @author ViniFarias
+	 */
+	public boolean userChecksManager(String id, String password){
+		String sql = "SELECT p1.password from manager INNER JOIN person as p1 "
+				+"ON manager.id = p1.id where manager.id = "+id;
+		
+		try {
+		
+			PreparedStatement st = conn.prepareStatement(sql);
+		
+			ResultSet rs = st.executeQuery();
+		
+			if(rs.next()){
+				String pass = rs.getString("password");
+				
+				if(password.equals(pass)){
+					return true;
+				}
+				else{
+					return false;
+				}
+			}
+			else{
+				return false;
+			}
+		
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+			return false;
+	}
+	
 }

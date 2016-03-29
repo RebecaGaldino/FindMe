@@ -220,7 +220,7 @@ public class PersonDAO {
 		 * @param id
 		 * @param password
 		 * @return boolean
-		 * @
+		 * @author ViniFarias
 		 */
 		public boolean userChecks(String id, String password){
 			String sql = "SELECT person.password from person where id = "+id;

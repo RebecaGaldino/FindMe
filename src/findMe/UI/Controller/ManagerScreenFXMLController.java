@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 
 public class ManagerScreenFXMLController implements Initializable{
+	
 	@FXML
 	private Button btLogout;
 	
