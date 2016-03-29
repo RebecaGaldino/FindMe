@@ -11,6 +11,7 @@ import findMe.customExceptions.CustomException;
 import findMe.domain.BankAccount;
 import findMe.domain.Monitor;
 import findMe.domain.Person;
+import findMe.domain.SchoolSubject;
 import findMe.domain.Supervisor;
 import findMe.validate.validator.CpfValidator;
 import findMe.validate.validator.DateValidator;
@@ -135,7 +136,8 @@ public class RegisterMonitorFXMLController implements Initializable{
 		try {
 			
 			BankAccount bankAccount = new BankAccount();
-			
+			SchoolSubject subject = new SchoolSubject();
+			Supervisor supervisor = new Supervisor();
 			Monitor monitor = new Monitor();
 			monitor.setName(txtName.getText());
 			monitor.setId(txtId.getText());
@@ -145,10 +147,10 @@ public class RegisterMonitorFXMLController implements Initializable{
 			monitor.setEmail(txtEmail.getText());
 			monitor.setPassword(txtPassword.getText());
 			
-			monitor.setCourse((cBxCourse.getSelectionModel().getSelectedItem().toString());
-			monitor.setGrade(grade);
-			monitor.setRoomWork(roomWork);
-			monitor.setSex(sex);
+			monitor.setCourse((cBxCourse.getSelectionModel().getSelectedItem().toString()));
+			monitor.setGrade(txtGrade.getText());
+			monitor.setRoomWork(txtRoomWork.getText());
+			monitor.setSex(cbSex.getSelectionModel().getSelectedItem().toString());
 			monitor.setSubject(subject);
 			monitor.setSupervisor(supervisor);
 			
@@ -167,7 +169,17 @@ public class RegisterMonitorFXMLController implements Initializable{
 	
 	
 	public void btCancel(){
-		
+		try {
+			Parent root;
+			root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/ManagersScreen.fxml"));
+			Scene managerScreen = new Scene(root);
+			Main.primaryStage.setTitle("Monitor Manager");
+			Main.primaryStage.setScene(managerScreen);
+			Main.primaryStage.show(); 
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 	
@@ -176,7 +188,7 @@ public class RegisterMonitorFXMLController implements Initializable{
 		/**
 		 * NAME
 		 */
-		if(StringValidator.onlyLetters(monitor.getName())){
+		if(!(StringValidator.onlyLetters(monitor.getName()))){
 			valid = false;
 			txtName.setStyle("-fx-border-color: red;");
 			nameError.setVisible(true);
@@ -205,7 +217,7 @@ public class RegisterMonitorFXMLController implements Initializable{
 			//pessoalPane.add(new ImageView("file:///lib/media/Error.png"), 2, 0);	
 		}
 		/**
-		 * CPF
+		 * RG
 		 */
 		if((RgValidator.validate(monitor.getRg()))  ){
 			valid = false;
@@ -261,8 +273,25 @@ public class RegisterMonitorFXMLController implements Initializable{
 			//pessoalPane.add(new ImageView("file:///lib/media/Error.png"), 2, 0);	
 		}
 		
+		/**
+		 * Sex
+		 */
+		
+		/**
+		 * Course
+		 */
+		
+		/**
+		 * RoomWork
+		 */
 		
 		return valid;
+	}
+	
+	public boolean isNull(String value){
+		if(value == null)
+			return true;
+		return false;
 	}
 	
 	@Override
