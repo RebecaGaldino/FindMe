@@ -116,6 +116,23 @@ public class ManagerScreenFXMLController implements Initializable{
 		
 	}
 	
+	/**
+	 * Logout
+	 */
+	public void btLogout(){
+		try{
+			Parent root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/InitialScreen.fxml"));
+			
+			Scene scene = new Scene(root);
+			Main.primaryStage.setTitle("Initial Screen");
+			Main.primaryStage.setScene(scene);
+			Main.primaryStage.show();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
