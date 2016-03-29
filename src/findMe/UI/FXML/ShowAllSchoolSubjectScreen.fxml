@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="600.0" maxWidth="900.0" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: white; -fx-border-color: orange;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="findMe.UI.Controller.ShowAllMonitorsScreenFXMLController">
+   <children>
+      <HBox layoutX="30.0" layoutY="35.0" prefHeight="38.0" prefWidth="563.0">
+         <children>
+            <Label style="-fx-background-color: orange;" text="Pesquisar:" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtFilter" prefHeight="31.0" prefWidth="470.0" style="-fx-border-color: orange;" />
+         </children>
+      </HBox>
+      <TableView fx:id="tvTableView" layoutX="21.0" layoutY="90.0" prefHeight="324.0" prefWidth="860.0" style="-fx-border-color: orange; -fx-background-color: transparent: ;">
+         <columns>
+            <TableColumn fx:id="tcName" prefWidth="493.3333435058594" text="Nome" />
+            <TableColumn fx:id="tcId" prefWidth="227.6666259765625" text="ID" />
+         </columns>
+      </TableView>
+      <GridPane layoutX="24.0" layoutY="422.0" prefHeight="122.0" prefWidth="508.0">
+         <children>
+            <Label style="-fx-background-color: orange;" text="ID:" textFill="WHITE" GridPane.rowIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label prefHeight="31.0" prefWidth="57.0" style="-fx-background-color: orange;" text="Nome:" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtName" editable="false" GridPane.columnIndex="1" />
+            <TextField fx:id="txtId" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         </children>
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="303.0" minWidth="10.0" prefWidth="86.33332824707031" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="424.33333587646484" minWidth="0.0" prefWidth="421.6666717529297" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="37.33331298828125" minHeight="10.0" prefHeight="30.66668701171875" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="49.33331298828125" minHeight="10.0" prefHeight="49.33331298828125" vgrow="SOMETIMES" />
+         </rowConstraints>
+      </GridPane>
+      <Button fx:id="btShow" layoutX="402.0" layoutY="548.0" mnemonicParsing="false" onAction="#btShow" prefHeight="0.0" prefWidth="123.0" style="-fx-background-color: orange; -fx-text-fill: white;" text="Visualizar">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="btBack" layoutX="732.0" layoutY="549.0" mnemonicParsing="false" onAction="#btBack" prefHeight="0.0" prefWidth="123.0" style="-fx-background-color: orange; -fx-text-fill: white;" text="Voltar">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="btDelete" layoutX="250.0" layoutY="548.0" mnemonicParsing="false" onAction="#btDelete" prefHeight="0.0" prefWidth="123.0" style="-fx-background-color: orange; -fx-text-fill: white;" text="Deletar">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
