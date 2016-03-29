@@ -39,7 +39,8 @@ public class Monitor extends Student{
 	 * @param supervisor
 	 */
 	public Monitor(String id, String cpf, String birth_dt, String name, String password, String sex, String rg, String email, String course, String grade, SchoolSubject subject, String roomWork, BankAccount bankAccount, Supervisor supervisor) {
-		super(id, cpf, birth_dt, name, password, sex, rg, email, course, grade);
+		super(id, cpf, birth_dt, name, course, grade, password, sex, rg, email);
+		
 		setSubject(subject);
 		setBankAccount(bankAccount);
 		setSupervisor(supervisor);

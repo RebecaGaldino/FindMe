@@ -105,13 +105,12 @@ public class SchoolSubjectDAO {
 	}
 	
 	/**
-	 * Return the subjects' names 
+	 * Return the subjects' names and ids
 	 * @return ArrayList with subjects and their names 
 	 * @author Rebeca Galdino
 	 */
-	public List<SchoolSubject> getSubjectsnames(){
-		String sql = "SELECT namesubject as Disciplinas from schoolsubject "
-					+"order by Disciplinas";
+	public List<SchoolSubject> getAllInfoSubject(){
+		String sql = "select schoolsubject.* from schoolsubject order by namesubject";
 	try {
 				
 				List<SchoolSubject> subjects = new ArrayList<SchoolSubject>();
@@ -123,7 +122,8 @@ public class SchoolSubjectDAO {
 				while(rs.next()){
 					
 					SchoolSubject s = new SchoolSubject();
-					s.setName(rs.getString("Disciplinas"));
+					s.setName(rs.getString("nameSubject"));
+					s.setId(rs.getString("id"));
 					
 					subjects.add(s);
 					

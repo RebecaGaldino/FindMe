@@ -1,5 +1,8 @@
 package findMe.domain;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 /**
  * 
@@ -52,8 +55,10 @@ public class Person {
 		setName("0");
 		setPassword("000");
 		setSex("0");
-		setRg("example@example.com");
+		setRg("123123");
+		setEmail("example@example.com");
 	}
+	
 	
 	/*---------------------------------------------------------------------------------------------------------*/
 	

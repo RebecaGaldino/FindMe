@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 import org.controlsfx.control.TextFields;
 
 import findMe.dataBase.MonitorDAO;
+import findMe.dataBase.SchoolSubjectDAO;
 import findMe.dataBase.SupervisorDAO;
 import findMe.domain.Monitor;
 import findMe.domain.Person;
@@ -52,31 +53,31 @@ public class ShowAllSchoolSubjectScreenFXMLController implements Initializable{
 	@FXML
 	private Button btShow;
 	@FXML
+	private  Button btDelete;
+	@FXML
 	private TextField txtName;
 	@FXML
 	private TextField txtId;
-	@FXML
-	private TextField txtSchoolSubject;
 	
-	private int posSubject;
+	private int posSchoolSubject;
 	
 	ObservableList<SchoolSubject> list = FXCollections.observableArrayList();
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
-		SupervisorDAO s = new SupervisorDAO();
-		list = FXCollections.observableArrayList(s.getAllInfoSupervisors());
+		SchoolSubjectDAO s = new SchoolSubjectDAO();
+		list = FXCollections.observableArrayList(s.getAllInfoSubject());
 		
-		tcName.setCellValueFactory(new PropertyValueFactory<Supervisor, String>("name"));
-        tcId.setCellValueFactory(new PropertyValueFactory<Supervisor, String>("id"));
+		tcName.setCellValueFactory(new PropertyValueFactory<SchoolSubject, String>("name"));
+        tcId.setCellValueFactory(new PropertyValueFactory<SchoolSubject, String>("id"));
         
-        ObservableList<Supervisor> tableSupervisorSel = tvTableView.getSelectionModel().getSelectedItems();
-        tableSupervisorSel.addListener(selectorTableSupervisor);
+        ObservableList<SchoolSubject> tableSchoolSubjectSel = tvTableView.getSelectionModel().getSelectedItems();
+        tableSchoolSubjectSel.addListener(selectorTableSchoolSubject);
 		
         
         initFilter();
-        putPersonSelected();
+        putSchoolSubjectSelected();
 		
 	}
 	
@@ -98,6 +99,11 @@ public class ShowAllSchoolSubjectScreenFXMLController implements Initializable{
 		
 	}
 	
+	@FXML
+	public void btDelete(){
+		
+	}
+	
 	/*-----------------------------------------------------------------------------------------------*/
 	
 	
@@ -105,11 +111,11 @@ public class ShowAllSchoolSubjectScreenFXMLController implements Initializable{
 	 * Listener da Tabela tvTableView
 	 * @author RicardoMoya - https://github.com/jarroba/Tablas-JavaFX--FXML-
 	 */
-	private final ListChangeListener<Supervisor> selectorTableSupervisor =
-            new ListChangeListener<Supervisor>() {
+	private final ListChangeListener<SchoolSubject> selectorTableSchoolSubject =
+            new ListChangeListener<SchoolSubject>() {
                 @Override
-                public void onChanged(ListChangeListener.Change<? extends Supervisor> c) {
-                    putPersonSelected();
+                public void onChanged(ListChangeListener.Change<? extends SchoolSubject> c) {
+                    putSchoolSubjectSelected();
                 }
 	};
 	
@@ -119,12 +125,12 @@ public class ShowAllSchoolSubjectScreenFXMLController implements Initializable{
      * Método que retorna o monitor selecionado
      * @author RicardoMoya - https://github.com/jarroba/Tablas-JavaFX--FXML-
      */
-    public Supervisor getTableSupervisorSelected() {
+    public SchoolSubject getTableSchoolSubjectSelected() {
         if (tvTableView != null) {
-            List<Supervisor> table = tvTableView.getSelectionModel().getSelectedItems();
+            List<SchoolSubject> table = tvTableView.getSelectionModel().getSelectedItems();
             if (table.size() == 1) {
-                final Supervisor supervisorSelected = table.get(0);
-                return supervisorSelected;
+                final SchoolSubject SchoolSubjectSelected = table.get(0);
+                return SchoolSubjectSelected;
             }
         }
         return null;
@@ -137,15 +143,15 @@ public class ShowAllSchoolSubjectScreenFXMLController implements Initializable{
      * Método que coloca as informações selecionadas nos textFields
      * @author RicardoMoya - https://github.com/jarroba/Tablas-JavaFX--FXML-
      */
-    private void putPersonSelected() {
-        final Supervisor supervisor = getTableSupervisorSelected();
-        posSupervisor = list.indexOf(supervisor);
+    private void putSchoolSubjectSelected() {
+        final SchoolSubject schoolSubject = getTableSchoolSubjectSelected();
+        posSchoolSubject = list.indexOf(schoolSubject);
 
-        if (supervisor != null) {
+        if (schoolSubject != null) {
 
             // Pongo los textFields con los datos correspondientes
-            txtName.setText(supervisor.getName());
-            txtId.setText(supervisor.getId());
+            txtName.setText(schoolSubject.getName());
+            txtId.setText(schoolSubject.getId());
             //txtSchoolSubject.setText(supervisor.getSubject().getName());
 
         }
@@ -160,10 +166,10 @@ public class ShowAllSchoolSubjectScreenFXMLController implements Initializable{
 		/**
          * @author Marco Jakob
          */
-		FilteredList<Supervisor> filteredData = new FilteredList<>(list, p -> true);
+		FilteredList<SchoolSubject> filteredData = new FilteredList<>(list, p -> true);
 				
 		txtFilter.textProperty().addListener((observable, oldValue, newValue) -> {
-			filteredData.setPredicate(supervisor -> {
+			filteredData.setPredicate(schoolSubject -> {
 		
 				if (newValue == null || newValue.isEmpty()) {
 					return true;
@@ -171,16 +177,16 @@ public class ShowAllSchoolSubjectScreenFXMLController implements Initializable{
 							
 				String lowerCaseFilter = newValue.toLowerCase();
 							
-				if (supervisor.getId().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+				if (schoolSubject.getId().toLowerCase().indexOf(lowerCaseFilter) != -1) {
 					return true;
-				} else if (supervisor.getName().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+				} else if (schoolSubject.getName().toLowerCase().indexOf(lowerCaseFilter) != -1) {
 					return true;
 				}
 				return false;
 				});
 			});
 					
-		SortedList<Supervisor> sortedData = new SortedList<>(filteredData);
+		SortedList<SchoolSubject> sortedData = new SortedList<>(filteredData);
 
 		sortedData.comparatorProperty().bind(tvTableView.comparatorProperty());
 				

@@ -135,23 +135,26 @@ public class RegisterMonitorFXMLController implements Initializable{
 	public void btRegister(){
 		try {
 			
-			
+			SchoolSubject subject = new SchoolSubject();
+			Supervisor supervisor = new Supervisor();
+
 			Monitor monitor = new Monitor();
-			//monitor.setName(txtName.getText());
-			//monitor.setId(txtId.getText());
-			//monitor.setBirth_dt(txtBirth_dt.getText());
-			//monitor.setCpf(txtCpf.getText());
-			//monitor.setRg(txtRg.getText());
-			//monitor.setEmail(txtEmail.getText());
-			//monitor.setPassword(txtPassword.getText());
-			//monitor.setCourse((cBxCourse.getSelectionModel().getSelectedItem().toString()));
-			//monitor.setGrade(txtGrade.getText());
-			//monitor.setRoomWork(txtRoomWork.getText());
-			//monitor.setSex(cbSex.getSelectionModel().getSelectedItem().toString());
-			//monitor.setSubject(subject);
-			//monitor.setSupervisor(supervisor);
-			
-			validate(monitor);
+			monitor.setName(txtName.getText());
+			monitor.setId(txtId.getText());
+			monitor.setBirth_dt(txtBirth_dt.getText());
+			monitor.setCpf(txtCpf.getText());
+			monitor.setRg(txtRg.getText());
+			monitor.setEmail(txtEmail.getText());
+			monitor.setPassword(txtPassword.getText());
+			monitor.setCourse((cBxCourse.getSelectionModel().getSelectedItem().toString()));
+			monitor.setGrade(txtGrade.getText());
+			monitor.setRoomWork(txtRoomWork.getText());
+			monitor.setSex(cbSex.getSelectionModel().getSelectedItem().toString());
+			monitor.setSubject(subject);
+			monitor.setSupervisor(supervisor);
+			ManagerActions actions = new ManagerActions();
+			actions.registerMonitor(monitor);
+			//validate(monitor);
 			
 			
 			

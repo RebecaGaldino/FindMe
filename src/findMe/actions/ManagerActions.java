@@ -9,13 +9,20 @@ import findMe.validate.validator.MonitorValidate;
 import findMe.validate.validator.PersonValidate;
 
 public class ManagerActions {
-
+	
+	
+	public void ManagerActions(){
+		
+	}
+	
 	public void registerMonitor(Monitor monitor){
 		try {
-			MonitorValidate.validate(monitor);
-			MonitorDAO mdao = new MonitorDAO();
-			mdao.insertMonitor(monitor);
-		} catch (CustomException e) {
+			if(MonitorValidate.validate(monitor)){
+				MonitorDAO mdao = new MonitorDAO();
+				mdao.insertMonitor(monitor);
+			}
+			
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -28,7 +35,7 @@ public class ManagerActions {
 	 */
 	public void registerSupervisor(Supervisor supervisor){
 		try {
-			if(PersonValidate.validate(supervisor) == null){
+			if(PersonValidate.validate(supervisor) ){
 				SupervisorDAO sdao = new SupervisorDAO();
 				sdao.insertSupervisor(supervisor);
 			}
@@ -36,7 +43,7 @@ public class ManagerActions {
 				
 			}
 			
-		} catch (CustomException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

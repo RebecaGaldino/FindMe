@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="600.0" maxWidth="900.0" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: white; -fx-border-color: orange;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="findMe.UI.Controller.ShowAllMonitorsScreenFXMLController">
+<AnchorPane maxHeight="600.0" maxWidth="900.0" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: white; -fx-border-color: orange;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="findMe.UI.Controller.ShowAllSchoolSubjectScreenFXMLController">
    <children>
       <HBox layoutX="30.0" layoutY="35.0" prefHeight="38.0" prefWidth="563.0">
          <children>

@@ -1,33 +1,51 @@
 package main;
+import java.text.*;
+import java.util.*;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import findMe.dataBase.ManagerDAO;
+import findMe.dataBase.MonitorDAO;
+import findMe.dataBase.PersonDAO;
+import findMe.dataBase.SchoolSubjectDAO;
+import findMe.dataBase.StudentDAO;
+import findMe.dataBase.SupervisorDAO;
+import findMe.domain.*;
 
-public class Teste {
-	
-	public static void Main(String[] args){
-		if(validate("thay102"))
-			System.out.println("foi");
+public class Teste{
+	public static void main(String[] args) throws ParseException {
+		
+		BankAccount ba = new BankAccount("7374", "242432423", "12", "n�o gosto desse banco");
+		
+		//public Supervisor(String id, String cpf, String birth_dt, String name, String password, String sex, String rg, String email) {
+		//}
+		Supervisor s = new Supervisor("525", "122.333.222-90", convertStringToSqlString("12/12/1222"), "Marcus Vinicius de farias Barbosa", "1231313", "Masculino", "1.232.234", "vinifarias.vf@gmail.com");
+		SchoolSubject ss = new SchoolSubject("Inform�tica", "2324");
+		
+
+		Monitor m = new Monitor("20141004003", "123.145.789-98", convertStringToSqlString("10/02/1900"), "Thayanne Luiza Victor Landim de Sousa", "52618241", "Feminino", "1.233.789", "Thayannevls@gmail.com", "Inform�tica", "2", ss,"Sala1", ba, s);
+		
+		MonitorDAO mDAO = new MonitorDAO();
+		mDAO.insertMonitor(m);
+		
+		System.out.println(m.getSex());
 	}
-	private static Pattern pattern;
-	private static Matcher matcher;
-	/**
-	 *Pattern with only letters 
-	 */
 	
-	private static final String NAME_PATTERN = "[a-zA-ZáàâãéèêíïóôõöúüçñÁÀÂÃÉÈÍÏÓÔÕÖÚÜÇÑ]*";
 	
 	/**
-	 * Validate name with Name_Pattern
-	 * @param name
+	 * Convert a string (dd/mm/yyy) to sql string (yyyy-mm-dd)
+	 * @param input
 	 * @return
+	 * @throws ParseException
+	 * @author ViniFarias
 	 */
-	
-	 
-	public static boolean validate(final String name){
-		pattern = Pattern.compile(NAME_PATTERN);
-		matcher = pattern.matcher(name.trim());
-		return matcher.matches();
+	public static String convertStringToSqlString(String input) throws ParseException{
+		Date dtJava;
+		DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        dtJava = (java.util.Date)formatter.parse(input);
+		
+		java.sql.Date date = new java.sql.Date(dtJava.getTime());
+		
+		String dtSql = (String)date.toString();
+		
+		return dtSql;
 	}
-
 }

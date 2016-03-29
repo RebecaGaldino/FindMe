@@ -115,10 +115,16 @@ public class ManagerScreenFXMLController implements Initializable{
 	
 	/**
 	 * Subject
+	 * @throws IOException 
 	 */
 	
-	public void btShowSchoolSubjects(){
-		
+	public void btShowSchoolSubjects() throws IOException{
+			
+		Parent root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/ShowAllSchoolSubjectScreen.fxml"));	
+		Scene scene = new Scene(root);
+		Main.primaryStage.setTitle("Initial Screen");
+		Main.primaryStage.setScene(scene);
+		Main.primaryStage.show();
 	}
 	
 	public void btRemoveSchoolSubject(){
