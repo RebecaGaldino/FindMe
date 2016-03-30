@@ -12,6 +12,7 @@ import findMe.dataBase.MonitorDAO;
 import findMe.domain.Monitor;
 import findMe.domain.Person;
 import findMe.domain.SchoolSubject;
+import findMe.extraMethods.Methods;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
@@ -58,9 +59,12 @@ public class ShowAllMonitorsScreenFXMLController implements Initializable{
 	@FXML
 	private TextField txtSchoolSubject;
 	
+	/*-------------------------*/
 	private int posMonitor;
-	
+	public static Monitor monitorView = null;
 	ObservableList<Monitor> list = FXCollections.observableArrayList();
+	private Methods method = new Methods();
+	/*-------------------------*/
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -83,12 +87,8 @@ public class ShowAllMonitorsScreenFXMLController implements Initializable{
 	@FXML
 	public void btBack() throws IOException{
 		
-		Parent root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/ManagerScreen.fxml"));
+		method.setAndShowOnPrimaryStage("/findMe/UI/FXML/ManagerScreen.fxml", "Monitor Manager");
 		
-		Scene scene = new Scene(root);
-		Main.primaryStage.setTitle("Initial Screen");
-		Main.primaryStage.setScene(scene);
-		Main.primaryStage.show();
 	}
 	
 	
@@ -101,10 +101,16 @@ public class ShowAllMonitorsScreenFXMLController implements Initializable{
 	
 	
 	@FXML
-	public void btShow(){
+	public void btShow() throws IOException{
 		
+		if(monitorView != null){
+			
+			method.setAndShowOnPrimaryStage("/findMe/UI/FXML/MonitorView.fxml", "Monitor Manager");
+			
+		}
 		
 	}
+	
 	
 	/*-----------------------------------------------------------------------------------------------*/
 	
@@ -132,9 +138,11 @@ public class ShowAllMonitorsScreenFXMLController implements Initializable{
             List<Monitor> table = tvTableView.getSelectionModel().getSelectedItems();
             if (table.size() == 1) {
                 final Monitor monitorSelected = table.get(0);
+                monitorView = monitorSelected;
                 return monitorSelected;
             }
         }
+        monitorView = null;
         return null;
     }
     
@@ -158,6 +166,7 @@ public class ShowAllMonitorsScreenFXMLController implements Initializable{
 
         }
     }
+    
     
     
     /**

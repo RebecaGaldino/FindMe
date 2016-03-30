@@ -6,11 +6,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0" prefWidth="732.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="findMe.UI.Controller.RegisterSupervisorFXMLController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="findMe.UI.Controller.RegisterSupervisorFXMLController">
    <children>
-      <ScrollPane hbarPolicy="NEVER" layoutY="-1.0" prefHeight="475.0" prefWidth="732.0">
+      <ScrollPane hbarPolicy="NEVER" layoutY="-1.0" prefHeight="600.0" prefWidth="900.0">
          <content>
-            <AnchorPane prefHeight="1141.0" prefWidth="732.0" style="-fx-background-color: white;">
+            <AnchorPane prefHeight="1141.0" prefWidth="900.0" style="-fx-background-color: white;">
                <children>
                   <Label layoutX="60.0" layoutY="40.0" style="-fx-background-color: orange;" text="Dados pessoais" textFill="WHITE">
                      <font>

@@ -16,6 +16,7 @@ public class ManagerScreenFXMLController implements Initializable{
 	@FXML
 	private Button btLogout;
 	
+	
 	/**
 	 * Supervisor
 	 */
@@ -26,6 +27,8 @@ public class ManagerScreenFXMLController implements Initializable{
 	@FXML
 	private Button btRegisterSupervisor;
 	
+	
+	
 	/**
 	 * Monitor
 	 */
@@ -35,6 +38,9 @@ public class ManagerScreenFXMLController implements Initializable{
 	private Button btRegisterMonitor;
 	@FXML
 	private Button btRemoveMonitor;
+	
+	
+	
 	/**
 	 * Subject
 	 */
@@ -46,11 +52,11 @@ public class ManagerScreenFXMLController implements Initializable{
 	private Button btRegisterSchoolSubject;
 
 
+	
 	/**
 	 * Supervisor
 	 * @throws IOException 
 	 */
-	
 	public void btShowSupervisors() throws IOException{
 		Parent root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/ShowAllSupervisorsScreen.fxml"));	
 		Scene scene = new Scene(root);
@@ -59,9 +65,11 @@ public class ManagerScreenFXMLController implements Initializable{
 		Main.primaryStage.show();
 	}
 	
+	
 	public void btRemoveSupervisor(){
 		
 	}
+	
 	
 	public void btRegisterSupervisor(){
 		try {
@@ -79,11 +87,12 @@ public class ManagerScreenFXMLController implements Initializable{
 		
 	}
 	
+	
+	
 	/**
 	 * Monitor
 	 * @throws IOException 
 	 */
-	
 	public void btShowMonitors() throws IOException{
 			
 		Parent root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/ShowAllMonitorsScreen.fxml"));	
@@ -94,9 +103,12 @@ public class ManagerScreenFXMLController implements Initializable{
 		
 	}
 	
+	
 	public void btRemoveMonitor(){
 		
+		
 	}
+	
 	
 	public void btRegisterMonitor(){
 		try {
@@ -113,11 +125,12 @@ public class ManagerScreenFXMLController implements Initializable{
 		
 	}
 	
+	
+	
 	/**
 	 * Subject
 	 * @throws IOException 
 	 */
-	
 	public void btShowSchoolSubjects() throws IOException{
 			
 		Parent root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/ShowAllSchoolSubjectScreen.fxml"));	
@@ -127,13 +140,17 @@ public class ManagerScreenFXMLController implements Initializable{
 		Main.primaryStage.show();
 	}
 	
+	
 	public void btRemoveSchoolSubject(){
 		
 	}
 	
+	
 	public void btRegisterSchoolSubject(){
 		
 	}
+	
+	
 	
 	/**
 	 * Logout

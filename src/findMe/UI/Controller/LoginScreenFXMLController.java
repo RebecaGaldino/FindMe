@@ -46,6 +46,7 @@ public class LoginScreenFXMLController implements Initializable {
 	
 	
 	private String choice = InitialScreenFXMLController.choice;
+	
 	private String rootFXML;
 	
 	private boolean userChecksResult;

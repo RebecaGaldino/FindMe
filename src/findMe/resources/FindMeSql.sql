@@ -33,9 +33,9 @@ CREATE TABLE bankaccount(
 
     numberaccount VARCHAR (10),
 
-    agency VARCHAR(10),
+    agency VARCHAR(20),
     
-    typeaccount VARCHAR(3),
+    typeaccount VARCHAR(20),
     
     notes VARCHAR(500),
     
@@ -183,13 +183,13 @@ REFERENCES schoolsubject(id)
 
 insert into bankaccount (id, numberaccount, agency, typeaccount, notes) 
 
-values("000001", "1234567891", "Corrente", "43", "."),
+values("000001", "1234567891", "Banco do Brasil", "Corrente", "."),
 
-("000002", "9876543211", "Corrente", "34", "."),
+("000002", "9876543211", "Bradesco", "Poupança", "."),
 
-("000003", "9876543210", "Poupanca", "56", ".");
+("000003", "9876543210", "Itaú", "Corrente", ".");
 
-insert into person (id, cpf, birth_dt, namePerson, password,  sex, email, rg) 
+insert into person (id, cpf, birth_dt, namePerson, password,  sex, email, rg)
 
 values("20141004019", "111.222.333-44", '1999-11-07', "Maria", "euamoarroz","feminino", "maria@gmail.com", "67894584"), 
 
@@ -268,6 +268,7 @@ insert into timetable(id_monitor, dayname, begin_time, end_time) values
  ("20151004018", "Sexta", '12:00:00', '13:00:00'),
 
  ("20131004017", "Segunda", '09:00:00', '16:00:00'); 
+
 
     
 
