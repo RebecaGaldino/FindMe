@@ -5,6 +5,9 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.ResultSet;
@@ -13,6 +16,7 @@ import findMe.domain.Monitor;
 import findMe.domain.Person;
 import findMe.domain.Student;
 import findMe.domain.Supervisor;
+import main.Teste;
 
 public class PersonDAO {
 		private Connection conn;
@@ -64,14 +68,15 @@ public class PersonDAO {
 
 			String sql = "insert into person (id, cpf, namePerson, birth_dt, password, sex, email, rg)values (?,?,?,?,?,?,?,?)";
 			try {
-				
 				PreparedStatement st = conn.prepareStatement(sql);
 
-				
+				String date = "2000-11-01";
+			    java.sql.Date test = java.sql.Date.valueOf(date);
+
 				st.setString(1, supervisor.getId());
 				st.setString(2, supervisor.getCpf());
 				st.setString(3, supervisor.getName());
-				st.setDate(4, convertStringToDate(supervisor.getBirth_dt()));
+				st.setDate(4, test);
 				st.setString(5, supervisor.getPassword());
 				st.setString(6, supervisor.getSex());
 				st.setString(7, supervisor.getEmail());
@@ -218,7 +223,7 @@ public class PersonDAO {
 		
 		
 		/**
-		 * Verifica a senha e id do usuário
+		 * Verifica a senha e id do usuï¿½rio
 		 * @param id
 		 * @param password
 		 * @return boolean
@@ -254,7 +259,7 @@ public class PersonDAO {
 		}
 		
 		
-		/*----------Métodos Auxiliares----------------*/
+		/*----------Metodos Auxiliares----------------*/
 		/**
 		 * Convert String to sql date
 		 * @param date
@@ -262,7 +267,19 @@ public class PersonDAO {
 		 * @author ViniFarias
 		 */
 		public java.sql.Date convertStringToDate(String date){
-			java.sql.Date dt = java.sql.Date.valueOf(date);
-			return dt;
+			try {
+				Teste.convertStringToSqlString(date);
+				java.sql.Date dt = java.sql.Date.valueOf(date);
+				return dt;
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return null;
+			
 		}
+		
+		
 }
+
+

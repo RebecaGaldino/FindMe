@@ -72,31 +72,40 @@ public class RegisterSupervisorFXMLController implements Initializable{
 	 * Necessario criar um BotaoMenu onde o manager seleciona as disciplinas do supervisor
 	 * Necessario validar as informacoes que sao setadas na interface
 	 */
-	public Supervisor btRegister() throws IOException, ParseException, SQLException{
+	@FXML
+	public void btRegister() throws IOException, ParseException, SQLException{
 		try {
 			
 			
 			ManagerActions mAct = new ManagerActions();
 			
-			
+			System.out.println(txtBirth_dt.getText());
+
 			Supervisor supervisor = new Supervisor();
 			
 			supervisor.setName(txtName.getText());
-			supervisor.setId(txtId.getText());
+			 supervisor.setId(txtId.getText());
 			supervisor.setSex(cbSex.getSelectionModel().getSelectedItem().toString());
 			supervisor.setPassword(txtPassword.getText());
-			supervisor.setBirth_dt(txtBirth_dt.getText());
-			
+			 //supervisor.setBirth_dt(txtBirth_dt.getText());
 			supervisor.setCpf(txtCpf.getText());
 			supervisor.setRg(txtRg.getText());
 			supervisor.setEmail(txtEmail.getText());
-			supervisor.setPassword(txtPassword.getText());
-			if(PersonValidate.validate(supervisor) == null){
+			supervisor.setPassword(txtPassword.getText()); 
+			ManagerActions mac = new ManagerActions();
+			mac.registerSupervisor(supervisor);
+			System.out.println(txtBirth_dt.getText());
+			
+			
+			
+			
+			
+			/*if(PersonValidate.validate(supervisor)){
 				mAct.registerSupervisor(supervisor);
 			}
 			else{
 				
-			}
+			} */
 			
 			
 			
@@ -107,7 +116,6 @@ public class RegisterSupervisorFXMLController implements Initializable{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
 	}
 	
 	
