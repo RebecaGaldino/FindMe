@@ -258,7 +258,7 @@ public class SchoolSubjectDAO {
 					
 					s.setId(rs.getString("idP1"));
 					s.setName(rs.getString("namePersonP1"));
-					s.setEmail(rs.getString("emai.P1"));
+					s.setEmail(rs.getString("emailP1"));
 					
 					m.setId(rs.getString("idP2"));
 					m.setRoomWork(rs.getString("roomworkM1"));

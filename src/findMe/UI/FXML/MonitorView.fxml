@@ -50,7 +50,7 @@
                            </font>
                         </Label>
                         <TextField fx:id="txtRg" editable="false" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <TextField fx:id="txtSex" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="txtSex" editable="false" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      </children>
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="191.0" minWidth="114.0" prefWidth="114.0" />
@@ -124,7 +124,7 @@
                            </font>
                         </Label>
                         <TextField fx:id="txtSchoolSubject" editable="false" style="-fx-border-color: orange;" GridPane.columnIndex="1" />
-                        <TextField fx:id="txtRoomWork" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="txtRoomWork" editable="false" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Label style="-fx-background-color: orange;" text="Supervisor" textFill="WHITE" GridPane.rowIndex="2">
                            <font>
                               <Font size="17.0" />
@@ -168,13 +168,13 @@
                               <Font size="17.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtTypeAccount" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="txtTypeAccount" editable="false" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <Label style="-fx-background-color: orange;" text="Observações" textFill="WHITE" GridPane.rowIndex="3">
                            <font>
                               <Font size="17.0" />
                            </font>
                         </Label>
-                        <TextArea fx:id="txtAreaNotes" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: orange;" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextArea fx:id="txtAreaNotes" editable="false" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: orange;" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                      </children>
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="191.0" minWidth="10.0" prefWidth="114.0" />
@@ -204,7 +204,7 @@
                               <Font size="17.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtEmail" prefHeight="27.0" prefWidth="212.0" style="-fx-border-color: orange;" GridPane.columnIndex="1" />
+                        <TextField fx:id="txtEmail" editable="false" prefHeight="27.0" prefWidth="212.0" style="-fx-border-color: orange;" GridPane.columnIndex="1" />
                      </children>
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.0" minWidth="10.0" prefWidth="86.0" />
