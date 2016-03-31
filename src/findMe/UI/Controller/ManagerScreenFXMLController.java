@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import findMe.extraMethods.Methods;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,6 +13,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 
 public class ManagerScreenFXMLController implements Initializable{
+	
+	Methods method = new Methods();
+	
 	
 	@FXML
 	private Button btLogout;
@@ -22,8 +26,6 @@ public class ManagerScreenFXMLController implements Initializable{
 	 */
 	@FXML
 	private Button btShowSupervisors;
-	@FXML
-	private Button btRemoveSupervisor;
 	@FXML
 	private Button btRegisterSupervisor;
 	
@@ -36,8 +38,6 @@ public class ManagerScreenFXMLController implements Initializable{
 	private Button btShowMonitors;
 	@FXML
 	private Button btRegisterMonitor;
-	@FXML
-	private Button btRemoveMonitor;
 	
 	
 	
@@ -46,8 +46,6 @@ public class ManagerScreenFXMLController implements Initializable{
 	 */
 	@FXML
 	private Button btShowSchoolSubjects;
-	@FXML
-	private Button btRemoveSubject;
 	@FXML
 	private Button btRegisterSchoolSubject;
 
@@ -58,11 +56,7 @@ public class ManagerScreenFXMLController implements Initializable{
 	 * @throws IOException 
 	 */
 	public void btShowSupervisors() throws IOException{
-		Parent root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/ShowAllSupervisorsScreen.fxml"));	
-		Scene scene = new Scene(root);
-		Main.primaryStage.setTitle("Initial Screen");
-		Main.primaryStage.setScene(scene);
-		Main.primaryStage.show();
+		method.setAndShowOnPrimaryStage("/findMe/UI/FXML/ShowAllSupervisorsScreen.fxml", "Manager Screen");
 	}
 	
 	
@@ -73,18 +67,11 @@ public class ManagerScreenFXMLController implements Initializable{
 	
 	public void btRegisterSupervisor(){
 		try {
-			Parent root;
-			root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/RegisterSupervisor.fxml"));
-			Scene loginRegisterSupervisor = new Scene(root);
-			Main.primaryStage.setTitle("Monitor Manager");
-			Main.primaryStage.setScene(loginRegisterSupervisor);
-			Main.primaryStage.show(); 
+			method.setAndShowOnPrimaryStage("/findMe/UI/FXML/RegisterSupervisor.fxml", "Manager Screen");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
 	}
 	
 	
@@ -94,18 +81,7 @@ public class ManagerScreenFXMLController implements Initializable{
 	 * @throws IOException 
 	 */
 	public void btShowMonitors() throws IOException{
-			
-		Parent root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/ShowAllMonitorsScreen.fxml"));	
-		Scene scene = new Scene(root);
-		Main.primaryStage.setTitle("Initial Screen");
-		Main.primaryStage.setScene(scene);
-		Main.primaryStage.show();
-		
-	}
-	
-	
-	public void btRemoveMonitor(){
-		
+		method.setAndShowOnPrimaryStage("/findMe/UI/FXML/ShowAllMonitorsScreen.fxml", "Manager Screen");
 		
 	}
 	
@@ -132,17 +108,7 @@ public class ManagerScreenFXMLController implements Initializable{
 	 * @throws IOException 
 	 */
 	public void btShowSchoolSubjects() throws IOException{
-			
-		Parent root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/ShowAllSchoolSubjectScreen.fxml"));	
-		Scene scene = new Scene(root);
-		Main.primaryStage.setTitle("Initial Screen");
-		Main.primaryStage.setScene(scene);
-		Main.primaryStage.show();
-	}
-	
-	
-	public void btRemoveSchoolSubject(){
-		
+		method.setAndShowOnPrimaryStage("/findMe/UI/FXML/ShowAllSchoolSubjectScreen.fxml", "Monitor Manager");
 	}
 	
 	

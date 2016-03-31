@@ -22,7 +22,7 @@ DELIMITER $$
 
 
 
-/*Antes de deletar um monitor apaga o estudante, a pessoa, e a bankAccount com seu id*/
+/*Depois de deletar um monitor apaga o estudante, a pessoa, e a bankAccount com seu id*/
 DELIMITER $$
 CREATE TRIGGER afterDelete_Monitor AFTER DELETE ON monitor
 FOR EACH ROW
@@ -34,12 +34,14 @@ END$$
 DELIMITER $$
 
 
+
 /*Antes de deletar um monitor exclui as timetables com seu id*/
 DELIMITER $$
 CREATE TRIGGER beforeDelete_Monitor BEFORE DELETE ON monitor
 FOR EACH ROW
 BEGIN
     DELETE FROM timetable WHERE id_monitor = OLD.id;
+    
 END$$
 DELIMITER $$
 
@@ -49,7 +51,14 @@ DELIMITER $$
 CREATE TRIGGER beforeDelete_SchoolSubject BEFORE DELETE ON schoolsubject
 FOR EACH ROW
 BEGIN
-    DELETE FROM monitor WHERE id_schoolsubject = OLD.id;
+    
+    UPDATE monitor 
+	SET id_schoolsubject = null
+	WHERE id_schoolsubject = old.id;
+    UPDATE supervisor_schoolsubject
+    SET id_schoolsubject = null
+    WHERE id_schoolsubject = old.id;
+    
 END$$
 DELIMITER $$
 

@@ -181,13 +181,15 @@ REFERENCES schoolsubject(id)
 
 );
 
+
 insert into bankaccount (id, numberaccount, agency, typeaccount, notes) 
 
 values("000001", "1234567891", "Banco do Brasil", "Corrente", "."),
 
 ("000002", "9876543211", "Bradesco", "Poupança", "."),
 
-("000003", "9876543210", "Itaú", "Corrente", ".");
+("000003", "9876543210", "Itaú", "Corrente", "."),
+("000005", "7623472410", "Banco da Suiça", "Poupança", "melhor banco de todos os tempos");
 
 insert into person (id, cpf, birth_dt, namePerson, password,  sex, email, rg)
 
@@ -203,7 +205,10 @@ values("20141004019", "111.222.333-44", '1999-11-07', "Maria", "euamoarroz","fem
 
 ("20102001040", "234.897.001-09", '1997-09-06', "Davi", "easpedrinhas", "masculino", "davinodabilia@gmail.com", "48573909"),
 
-("20122671058", "274.950.032-14", '1976-10-10', "El grande", "poderosochefao", "masculino", "admin@gmail.com", "32173969"); 
+("20122671058", "274.950.032-14", '1976-10-10', "El grande", "poderosochefao", "masculino", "admin@gmail.com", "32173969"),
+("20122671051", "234.910.032-12", '1990-01-07', "Lucas", "adoropaodoce", "masculino", "lucas@gmail.com", "1.234.112"),
+("20122671001", "834.900.132-12", '1990-01-07', "Tiago", "maepai", "masculino", "tiago@gmail.com", "3.198.110"),
+("20152000081", "174.900.132-12", '1990-01-07', "Eugenio", "minhaesposa", "masculino", "eugenio@gmail.com", "8.123.000"); 
 
 insert into student (course, grade, id) 
 
@@ -211,7 +216,8 @@ values("Informatica", "2Âº ano", "20141004019"),
 
 ("Mineracao", "1Âº ano", "20151004018"), 
 
-("Petroleo e gas", "3Âº ano", "20131004017"); 
+("Petroleo e gas", "3Âº ano", "20131004017"),
+("Informatica", "3º ano", "20152000081"); 
 
 insert into supervisor(id) values
 
@@ -219,7 +225,9 @@ insert into supervisor(id) values
 
  ("20111002017"),
 
- ("20102001040");
+ ("20102001040"),
+ ("20122671051"),
+ ("20122671001");
 
  insert into manager(id) values
  
@@ -233,17 +241,21 @@ insert into supervisor(id) values
 
  ("155","Fisica"),
 
- ("110","Portugues");
+ ("110","Portugues"),
+ ("109","POO"),
+ ("010","ED");
 
-        
+
 
 insert into supervisor_schoolsubject(id_supervisor, id_schoolsubject) values 
 
  ("20111002017", "134"),
 
- ("20102001040", "110");
+ ("20102001040", "110"),
+ ( null, "155"),
+ ("20122003011", null),
+ ("20122671001", "010");
 
- 
 
  insert into monitor(id, id_supervisor, id_schoolsubject, id_bankaccount, roomwork) values
 
@@ -253,7 +265,6 @@ insert into supervisor_schoolsubject(id_supervisor, id_schoolsubject) values
 
  ("20131004017", "20102001040", "110", "000003", "Sala C");
 
-        
 
 insert into timetable(id_monitor, dayname, begin_time, end_time) values 
 

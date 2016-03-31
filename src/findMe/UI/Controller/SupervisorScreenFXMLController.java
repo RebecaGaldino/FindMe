@@ -17,6 +17,7 @@ public class SupervisorScreenFXMLController {
 	@FXML
 	private Button btLogout;
 	
+	
 	public void btEdit(){
 		
 	}
