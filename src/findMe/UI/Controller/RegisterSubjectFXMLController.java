@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import findMe.actions.ManagerActions;
 import findMe.domain.SchoolSubject;
 import findMe.extraMethods.Methods;
 import javafx.scene.control.TextField;
@@ -26,17 +27,29 @@ public class RegisterSubjectFXMLController implements Initializable {
 	@FXML
 	private TextField txtId;
 	
+	private Methods method = new Methods();
 	@FXML
 	public void btRegister(){
-		SchoolSubject subject = new SchoolSubject();
-		subject.setName(txtName.getText());
-		subject.setId(txtId.getText());
+		
+		try {
+			SchoolSubject subject = new SchoolSubject();
+			subject.setName(txtName.getText());
+			subject.setId(txtId.getText());
+			ManagerActions mac = new ManagerActions();
+			mac.registerSubject(subject);
+			method.setAndShowOnPrimaryStage("/findMe/UI/FXML/ManagerScreen.fxml", "Monitor Manager");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		
 	}
 	
 	public void btCancel(){
 		try {
 			Methods method = new Methods();
-			method.setAndShowOnPrimaryStage("/findMe/UI/FXML/InitialScreen.fxml", "Monitor Manager");
+			method.setAndShowOnPrimaryStage("/findMe/UI/FXML/ManagerScreen.fxml", "Monitor Manager");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -108,7 +108,7 @@ public class LoginScreenFXMLController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		textPerson.setText("¡rea do "+ choice);
+		textPerson.setText("√Årea do "+ choice);
 		choice();		
 		  
 	}

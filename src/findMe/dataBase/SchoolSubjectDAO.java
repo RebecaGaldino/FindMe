@@ -30,7 +30,7 @@ public class SchoolSubjectDAO {
 	public void insertSchoolSubject(SchoolSubject schoolSubject) {
 		String sql = "insert into schoolsubject (id, namesubject) values (?, ?)";
 		try {
-			
+			System.out.println("alo");
 			PreparedStatement st = conn.prepareStatement(sql);
 			
 			st.setString(1, schoolSubject.getId());

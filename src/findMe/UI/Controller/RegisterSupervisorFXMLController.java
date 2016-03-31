@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 
 import findMe.actions.ManagerActions;
 import findMe.domain.Supervisor;
+import findMe.extraMethods.Methods;
 import findMe.validate.validator.CpfValidator;
 import findMe.validate.validator.DateValidator;
 import findMe.validate.validator.EmailValidator;
@@ -87,14 +88,14 @@ public class RegisterSupervisorFXMLController implements Initializable{
 			 supervisor.setId(txtId.getText());
 			supervisor.setSex(cbSex.getSelectionModel().getSelectedItem().toString());
 			supervisor.setPassword(txtPassword.getText());
-			 //supervisor.setBirth_dt(txtBirth_dt.getText());
+			supervisor.setBirth_dt(Methods.convertStringToSqlString(txtBirth_dt.getText()));
 			supervisor.setCpf(txtCpf.getText());
 			supervisor.setRg(txtRg.getText());
 			supervisor.setEmail(txtEmail.getText());
 			supervisor.setPassword(txtPassword.getText()); 
 			ManagerActions mac = new ManagerActions();
 			mac.registerSupervisor(supervisor);
-			System.out.println(txtBirth_dt.getText());
+			
 			
 			
 			
