@@ -122,7 +122,7 @@ public class RegisterSupervisorFXMLController implements Initializable{
 	public void btCancel(){
 		try {
 			Parent root;
-			root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/ManagersScreen.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/ManagerScreen.fxml"));
 			Scene managerScreen = new Scene(root);
 			Main.primaryStage.setTitle("Monitor Manager");
 			Main.primaryStage.setScene(managerScreen);

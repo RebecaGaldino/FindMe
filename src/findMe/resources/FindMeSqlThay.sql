@@ -1,4 +1,3 @@
-DROP SCHEMA findme;
 CREATE SCHEMA findme;
 
 USE findme;

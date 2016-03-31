@@ -38,6 +38,7 @@ public class SchoolSubjectDAO {
 			
 			st.execute();
 			st.close();
+			System.out.println("Subject cadastrado com sucesso");
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
@@ -229,7 +230,7 @@ public class SchoolSubjectDAO {
 	
 	
 	/**
-	 * Retorna um array com todas as disciplinas e seus monitores, supervisores e informaçoes basicas
+	 * Retorna um array com todas as disciplinas e seus monitores, supervisores e informaï¿½oes basicas
 	 * @return
 	 * @author ViniFarias
 	 */

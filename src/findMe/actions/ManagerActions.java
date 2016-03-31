@@ -16,7 +16,10 @@ public class ManagerActions {
 	public void ManagerActions(){
 		
 	}
-	
+	/**
+	 * Register Monitor on dataBase
+	 * @param monitor
+	 */
 	public void registerMonitor(Monitor monitor){
 		try {
 			
@@ -30,7 +33,10 @@ public class ManagerActions {
 		}
 	}
 	
-	
+	/**
+	 * Register Supervisor on dataBase
+	 * @param supervisor
+	 */
 	public void registerSupervisor(Supervisor supervisor){
 		try {
 			
@@ -42,18 +48,42 @@ public class ManagerActions {
 			e.printStackTrace();
 		}
 	}
-	
+	/**
+	 * Register School Subject on dataBase
+	 * @param subject
+	 */
+	public void registerSubject(SchoolSubject subject){
+		try {
+			
+				SchoolSubjectDAO sdao = new SchoolSubjectDAO();
+				sdao.insertSchoolSubject(subject);
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	/**
+	 * Delete monitor
+	 * @param monitor
+	 */
 	public void deleteMonitor(Monitor monitor){
 		MonitorDAO mdao = new MonitorDAO();
 		mdao.deleteMonitor(monitor.getId());
 		
 	}
-	
+	/**
+	 * Delete supervisor
+	 * @param supervisor
+	 */
 	public void deleteSupervisor(Supervisor supervisor){
 		SupervisorDAO sdao = new SupervisorDAO();
 		sdao.deleteSupervisor(supervisor.getId());
 	}
-
+	/**
+	 * Delete SchoolSubject
+	 * @param schoolSubject
+	 */
 	public void deleteSchoolSubject(SchoolSubject schoolSubject) {
 		SchoolSubjectDAO ssdao = new SchoolSubjectDAO();
 		ssdao.deleteSchoolSubject(schoolSubject.getId());

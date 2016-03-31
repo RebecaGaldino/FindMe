@@ -113,7 +113,12 @@ public class ManagerScreenFXMLController implements Initializable{
 	
 	
 	public void btRegisterSchoolSubject(){
-		
+		try {
+			method.setAndShowOnPrimaryStage("/findMe/UI/FXML/RegisterSubject.fxml", "Monitor Manager");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	

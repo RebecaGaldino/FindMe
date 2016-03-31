@@ -170,6 +170,7 @@ public class RegisterMonitorFXMLController implements Initializable{
 	
 	public void btCancel(){
 		try {
+			
 			Parent root;
 			root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/ManagersScreen.fxml"));
 			Scene managerScreen = new Scene(root);
