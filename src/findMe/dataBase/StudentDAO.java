@@ -37,7 +37,7 @@ public class StudentDAO{
 				
 				st.execute();
 				st.close();
-				System.out.println("Studant cadastrado com sucesso!");
+				System.out.println("Student cadastrado com sucesso!");
 			} catch (SQLException e) {
 				System.out.println(e.getMessage());
 			}
@@ -63,7 +63,7 @@ public class StudentDAO{
 				
 				st.execute();
 				st.close();
-				System.out.println("Studant cadastrado com sucesso!");
+				System.out.println("Student cadastrado com sucesso!");
 			} catch (SQLException e) {
 				System.out.println(e.getMessage());
 			}
@@ -80,6 +80,7 @@ public class StudentDAO{
 				
 				st.execute();
 				st.close();
+				System.out.println("Student deletado com sucesso!");
 			} catch (SQLException e) {
 				System.out.println(e.getMessage());
 			}
@@ -100,6 +101,7 @@ public class StudentDAO{
 				
 				st.execute();
 				st.close();
+				System.out.println("Student atualizado com sucesso!");
 			} catch (SQLException e) {
 				System.out.println(e.getMessage());
 			}

@@ -43,6 +43,16 @@ BEGIN
 END$$
 DELIMITER $$
 
+
+/*Antes de deletar uma disciplina exclui os id_schoolsubject em monitor com seu id*/
+DELIMITER $$
+CREATE TRIGGER beforeDelete_SchoolSubject BEFORE DELETE ON schoolsubject
+FOR EACH ROW
+BEGIN
+    DELETE FROM monitor WHERE id_schoolsubject = OLD.id;
+END$$
+DELIMITER $$
+
 /*-----------------------------------------------------------------------------------------*/
 
 /*Exibe todos os monitores e suas matrículas ---- getMonitorsAndIds() ---- OK*/

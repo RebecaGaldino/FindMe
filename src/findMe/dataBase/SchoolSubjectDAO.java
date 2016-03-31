@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.*;
 
 import findMe.domain.AuxiliarObject;
+import findMe.domain.Monitor;
 import findMe.domain.Person;
 import findMe.domain.SchoolSubject;
 import findMe.domain.Supervisor;
@@ -53,6 +54,7 @@ public class SchoolSubjectDAO {
 			
 			st.execute();
 			st.close();
+			System.out.println("SchoolSubject deletada com sucesso");
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
@@ -102,41 +104,6 @@ public class SchoolSubjectDAO {
 			System.out.println(e.getMessage());
 		}
 			return false;
-	}
-	
-	/**
-	 * Return the subjects' names and ids
-	 * @return ArrayList with subjects and their names 
-	 * @author Rebeca Galdino
-	 */
-	public List<SchoolSubject> getAllInfoSubject(){
-		String sql = "select schoolsubject.* from schoolsubject order by namesubject";
-	try {
-				
-				List<SchoolSubject> subjects = new ArrayList<SchoolSubject>();
-				
-				PreparedStatement st = conn.prepareStatement(sql);
-				
-				ResultSet rs = st.executeQuery();
-				
-				while(rs.next()){
-					
-					SchoolSubject s = new SchoolSubject();
-					s.setName(rs.getString("nameSubject"));
-					s.setId(rs.getString("id"));
-					
-					subjects.add(s);
-					
-				}
-				
-				rs.close();
-				st.close();
-				return subjects;
-			} catch (SQLException e) {
-				System.out.println(e.getMessage());
-			}
-			return null;
-				
 	}
 	
 	/**
@@ -219,4 +186,99 @@ public class SchoolSubjectDAO {
 			}
 			return null;
 		}
+	
+	
+	/**
+	 * Retorna um array com todas as disciplinas e seu id e nome
+	 * @return
+	 * @author ViniFarias
+	 */
+	public List<SchoolSubject> getInfoAllSubject(){
+		String sql = " select schoolsubject.* from schoolsubject left join supervisor_schoolsubject as sb1 "
+					+"on schoolsubject.id = sb1.id_schoolsubject left join supervisor as s1 on sb1.id_supervisor = s1.id "
+					+"left join person as p1 on s1.id = p1.id left join monitor as m1 on "
+					+"schoolsubject.id = m1.id_schoolsubject left join person as p2 on m1.id = p2.id order by schoolsubject.namesubject";
+	try {
+				
+				List<SchoolSubject> subjects = new ArrayList<SchoolSubject>();
+				
+				PreparedStatement st = conn.prepareStatement(sql);
+				
+				ResultSet rs = st.executeQuery();
+				
+				while(rs.next()){
+					
+					SchoolSubject s = new SchoolSubject();
+					s.setName(rs.getString("nameSubject"));
+					s.setId(rs.getString("id"));
+					
+					subjects.add(s);
+					
+				}
+				
+				rs.close();
+				st.close();
+				return subjects;
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+			return null;
+				
+	}
+	
+	
+	
+	/**
+	 * Retorna um array com todas as disciplinas e seus monitores, supervisores e informaçoes basicas
+	 * @return
+	 * @author ViniFarias
+	 */
+	public Monitor getAllInfoSubject(String id){
+		String sql = "select schoolsubject.*, p1.id idP1, p1.namePerson namePersonP1, p1.email emailP1, "
+					+"m1.roomwork roomworkM1, p2.id idP2, p2.namePerson namePersonP2, p2.email emailP2 from schoolsubject "
+					+"left join supervisor_schoolsubject as sb1 on schoolsubject.id = sb1.id_schoolsubject "
+					+"left join supervisor as s1 on sb1.id_supervisor = s1.id left join person as p1 on s1.id = p1.id "
+					+"left join monitor as m1 on schoolsubject.id = m1.id_schoolsubject left join person as p2 "
+					+"on m1.id = p2.id  where schoolsubject.id =  "+id;
+		try {
+				
+				Monitor m = new Monitor();
+				
+				PreparedStatement st = conn.prepareStatement(sql);
+				
+				ResultSet rs = st.executeQuery();
+				
+				while(rs.next()){
+					
+					SchoolSubject sb = new SchoolSubject();
+					Supervisor s = new Supervisor();
+					
+					sb.setName(rs.getString("nameSubject"));
+					sb.setId(rs.getString("id"));
+					
+					s.setId(rs.getString("idP1"));
+					s.setName(rs.getString("namePersonP1"));
+					s.setEmail(rs.getString("emai.P1"));
+					
+					m.setId(rs.getString("idP2"));
+					m.setRoomWork(rs.getString("roomworkM1"));
+					m.setEmail(rs.getString("emailP2"));
+					m.setName(rs.getString("namePersonP2"));
+					
+					m.setSubject(sb);
+					m.setSupervisor(s);
+					
+					
+					
+				}
+				
+				rs.close();
+				st.close();
+				return m;
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+			return null;
+				
+	}
 }

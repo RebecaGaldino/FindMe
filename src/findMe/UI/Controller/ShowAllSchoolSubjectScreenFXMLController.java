@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 
 import org.controlsfx.control.TextFields;
 
+import findMe.actions.ManagerActions;
 import findMe.dataBase.MonitorDAO;
 import findMe.dataBase.SchoolSubjectDAO;
 import findMe.dataBase.SupervisorDAO;
@@ -15,6 +16,7 @@ import findMe.domain.Monitor;
 import findMe.domain.Person;
 import findMe.domain.SchoolSubject;
 import findMe.domain.Supervisor;
+import findMe.extraMethods.Methods;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
@@ -62,12 +64,14 @@ public class ShowAllSchoolSubjectScreenFXMLController implements Initializable{
 	private int posSchoolSubject;
 	
 	ObservableList<SchoolSubject> list = FXCollections.observableArrayList();
+	Methods method = new Methods();
+	public static SchoolSubject schoolSubjectView = new SchoolSubject();
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
 		SchoolSubjectDAO s = new SchoolSubjectDAO();
-		list = FXCollections.observableArrayList(s.getAllInfoSubject());
+		list = FXCollections.observableArrayList(s.getInfoAllSubject());
 		
 		tcName.setCellValueFactory(new PropertyValueFactory<SchoolSubject, String>("name"));
         tcId.setCellValueFactory(new PropertyValueFactory<SchoolSubject, String>("id"));
@@ -84,24 +88,30 @@ public class ShowAllSchoolSubjectScreenFXMLController implements Initializable{
 	@FXML
 	public void btBack() throws IOException{
 		
-		Parent root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/ManagerScreen.fxml"));
-		
-		Scene scene = new Scene(root);
-		Main.primaryStage.setTitle("Initial Screen");
-		Main.primaryStage.setScene(scene);
-		Main.primaryStage.show();
+		method.setAndShowOnPrimaryStage("/findMe/UI/FXML/ManagerScreen.fxml", "Manager Screen");
 		
 	}
 	
 	@FXML
-	public void btShow(){
+	public void btShow() throws IOException{
 		
-		
+		if(schoolSubjectView != null){
+			
+			method.setAndShowOnPrimaryStage("/findMe/UI/FXML/SchoolSubjectView.fxml", "Monitor Manager");
+		}
 	}
 	
 	@FXML
 	public void btDelete(){
-		
+		if(schoolSubjectView != null){
+			ManagerActions mact = new ManagerActions();
+			mact.deleteSchoolSubject(schoolSubjectView);
+			SchoolSubjectDAO s = new SchoolSubjectDAO();
+			list = FXCollections.observableArrayList(s.getInfoAllSubject());
+			schoolSubjectView = null;
+			initFilter();
+			putSchoolSubjectSelected();
+		}
 	}
 	
 	/*-----------------------------------------------------------------------------------------------*/
@@ -130,9 +140,11 @@ public class ShowAllSchoolSubjectScreenFXMLController implements Initializable{
             List<SchoolSubject> table = tvTableView.getSelectionModel().getSelectedItems();
             if (table.size() == 1) {
                 final SchoolSubject SchoolSubjectSelected = table.get(0);
+                schoolSubjectView = SchoolSubjectSelected;
                 return SchoolSubjectSelected;
             }
         }
+        schoolSubjectView = null;
         return null;
     }
     
@@ -152,8 +164,11 @@ public class ShowAllSchoolSubjectScreenFXMLController implements Initializable{
             // Pongo los textFields con los datos correspondientes
             txtName.setText(schoolSubject.getName());
             txtId.setText(schoolSubject.getId());
-            //txtSchoolSubject.setText(supervisor.getSubject().getName());
 
+        }
+        else{
+        	txtName.setText("");
+            txtId.setText("");
         }
     }
     

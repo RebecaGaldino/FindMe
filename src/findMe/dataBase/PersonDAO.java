@@ -153,6 +153,7 @@ public class PersonDAO {
 				
 				st.execute();
 				st.close();
+				System.out.println("Person deletado com sucesso!");
 			} catch (SQLException e) {
 				System.out.println(e.getMessage());
 			}
@@ -180,6 +181,7 @@ public class PersonDAO {
 				
 				st.execute();
 				st.close();
+				System.out.println("Person deletado com sucesso!");
 			} catch (SQLException e) {
 				System.out.println(e.getMessage());
 			}

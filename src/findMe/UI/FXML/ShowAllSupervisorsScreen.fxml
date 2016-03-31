@@ -65,5 +65,10 @@
             <Font size="15.0" />
          </font>
       </Button>
+      <Button fx:id="btDelete" layoutX="260.0" layoutY="548.0" mnemonicParsing="false" onAction="#btDelete" prefHeight="0.0" prefWidth="123.0" style="-fx-background-color: orange; -fx-text-fill: white;" text="Deletar">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

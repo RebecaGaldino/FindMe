@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 
 import org.controlsfx.control.TextFields;
 
+import findMe.actions.ManagerActions;
 import findMe.dataBase.MonitorDAO;
 import findMe.domain.Monitor;
 import findMe.domain.Person;
@@ -94,9 +95,15 @@ public class ShowAllMonitorsScreenFXMLController implements Initializable{
 	
 	@FXML
 	public void btDelete() throws IOException{
-		
-		
-		
+		if(monitorView != null){
+			ManagerActions mact = new ManagerActions();
+			mact.deleteMonitor(monitorView);
+			MonitorDAO m = new MonitorDAO();
+			list = FXCollections.observableArrayList(m.getAllInfoMonitors());
+			monitorView = null;
+			initFilter();
+			putPersonSelected();
+		}
 	}
 	
 	
@@ -164,6 +171,11 @@ public class ShowAllMonitorsScreenFXMLController implements Initializable{
             txtId.setText(monitor.getId());
             txtSchoolSubject.setText(monitor.getSubject().getName());
 
+        }
+        else {
+        	txtName.setText("");
+            txtId.setText("");
+            txtSchoolSubject.setText("");
         }
     }
     

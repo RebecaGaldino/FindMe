@@ -78,12 +78,16 @@ public class TestVini {
 		for(Person p : s.getSupervisorsAndIds()){
 			System.out.println(p.getName()+" "+p.getId());
 		}*/
+		/*
 		BankAccount ba = new BankAccount("7374", "242432423", "12", "não gosto desse banco");
 		Supervisor s = new Supervisor("525", convertStringToSqlString("12/12/1222"), "", "Marcus Vinicius de farias Barbosa", "1231313", "Masculino", "1.232.234", "vinifarias.vf@gmail.com");
 		SchoolSubject ss = new SchoolSubject("Informática", "2324");
 		
 		Monitor m = new Monitor("20141004003", "123.145.789-98", convertStringToSqlString("10/02/1900"), "Thayanne Luiza Victor Landim de Sousa", 
-				"52618241", "Feminino", "1.233.789", "Thayannevls@gmail.com", ss, "2", "Matematica", "Sala1", ba, s);
+				"52618241", "Feminino", "1.233.789", "Thayannevls@gmail.com", ss, "2", "Matematica", "Sala1", ba, s);*/
+		
+		SchoolSubjectDAO sdao = new SchoolSubjectDAO();
+		sdao.deleteSchoolSubject("109");
 	}
 	
 	/**

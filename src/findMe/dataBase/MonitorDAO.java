@@ -68,6 +68,7 @@ public class MonitorDAO{
 			
 			st.execute();
 			st.close();
+			System.out.println("Monitor deletado com sucesso!");
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
@@ -89,7 +90,7 @@ public class MonitorDAO{
 			
 			st.execute();
 			st.close();
-			System.out.println("Monitor cadastrado com sucesso!");
+			System.out.println("Monitor atualizado com sucesso!");
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
@@ -201,8 +202,8 @@ public class MonitorDAO{
 		String sql = "SELECT p1.*, student.course course, student.grade grade, monitor.id_supervisor idSupervisor, "
 				+"p2.namePerson namePersonSupervisor, schoolsubject.namesubject, bankaccount.*, monitor.roomwork "
 				+"FROM monitor INNER JOIN student ON monitor.id = student.id INNER JOIN person as p1 "
-				+"ON student.id = p1.id INNER JOIN person as p2 ON monitor.id_supervisor = p2.id INNER JOIN schoolsubject "
-				+"ON monitor.id_schoolsubject = schoolsubject.id INNER JOIN bankaccount ON monitor.id_bankaccount = bankaccount.id "
+				+"ON student.id = p1.id INNER JOIN person as p2 ON monitor.id_supervisor = p2.id LEFT JOIN schoolsubject "
+				+"ON monitor.id_schoolsubject = schoolsubject.id LEFT JOIN bankaccount ON monitor.id_bankaccount = bankaccount.id "
 				+"ORDER BY p1.namePerson";
 		
 		try {

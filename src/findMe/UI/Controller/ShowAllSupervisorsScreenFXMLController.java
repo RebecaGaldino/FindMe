@@ -8,12 +8,14 @@ import java.util.ResourceBundle;
 
 import org.controlsfx.control.TextFields;
 
+import findMe.actions.ManagerActions;
 import findMe.dataBase.MonitorDAO;
 import findMe.dataBase.SupervisorDAO;
 import findMe.domain.Monitor;
 import findMe.domain.Person;
 import findMe.domain.SchoolSubject;
 import findMe.domain.Supervisor;
+import findMe.extraMethods.Methods;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
@@ -58,9 +60,14 @@ public class ShowAllSupervisorsScreenFXMLController implements Initializable{
 	@FXML
 	private TextField txtSchoolSubject;
 	
-	private int posSupervisor;
 	
+	/*--------------------------------*/
+	private int posSupervisor;
 	ObservableList<Supervisor> list = FXCollections.observableArrayList();
+	public static Supervisor supervisorView = null;
+	Methods method = new Methods();
+	/*--------------------------------*/
+	
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -80,25 +87,43 @@ public class ShowAllSupervisorsScreenFXMLController implements Initializable{
 		
 	}
 	
+	
+	
+	@FXML
+	public void btDelete() throws IOException{
+		if(supervisorView != null){
+			ManagerActions mact = new ManagerActions();
+			mact.deleteSupervisor(supervisorView);
+			SupervisorDAO s = new SupervisorDAO();
+			list = FXCollections.observableArrayList(s.getAllInfoSupervisors());
+			supervisorView = null;
+			initFilter();
+			putPersonSelected();
+		}
+	}
+	
+	
+	
 	@FXML
 	public void btBack() throws IOException{
 		
-		Parent root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/ManagerScreen.fxml"));
-		
-		Scene scene = new Scene(root);
-		Main.primaryStage.setTitle("Initial Screen");
-		Main.primaryStage.setScene(scene);
-		Main.primaryStage.show();
+		method.setAndShowOnPrimaryStage("/findMe/UI/FXML/ManagerScreen.fxml", "Monitor Manager");
 		
 	}
 	
 	@FXML
-	public void btShow(){
+	public void btShow() throws IOException{
 		
-		
+		if(supervisorView != null){
+			
+			method.setAndShowOnPrimaryStage("/findMe/UI/FXML/SupervisorView.fxml", "Monitor Manager");
+			
+		}
 	}
 	
-	/*-----------------------------------------------------------------------------------------------*/
+	
+	
+	/*------------------------------EXIBIÇÃO DOS DADOS-------------------------------------*/
 	
 	
 	/**
@@ -124,9 +149,11 @@ public class ShowAllSupervisorsScreenFXMLController implements Initializable{
             List<Supervisor> table = tvTableView.getSelectionModel().getSelectedItems();
             if (table.size() == 1) {
                 final Supervisor supervisorSelected = table.get(0);
+                supervisorView = supervisorSelected;
                 return supervisorSelected;
             }
         }
+        supervisorView = null;
         return null;
     }
     
@@ -149,9 +176,13 @@ public class ShowAllSupervisorsScreenFXMLController implements Initializable{
             //txtSchoolSubject.setText(supervisor.getSubject().getName());
 
         }
+        else {
+        	txtName.setText("");
+            txtId.setText("");
+        }
     }
     
-    
+    /*-----------------FILTRAGEM DOS DADOS------------------------------------------*/
     /**
      * Método que faz a filtragem dos dados
      */

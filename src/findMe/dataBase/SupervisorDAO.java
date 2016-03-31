@@ -45,6 +45,7 @@ public class SupervisorDAO{
 				
 				st.execute();
 				st.close();
+				System.out.println("Supervisor cadastrado com sucesso!");
 			} catch (SQLException e) {
 				System.out.println(e.getMessage());
 			}
@@ -65,6 +66,7 @@ public class SupervisorDAO{
 				
 				st.execute();
 				st.close();
+				System.out.println("Supervisor deletado com sucesso!");
 			} catch (SQLException e) {
 				System.out.println(e.getMessage());
 			}
@@ -115,6 +117,7 @@ public class SupervisorDAO{
 				
 				st.execute();
 				st.close();
+				System.out.println("Supervisor atualizado com sucesso!");
 			} catch (SQLException e) {
 				System.out.println(e.getMessage());
 			}
