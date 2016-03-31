@@ -73,7 +73,7 @@ public class ShowAllSupervisorsScreenFXMLController implements Initializable{
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
 		SupervisorDAO s = new SupervisorDAO();
-		list = FXCollections.observableArrayList(s.getAllInfoSupervisors());
+		list = FXCollections.observableArrayList(s.getAllInfoAllSupervisors());
 		
 		tcName.setCellValueFactory(new PropertyValueFactory<Supervisor, String>("name"));
         tcId.setCellValueFactory(new PropertyValueFactory<Supervisor, String>("id"));
@@ -95,7 +95,7 @@ public class ShowAllSupervisorsScreenFXMLController implements Initializable{
 			ManagerActions mact = new ManagerActions();
 			mact.deleteSupervisor(supervisorView);
 			SupervisorDAO s = new SupervisorDAO();
-			list = FXCollections.observableArrayList(s.getAllInfoSupervisors());
+			list = FXCollections.observableArrayList(s.getAllInfoAllSupervisors());
 			supervisorView = null;
 			initFilter();
 			putPersonSelected();

@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="findMe.UI.Controller.RegisterSupervisorFXMLController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="findMe.UI.Controller.SupervisorEditScreenFXMLController">
    <children>
       <ScrollPane hbarPolicy="NEVER" layoutY="-1.0" prefHeight="600.0" prefWidth="900.0">
          <content>
@@ -156,7 +156,7 @@
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Button fx:id="btRegister" mnemonicParsing="false" onAction="#btRegister" prefHeight="36.0" prefWidth="90.0" style="-fx-background-color: orange; -fx-text-fill: white;" text="Confirmar" GridPane.columnIndex="1">
+                        <Button fx:id="btConfirm" mnemonicParsing="false" onAction="#btConfirm" prefHeight="36.0" prefWidth="90.0" style="-fx-background-color: orange; -fx-text-fill: white;" text="Confirmar" GridPane.columnIndex="1">
                            <font>
                               <Font size="15.0" />
                            </font>

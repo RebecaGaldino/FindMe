@@ -160,14 +160,66 @@ public class SupervisorDAO{
 		}
 		
 		
-		
-		public List<Supervisor> getAllInfoSupervisors(){
+		/**
+		 * Pega apenas os supervisores que possuem disciplina
+		 * @return
+		 */
+		public List<Supervisor> getInfoAllSupervisors(){
 			String sql = "SELECT schoolsubject.id id_subject, schoolsubject.namesubject, person.* "
 					+"from person inner join supervisor on supervisor.id = person.id "
 					+"inner join schoolsubject on schoolsubject.id is not null "
 					+"inner join supervisor_schoolsubject on supervisor.id = supervisor_schoolsubject.id_supervisor "
 					+"and schoolsubject.id = supervisor_schoolsubject.id_schoolsubject "
 					+"order by person.namePerson";
+			
+			try {
+				
+				List<Supervisor> tb = new ArrayList<Supervisor>();
+				
+				PreparedStatement st = conn.prepareStatement(sql);
+				
+				ResultSet rs = st.executeQuery();
+				
+				while(rs.next()){
+					
+					Supervisor supervisor = new Supervisor();
+					SchoolSubject ss = new SchoolSubject();
+					
+					supervisor.setId(rs.getString("id"));
+					supervisor.setCpf(rs.getString("cpf"));
+					supervisor.setBirth_dt(rs.getString("birth_dt"));
+					supervisor.setName(rs.getString("namePerson"));
+					supervisor.setPassword(rs.getString("password"));
+					supervisor.setSex(rs.getString("sex"));
+					supervisor.setEmail(rs.getString("email"));
+					supervisor.setRg(rs.getString("rg"));
+					
+					ss.setId(rs.getString("id_subject"));
+					ss.setName(rs.getString("namesubject"));
+					
+					tb.add(supervisor);
+					
+				}
+				
+				rs.close();
+				st.close();
+				return tb;
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+			return null;
+		}
+		
+		
+		
+		/**
+		 * Pega todos os supervisores, inclusive os que não possuem disciplina
+		 * @return
+		 */
+		public List<Supervisor> getAllInfoAllSupervisors(){
+			String sql = " select supervisor.*, p1.*, s1.id id_subject, s1.namesubject from supervisor left join supervisor_schoolsubject as sb1 "
+					+"on supervisor.id = sb1.id_supervisor left join person as p1 on supervisor.id = p1.id "
+					+"left join schoolsubject s1 on sb1.id_schoolsubject = s1.id order by p1.namePerson";
 			
 			try {
 				
@@ -275,5 +327,45 @@ public class SupervisorDAO{
 				System.out.println(e.getMessage());
 			}
 				return false;
+		}
+		
+		
+		public Supervisor getSupervisorById(String id){
+			String sql = "select supervisor.*, p1.*, s1.id id_subject, s1.namesubject from supervisor "
+						+"left join supervisor_schoolsubject as sb1 on supervisor.id = sb1.id_supervisor "
+						+"left join person as p1 on supervisor.id = p1.id left join schoolsubject s1 "
+						+"on sb1.id_schoolsubject = s1.id where supervisor.id = "+id;
+			
+			try{
+				Supervisor s = new Supervisor();
+				
+				PreparedStatement st = conn.prepareStatement(sql);
+				
+				ResultSet rs = st.executeQuery();
+				
+				while(rs.next()){
+					
+					SchoolSubject sb = new SchoolSubject();
+					
+					sb.setName(rs.getString("nameSubject"));
+					sb.setId(rs.getString("id_subject"));
+					
+					s.setId(rs.getString("id"));
+					s.setCpf(rs.getString("cpf"));
+					s.setBirth_dt(rs.getString("birth_dt"));
+					s.setName(rs.getString("namePerson"));
+					s.setRg(rs.getString("rg"));
+					s.setSex(rs.getString("sex"));
+					s.setEmail(rs.getString("email"));
+					
+				}
+				
+				rs.close();
+				st.close();
+				return s;
+			} catch(Exception e){
+				System.out.println("Exception is :"+e);
+			}
+			return null;
 		}
 }
