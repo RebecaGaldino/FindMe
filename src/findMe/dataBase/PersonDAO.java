@@ -223,7 +223,7 @@ public class PersonDAO {
 		
 		
 		/**
-		 * Verifica a senha e id do usu�rio
+		 * Verifica a senha e id do usuario
 		 * @param id
 		 * @param password
 		 * @return boolean
