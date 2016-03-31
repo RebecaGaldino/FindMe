@@ -18,7 +18,7 @@ public class MonitorScreenFXMLController {
 	@FXML
 	private Button btLogout;
 	
-	
+	public static String UserId = LoginScreenFXMLController.UserId;
 	
 	public void btLogout(){
 		try{

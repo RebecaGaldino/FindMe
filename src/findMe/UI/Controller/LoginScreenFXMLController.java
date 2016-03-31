@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 import findMe.dataBase.ManagerDAO;
 import findMe.dataBase.MonitorDAO;
 import findMe.dataBase.SupervisorDAO;
+import findMe.extraMethods.Methods;
 import javafx.animation.Interpolatable;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -50,6 +51,8 @@ public class LoginScreenFXMLController implements Initializable {
 	private String rootFXML;
 	
 	private boolean userChecksResult;
+	Methods method = new Methods();
+	public static String UserId;
 	
 	private MonitorDAO mDAO = new MonitorDAO();
 	private SupervisorDAO sDAO = new SupervisorDAO();
@@ -70,11 +73,8 @@ public class LoginScreenFXMLController implements Initializable {
 		
 		
 		if(userChecksResult){
-			Parent root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/"+rootFXML));	
-			Scene scene = new Scene(root);
-			Main.primaryStage.setTitle("Initial Screen");
-			Main.primaryStage.setScene(scene);
-			Main.primaryStage.show();
+			UserId = txtNameUser.getText();
+			method.setAndShowOnPrimaryStage("/findMe/UI/FXML/"+rootFXML, "Monitor Manager");
 		}
 		else{
 			txtNameUser.setStyle("-fx-border-color: red");
@@ -86,13 +86,7 @@ public class LoginScreenFXMLController implements Initializable {
 	
 	@FXML
 	public void btCancel() throws IOException{
-		
-		Parent root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/InitialScreen.fxml"));
-		
-		Scene scene = new Scene(root);
-		Main.primaryStage.setTitle("Initial Screen");
-		Main.primaryStage.setScene(scene);
-		Main.primaryStage.show();
+		method.setAndShowOnPrimaryStage("/findMe/UI/FXML/InitialScreen.fxml", "Monitor Manager");
 	}
 	
 	
@@ -117,7 +111,5 @@ public class LoginScreenFXMLController implements Initializable {
 		textPerson.setText("Área do "+ choice);
 		choice();		
 		  
-        
-		
 	}
 }
