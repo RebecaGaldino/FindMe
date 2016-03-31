@@ -18,19 +18,19 @@ public class Teste{
 		
 		//public Supervisor(String id, String cpf, String birth_dt, String name, String password, String sex, String rg, String email) {
 		//}
-		Supervisor s = new Supervisor("53453452", "122.333.222-90", convertStringToSqlString("12/12/1222"), "Marcus Vinicius de farias Barbosa", "1231313", "Masculino", "1.232.234", "vinifarias.vf@gmail.com");
+		Supervisor s = new Supervisor("534534522", "122.333.222-90", convertStringToSqlString("12/12/1222"), "Marcus Vinicius de farias Barbosa", "1231313", "Masculino", "1.232.234", "vinifarias.vf@gmail.com");
 		SchoolSubject ss = new SchoolSubject("Informatica", "122");
 		
 			
-		Monitor m = new Monitor("20141004003", "123.145.789-98", convertStringToSqlString("12/03/2000"), "Thayanne Luiza Victor Landim de Sousa", "52618241", "Feminino", "1.233.789", "Thayannevls@gmail.com", "Informatica", "2", ss,"Sala1", ba, s);
+		Monitor m = new Monitor("20142004003", "123.145.789-98", convertStringToSqlString("12/03/2000"), "Thayanne Luiza Victor Landim de Sousa", "52618241", "Feminino", "1.233.789", "Thayannevls@gmail.com", "Informatica", "2", ss,"Sala1", ba, s);
 		
 		//MonitorDAO mDAO = new MonitorDAO();
 		//mDAO.insertMonitor(m);
 		ManagerActions mac = new ManagerActions();
 		SupervisorDAO sDAO = new SupervisorDAO();
-		//mac.registerMonitor(m);
+		mac.registerMonitor(m);
 		//sDAO.insertSupervisor(s);
-		mac.registerSupervisor(s);
+		//mac.registerSupervisor(s);
 		
 		//System.out.println(s.getSex());
 	}
