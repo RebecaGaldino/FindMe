@@ -70,8 +70,9 @@ public class RegisterSupervisorFXMLController implements Initializable{
 	private ComboBox cbSex;
 	@FXML
 	private Button btShowSubject;
-	private Methods method = new Methods();
+	public static Methods method = new Methods();
 	public static SchoolSubject subject = new SchoolSubject();
+	
 	ObservableList<String> optionsCBSEX = 
 		    FXCollections.observableArrayList("Masculino","Feminino");
 	
@@ -91,7 +92,7 @@ public class RegisterSupervisorFXMLController implements Initializable{
 				Supervisor supervisor = new Supervisor();
 				
 				supervisor.setName(txtName.getText());
-				 supervisor.setId(txtId.getText());
+				supervisor.setId(txtId.getText());
 				supervisor.setSex(cbSex.getSelectionModel().getSelectedItem().toString());
 				supervisor.setPassword(txtPassword.getText());
 				supervisor.setBirth_dt(Methods.convertStringToSqlString(txtBirth_dt.getText()));
@@ -99,13 +100,16 @@ public class RegisterSupervisorFXMLController implements Initializable{
 				supervisor.setRg(txtRg.getText());
 				supervisor.setEmail(txtEmail.getText());
 				
-				Supervisor_SchoolSubject supervisorSubject = new Supervisor_SchoolSubject(supervisor, subject);
-			
-				Supervisor_SchoolSubjectDAO sdao = new Supervisor_SchoolSubjectDAO();
-				sdao.insertSupervisor_SchoolSubject(supervisorSubject);
+				
 				
 				ManagerActions mac = new ManagerActions();
 				mac.registerSupervisor(supervisor);
+				
+				Supervisor_SchoolSubject supervisorSubject = new Supervisor_SchoolSubject(supervisor, subject);
+				
+				Supervisor_SchoolSubjectDAO sdao = new Supervisor_SchoolSubjectDAO();
+				sdao.insertSupervisor_SchoolSubject(supervisorSubject);
+				AlertBox.confirm("Cadastro realizado!", "Cadastro de supervisor realizado com sucesso!");
 				method.setAndShowOnPrimaryStage("/findMe/UI/FXML/ManagerScreen.fxml", "Monitor Manager");
 
 			}
@@ -128,7 +132,7 @@ public class RegisterSupervisorFXMLController implements Initializable{
 
 		try {
 			Stage showSubject= new Stage();
-			method.setAndShowOnStage(showSubject,"/findMe/UI/FXML/ChoiceSubject.fxml", "Monitor Manager" );
+			method.setAndShowOnStage(showSubject,"/findMe/UI/FXML/ChoiceSubjectSupervisorFXML.fxml", "Monitor Manager" );
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

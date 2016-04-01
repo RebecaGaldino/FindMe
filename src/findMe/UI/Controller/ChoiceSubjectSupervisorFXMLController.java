@@ -1,14 +1,11 @@
 package findMe.UI.Controller;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
 import findMe.dataBase.SchoolSubjectDAO;
-import findMe.dataBase.SupervisorDAO;
 import findMe.domain.SchoolSubject;
-import findMe.domain.Supervisor;
 import findMe.extraMethods.Methods;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
@@ -23,8 +20,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class ChoiceSubjectFXMLController implements Initializable{
-	
+public class ChoiceSubjectSupervisorFXMLController implements Initializable {
 	@FXML
 	private TableView<SchoolSubject> tvTableView;
 	@FXML
@@ -49,6 +45,7 @@ public class ChoiceSubjectFXMLController implements Initializable{
 	
 	public static SchoolSubject schoolSubjectView = new SchoolSubject();
 	
+	
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -71,10 +68,8 @@ public class ChoiceSubjectFXMLController implements Initializable{
 	@FXML
 	public void btConfirm(){
 		
-		
-
-		RegisterMonitorFXMLController.subject.setId(getTableSchoolSubjectSelected().getId()) ;
-		RegisterMonitorFXMLController.method.getStage().close();
+		RegisterSupervisorFXMLController.subject.setId(getTableSchoolSubjectSelected().getId()) ;
+		RegisterSupervisorFXMLController.method.getStage().close();
 	}
 	
 	@FXML
