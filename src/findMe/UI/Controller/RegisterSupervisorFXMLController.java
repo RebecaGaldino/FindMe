@@ -65,6 +65,8 @@ public class RegisterSupervisorFXMLController implements Initializable{
 	@FXML
 	private ComboBox cbSex;
 	
+	private Methods method = new Methods();
+
 	ObservableList<String> optionsCBSEX = 
 		    FXCollections.observableArrayList("Masculino","Feminino");
 	
@@ -80,7 +82,6 @@ public class RegisterSupervisorFXMLController implements Initializable{
 			
 			ManagerActions mAct = new ManagerActions();
 			
-			System.out.println(txtBirth_dt.getText());
 
 			Supervisor supervisor = new Supervisor();
 			
@@ -122,12 +123,7 @@ public class RegisterSupervisorFXMLController implements Initializable{
 	
 	public void btCancel(){
 		try {
-			Parent root;
-			root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/ManagerScreen.fxml"));
-			Scene managerScreen = new Scene(root);
-			Main.primaryStage.setTitle("Monitor Manager");
-			Main.primaryStage.setScene(managerScreen);
-			Main.primaryStage.show(); 
+			method.setAndShowOnPrimaryStage("/findMe/UI/FXML/ManagerScreen.fxml", "Monitor Manager");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

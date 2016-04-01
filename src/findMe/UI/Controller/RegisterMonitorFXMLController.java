@@ -13,6 +13,7 @@ import findMe.domain.Monitor;
 import findMe.domain.Person;
 import findMe.domain.SchoolSubject;
 import findMe.domain.Supervisor;
+import findMe.extraMethods.Methods;
 import findMe.validate.validator.CpfValidator;
 import findMe.validate.validator.DateValidator;
 import findMe.validate.validator.EmailValidator;
@@ -131,13 +132,14 @@ public class RegisterMonitorFXMLController implements Initializable{
 	@FXML
 	private ImageView typeError;
 	
-	
+	private Methods method = new Methods();
+
 	public void btRegister(){
 		try {
 			
 			SchoolSubject subject = new SchoolSubject();
 			Supervisor supervisor = new Supervisor();
-
+			
 			Monitor monitor = new Monitor();
 			monitor.setName(txtName.getText());
 			monitor.setId(txtId.getText());
@@ -171,12 +173,8 @@ public class RegisterMonitorFXMLController implements Initializable{
 	public void btCancel(){
 		try {
 			
-			Parent root;
-			root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/ManagersScreen.fxml"));
-			Scene managerScreen = new Scene(root);
-			Main.primaryStage.setTitle("Monitor Manager");
-			Main.primaryStage.setScene(managerScreen);
-			Main.primaryStage.show(); 
+			method.setAndShowOnPrimaryStage("/findMe/UI/FXML/ManagerScreen.fxml", "Monitor Manager");
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
