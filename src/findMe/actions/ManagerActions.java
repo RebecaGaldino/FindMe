@@ -50,7 +50,6 @@ public class ManagerActions {
 		}
 	}
 	
-<<<<<<< HEAD
 	
 	public void registerSubject(SchoolSubject school){
 		try {
@@ -64,8 +63,7 @@ public class ManagerActions {
 		}
 	}
 	
-=======
->>>>>>> branch 'master' of https://github.com/RebecaGaldino/FindMe
+
 	public void deleteMonitor(Monitor monitor){
 		MonitorDAO mdao = new MonitorDAO();
 		mdao.deleteMonitor(monitor.getId());
