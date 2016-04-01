@@ -29,7 +29,7 @@ CREATE TABLE person(
 
 CREATE TABLE bankaccount( 
 
-    id VARCHAR(6) NOT NULL,
+    id VARCHAR(10) NOT NULL ,
 
     numberaccount VARCHAR (10),
 
@@ -186,10 +186,10 @@ insert into bankaccount (id, numberaccount, agency, typeaccount, notes)
 
 values("000001", "1234567891", "Banco do Brasil", "Corrente", "."),
 
-("000002", "9876543211", "Bradesco", "Poupanca", "."),
+("000002", "9876543211", "Bradesco", "Poupança", "."),
 
-("000003", "9876543210", "Itau", "Corrente", "."),
-("000005", "7623472410", "Banco da Suica", "Poupanca", "melhor banco de todos os tempos");
+("000003", "9876543210", "Itaú", "Corrente", "."),
+("000005", "7623472410", "Banco da Suiça", "Poupança", "melhor banco de todos os tempos");
 
 insert into person (id, cpf, birth_dt, namePerson, password,  sex, email, rg)
 
@@ -208,17 +208,15 @@ values("20141004019", "111.222.333-44", '1999-11-07', "Maria", "euamoarroz","fem
 ("20122671058", "274.950.032-14", '1976-10-10', "El grande", "poderosochefao", "masculino", "admin@gmail.com", "32173969"),
 ("20122671051", "234.910.032-12", '1990-01-07', "Lucas", "adoropaodoce", "masculino", "lucas@gmail.com", "1.234.112"),
 ("20122671001", "834.900.132-12", '1990-01-07', "Tiago", "maepai", "masculino", "tiago@gmail.com", "3.198.110"),
-("20152000081", "174.900.132-12", '1990-01-07', "Eugenio", "minhaesposa", "masculino", "eugenio@gmail.com", "8.123.000"),
-("123", "174.900.132-12", '1990-01-07', "thayanne", "123", "feminino", "thayannevls@gmail.com", "8.123.000"); 
-
+("20152000081", "174.900.132-12", '1990-01-07', "Eugenio", "minhaesposa", "masculino", "eugenio@gmail.com", "8.123.000"); 
 
 insert into student (course, grade, id) 
 
-values("Informatica", "2º ano", "20141004019"), 
+values("Informatica", "2Âº ano", "20141004019"), 
 
-("Mineracao", "1º ano", "20151004018"), 
+("Mineracao", "1Âº ano", "20151004018"), 
 
-("Petroleo e gas", "3º ano", "20131004017"),
+("Petroleo e gas", "3Âº ano", "20131004017"),
 ("Informatica", "3º ano", "20152000081"); 
 
 insert into supervisor(id) values
@@ -233,9 +231,7 @@ insert into supervisor(id) values
 
  insert into manager(id) values
  
- ("20122671058"),
-  ("123");
-
+ ("20122671058");
 
  insert into schoolsubject(id, namesubject) values
 
@@ -283,3 +279,67 @@ insert into timetable(id_monitor, dayname, begin_time, end_time) values
  ("20151004018", "Sexta", '12:00:00', '13:00:00'),
 
  ("20131004017", "Segunda", '09:00:00', '16:00:00'); 
+
+/*Depois de deletar um supervisor apaga a pessoa com mesmo id*/
+DELIMITER $$
+CREATE TRIGGER afterDelete_Supervisor AFTER DELETE ON supervisor
+FOR EACH ROW
+BEGIN
+	DELETE FROM person WHERE id = OLD.id;
+END$$
+DELIMITER $$
+
+/*Antes de deletar um supervisor apaga na tabela supervisor_schoolsubject a linha com mesmo id
+ * e coloca em monitor um valor null na linha onde existia tal supervisor
+ */
+DELIMITER $$
+CREATE TRIGGER beforeDelete_Supervisor BEFORE DELETE ON supervisor
+FOR EACH ROW
+BEGIN
+    DELETE FROM supervisor_schoolsubject WHERE id_supervisor = OLD.id;
+    UPDATE monitor SET id_supervisor = null WHERE id_supervisor = OLD.id;
+END$$
+
+DELIMITER $$
+
+
+
+/*Depois de deletar um monitor apaga o estudante, a pessoa, e a bankAccount com seu id*/
+DELIMITER $$
+CREATE TRIGGER afterDelete_Monitor AFTER DELETE ON monitor
+FOR EACH ROW
+BEGIN
+	DELETE FROM student WHERE id = OLD.id;
+    DELETE FROM person WHERE id = OLD.id;
+    DELETE FROM bankaccount WHERE id = OLD.id_bankaccount;
+END$$
+DELIMITER $$
+
+
+
+/*Antes de deletar um monitor exclui as timetables com seu id*/
+DELIMITER $$
+CREATE TRIGGER beforeDelete_Monitor BEFORE DELETE ON monitor
+FOR EACH ROW
+BEGIN
+    DELETE FROM timetable WHERE id_monitor = OLD.id;
+    
+END$$
+DELIMITER $$
+
+
+/*Antes de deletar uma disciplina exclui os id_schoolsubject em monitor com seu id*/
+DELIMITER $$
+CREATE TRIGGER beforeDelete_SchoolSubject BEFORE DELETE ON schoolsubject
+FOR EACH ROW
+BEGIN
+    
+    UPDATE monitor 
+	SET id_schoolsubject = null
+	WHERE id_schoolsubject = old.id;
+    UPDATE supervisor_schoolsubject
+    SET id_schoolsubject = null
+    WHERE id_schoolsubject = old.id;
+    
+END$$
+DELIMITER $$
