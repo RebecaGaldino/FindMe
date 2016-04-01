@@ -188,12 +188,12 @@
                               <Image url="@../../../../lib/media/Error.png" />
                            </image>
                         </ImageView>
-                        <Button fx:id="btShowSupervisor" mnemonicParsing="false" onAction="#btShowSupervisor" prefHeight="28.0" prefWidth="209.0" style="-fx-background-color: orange;" text="Clique para selecionar " textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Button fx:id="btShowSubject" mnemonicParsing="false" onAction="#btShowSubject" prefHeight="28.0" prefWidth="210.0" style="-fx-background-color: orange;" text="Clique para selecionar " textFill="WHITE" GridPane.columnIndex="1">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <Button fx:id="btShowSubject" mnemonicParsing="false" onAction="#btShowSubject" prefHeight="28.0" prefWidth="210.0" style="-fx-background-color: orange;" text="Clique para selecionar " textFill="WHITE" GridPane.columnIndex="1">
+                        <Button fx:id="btShowSupervisor" mnemonicParsing="false" onAction="#btShowSupervisor" prefHeight="28.0" prefWidth="209.0" style="-fx-background-color: orange;" text="Clique para selecionar " textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
                               <Font size="14.0" />
                            </font>
