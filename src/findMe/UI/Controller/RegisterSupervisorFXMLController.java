@@ -166,7 +166,7 @@ public class RegisterSupervisorFXMLController implements Initializable{
 		/**
 		 * CPF validator
 		 */
-		if( !(CpfValidator.validate(txtCpf.getText()) || isNull(txtCpf.getText())) ){
+		if( !(NumberValidator.validate(txtCpf.getText(), 11) || isNull(txtCpf.getText())) ){
 			valid = false;
 			txtCpf.setStyle("-fx-border-color: red");
 		}

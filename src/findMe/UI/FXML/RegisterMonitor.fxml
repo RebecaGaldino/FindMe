@@ -165,14 +165,14 @@
                               <Font size="17.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtSchoolSubject" editable="false" promptText="Selecione a disciplina" style="-fx-border-color: orange;" GridPane.columnIndex="1" />
+                        <TextField fx:id="txtSchoolSubject" editable="false" promptText="Selecione a disciplina" style="-fx-border-color: orange;" visible="false" GridPane.columnIndex="1" />
                         <TextField fx:id="txtRoomWork" promptText="Ex: Sala 1" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Label style="-fx-background-color: orange;" text="Supervisor" textFill="WHITE" GridPane.rowIndex="2">
                            <font>
                               <Font size="17.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtSupervisor" editable="false" prefHeight="28.0" prefWidth="118.0" promptText="Selecione o supervisor" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="txtSupervisor" editable="false" prefHeight="28.0" prefWidth="118.0" promptText="Selecione o supervisor" style="-fx-border-color: orange;" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <ImageView fx:id="subjectError" fitHeight="15.0" fitWidth="17.0" visible="false" GridPane.columnIndex="2" GridPane.halignment="CENTER">
                            <image>
                               <Image url="@../../../../lib/media/Error.png" />
@@ -188,6 +188,16 @@
                               <Image url="@../../../../lib/media/Error.png" />
                            </image>
                         </ImageView>
+                        <Button fx:id="btShowSubject" mnemonicParsing="false" onAction="#btShowSubject" prefHeight="28.0" prefWidth="285.0" style="-fx-background-color: orange;" text="Selecionar a disciplina" textFill="WHITE" GridPane.columnIndex="1">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btShowSupervisor" mnemonicParsing="false" onAction="#btShowSupervisor" prefHeight="28.0" prefWidth="280.0" style="-fx-background-color: orange;" text="Selecionar o Supervisor" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
                      </children>
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="191.0" minWidth="191.0" prefWidth="114.0" />
@@ -350,23 +360,13 @@
                         </Button>
                      </children>
                   </GridPane>
-                  <Button fx:id="btShowSubject" layoutX="603.0" layoutY="733.0" mnemonicParsing="false" onAction="#btShowSubject" prefHeight="26.0" prefWidth="148.0" style="-fx-background-color: orange;" text="Selecionar" textFill="WHITE">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="btShowSupervisor" layoutX="603.0" layoutY="815.0" mnemonicParsing="false" onAction="#btShowSupervisor" prefHeight="28.0" prefWidth="152.0" style="-fx-background-color: orange;" text="Selecionar" textFill="WHITE">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Button>
-                  <Separator layoutX="559.0" layoutY="745.0" prefHeight="4.0" prefWidth="41.0" />
-                  <Separator layoutX="560.0" layoutY="828.0" prefHeight="1.0" prefWidth="39.0" />
                   <Text fx:id="Supervisor" layoutX="327.0" layoutY="876.0" strokeType="OUTSIDE" strokeWidth="0.0">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Text>
+                  <Text layoutX="70.0" layoutY="1597.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A senha deve conter letras maiusculas e minusculas. Números e caracteres especiais" />
+                  <Text layoutX="96.0" layoutY="1622.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No mínimo 6 caracteres" />
                </children>
             </AnchorPane>
          </content></ScrollPane>
