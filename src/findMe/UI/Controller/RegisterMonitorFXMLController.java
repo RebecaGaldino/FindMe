@@ -156,8 +156,8 @@ public class RegisterMonitorFXMLController implements Initializable{
 			monitor.setGrade(txtGrade.getText());
 			monitor.setRoomWork(txtRoomWork.getText());
 			monitor.setSex(cbSex.getSelectionModel().getSelectedItem().toString());
-			//monitor.setSubject(subject);
-			//monitor.setSupervisor(supervisor);
+			monitor.setSubject(subject);
+			monitor.setSupervisor(supervisor);
 			ManagerActions actions = new ManagerActions();
 			actions.registerMonitor(monitor);
 			//validate(monitor);

@@ -19,10 +19,10 @@ public class ManagerActions {
 	
 	public void registerMonitor(Monitor monitor){
 		try {
-			if(MonitorValidate.validate(monitor)){
+			
 				MonitorDAO mdao = new MonitorDAO();
 				mdao.insertMonitor(monitor);
-			}
+			
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -37,13 +37,10 @@ public class ManagerActions {
 	 */
 	public void registerSupervisor(Supervisor supervisor){
 		try {
-			if(PersonValidate.validate(supervisor) ){
+			
 				SupervisorDAO sdao = new SupervisorDAO();
 				sdao.insertSupervisor(supervisor);
-			}
-			else{
-				
-			}
+			
 			
 		} catch (Exception e) {
 			e.printStackTrace();
