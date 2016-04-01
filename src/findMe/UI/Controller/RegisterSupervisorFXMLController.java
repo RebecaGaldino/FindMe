@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 
 import findMe.actions.ManagerActions;
 import findMe.domain.Supervisor;
+import findMe.extraMethods.Methods;
 import findMe.validate.validator.CpfValidator;
 import findMe.validate.validator.DateValidator;
 import findMe.validate.validator.EmailValidator;
@@ -64,6 +65,8 @@ public class RegisterSupervisorFXMLController implements Initializable{
 	@FXML
 	private ComboBox cbSex;
 	
+	private Methods method = new Methods();
+
 	ObservableList<String> optionsCBSEX = 
 		    FXCollections.observableArrayList("Masculino","Feminino");
 	
@@ -72,31 +75,39 @@ public class RegisterSupervisorFXMLController implements Initializable{
 	 * Necessario criar um BotaoMenu onde o manager seleciona as disciplinas do supervisor
 	 * Necessario validar as informacoes que sao setadas na interface
 	 */
-	public Supervisor btRegister() throws IOException, ParseException, SQLException{
+	@FXML
+	public void btRegister() throws IOException, ParseException, SQLException{
 		try {
 			
 			
 			ManagerActions mAct = new ManagerActions();
 			
-			
+
 			Supervisor supervisor = new Supervisor();
 			
 			supervisor.setName(txtName.getText());
-			supervisor.setId(txtId.getText());
+			 supervisor.setId(txtId.getText());
 			supervisor.setSex(cbSex.getSelectionModel().getSelectedItem().toString());
 			supervisor.setPassword(txtPassword.getText());
-			supervisor.setBirth_dt(txtBirth_dt.getText());
-			
+			supervisor.setBirth_dt(Methods.convertStringToSqlString(txtBirth_dt.getText()));
 			supervisor.setCpf(txtCpf.getText());
 			supervisor.setRg(txtRg.getText());
 			supervisor.setEmail(txtEmail.getText());
-			supervisor.setPassword(txtPassword.getText());
-			if(PersonValidate.validate(supervisor) == null){
+			supervisor.setPassword(txtPassword.getText()); 
+			ManagerActions mac = new ManagerActions();
+			mac.registerSupervisor(supervisor);
+			
+			
+			
+			
+			
+			
+			/*if(PersonValidate.validate(supervisor)){
 				mAct.registerSupervisor(supervisor);
 			}
 			else{
 				
-			}
+			} */
 			
 			
 			
@@ -107,18 +118,12 @@ public class RegisterSupervisorFXMLController implements Initializable{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
 	}
 	
 	
 	public void btCancel(){
 		try {
-			Parent root;
-			root = FXMLLoader.load(getClass().getResource("/findMe/UI/FXML/ManagersScreen.fxml"));
-			Scene managerScreen = new Scene(root);
-			Main.primaryStage.setTitle("Monitor Manager");
-			Main.primaryStage.setScene(managerScreen);
-			Main.primaryStage.show(); 
+			method.setAndShowOnPrimaryStage("/findMe/UI/FXML/ManagerScreen.fxml", "Monitor Manager");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

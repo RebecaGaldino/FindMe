@@ -131,6 +131,10 @@ public class RegisterMonitorFXMLController implements Initializable{
 	private ImageView agencyError;
 	@FXML
 	private ImageView typeError;
+	@FXML
+	private Button btShowSupervisor;
+	@FXML
+	private Button btShowSubject;
 	
 	private Methods method = new Methods();
 
@@ -152,8 +156,8 @@ public class RegisterMonitorFXMLController implements Initializable{
 			monitor.setGrade(txtGrade.getText());
 			monitor.setRoomWork(txtRoomWork.getText());
 			monitor.setSex(cbSex.getSelectionModel().getSelectedItem().toString());
-			monitor.setSubject(subject);
-			monitor.setSupervisor(supervisor);
+			//monitor.setSubject(subject);
+			//monitor.setSupervisor(supervisor);
 			ManagerActions actions = new ManagerActions();
 			actions.registerMonitor(monitor);
 			//validate(monitor);
@@ -180,6 +184,21 @@ public class RegisterMonitorFXMLController implements Initializable{
 			e.printStackTrace();
 		}
 		
+	}
+	@FXML
+	public void btShowSubject(){
+		
+	}
+	
+	@FXML
+	public void btShowSupervisor(){
+		try {
+			Stage showSupervisor = new Stage();
+			method.setAndShowOnStage(showSupervisor,"/findMe/UI/FXML/ChoiceSupervisor.fxml", "Monitor Manager" );
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public boolean validate(Monitor monitor){

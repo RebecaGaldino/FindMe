@@ -33,7 +33,7 @@
                               <Font size="17.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtid" promptText="Ex: 20112001014" style="-fx-border-color: orange;" GridPane.columnIndex="1" />
+                        <TextField fx:id="txtId" promptText="Ex: 20112001014" style="-fx-border-color: orange;" GridPane.columnIndex="1" />
                         <Label style="-fx-background-color: orange;" text="Disciplina" textFill="WHITE" GridPane.rowIndex="1">
                            <font>
                               <Font size="17.0" />

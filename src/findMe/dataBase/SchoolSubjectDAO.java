@@ -30,7 +30,7 @@ public class SchoolSubjectDAO {
 	public void insertSchoolSubject(SchoolSubject schoolSubject) {
 		String sql = "insert into schoolsubject (id, namesubject) values (?, ?)";
 		try {
-			
+			System.out.println("alo");
 			PreparedStatement st = conn.prepareStatement(sql);
 			
 			st.setString(1, schoolSubject.getId());
@@ -38,6 +38,7 @@ public class SchoolSubjectDAO {
 			
 			st.execute();
 			st.close();
+			System.out.println("Subject cadastrado com sucesso");
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
@@ -229,7 +230,7 @@ public class SchoolSubjectDAO {
 	
 	
 	/**
-	 * Retorna todas as informações de uma disciplina e seus monitores, supervisores e informaçoes basicas, pelo seu id
+	 * Retorna todas as informaï¿½ï¿½es de uma disciplina e seus monitores, supervisores e informaï¿½oes basicas, pelo seu id
 	 * @return
 	 * @author ViniFarias
 	 */

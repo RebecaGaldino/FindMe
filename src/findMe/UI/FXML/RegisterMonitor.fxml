@@ -65,7 +65,7 @@
                            </font>
                         </Label>
                         <TextField fx:id="txtRg" promptText="Ex: 4.123.145" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <ComboBox fx:id="cbSex" prefWidth="150.0" promptText="Sexo" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <ComboBox fx:id="cbSex" prefWidth="150.0" promptText="Selecione o sexo" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <ImageView fx:id="dateError" fitHeight="15.0" fitWidth="17.0" visible="false" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                            <image>
                               <Image url="@../../../../lib/media/Error.png" />
@@ -114,7 +114,7 @@
                         </Label>
                         <TextField fx:id="txtGrade" promptText="Ex: 2" style="-fx-border-color: orange;" GridPane.columnIndex="1" />
                         <TextField fx:id="txtId" promptText="Ex: 20112001014" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <ComboBox fx:id="cBxCourse" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <ComboBox fx:id="cBxCourse" prefHeight="26.0" prefWidth="161.0" promptText="Selecione o curso" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <Label style="-fx-background-color: orange;" text="Curso" textFill="WHITE" GridPane.rowIndex="2">
                            <font>
                               <Font size="17.0" />
@@ -165,14 +165,14 @@
                               <Font size="17.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtSchoolSubject" promptText="Ex: Matemática" style="-fx-border-color: orange;" GridPane.columnIndex="1" />
+                        <TextField fx:id="txtSchoolSubject" promptText="Ex: Matemática" style="-fx-border-color: orange;" visible="false" GridPane.columnIndex="1" />
                         <TextField fx:id="txtRoomWork" promptText="Ex: Sala 1" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Label style="-fx-background-color: orange;" text="Supervisor" textFill="WHITE" GridPane.rowIndex="2">
                            <font>
                               <Font size="17.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtSupervisor" promptText="Ex: Henrique Cunha" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="txtSupervisor" promptText="Ex: Henrique Cunha" style="-fx-border-color: orange;" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <ImageView fx:id="subjectError" fitHeight="15.0" fitWidth="17.0" visible="false" GridPane.columnIndex="2" GridPane.halignment="CENTER">
                            <image>
                               <Image url="@../../../../lib/media/Error.png" />
@@ -188,6 +188,16 @@
                               <Image url="@../../../../lib/media/Error.png" />
                            </image>
                         </ImageView>
+                        <Button fx:id="btShowSubject" mnemonicParsing="false" onAction="#btShowSubject" prefHeight="28.0" prefWidth="210.0" style="-fx-background-color: orange;" text="Clique para selecionar " textFill="WHITE" GridPane.columnIndex="1">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btShowSupervisor" mnemonicParsing="false" onAction="#btShowSupervisor" prefHeight="28.0" prefWidth="209.0" style="-fx-background-color: orange;" text="Clique para selecionar " textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
                      </children>
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="191.0" minWidth="191.0" prefWidth="114.0" />
