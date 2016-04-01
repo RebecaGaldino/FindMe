@@ -17,7 +17,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import findMe.actions.*;
 
-public class RegisterTimeTableFXMLController implements Initializable{
+public class EditTimeTableFXMLController implements Initializable{
 
 	@FXML
 	private TextField txtBegin_time;
@@ -35,6 +35,7 @@ public class RegisterTimeTableFXMLController implements Initializable{
 	private TimeTable timeTable = TimeTableMonitorFXMLController.timeTableView;
 	private MonitorActions mact = new MonitorActions();
 	private MonitorDAO mdao = new MonitorDAO();
+	//public static String userid = TimeTableMonitorFXMLController.userid;
 	private Monitor monitor = mdao.getMonitorById(timeTable.getMonitor().getId());
 	Methods method = new Methods();
 	ObservableList<String> optionsCBDAY = 
@@ -48,15 +49,16 @@ public class RegisterTimeTableFXMLController implements Initializable{
 	}
 	
 	
-	public void btRegister(){
+	public void btEdit(){
 		
 		TimeTable t = new TimeTable();
+		t.setId(timeTable.getId());
 		t.setMonitor(monitor);
 		t.setDayName(cbDay.getSelectionModel().getSelectedItem().toString());
 		//t.setBegin_time(txtBegin_time);
 		//t.setEnd_time(txtEnd_time);
 		
-		mact.insertTimeTable(t);
+		mact.updateTimeTable(t);
 		
 	}
 

@@ -59,13 +59,21 @@ public class TimeTableMonitorFXMLController implements Initializable{
 	private Button btDelete;
 	@FXML
 	private Button btRegister;
+	@FXML
+	private Button btEdit;
 	
 	
 	/*-------------------------------------------*/
+	public static TimeTable timeTableView;
+	
 	private MonitorDAO mdao = new MonitorDAO();
+	
 	private String userid = MonitorScreenFXMLController.UserId;
+	
 	private Monitor monitor = mdao.getMonitorById(userid);
+	
 	ObservableList<TimeTable> list = FXCollections.observableArrayList();
+	
 	private Methods method = new Methods();
 	/*-------------------------*/
 	
@@ -107,12 +115,19 @@ public class TimeTableMonitorFXMLController implements Initializable{
 	
 	
 	@FXML
-	public void btRegister(){
+	public void btRegister() throws IOException{
 		
-		
+		method.setAndShowOnPrimaryStage("/findMe/UI/FXML/RegisterTimeTable.fxml", "Monitor Manager");
 		
 	}
 	
+	
+	@FXML
+	public void btEdit() throws IOException{
+		if(getTimeTableSelected() != null){
+			method.setAndShowOnPrimaryStage("/findMe/UI/FXML/EditTimeTable.fxml", "Monitor Manager");
+		}
+	}
 	/*-----------------------------------------------------------------------------------------------*/
 
     
@@ -156,9 +171,11 @@ public class TimeTableMonitorFXMLController implements Initializable{
             List<TimeTable> table = tvTableView.getSelectionModel().getSelectedItems();
             if (table.size() == 1) {
                 final TimeTable timeTableSelected = table.get(0);
+                timeTableView = timeTableSelected;
                 return timeTableSelected;
             }
         }
+        timeTableView = null;
         return null;
     }
     

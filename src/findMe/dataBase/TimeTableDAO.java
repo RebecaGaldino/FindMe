@@ -73,7 +73,8 @@ public class TimeTableDAO {
 			st.setString(1, timetable.getMonitor().getId());
 			st.setString(2, timetable.getDayName());
 			st.setDate(3, new java.sql.Date(timetable.getBegin_time().getTime()));
-			st.setDate(3, new java.sql.Date(timetable.getEnd_time().getTime()));
+			st.setDate(4, new java.sql.Date(timetable.getEnd_time().getTime()));
+			st.setInt(5, timetable.getId());
 			
 			st.execute();
 			st.close();

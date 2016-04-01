@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.text.*?>
 <?import java.lang.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="findMe.UI.Controller.RegisterTimeTableFXMLController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="findMe.UI.Controller.EditTimeTableFXMLController">
    <children>
       <Separator layoutX="257.0" layoutY="70.0" prefHeight="4.0" prefWidth="301.0" />
       <Separator layoutX="31.0" layoutY="69.0" prefHeight="0.0" prefWidth="34.0" />
@@ -52,7 +52,7 @@
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button fx:id="btRegister" mnemonicParsing="false" onAction="#btRegister" prefHeight="36.0" prefWidth="90.0" style="-fx-background-color: orange; -fx-text-fill: white;" text="Cadastrar" GridPane.columnIndex="1">
+            <Button fx:id="btEdit" mnemonicParsing="false" onAction="#btEdit" prefHeight="36.0" prefWidth="90.0" style="-fx-background-color: orange; -fx-text-fill: white;" text="Confirmar" GridPane.columnIndex="1">
                <font>
                   <Font size="15.0" />
                </font>

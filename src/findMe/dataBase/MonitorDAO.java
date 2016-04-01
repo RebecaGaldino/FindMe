@@ -160,9 +160,9 @@ public class MonitorDAO{
 	
 	
 	public List<TimeTable> getMonitorsTimes(String id){
-		String sql = "SELECT timetable.dayname, timetable.begin_time, timetable.end_time FROM person p "
-				+ "INNER JOIN monitor ON p.id = monitor.id INNER JOIN timetable ON monitor.id = timetable.id_monitor "
-				+ "WHERE monitor.id = "+id;
+		String sql = "SELECT timetable.id, timetable.id_monitor, timetable.dayname, timetable.begin_time, "
+				+ "timetable.end_time FROM person p INNER JOIN monitor ON p.id = monitor.id INNER JOIN "
+				+ "timetable ON monitor.id = timetable.id_monitor WHERE monitor.id = "+id;
 		
 		try {
 			
@@ -174,7 +174,14 @@ public class MonitorDAO{
 			
 			while(rs.next()){
 				
+				MonitorDAO mdao = new MonitorDAO();
+				Monitor m = new Monitor();
+				
+				m = mdao.getMonitorById(rs.getString("id_monitor"));
+				
 				TimeTable tms = new TimeTable();
+				tms.setId(rs.getInt("id"));
+				tms.setMonitor(m);
 				tms.setDayName(rs.getString("dayname"));
 				tms.setBegin_time(rs.getDate("begin_time"));
 				tms.setEnd_time(rs.getDate("end_time"));

@@ -39,5 +39,10 @@
             <Font size="15.0" />
          </font>
       </Button>
+      <Button fx:id="btEdit" layoutX="285.0" layoutY="430.0" mnemonicParsing="false" onAction="#btEdit" prefHeight="0.0" prefWidth="123.0" style="-fx-background-color: orange; -fx-text-fill: white;" text="Editar">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
