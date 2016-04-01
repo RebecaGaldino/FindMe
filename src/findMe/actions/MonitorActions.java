@@ -1,5 +1,7 @@
 package findMe.actions;
 
+import java.text.ParseException;
+
 import findMe.dataBase.BankAccountDAO;
 import findMe.dataBase.MonitorDAO;
 import findMe.dataBase.PersonDAO;
@@ -27,7 +29,7 @@ public class MonitorActions {
 		badao.updateBankAccount(monitor.getBankAccount());
 	}
 	
-	public void insertTimeTable(TimeTable t){
+	public void insertTimeTable(TimeTable t) throws ParseException{
 		tdao.insertTimeTable(t);
 	}
 	

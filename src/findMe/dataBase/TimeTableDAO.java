@@ -5,11 +5,15 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import findMe.domain.Monitor;
 import findMe.domain.Student;
 import findMe.domain.TimeTable;
+import findMe.extraMethods.Methods;
+import javafx.scene.input.DataFormat;
 
 public class TimeTableDAO {
 
@@ -24,11 +28,15 @@ public class TimeTableDAO {
 	}
 	
 	/*------------------------INSERT----------------------------*/
-	public void insertTimeTable(TimeTable timeTable) {
+	public void insertTimeTable(TimeTable timeTable) throws ParseException {
 		String sql = "insert into timetable (id, dayname, begin_time, end_time, id_monitor) values (?, ?, ?, ?, ?)";
 		try {
 			
 			PreparedStatement st = conn.prepareStatement(sql);
+			
+			SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
+			java.util.Date begin_time = (java.util.Date)formatter.parse(Methods.convertHourToSqlString(timeTable.getBegin_time().toString()));
+			java.util.Date end_time = (java.util.Date)formatter.parse(Methods.convertHourToSqlString(timeTable.getEnd_time().toString()));
 			
 			st.setInt(1, timeTable.getId());
 			st.setString(2, timeTable.getDayName());

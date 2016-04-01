@@ -70,6 +70,8 @@ public class TimeTableMonitorFXMLController implements Initializable{
 	
 	private String userid = MonitorScreenFXMLController.UserId;
 	
+	public static String useridEx = MonitorScreenFXMLController.UserId;;
+	
 	private Monitor monitor = mdao.getMonitorById(userid);
 	
 	ObservableList<TimeTable> list = FXCollections.observableArrayList();

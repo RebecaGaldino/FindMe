@@ -3,6 +3,7 @@ package findMe.extraMethods;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import findMe.UI.Controller.Main;
 import javafx.fxml.FXMLLoader;
@@ -61,6 +62,36 @@ public class Methods {
 	public static String convertStringToSqlString(String input) throws ParseException{
 		SimpleDateFormat fromUser = new SimpleDateFormat("dd/MM/yyyy");
 		SimpleDateFormat myFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+		try {
+
+		    String reformattedStr = myFormat.format(fromUser.parse(input));
+		    return reformattedStr;
+		} catch (ParseException e) {
+		    e.printStackTrace();
+		}
+		return null;
+
+	}
+	
+	
+	/**
+	 * Converte a hora em string para date
+	 * @param hour
+	 * @return
+	 * @throws ParseException
+	 */
+	public Date convertStringHourToDate(String hour) throws ParseException{
+		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+		String hora = hour;
+		Date d = sdf.parse(hora);
+		return d;
+	}
+	
+	
+	public static String convertHourToSqlString(String input) throws ParseException{
+		SimpleDateFormat fromUser = new SimpleDateFormat("HH:mm");
+		SimpleDateFormat myFormat = new SimpleDateFormat("HH:mm:ss");
 
 		try {
 

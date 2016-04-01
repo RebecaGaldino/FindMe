@@ -132,7 +132,7 @@ public class ManagerDAO {
 	}
 	
 	/**
-	 * Verifica a senha e id do usuário Manager
+	 * Verifica a senha e id do usuï¿½rio Manager
 	 * @param id
 	 * @param password
 	 * @return boolean

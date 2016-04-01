@@ -2,6 +2,7 @@ package findMe.UI.Controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.ParseException;
 import java.util.ResourceBundle;
 
 import findMe.dataBase.MonitorDAO;
@@ -49,14 +50,14 @@ public class EditTimeTableFXMLController implements Initializable{
 	}
 	
 	
-	public void btEdit(){
+	public void btEdit() throws ParseException{
 		
 		TimeTable t = new TimeTable();
 		t.setId(timeTable.getId());
 		t.setMonitor(monitor);
 		t.setDayName(cbDay.getSelectionModel().getSelectedItem().toString());
-		//t.setBegin_time(txtBegin_time);
-		//t.setEnd_time(txtEnd_time);
+		t.setBegin_time(method.convertStringHourToDate(txtBegin_time.getText()));
+		t.setEnd_time(method.convertStringHourToDate(txtEnd_time.getText()));
 		
 		mact.updateTimeTable(t);
 		
