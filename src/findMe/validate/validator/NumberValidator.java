@@ -31,7 +31,7 @@ public class NumberValidator {
 
 	}
 	
-	public boolean validate(final String value, int size) {
+	public static boolean validate(final String value, int size) {
 		
 		return(validate(value) && (value.length() == size));
 		
