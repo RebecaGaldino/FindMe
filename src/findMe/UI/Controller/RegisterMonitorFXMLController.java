@@ -143,6 +143,7 @@ public class RegisterMonitorFXMLController implements Initializable{
 	public void btRegister(){
 		try {
 			BankAccount bank = new BankAccount();
+			bank.setId(txtNumberAccount.getText());
 			bank.setAccountNumber(txtNumberAccount.getText());
 			bank.setAgency(txtAgency.getText());
 			bank.setTypeAccount(txtTypeAccount.getText());
@@ -165,11 +166,12 @@ public class RegisterMonitorFXMLController implements Initializable{
 			monitor.setSex(cbSex.getSelectionModel().getSelectedItem().toString());
 			monitor.setSubject(subject);
 			monitor.setSupervisor(supervisor);
-			monitor.setSupervisor(supervisor);
 			monitor.setBankAccount(bank);
 
 			ManagerActions actions = new ManagerActions();
 			actions.registerMonitor(monitor);
+			System.out.println(supervisor.getId());
+			System.out.println(subject.getId());
 			//validate(monitor);
 			
 			
@@ -224,7 +226,6 @@ public class RegisterMonitorFXMLController implements Initializable{
 		 * Name validator
 		 */
 		if( !(StringValidator.onlyLetters(monitor.getName()) ) ){
-			valid = false;
 			txtName.setStyle("-fx-border-color: red;");
 		}
 		/**

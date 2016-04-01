@@ -76,6 +76,7 @@ public class Methods {
 	public void setStage(Stage stage){
 		this.stage = stage;
 	}
+	
 	public Stage getStage(){
 		return(stage);
 	}

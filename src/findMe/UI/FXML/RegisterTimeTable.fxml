@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Separator layoutX="257.0" layoutY="70.0" prefHeight="4.0" prefWidth="301.0" />
+      <Separator layoutX="31.0" layoutY="69.0" prefHeight="0.0" prefWidth="34.0" />
+      <Label layoutX="70.0" layoutY="50.0" style="-fx-background-color: orange;" text="Informações" textFill="WHITE">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <GridPane layoutX="108.0" layoutY="149.0" prefHeight="206.0" prefWidth="295.0">
+         <children>
+            <Label style="-fx-background-color: orange;" text="Dia" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label style="-fx-background-color: orange;" text="Horário Inicial" textFill="WHITE" GridPane.rowIndex="1">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtBegin_time" prefHeight="27.0" prefWidth="272.0" promptText="Ex: 13:00" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label style="-fx-background-color: orange;" text="Horário Final" textFill="WHITE" GridPane.rowIndex="2">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="cbDay" prefWidth="150.0" promptText="     selecione o dia" GridPane.columnIndex="1" />
+            <TextField fx:id="txtEnd_time" prefHeight="27.0" prefWidth="188.0" promptText="Ex: 16:00" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         </children>
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="225.33334350585938" minWidth="10.0" prefWidth="225.33334350585938" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="238.66665649414062" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+      </GridPane>
+      <GridPane layoutX="544.0" layoutY="496.0">
+         <children>
+            <Button fx:id="btCancel" mnemonicParsing="false" onAction="#btCancel" style="-fx-background-color: transparent;" text="Cancelar">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btRegister" mnemonicParsing="false" onAction="#btRegister" prefHeight="36.0" prefWidth="90.0" style="-fx-background-color: orange; -fx-text-fill: white;" text="Cadastrar" GridPane.columnIndex="1">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+         </children>
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+      </GridPane>
+   </children>
+</AnchorPane>
