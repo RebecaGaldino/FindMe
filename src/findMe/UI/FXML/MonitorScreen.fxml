@@ -38,12 +38,7 @@
                         <Font size="15.0" />
                      </font>
                   </Text>
-                  <Button fx:id="btReport" layoutX="521.0" layoutY="237.0" mnemonicParsing="false" onAction="#btReport" prefHeight="57.0" prefWidth="250.0" style="-fx-background-color: orange;" text="Gerar Relatório" textFill="WHITE">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="btTimeTable" layoutX="323.0" layoutY="347.0" mnemonicParsing="false" onAction="#btTimeTable" prefHeight="57.0" prefWidth="250.0" style="-fx-background-color: orange;" text="Horários" textFill="WHITE">
+                  <Button fx:id="btTimeTable" layoutX="497.0" layoutY="236.0" mnemonicParsing="false" onAction="#btTimeTable" prefHeight="57.0" prefWidth="250.0" style="-fx-background-color: orange;" text="Horários" textFill="WHITE">
                      <font>
                         <Font size="25.0" />
                      </font>
