@@ -57,5 +57,23 @@ public class BankAccountDAO {
 	}
 	
 	
-	
+	public void updateBankAccount(BankAccount ba) {
+		String sql = "update bankaccount set numberaccount = ?, agency = ?, typeaccount = ?, notes = ? where bankaccount.id = ?";
+		try {
+			
+			PreparedStatement st = conn.prepareStatement(sql);
+			
+			st.setString(1, ba.getAccountNumber());
+			st.setString(2, ba.getAgency());
+			st.setString(3, ba.getTypeAccount());
+			st.setString(4, ba.getNotes());
+			st.setString(5, ba.getId());
+			
+			st.execute();
+			st.close();
+			System.out.println("Bank Account atualizado com sucesso!");
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
 }

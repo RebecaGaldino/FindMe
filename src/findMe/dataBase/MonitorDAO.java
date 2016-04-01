@@ -261,6 +261,73 @@ public class MonitorDAO{
 	}
 	
 	
+	
+	/**
+	 * Retorna todas as informaçoes de um monitor a partir de seu id
+	 * @param id
+	 * @return
+	 */
+	public Monitor getMonitorById(String id){
+		String sql = "SELECT p1.*, student.course course, student.grade grade, monitor.id_supervisor idSupervisor, "
+				+"p2.namePerson namePersonSupervisor, schoolsubject.namesubject, bankaccount.id id_bankaccount, "
+				+"bankaccount.numberaccount, bankaccount.agency, bankaccount.notes, bankaccount.typeaccount, monitor.roomwork "
+				+"FROM monitor INNER JOIN student ON monitor.id = student.id INNER JOIN person as p1 "
+				+"ON student.id = p1.id INNER JOIN person as p2 ON monitor.id_supervisor = p2.id LEFT JOIN schoolsubject "
+				+"ON monitor.id_schoolsubject = schoolsubject.id LEFT JOIN bankaccount ON monitor.id_bankaccount = bankaccount.id "
+				+"where monitor.id = "+id;
+		
+		try {
+			
+			Monitor m = new Monitor();
+			
+			PreparedStatement st = conn.prepareStatement(sql);
+			
+			ResultSet rs = st.executeQuery();
+			
+			while(rs.next()){
+				
+				Supervisor supervisor = new Supervisor();
+				SchoolSubject ss = new SchoolSubject();
+				BankAccount ba = new BankAccount();
+				
+				m.setId(rs.getString("id"));
+				m.setCpf(rs.getString("cpf"));
+				m.setBirth_dt(rs.getString("birth_dt"));
+				m.setName(rs.getString("namePerson"));
+				m.setPassword(rs.getString("password"));
+				m.setSex(rs.getString("sex"));
+				m.setEmail(rs.getString("email"));
+				m.setRg(rs.getString("rg"));
+				m.setCourse(rs.getString("course"));
+				m.setGrade(rs.getString("grade"));
+				
+				supervisor.setName(rs.getString("namePersonSupervisor"));
+				m.setSupervisor(supervisor);
+				
+				ss.setName(rs.getString("namesubject"));
+				m.setSubject(ss);
+				
+				ba.setId(rs.getString("id_bankaccount"));
+				ba.setAccountNumber(rs.getString("numberaccount"));
+				ba.setAgency(rs.getString("agency"));
+				ba.setTypeAccount(rs.getString("typeaccount"));
+				ba.setNotes(rs.getString("notes"));
+				
+				m.setBankAccount(ba);
+				m.setRoomWork(rs.getString("roomwork"));
+				
+				
+			}
+			
+			rs.close();
+			st.close();
+			return m;
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return null;
+	}
+	
 	/**
 	 * Verifica a senha e id do usuário Monitor
 	 * @param id

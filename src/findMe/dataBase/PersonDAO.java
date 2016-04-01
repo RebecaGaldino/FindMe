@@ -181,7 +181,7 @@ public class PersonDAO {
 				
 				st.execute();
 				st.close();
-				System.out.println("Person deletado com sucesso!");
+				System.out.println("Person atualizado com sucesso!");
 			} catch (SQLException e) {
 				System.out.println(e.getMessage());
 			}

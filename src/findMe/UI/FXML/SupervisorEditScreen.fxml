@@ -32,7 +32,7 @@
                               <Font size="17.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtid" promptText="Ex: 20112001014" style="-fx-border-color: orange;" GridPane.columnIndex="1" />
+                        <TextField fx:id="txtId" promptText="Ex: 20112001014" style="-fx-border-color: orange;" GridPane.columnIndex="1" />
                         <Label style="-fx-background-color: orange;" text="Disciplina" textFill="WHITE" GridPane.rowIndex="1">
                            <font>
                               <Font size="17.0" />
@@ -80,7 +80,7 @@
                            </font>
                         </Label>
                         <TextField fx:id="txtRg" promptText="Ex: 4.123.145" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <ComboBox fx:id="cbSex" editable="true" prefWidth="150.0" promptText="Sexo" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <ComboBox fx:id="cbSex" prefWidth="150.0" promptText="Sexo" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      </children>
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="191.0" minWidth="10.0" prefWidth="114.0" />

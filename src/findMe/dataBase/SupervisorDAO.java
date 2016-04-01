@@ -98,22 +98,21 @@ public class SupervisorDAO{
 		}
 		/*------------------------UPDATE----------------------------*/
 		public void updateSupervisor(Supervisor supervisor){
-			String sql = "update person set id = ?, cpf = ?, namePerson = ?, birth_dt = ?, password = ?, sex = ?, email = ?, rg = ? "
-					+ "where id = ?";
+			String sql = " update person set cpf = ?, namePerson = ?, birth_dt = ?, password = ? "
+					+ "sex = ?, email = ?, rg = ? where person.id = ?";
 			try {
 				
 				PreparedStatement st = conn.prepareStatement(sql);
 				PersonDAO p = new PersonDAO();
 				
-				st.setString(1, supervisor.getId());
-				st.setString(2, supervisor.getCpf());
-				st.setString(3, supervisor.getName());
-				st.setDate(4, p.convertStringToDate(supervisor.getBirth_dt()));
-				st.setString(5, supervisor.getPassword());
-				st.setString(6, supervisor.getSex());
-				st.setString(7, supervisor.getEmail());
-				st.setString(8, supervisor.getRg());
-				st.setString(9, supervisor.getId());
+				st.setString(1, supervisor.getCpf());
+				st.setString(2, supervisor.getName());
+				st.setDate(3, p.convertStringToDate(supervisor.getBirth_dt()));
+				st.setString(4, supervisor.getPassword());
+				st.setString(5, supervisor.getSex());
+				st.setString(6, supervisor.getEmail());
+				st.setString(7, supervisor.getRg());
+				st.setString(8, supervisor.getId());
 				
 				st.execute();
 				st.close();
@@ -306,7 +305,7 @@ public class SupervisorDAO{
 		 * @return boolean
 		 * @author ViniFarias
 		 */
-		public boolean userChecksSupervisorId(String id, String password){
+		public boolean userChecksSupervisorId(String id){
 			String sql = "SELECT p1.id from supervisor INNER JOIN person as p1 ON supervisor.id = p1.id "
 					+"where supervisor.id = "+id;
 			
@@ -330,11 +329,96 @@ public class SupervisorDAO{
 		}
 		
 		
+		/**
+		 * Verifica se um supervisor ja existe no bd a partir do seu nome
+		 * @param id
+		 * @param password
+		 * @return boolean
+		 * @author ViniFarias
+		 */
+		public boolean userChecksSupervisorName(String name){
+			String sql = "SELECT p1.namePerson from supervisor INNER JOIN person as p1 ON supervisor.id = p1.id"
+						+"where p1.namePerson = "+name;
+			
+			try {
+			
+				PreparedStatement st = conn.prepareStatement(sql);
+			
+				ResultSet rs = st.executeQuery();
+			
+				if(rs.next()){
+					return true;
+				}
+				else{
+					return false;
+				}
+			
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+				return false;
+		}
+		
+		
+		
+		/**
+		 * Retorna um supervisor a partir do seu ID
+		 * @param id
+		 * @return
+		 * @author ViniFarias
+		 */
 		public Supervisor getSupervisorById(String id){
 			String sql = "select supervisor.*, p1.*, s1.id id_subject, s1.namesubject from supervisor "
 						+"left join supervisor_schoolsubject as sb1 on supervisor.id = sb1.id_supervisor "
 						+"left join person as p1 on supervisor.id = p1.id left join schoolsubject s1 "
 						+"on sb1.id_schoolsubject = s1.id where supervisor.id = "+id;
+			
+			try{
+				Supervisor s = new Supervisor();
+				
+				PreparedStatement st = conn.prepareStatement(sql);
+				
+				ResultSet rs = st.executeQuery();
+				
+				while(rs.next()){
+					
+					SchoolSubject sb = new SchoolSubject();
+					
+					sb.setName(rs.getString("nameSubject"));
+					sb.setId(rs.getString("id_subject"));
+					
+					s.setId(rs.getString("id"));
+					s.setCpf(rs.getString("cpf"));
+					s.setBirth_dt(rs.getString("birth_dt"));
+					s.setName(rs.getString("namePerson"));
+					s.setRg(rs.getString("rg"));
+					s.setSex(rs.getString("sex"));
+					s.setEmail(rs.getString("email"));
+					
+				}
+				
+				rs.close();
+				st.close();
+				return s;
+			} catch(Exception e){
+				System.out.println("Exception is :"+e);
+			}
+			return null;
+		}
+		
+		
+		
+		/**
+		 * Retorna um supervisor a partir do seu Nome
+		 * @param id
+		 * @return
+		 * @author ViniFarias
+		 */
+		public Supervisor getSupervisorByName(String name){
+			String sql = "select supervisor.*, p1.*, s1.id id_subject, s1.namesubject from supervisor "
+						+"left join supervisor_schoolsubject as sb1 on supervisor.id = sb1.id_supervisor "
+						+"left join person as p1 on supervisor.id = p1.id left join schoolsubject s1 "
+						+"on sb1.id_schoolsubject = s1.id where p1.namePerson = \""+name+"\"";
 			
 			try{
 				Supervisor s = new Supervisor();

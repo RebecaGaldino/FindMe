@@ -30,4 +30,15 @@ public class Supervisor extends Person{
 		super(id, cpf, birth_dt, name, password, sex, rg, email);
 	}
 	
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		return true;
+	}
 }

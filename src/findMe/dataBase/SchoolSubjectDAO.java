@@ -229,7 +229,7 @@ public class SchoolSubjectDAO {
 	
 	
 	/**
-	 * Retorna um array com todas as disciplinas e seus monitores, supervisores e informaçoes basicas
+	 * Retorna todas as informações de uma disciplina e seus monitores, supervisores e informaçoes basicas, pelo seu id
 	 * @return
 	 * @author ViniFarias
 	 */
@@ -279,6 +279,38 @@ public class SchoolSubjectDAO {
 				System.out.println(e.getMessage());
 			}
 			return null;
+	}
+	
+	
+	
+	/**
+	 * Retorna uma schoolsubject a partir do seu Nome
+	 * @param id
+	 * @return
+	 * @author ViniFarias
+	 */
+	public SchoolSubject getSchoolSubjectByName(String name){
+		String sql = "select schoolsubject.* from schoolsubject where schoolsubject.namesubject = \""+name+"\"";
+		
+		try{
+			SchoolSubject s = new SchoolSubject();
+			
+			PreparedStatement st = conn.prepareStatement(sql);
+			
+			ResultSet rs = st.executeQuery();
+			
+			while(rs.next()){
 				
+				s.setName(rs.getString("namesubject"));
+				s.setId(rs.getString("id"));
+			}
+			
+			rs.close();
+			st.close();
+			return s;
+		} catch(Exception e){
+			System.out.println("Exception is :"+e);
+		}
+		return null;
 	}
 }

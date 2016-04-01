@@ -83,8 +83,48 @@ public class Monitor extends Student{
 	public void setBankAccount(BankAccount bankAccount) {
 		this.bankAccount = bankAccount;
 	}
-	
-	
-	
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((bankAccount == null) ? 0 : bankAccount.hashCode());
+		result = prime * result + ((roomWork == null) ? 0 : roomWork.hashCode());
+		result = prime * result + ((subject == null) ? 0 : subject.hashCode());
+		result = prime * result + ((supervisor == null) ? 0 : supervisor.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Monitor other = (Monitor) obj;
+		if (bankAccount == null) {
+			if (other.bankAccount != null)
+				return false;
+		} else if (!bankAccount.equals(other.bankAccount))
+			return false;
+		if (roomWork == null) {
+			if (other.roomWork != null)
+				return false;
+		} else if (!roomWork.equals(other.roomWork))
+			return false;
+		if (subject == null) {
+			if (other.subject != null)
+				return false;
+		} else if (!subject.equals(other.subject))
+			return false;
+		if (supervisor == null) {
+			if (other.supervisor != null)
+				return false;
+		} else if (!supervisor.equals(other.supervisor))
+			return false;
+		return true;
+	}
 	
 }
