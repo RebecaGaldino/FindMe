@@ -6,6 +6,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 
+import DialogBox.AlertBox;
 import findMe.actions.ManagerActions;
 import findMe.customExceptions.CustomException;
 import findMe.domain.BankAccount;
@@ -49,7 +50,7 @@ import javafx.stage.Stage;
  */
 public class RegisterMonitorFXMLController implements Initializable{
 	ObservableList<String> optionsCBCOURSE = 
-		    FXCollections.observableArrayList("Inform�tica Integrado","Minera��o Integrado", "MSI Integrado", "Petr�leo e G�s Integrado");
+		    FXCollections.observableArrayList("Informática Integrado","Mineraçãoo Integrado", "MSI Integrado", "Petróleo e Gás Integrado","Telemática", "Engenharia da Computação");
 	
 	ObservableList<String> optionsCBSEX = 
 		    FXCollections.observableArrayList("Masculino","Feminino");
@@ -98,39 +99,7 @@ public class RegisterMonitorFXMLController implements Initializable{
 	@FXML
 	private GridPane pessoalPane;
 	@FXML
-	private ImageView nameError;
-	@FXML
-	private ImageView dateError;
-	@FXML
-	private ImageView cpfError;
-	@FXML
-	private ImageView rgError;
-	@FXML
-	private ImageView emailError;
-	@FXML
-	private ImageView passwordError;
-	@FXML
-	private ImageView gradeError;
-	@FXML
-	private ImageView sexError;
-	@FXML
-	private ImageView idError;
-	@FXML
-	private ImageView confirmError;
-	@FXML
-	private ImageView courseError;
-	@FXML
-	private ImageView subjectError;
-	@FXML
-	private ImageView roomError;
-	@FXML
-	private ImageView supervisorError;
-	@FXML
-	private ImageView numberError;
-	@FXML
-	private ImageView agencyError;
-	@FXML
-	private ImageView typeError;
+	public static Text Supervisor;
 	@FXML
 	private Button btShowSupervisor;
 	@FXML
@@ -142,36 +111,40 @@ public class RegisterMonitorFXMLController implements Initializable{
 
 	public void btRegister(){
 		try {
-			BankAccount bank = new BankAccount();
-			bank.setId(txtNumberAccount.getText());
-			bank.setAccountNumber(txtNumberAccount.getText());
-			bank.setAgency(txtAgency.getText());
-			bank.setTypeAccount(txtTypeAccount.getText());
-			bank.setNotes(txtAreaNotes.getText());
-
+			if(validate()){
+				BankAccount bank = new BankAccount();
+				bank.setId(txtNumberAccount.getText());
+				bank.setAccountNumber(txtNumberAccount.getText());
+				bank.setAgency(txtAgency.getText());
+				bank.setTypeAccount(txtTypeAccount.getText());
+				bank.setNotes(txtAreaNotes.getText());
+	
+				
+	
+	
+				Monitor monitor = new Monitor();
+				monitor.setName(txtName.getText());
+				monitor.setId(txtId.getText());
+				monitor.setBirth_dt(Methods.convertStringToSqlString(txtBirth_dt.getText()));
+				monitor.setCpf(txtCpf.getText());
+				monitor.setRg(txtRg.getText());
+				monitor.setEmail(txtEmail.getText());
+				monitor.setPassword(txtPassword.getText());
+				monitor.setCourse((cBxCourse.getSelectionModel().getSelectedItem().toString()));
+				monitor.setGrade(txtGrade.getText());
+				monitor.setRoomWork(txtRoomWork.getText());
+				monitor.setSex(cbSex.getSelectionModel().getSelectedItem().toString());
+				monitor.setSubject(subject);
+				monitor.setSupervisor(supervisor);
+				monitor.setBankAccount(bank);
+	
+				ManagerActions actions = new ManagerActions();
+				actions.registerMonitor(monitor);
+			}
+			else{
+				 AlertBox.error("Cadastro inválido", "Digite os campos corretamente");
+			}
 			
-
-
-			Monitor monitor = new Monitor();
-			monitor.setName(txtName.getText());
-			monitor.setId(txtId.getText());
-			monitor.setBirth_dt(Methods.convertStringToSqlString(txtBirth_dt.getText()));
-			monitor.setCpf(txtCpf.getText());
-			monitor.setRg(txtRg.getText());
-			monitor.setEmail(txtEmail.getText());
-			monitor.setPassword(txtPassword.getText());
-			monitor.setCourse((cBxCourse.getSelectionModel().getSelectedItem().toString()));
-			monitor.setGrade(txtGrade.getText());
-			monitor.setRoomWork(txtRoomWork.getText());
-			monitor.setSex(cbSex.getSelectionModel().getSelectedItem().toString());
-			monitor.setSubject(subject);
-			monitor.setSupervisor(supervisor);
-			monitor.setBankAccount(bank);
-
-			ManagerActions actions = new ManagerActions();
-			actions.registerMonitor(monitor);
-			System.out.println(supervisor.getId());
-			System.out.println(subject.getId());
 			//validate(monitor);
 			
 			
@@ -220,78 +193,141 @@ public class RegisterMonitorFXMLController implements Initializable{
 		}
 	}
 	
-	public boolean validate(Monitor monitor){
+	public boolean validate(){
 		boolean valid = true;
 		/**
 		 * Name validator
 		 */
-		if( !(StringValidator.onlyLetters(monitor.getName()) ) ){
-			txtName.setStyle("-fx-border-color: red;");
+		if( !(StringValidator.onlyLetters(txtName.getText()) && isNull(txtName.getText()) ) ){
+			txtName.setStyle("-fx-border-color: red");
 		}
 		/**
 		 * Birth_dt validator
 		 */
-		if( !(DateValidator.validate(monitor.getBirth_dt())) ){
+		if( !(DateValidator.validate(txtBirth_dt.getText()) && isNull(txtBirth_dt.getText())  ) ){
 			valid = false;
-			txtBirth_dt.setStyle("-fx-border-color: red;");
+			txtBirth_dt.setStyle("-fx-border-color: red");
 		}
 		/**
 		 * CPF validator
 		 */
-		if( !(CpfValidator.validate(monitor.getCpf()) ) ){
+		if( !(CpfValidator.validate(txtCpf.getText()) && isNull(txtCpf.getText())) ){
 			valid = false;
-			txtCpf.setStyle("-fx-border-color: red;");
+			txtCpf.setStyle("-fx-border-color: red");
 		}
 		/**
 		 * Rg validator
 		 */
-		if( !(RgValidator.validate(monitor.getRg()) ) ){
+		if( !(RgValidator.validate(txtRg.getText()) && isNull(txtRg.getText())  ) ){
 			valid = false;
-			txtRg.setStyle("-fx-border-color: red;");
+			txtRg.setStyle("-fx-border-color: red");
 		}
 		/**
 		 * ID validator
 		 */
-		if( !(NumberValidator.validate(monitor.getId()) ) ){
+		if( !(NumberValidator.validate( txtId.getText()) && isNull(txtId.getText())) ){
 			valid = false;
-			txtId.setStyle("-fx-border-color: red;");
+			txtId.setStyle("-fx-border-color: red");
 		}
 		/**
 		 * Email validator
 		 */
-		if( !(EmailValidator.validate(monitor.getEmail()) ) ){
+		if( !(EmailValidator.validate(txtEmail.getText()) && isNull(txtEmail.getText()) ) ){
 			valid = false;
-			txtEmail.setStyle("-fx-border-color: red;");
+			txtEmail.setStyle("-fx-border-color: red");
 		}
 		/**
 		 * Password validator
 		 */
-		if( !(StringValidator.password(monitor.getPassword()) ) ){
+		if( !(StringValidator.password(txtPassword.getText()) && isNull(txtPassword.getText()) ) ){
 			valid = false;
-			txtEmail.setStyle("-fx-border-color: red;");
+			txtPassword.setStyle("-fx-border-color: red");
 			
 			if( txtConfirmPassword.getText().equals(txtPassword.getText()) ) {
 				valid = false;
-				txtConfirmPassword.setStyle("-fx-border-color: red;");
+				txtConfirmPassword.setStyle("-fx-border-color: red");
 			}
 		}
 		
 		/**
 		 * Grade validator
 		 */
-		if(!(NumberValidator.validate(monitor.getGrade()))){
+		if(!(NumberValidator.validate(txtGrade.getText()) && isNull(txtGrade.getText()) )){
 			 valid = false;
-			 txtGrade.setStyle("-fx-border-color: red;");
+			 txtGrade.setStyle("-fx-border-color: red");
+		}
+		/**
+		 * Supervisor validate
+		 */
+		/*
+		if( isNull(txtSupervisor.getText()) ){
+			 valid = false;
+			 txtSupervisor.setStyle("-fx-border-color: red");
+		} */
+		/**
+		 * Subject validate
+		 */
+		/*
+		if( isNull(txtSchoolSubject.getText()) ){
+			 valid = false;
+			 txtSchoolSubject.setStyle("-fx-border-color: red");
+		} */
+		/**
+		 * NumberAccount validate
+		 */
+		if(!(NumberValidator.validate(txtNumberAccount.getText()) && isNull(txtNumberAccount.getText()) )){
+			 valid = false;
+			 txtNumberAccount.setStyle("-fx-border-color: red");
+		}
+		/**
+		 * Type Account validate
+		 */
+		if(!(NumberValidator.validate(txtTypeAccount.getText()) && isNull(txtTypeAccount.getText()) )){
+			 valid = false;
+			 txtTypeAccount.setStyle("-fx-border-color: red");
 		}
 		
+		/**
+		 * Agency Account validate
+		 */
+		if(!(NumberValidator.validate(txtAgency.getText()) && isNull(txtAgency.getText()) )){
+			 valid = false;
+			 txtAgency.setStyle("-fx-border-color: red");
+		}
+		
+
+		/**
+		 * Room work validate
+		 */
+		if( isNull(txtRoomWork.getText()) ){
+			 valid = false;
+			 txtRoomWork.setStyle("-fx-border-color: red");
+		}
+		
+		/**
+		 * Sex validate
+		 */
+		if( isNull(cbSex.getSelectionModel().getSelectedItem().toString()) ){
+			System.out.println("sexo invalido");
+			 valid = false;
+			 cbSex.setStyle("-fx-border-color: red");
+		}
+		
+		/**
+		 * Course validate
+		 */
+		if( isNull(cBxCourse.getSelectionModel().getSelectedItem().toString()) ){
+			 valid = false;
+			 cBxCourse.setStyle("-fx-border-color: red");
+		}
 		
 		return valid;
 	}
 	
 	
 	public boolean isNull(String value){
-		if(value == null)
-			return true;
+		if(value == null && value == "" && value.equals("") )
+			return false;
 		return false;
 	}
 	

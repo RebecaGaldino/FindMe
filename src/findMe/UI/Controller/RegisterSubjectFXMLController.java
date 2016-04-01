@@ -5,11 +5,17 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
+import DialogBox.AlertBox;
 import findMe.actions.ManagerActions;
 import findMe.dataBase.SupervisorDAO;
 import findMe.domain.SchoolSubject;
 import findMe.domain.Supervisor;
 import findMe.extraMethods.Methods;
+import findMe.validate.validator.NumberValidator;
+import findMe.validate.validator.StringValidator;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.collections.FXCollections;
@@ -45,12 +51,19 @@ public class RegisterSubjectFXMLController implements Initializable {
 	public void btRegister(){
 		
 		try {
-			SchoolSubject subject = new SchoolSubject();
-			subject.setName(txtName.getText());
-			subject.setId(txtId.getText());
-			ManagerActions mac = new ManagerActions();
-			mac.registerSubject(subject);
-			method.setAndShowOnPrimaryStage("/findMe/UI/FXML/ManagerScreen.fxml", "Monitor Manager");
+			if(validate()){
+				SchoolSubject subject = new SchoolSubject();
+				subject.setName(txtName.getText());
+				subject.setId(txtId.getText());
+				ManagerActions mac = new ManagerActions();
+				mac.registerSubject(subject);
+				method.setAndShowOnPrimaryStage("/findMe/UI/FXML/ManagerScreen.fxml", "Monitor Manager"); 
+			}
+			else{
+			    AlertBox.error("Cadastro inválido", "Digite os campos corretamente");
+
+				//JOptionPane.showMessageDialog(panel, "Could not open file", "Error", JOptionPane.ERROR_MESSAGE);
+			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -72,6 +85,19 @@ public class RegisterSubjectFXMLController implements Initializable {
 	
 	}
 	
+	public boolean validate(){
+		boolean valid = true;
+		if(!(StringValidator.onlyLetters(txtName.getText()) && txtName.getText() == null && txtName.getText() == "")){
+			valid = false;
+			txtName.setStyle("-fx-border-color: red");
+		}
+		if(! (NumberValidator.validate(txtId.getText()) && txtId.getText() == null && txtId.getText() == "" ) ){
+			txtId.setStyle("-fx-border-color: red");
+			valid = false;
+		}
+		
+		return valid;
+	}
 
    
     

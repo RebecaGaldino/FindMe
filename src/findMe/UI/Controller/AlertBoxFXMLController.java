@@ -15,7 +15,9 @@ public class AlertBoxFXMLController implements Initializable{
 	@FXML
 	private Text txtMsgAlert;
 	
-	
+	public static void main(){
+		
+	}
 	public void BtOk(){
 		
 	}

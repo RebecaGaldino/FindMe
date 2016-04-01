@@ -69,7 +69,7 @@ public class ChoiceSupervisorFXMLController implements Initializable {
 	
 	@FXML
 	public void btConfirm(){
-		
+
 		RegisterMonitorFXMLController.supervisor.setId(getTableSupervisorSelected().getId()) ;
 		RegisterMonitorFXMLController.method.getStage().close();
 	}
