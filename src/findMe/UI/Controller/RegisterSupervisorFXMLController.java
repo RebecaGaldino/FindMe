@@ -9,7 +9,10 @@ import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 
 import findMe.actions.ManagerActions;
+import findMe.dataBase.Supervisor_SchoolSubjectDAO;
+import findMe.domain.SchoolSubject;
 import findMe.domain.Supervisor;
+import findMe.domain.Supervisor_SchoolSubject;
 import findMe.extraMethods.Methods;
 import findMe.validate.validator.CpfValidator;
 import findMe.validate.validator.DateValidator;
@@ -68,7 +71,7 @@ public class RegisterSupervisorFXMLController implements Initializable{
 	private Button btShowSubject;
 	
 	private Methods method = new Methods();
-
+	public static SchoolSubject subject = new SchoolSubject();
 	ObservableList<String> optionsCBSEX = 
 		    FXCollections.observableArrayList("Masculino","Feminino");
 	
@@ -81,35 +84,36 @@ public class RegisterSupervisorFXMLController implements Initializable{
 	public void btRegister() throws IOException, ParseException, SQLException{
 		try {
 			
-			
-			ManagerActions mAct = new ManagerActions();
-			
-
-			Supervisor supervisor = new Supervisor();
-			
-			supervisor.setName(txtName.getText());
-			 supervisor.setId(txtId.getText());
-			supervisor.setSex(cbSex.getSelectionModel().getSelectedItem().toString());
-			supervisor.setPassword(txtPassword.getText());
-			supervisor.setBirth_dt(Methods.convertStringToSqlString(txtBirth_dt.getText()));
-			supervisor.setCpf(txtCpf.getText());
-			supervisor.setRg(txtRg.getText());
-			supervisor.setEmail(txtEmail.getText());
-			supervisor.setPassword(txtPassword.getText()); 
-			ManagerActions mac = new ManagerActions();
-			mac.registerSupervisor(supervisor);
-			
-			
-			
-			
-			
-			
-			/*if(PersonValidate.validate(supervisor)){
-				mAct.registerSupervisor(supervisor);
+			if(validate()){
+				ManagerActions mAct = new ManagerActions();
+				
+	
+				Supervisor supervisor = new Supervisor();
+				
+				supervisor.setName(txtName.getText());
+				 supervisor.setId(txtId.getText());
+				supervisor.setSex(cbSex.getSelectionModel().getSelectedItem().toString());
+				supervisor.setPassword(txtPassword.getText());
+				supervisor.setBirth_dt(Methods.convertStringToSqlString(txtBirth_dt.getText()));
+				supervisor.setCpf(txtCpf.getText());
+				supervisor.setRg(txtRg.getText());
+				supervisor.setEmail(txtEmail.getText());
+				Supervisor_SchoolSubject supervisorSubject = new Supervisor_SchoolSubject();
+				
+				Supervisor_SchoolSubjectDAO sd = new Supervisor_SchoolSubjectDAO();
+				
+				ManagerActions mac = new ManagerActions();
+				mac.registerSupervisor(supervisor);
 			}
 			else{
 				
-			} */
+			}
+			
+			
+			
+			
+			
+			
 			
 			
 			
@@ -142,52 +146,76 @@ public class RegisterSupervisorFXMLController implements Initializable{
 	}
 	
 	
-	public boolean validate(Supervisor supervisor){
+	public boolean validate(){
 		boolean valid = true;
-		
-		if( !(StringValidator.onlyLetters(supervisor.getName()) ) ){
-			valid = false;
-			txtName.setStyle("-fx-border-color: red;");
+		/**
+		 * Name validator
+		 */
+		if( !(StringValidator.onlyLetters(txtName.getText()) || isNull(txtName.getText()) ) ){
+			txtName.setStyle("-fx-border-color: red");
 		}
-		
-		if( !(DateValidator.validate(supervisor.getBirth_dt())) ){
+		/**
+		 * Birth_dt validator
+		 */
+		if( !(DateValidator.validate(txtBirth_dt.getText()) || isNull(txtBirth_dt.getText())  ) ){
 			valid = false;
-			txtBirth_dt.setStyle("-fx-border-color: red;");
+			txtBirth_dt.setStyle("-fx-border-color: red");
 		}
-		
-		if( !(CpfValidator.validate(supervisor.getCpf()) ) ){
+		/**
+		 * CPF validator
+		 */
+		if( !(CpfValidator.validate(txtCpf.getText()) || isNull(txtCpf.getText())) ){
 			valid = false;
-			txtCpf.setStyle("-fx-border-color: red;");
+			txtCpf.setStyle("-fx-border-color: red");
 		}
-		
-		if( !(RgValidator.validate(supervisor.getRg()) ) ){
+		/**
+		 * Rg validator
+		 */
+		if( !(RgValidator.validate(txtRg.getText()) || isNull(txtRg.getText())  ) ){
 			valid = false;
-			txtRg.setStyle("-fx-border-color: red;");
+			txtRg.setStyle("-fx-border-color: red");
 		}
-		
-		if( !(NumberValidator.validate(supervisor.getId()) ) ){
+		/**
+		 * ID validator
+		 */
+		if( !(NumberValidator.validate( txtId.getText()) || isNull(txtId.getText())) ){
 			valid = false;
-			txtId.setStyle("-fx-border-color: red;");
+			txtId.setStyle("-fx-border-color: red");
 		}
-		
-		if( !(EmailValidator.validate(supervisor.getEmail()) ) ){
+		/**
+		 * Email validator
+		 */
+		if( !(EmailValidator.validate(txtEmail.getText()) || isNull(txtEmail.getText()) ) ){
 			valid = false;
-			txtEmail.setStyle("-fx-border-color: red;");
+			txtEmail.setStyle("-fx-border-color: red");
 		}
-		
-		if( !(StringValidator.password(supervisor.getPassword()) ) ){
+		/**
+		 * Password validator
+		 */
+		if( !(StringValidator.password(txtPassword.getText()) || isNull(txtPassword.getText()) ) ){
 			valid = false;
-			txtEmail.setStyle("-fx-border-color: red;");
+			txtPassword.setStyle("-fx-border-color: red");
 			
 			if( txtConfirmPassword.getText().equals(txtPassword.getText()) ) {
 				valid = false;
-				txtConfirmPassword.setStyle("-fx-border-color: red;");
+				txtConfirmPassword.setStyle("-fx-border-color: red");
 			}
 		}
 		
 		
 		
+
+	
+		
+		
+		
 		return valid;
+	}
+	
+	public boolean isNull(String value){
+		if(value == null && value == "" && value.equals("") )
+			return false;
+		return false;
 	}
 	
 	@Override

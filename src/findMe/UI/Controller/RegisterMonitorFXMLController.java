@@ -256,22 +256,7 @@ public class RegisterMonitorFXMLController implements Initializable{
 			 valid = false;
 			 txtGrade.setStyle("-fx-border-color: red");
 		}
-		/**
-		 * Supervisor validate
-		 */
-		/*
-		if( isNull(txtSupervisor.getText()) ){
-			 valid = false;
-			 txtSupervisor.setStyle("-fx-border-color: red");
-		} */
-		/**
-		 * Subject validate
-		 */
-		/*
-		if( isNull(txtSchoolSubject.getText()) ){
-			 valid = false;
-			 txtSchoolSubject.setStyle("-fx-border-color: red");
-		} */
+		
 		/**
 		 * NumberAccount validate
 		 */
@@ -304,31 +289,13 @@ public class RegisterMonitorFXMLController implements Initializable{
 			 txtRoomWork.setStyle("-fx-border-color: red");
 		}
 		
-		/**
-		 * Sex validate
-		 */
-		/*
-		if( isNull(cbSex.getSelectionModel().getSelectedItem().toString()) ){
-			System.out.println("sexo invalido");
-			 valid = false;
-			 cbSex.setStyle("-fx-border-color: red");
-		}
-		*/
-		/**
-		 * Course validate
-		 */
-		/*
-		if( isNull(cBxCourse.getSelectionModel().getSelectedItem().toString()) ){
-			 valid = false;
-			 cBxCourse.setStyle("-fx-border-color: red");
-		} */
 		
 		return valid;
 	}
 	
 	
 	public boolean isNull(String value){
-		if(value == null && value == "" && value.equals("") )
+		if(value == null || value == "" || value.equals("") )
 			return false;
 		return false;
 	}
