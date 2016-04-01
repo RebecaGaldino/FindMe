@@ -9,6 +9,8 @@ import java.util.List;
 
 import javax.security.auth.Subject;
 
+import DialogBox.AlertBox;
+
 import java.sql.PreparedStatement;
 
 import findMe.domain.BankAccount;
@@ -51,9 +53,9 @@ public class MonitorDAO{
 			
 			st.execute();
 			st.close();
-			System.out.println("Monitor cadastrado com sucesso!");
+			AlertBox.confirm("Monitor Manager", "Monitor cadastrado com sucesso!" );
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
+			AlertBox.error("Monitor Manager", e.getMessage() );
 		}
 	}
 	
@@ -68,9 +70,10 @@ public class MonitorDAO{
 			
 			st.execute();
 			st.close();
-			System.out.println("Monitor deletado com sucesso!");
+			AlertBox.confirm("Monitor Manager", "Monitor deletado com sucesso!" );
+
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
+			AlertBox.error("Monitor Manager", e.getMessage() );
 		}
 	}
 	
@@ -90,9 +93,9 @@ public class MonitorDAO{
 			
 			st.execute();
 			st.close();
-			System.out.println("Monitor atualizado com sucesso!");
+			AlertBox.confirm("Monitor Manager", "Dados atualizados com sucesso!" );
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
+			AlertBox.error("Monitor Manager", e.getMessage() );
 		}
 	}
 	
@@ -116,7 +119,7 @@ public class MonitorDAO{
 			
 		} catch(Exception e){
 			
-			System.out.println("Exception is :"+e);
+			AlertBox.error("Monitor Manager", e.getMessage() );
 		}
 			return " ";
 	}
@@ -152,7 +155,7 @@ public class MonitorDAO{
 			st.close();
 			return persons;
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
+			AlertBox.error("Monitor Manager", e.getMessage() );
 		}
 		return null;
 	}
@@ -194,7 +197,7 @@ public class MonitorDAO{
 			st.close();
 			return tb;
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
+			AlertBox.error("Monitor Manager", e.getMessage() );
 		}
 		return null;
 	}
@@ -261,7 +264,7 @@ public class MonitorDAO{
 			st.close();
 			return tb;
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
+			AlertBox.error("Monitor Manager", e.getMessage() );
 		}
 		return null;
 	}
@@ -329,7 +332,7 @@ public class MonitorDAO{
 			st.close();
 			return m;
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
+			AlertBox.error("Monitor Manager", e.getMessage() );
 		}
 		return null;
 	}
@@ -366,7 +369,7 @@ public class MonitorDAO{
 			}
 		
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
+			AlertBox.error("Monitor Manager", e.getMessage() );
 		}
 			return false;
 	}
@@ -399,7 +402,7 @@ public class MonitorDAO{
 			}
 		
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
+			AlertBox.error("Monitor Manager", e.getMessage() );
 		}
 			return false;
 	}

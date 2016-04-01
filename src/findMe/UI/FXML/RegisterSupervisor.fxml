@@ -39,7 +39,12 @@
                               <Font size="17.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtSchoolSubject" promptText="Ex: FIlosofia" style="-fx-border-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="txtSchoolSubject" promptText="Ex: FIlosofia" style="-fx-border-color: orange;" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button fx:id="btShowSubject" mnemonicParsing="false" onAction="#btShowSubject" prefHeight="29.0" prefWidth="226.0" style="-fx-background-color: orange;" text="Selecionar Disciplina" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
                      </children>
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="191.0" minWidth="10.0" prefWidth="114.0" />

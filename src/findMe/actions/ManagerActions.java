@@ -1,5 +1,6 @@
 package findMe.actions;
 
+import DialogBox.AlertBox;
 import findMe.customExceptions.CustomException;
 import findMe.dataBase.MonitorDAO;
 import findMe.dataBase.SchoolSubjectDAO;
@@ -26,7 +27,7 @@ public class ManagerActions {
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			AlertBox.error("Monitor Manager", e.getMessage() );
 		}
 	}
 	
@@ -43,7 +44,7 @@ public class ManagerActions {
 			
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+			AlertBox.error("Monitor Manager", e.getMessage() );
 		}
 	}
 	
@@ -56,7 +57,7 @@ public class ManagerActions {
 			
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+			AlertBox.error("Monitor Manager", e.getMessage() );
 		}
 	}
 	

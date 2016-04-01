@@ -41,7 +41,6 @@ public class ChoiceSubjectFXMLController implements Initializable{
 	private TextField txtName;
 	@FXML
 	private TextField txtId;
-	
 /*-----------------------------------------------------------------------------------------------*/
 	private int posSchoolSubject;
 	
@@ -117,7 +116,7 @@ public class ChoiceSubjectFXMLController implements Initializable{
     
 
     /**
-     * M�todo que coloca as informa��es selecionadas nos textFields
+     * Metodo que coloca as informacaoes selecionadas nos textFields
      * @author RicardoMoya - https://github.com/jarroba/Tablas-JavaFX--FXML-
      */
     private void putSchoolSubjectSelected() {
@@ -139,7 +138,7 @@ public class ChoiceSubjectFXMLController implements Initializable{
     
     
     /**
-     * M�todo que faz a filtragem dos dados
+     * Metodo que faz a filtragem dos dados
      */
     @FXML
 	private void initFilter(){

@@ -7,6 +7,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import DialogBox.AlertBox;
+
 import java.sql.ResultSet;
 
 import findMe.domain.BankAccount;
@@ -47,7 +50,7 @@ public class SupervisorDAO{
 				st.close();
 				System.out.println("Supervisor cadastrado com sucesso!");
 			} catch (SQLException e) {
-				System.out.println(e.getMessage());
+				AlertBox.error("Monitor Manager", e.getMessage() );
 			}
 		}
 		
@@ -68,7 +71,7 @@ public class SupervisorDAO{
 				st.close();
 				System.out.println("Supervisor deletado com sucesso!");
 			} catch (SQLException e) {
-				System.out.println(e.getMessage());
+				AlertBox.error("Monitor Manager", e.getMessage() );
 			}
 		}
 		
@@ -118,13 +121,13 @@ public class SupervisorDAO{
 				st.close();
 				System.out.println("Supervisor atualizado com sucesso!");
 			} catch (SQLException e) {
-				System.out.println(e.getMessage());
+				AlertBox.error("Monitor Manager", e.getMessage() );
 			}
 		}
 		
 		/*-------------------------CONSULTS-------------------------*/
 		/**
-		 * Lista e exibe todos os supervisores e suas matrículas
+		 * Lista e exibe todos os supervisores e suas matrï¿½culas
 		 * @return ArrayList
 		 * @author ViniFarias
 		 */
@@ -153,7 +156,7 @@ public class SupervisorDAO{
 				st.close();
 				return persons;
 			} catch (SQLException e) {
-				System.out.println(e.getMessage());
+				AlertBox.error("Monitor Manager", e.getMessage() );
 			}
 			return null;
 		}
@@ -212,7 +215,7 @@ public class SupervisorDAO{
 		
 		
 		/**
-		 * Pega todos os supervisores, inclusive os que não possuem disciplina
+		 * Pega todos os supervisores, inclusive os que nï¿½o possuem disciplina
 		 * @return
 		 */
 		public List<Supervisor> getAllInfoAllSupervisors(){
@@ -260,7 +263,7 @@ public class SupervisorDAO{
 		
 		
 		/**
-		 * Verifica a senha e id do usuário Supervisor
+		 * Verifica a senha e id do usuï¿½rio Supervisor
 		 * @param id
 		 * @param password
 		 * @return boolean
@@ -291,7 +294,7 @@ public class SupervisorDAO{
 				}
 			
 			} catch (SQLException e) {
-				System.out.println(e.getMessage());
+				AlertBox.error("Monitor Manager", e.getMessage() );
 			}
 				return false;
 		}

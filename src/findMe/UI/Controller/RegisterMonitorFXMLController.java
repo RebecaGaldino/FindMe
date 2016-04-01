@@ -65,7 +65,7 @@ public class RegisterMonitorFXMLController implements Initializable{
 	@FXML
 	public static TextField txtSupervisor;
 	@FXML
-	private TextField txtSchoolSubject;
+	public static TextField txtSchoolSubject;
 	@FXML
 	private TextField txtNumberAccount;
 	@FXML
@@ -106,12 +106,12 @@ public class RegisterMonitorFXMLController implements Initializable{
 	private Button btShowSubject;
 	public static 	Supervisor supervisor = new Supervisor();
 	public static SchoolSubject subject = new SchoolSubject();
-	
 	public static Methods method = new Methods();
 
 	public void btRegister(){
 		try {
 			if(validate()){
+				System.out.println("oi");
 				BankAccount bank = new BankAccount();
 				bank.setId(txtNumberAccount.getText());
 				bank.setAccountNumber(txtNumberAccount.getText());
@@ -140,19 +140,19 @@ public class RegisterMonitorFXMLController implements Initializable{
 	
 				ManagerActions actions = new ManagerActions();
 				actions.registerMonitor(monitor);
+				method.setAndShowOnPrimaryStage("/findMe/UI/FXML/ManagerScreen.fxml", "Monitor Manager");
 			}
 			else{
 				 AlertBox.error("Cadastro inválido", "Digite os campos corretamente");
 			}
 			
-			//validate(monitor);
 			
 			
 			
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			AlertBox.error("Monitor Manager", e.getMessage() );
 		}
 		
 	}
@@ -198,48 +198,48 @@ public class RegisterMonitorFXMLController implements Initializable{
 		/**
 		 * Name validator
 		 */
-		if( !(StringValidator.onlyLetters(txtName.getText()) && isNull(txtName.getText()) ) ){
+		if( !(StringValidator.onlyLetters(txtName.getText()) || isNull(txtName.getText()) ) ){
 			txtName.setStyle("-fx-border-color: red");
 		}
 		/**
 		 * Birth_dt validator
 		 */
-		if( !(DateValidator.validate(txtBirth_dt.getText()) && isNull(txtBirth_dt.getText())  ) ){
+		if( !(DateValidator.validate(txtBirth_dt.getText()) || isNull(txtBirth_dt.getText())  ) ){
 			valid = false;
 			txtBirth_dt.setStyle("-fx-border-color: red");
 		}
 		/**
 		 * CPF validator
 		 */
-		if( !(CpfValidator.validate(txtCpf.getText()) && isNull(txtCpf.getText())) ){
+		if( !(CpfValidator.validate(txtCpf.getText()) || isNull(txtCpf.getText())) ){
 			valid = false;
 			txtCpf.setStyle("-fx-border-color: red");
 		}
 		/**
 		 * Rg validator
 		 */
-		if( !(RgValidator.validate(txtRg.getText()) && isNull(txtRg.getText())  ) ){
+		if( !(RgValidator.validate(txtRg.getText()) || isNull(txtRg.getText())  ) ){
 			valid = false;
 			txtRg.setStyle("-fx-border-color: red");
 		}
 		/**
 		 * ID validator
 		 */
-		if( !(NumberValidator.validate( txtId.getText()) && isNull(txtId.getText())) ){
+		if( !(NumberValidator.validate( txtId.getText()) || isNull(txtId.getText())) ){
 			valid = false;
 			txtId.setStyle("-fx-border-color: red");
 		}
 		/**
 		 * Email validator
 		 */
-		if( !(EmailValidator.validate(txtEmail.getText()) && isNull(txtEmail.getText()) ) ){
+		if( !(EmailValidator.validate(txtEmail.getText()) || isNull(txtEmail.getText()) ) ){
 			valid = false;
 			txtEmail.setStyle("-fx-border-color: red");
 		}
 		/**
 		 * Password validator
 		 */
-		if( !(StringValidator.password(txtPassword.getText()) && isNull(txtPassword.getText()) ) ){
+		if( !(StringValidator.password(txtPassword.getText()) || isNull(txtPassword.getText()) ) ){
 			valid = false;
 			txtPassword.setStyle("-fx-border-color: red");
 			
@@ -252,7 +252,7 @@ public class RegisterMonitorFXMLController implements Initializable{
 		/**
 		 * Grade validator
 		 */
-		if(!(NumberValidator.validate(txtGrade.getText()) && isNull(txtGrade.getText()) )){
+		if(!(NumberValidator.validate(txtGrade.getText()) || isNull(txtGrade.getText()) )){
 			 valid = false;
 			 txtGrade.setStyle("-fx-border-color: red");
 		}
@@ -275,14 +275,14 @@ public class RegisterMonitorFXMLController implements Initializable{
 		/**
 		 * NumberAccount validate
 		 */
-		if(!(NumberValidator.validate(txtNumberAccount.getText()) && isNull(txtNumberAccount.getText()) )){
+		if(!(NumberValidator.validate(txtNumberAccount.getText()) || isNull(txtNumberAccount.getText()) )){
 			 valid = false;
 			 txtNumberAccount.setStyle("-fx-border-color: red");
 		}
 		/**
 		 * Type Account validate
 		 */
-		if(!(NumberValidator.validate(txtTypeAccount.getText()) && isNull(txtTypeAccount.getText()) )){
+		if(!(NumberValidator.validate(txtTypeAccount.getText()) || isNull(txtTypeAccount.getText()) )){
 			 valid = false;
 			 txtTypeAccount.setStyle("-fx-border-color: red");
 		}
@@ -290,7 +290,7 @@ public class RegisterMonitorFXMLController implements Initializable{
 		/**
 		 * Agency Account validate
 		 */
-		if(!(NumberValidator.validate(txtAgency.getText()) && isNull(txtAgency.getText()) )){
+		if(!(NumberValidator.validate(txtAgency.getText()) || isNull(txtAgency.getText()) )){
 			 valid = false;
 			 txtAgency.setStyle("-fx-border-color: red");
 		}
@@ -307,19 +307,21 @@ public class RegisterMonitorFXMLController implements Initializable{
 		/**
 		 * Sex validate
 		 */
+		/*
 		if( isNull(cbSex.getSelectionModel().getSelectedItem().toString()) ){
 			System.out.println("sexo invalido");
 			 valid = false;
 			 cbSex.setStyle("-fx-border-color: red");
 		}
-		
+		*/
 		/**
 		 * Course validate
 		 */
+		/*
 		if( isNull(cBxCourse.getSelectionModel().getSelectedItem().toString()) ){
 			 valid = false;
 			 cBxCourse.setStyle("-fx-border-color: red");
-		}
+		} */
 		
 		return valid;
 	}
@@ -335,6 +337,7 @@ public class RegisterMonitorFXMLController implements Initializable{
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		cbSex.setItems(optionsCBSEX);
 		cBxCourse.setItems(optionsCBCOURSE);
+		
 		
 	}
 

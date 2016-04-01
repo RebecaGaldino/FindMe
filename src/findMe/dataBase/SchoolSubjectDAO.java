@@ -6,6 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import DialogBox.AlertBox;
+
 import java.util.*;
 
 import findMe.domain.AuxiliarObject;
@@ -38,9 +41,10 @@ public class SchoolSubjectDAO {
 			
 			st.execute();
 			st.close();
-			System.out.println("Subject cadastrado com sucesso");
+			AlertBox.confirm("Monitor Manager", "Disciplina " + schoolSubject.getName() +  " atualizada com sucesso!" );
+
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
+			AlertBox.error("Monitor Manager", e.getMessage() );
 		}
 	}
 	
@@ -55,7 +59,7 @@ public class SchoolSubjectDAO {
 			
 			st.execute();
 			st.close();
-			System.out.println("SchoolSubject deletada com sucesso");
+			AlertBox.confirm("Monitor Manager", "Disciplina deletada com sucesso!" );
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}

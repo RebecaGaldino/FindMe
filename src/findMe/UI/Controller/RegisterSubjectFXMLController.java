@@ -46,7 +46,7 @@ public class RegisterSubjectFXMLController implements Initializable {
 	
 	private Methods method = new Methods();
 	
-
+	
 	@FXML
 	public void btRegister(){
 		
@@ -60,7 +60,7 @@ public class RegisterSubjectFXMLController implements Initializable {
 				method.setAndShowOnPrimaryStage("/findMe/UI/FXML/ManagerScreen.fxml", "Monitor Manager"); 
 			}
 			else{
-			    AlertBox.error("Cadastro inválido", "Digite os campos corretamente");
+			    AlertBox.error("Cadastro inválido", "Dados inseridos inválidos.");
 
 				//JOptionPane.showMessageDialog(panel, "Could not open file", "Error", JOptionPane.ERROR_MESSAGE);
 			}
@@ -87,16 +87,22 @@ public class RegisterSubjectFXMLController implements Initializable {
 	
 	public boolean validate(){
 		boolean valid = true;
-		if(!(StringValidator.onlyLetters(txtName.getText()) && txtName.getText() == null && txtName.getText() == "")){
+		if(!(StringValidator.onlyLetters(txtName.getText()) || isNull(txtName.getText()))){
 			valid = false;
 			txtName.setStyle("-fx-border-color: red");
 		}
-		if(! (NumberValidator.validate(txtId.getText()) && txtId.getText() == null && txtId.getText() == "" ) ){
+		if(!(NumberValidator.validate(txtId.getText()) || isNull(txtId.getText())) ){
 			txtId.setStyle("-fx-border-color: red");
 			valid = false;
 		}
 		
 		return valid;
+	}
+	
+	public boolean isNull(String value){
+		if(value == null && value == "" && value.equals("") )
+			return false;
+		return false;
 	}
 
    

@@ -64,6 +64,8 @@ public class RegisterSupervisorFXMLController implements Initializable{
 	private TextField txtEmail;
 	@FXML
 	private ComboBox cbSex;
+	@FXML
+	private Button btShowSubject;
 	
 	private Methods method = new Methods();
 
@@ -120,7 +122,16 @@ public class RegisterSupervisorFXMLController implements Initializable{
 		}
 	}
 	
-	
+	public void btShowSubject(){
+
+		try {
+			Stage showSubject= new Stage();
+			method.setAndShowOnStage(showSubject,"/findMe/UI/FXML/ChoiceSubject.fxml", "Monitor Manager" );
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	public void btCancel(){
 		try {
 			method.setAndShowOnPrimaryStage("/findMe/UI/FXML/ManagerScreen.fxml", "Monitor Manager");
