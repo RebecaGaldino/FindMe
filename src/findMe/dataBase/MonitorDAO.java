@@ -34,7 +34,7 @@ public class MonitorDAO{
 	
 		String sql = "insert into monitor (id, id_schoolsubject, id_supervisor, roomwork, id_bankaccount) values (?, ?, ?, ?, ?)";
 		try {
-			
+			System.out.println("oi");
 			PreparedStatement st = conn.prepareStatement(sql);
 			
 			StudentDAO sdao = new StudentDAO();
@@ -122,7 +122,7 @@ public class MonitorDAO{
 	}
 	
 	/**
-	 * Lista e exibe todos os monitores e suas matrículas
+	 * Lista e exibe todos os monitores e suas matrï¿½culas
 	 * @return ArrayList
 	 * @author ViniFarias
 	 */
@@ -194,7 +194,7 @@ public class MonitorDAO{
 	}
 	
 	/**
-	 * Retorna uma lista de monitores, com todas as suas informações relacionadas com outras tabelas
+	 * Retorna uma lista de monitores, com todas as suas informaï¿½ï¿½es relacionadas com outras tabelas
 	 * @param id
 	 * @return
 	 */
@@ -263,7 +263,7 @@ public class MonitorDAO{
 	
 	
 	/**
-	 * Retorna todas as informaçoes de um monitor a partir de seu id
+	 * Retorna todas as informaï¿½oes de um monitor a partir de seu id
 	 * @param id
 	 * @return
 	 */
@@ -329,7 +329,7 @@ public class MonitorDAO{
 	}
 	
 	/**
-	 * Verifica a senha e id do usuário Monitor
+	 * Verifica a senha e id do usuï¿½rio Monitor
 	 * @param id
 	 * @param password
 	 * @return boolean

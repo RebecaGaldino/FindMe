@@ -49,7 +49,7 @@ import javafx.stage.Stage;
  */
 public class RegisterMonitorFXMLController implements Initializable{
 	ObservableList<String> optionsCBCOURSE = 
-		    FXCollections.observableArrayList("Informática Integrado","Mineração Integrado", "MSI Integrado", "Petróleo e Gás Integrado");
+		    FXCollections.observableArrayList("Informï¿½tica Integrado","Mineraï¿½ï¿½o Integrado", "MSI Integrado", "Petrï¿½leo e Gï¿½s Integrado");
 	
 	ObservableList<String> optionsCBSEX = 
 		    FXCollections.observableArrayList("Masculino","Feminino");
@@ -62,7 +62,7 @@ public class RegisterMonitorFXMLController implements Initializable{
 	@FXML
 	public TextField txtName;
 	@FXML
-	private TextField txtSupervisor;
+	public static TextField txtSupervisor;
 	@FXML
 	private TextField txtSchoolSubject;
 	@FXML
@@ -131,15 +131,19 @@ public class RegisterMonitorFXMLController implements Initializable{
 	private ImageView agencyError;
 	@FXML
 	private ImageView typeError;
+	@FXML
+	private Button btShowSupervisor;
+	@FXML
+	private Button btShowSubject;
+	public static 	Supervisor supervisor = new Supervisor();
+	public static SchoolSubject subject = new SchoolSubject();
 	
-	private Methods method = new Methods();
+	public static Methods method = new Methods();
 
 	public void btRegister(){
 		try {
 			
-			SchoolSubject subject = new SchoolSubject();
-			Supervisor supervisor = new Supervisor();
-			
+			System.out.println("oi");
 			Monitor monitor = new Monitor();
 			monitor.setName(txtName.getText());
 			monitor.setId(txtId.getText());
@@ -152,8 +156,8 @@ public class RegisterMonitorFXMLController implements Initializable{
 			monitor.setGrade(txtGrade.getText());
 			monitor.setRoomWork(txtRoomWork.getText());
 			monitor.setSex(cbSex.getSelectionModel().getSelectedItem().toString());
-			monitor.setSubject(subject);
-			monitor.setSupervisor(supervisor);
+			//monitor.setSubject(subject);
+			//monitor.setSupervisor(supervisor);
 			ManagerActions actions = new ManagerActions();
 			actions.registerMonitor(monitor);
 			//validate(monitor);
@@ -180,6 +184,28 @@ public class RegisterMonitorFXMLController implements Initializable{
 			e.printStackTrace();
 		}
 		
+	}
+	@FXML
+	public void btShowSubject(){
+		
+		try {
+			Stage showSubject= new Stage();
+			method.setAndShowOnStage(showSubject,"/findMe/UI/FXML/ChoiceSubject.fxml", "Monitor Manager" );
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@FXML
+	public void btShowSupervisor(){
+		try {
+			Stage showSupervisor = new Stage();
+			method.setAndShowOnStage(showSupervisor,"/findMe/UI/FXML/ChoiceSupervisor.fxml", "Monitor Manager" );
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public boolean validate(Monitor monitor){

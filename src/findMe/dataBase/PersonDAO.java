@@ -5,6 +5,9 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.ResultSet;
@@ -13,6 +16,7 @@ import findMe.domain.Monitor;
 import findMe.domain.Person;
 import findMe.domain.Student;
 import findMe.domain.Supervisor;
+import main.Teste;
 
 public class PersonDAO {
 		private Connection conn;
@@ -36,12 +40,14 @@ public class PersonDAO {
 			try {
 				
 				PreparedStatement st = conn.prepareStatement(sql);
-
+				DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+				
+				java.util.Date date = (java.util.Date)formatter.parse(person.getBirth_dt());
 				
 				st.setString(1, person.getId());
 				st.setString(2, person.getCpf());
 				st.setString(3, person.getName());
-				st.setDate(4, convertStringToDate(person.getBirth_dt()));
+				st.setDate(4, new java.sql.Date(date.getTime()));
 				st.setString(5,person.getPassword());
 				st.setString(6,person.getSex());
 				st.setString(7,person.getEmail());
@@ -51,7 +57,7 @@ public class PersonDAO {
 				st.execute();
 				st.close();
 				System.out.println("Person cadastrado com sucesso!");
-			} catch (SQLException e) {
+			} catch (SQLException | ParseException e) {
 				throw new RuntimeException(e);
 			}
 		}	
@@ -64,14 +70,14 @@ public class PersonDAO {
 
 			String sql = "insert into person (id, cpf, namePerson, birth_dt, password, sex, email, rg)values (?,?,?,?,?,?,?,?)";
 			try {
-				
 				PreparedStatement st = conn.prepareStatement(sql);
-
+				DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 				
+				java.util.Date date = (java.util.Date)formatter.parse(supervisor.getBirth_dt());
 				st.setString(1, supervisor.getId());
 				st.setString(2, supervisor.getCpf());
 				st.setString(3, supervisor.getName());
-				st.setDate(4, convertStringToDate(supervisor.getBirth_dt()));
+				st.setDate(4, new java.sql.Date(date.getTime()) );
 				st.setString(5, supervisor.getPassword());
 				st.setString(6, supervisor.getSex());
 				st.setString(7, supervisor.getEmail());
@@ -82,6 +88,9 @@ public class PersonDAO {
 				System.out.println("Person cadastrado com sucesso!");
 			} catch (SQLException e) {
 				throw new RuntimeException(e);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 		}
 		
@@ -96,11 +105,13 @@ public class PersonDAO {
 				
 				PreparedStatement st = conn.prepareStatement(sql);
 
+				DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 				
+				java.util.Date date = (java.util.Date)formatter.parse(student.getBirth_dt());
 				st.setString(1, student.getId());
 				st.setString(2, student.getCpf());
 				st.setString(3, student.getName());
-				st.setDate(4,  convertStringToDate(student.getBirth_dt()));
+				st.setDate(4,  new java.sql.Date(date.getTime()));
 				st.setString(5, student.getPassword());
 				st.setString(6, student.getSex());
 				st.setString(7, student.getEmail());
@@ -110,7 +121,7 @@ public class PersonDAO {
 				st.execute();
 				st.close();
 				System.out.println("Person cadastrado com sucesso!");
-			} catch (SQLException e) {
+			} catch (SQLException | ParseException e) {
 				throw new RuntimeException(e);
 			}
 		}
@@ -123,11 +134,13 @@ public class PersonDAO {
 			String sql = "insert into person (id, cpf, namePerson, birth_dt, password, sex, email, rg)values (?,?,?,?,?,?,?,?)";
 			try {
 				PreparedStatement st = conn.prepareStatement(sql);
-
+				DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+				
+				java.util.Date date = (java.util.Date)formatter.parse(monitor.getBirth_dt());
 				st.setString(1, monitor.getId());
 				st.setString(2, monitor.getCpf());
 				st.setString(3, monitor.getName());
-				st.setDate(4, convertStringToDate(monitor.getBirth_dt()));
+				st.setDate(4,  new java.sql.Date(date.getTime()));
 				st.setString(5, monitor.getPassword());
 				st.setString(6, monitor.getSex());
 				st.setString(7, monitor.getEmail());
@@ -137,7 +150,7 @@ public class PersonDAO {
 				st.execute();
 				st.close();
 				System.out.println("Person cadastrado com sucesso!");
-			} catch (SQLException e) {
+			} catch (SQLException | ParseException e) {
 				throw new RuntimeException(e);
 			}
 		}
@@ -169,10 +182,12 @@ public class PersonDAO {
 			try {
 				
 				PreparedStatement st = conn.prepareStatement(sql);
+				DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 				
+				java.util.Date date = (java.util.Date)formatter.parse(person.getBirth_dt());
 				st.setString(1, person.getCpf());
 				st.setString(2, person.getName());
-				st.setDate(3, convertStringToDate(person.getBirth_dt()));
+				st.setDate(3,  new java.sql.Date(date.getTime()));
 				st.setString(4, person.getPassword());
 				st.setString(5, person.getSex());
 				st.setString(6, person.getEmail());
@@ -181,8 +196,8 @@ public class PersonDAO {
 				
 				st.execute();
 				st.close();
-				System.out.println("Person atualizado com sucesso!");
-			} catch (SQLException e) {
+				System.out.println("Person deletado com sucesso!");
+			} catch (SQLException | ParseException e) {
 				System.out.println(e.getMessage());
 			}
 		}
@@ -218,7 +233,7 @@ public class PersonDAO {
 		
 		
 		/**
-		 * Verifica a senha e id do usuário
+		 * Verifica a senha e id do usuario
 		 * @param id
 		 * @param password
 		 * @return boolean
@@ -254,7 +269,7 @@ public class PersonDAO {
 		}
 		
 		
-		/*----------Métodos Auxiliares----------------*/
+		/*----------Metodos Auxiliares----------------*/
 		/**
 		 * Convert String to sql date
 		 * @param date
@@ -262,7 +277,19 @@ public class PersonDAO {
 		 * @author ViniFarias
 		 */
 		public java.sql.Date convertStringToDate(String date){
-			java.sql.Date dt = java.sql.Date.valueOf(date);
-			return dt;
+			try {
+				Teste.convertStringToSqlString(date);
+				java.sql.Date dt = java.sql.Date.valueOf(date);
+				return dt;
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return null;
+			
 		}
+		
+		
 }
+
+
