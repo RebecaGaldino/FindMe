@@ -55,7 +55,7 @@
             <TextField fx:id="txtSchoolSubject" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
-      <Button fx:id="btShow" layoutX="402.0" layoutY="548.0" mnemonicParsing="false" onAction="#btShow" prefHeight="0.0" prefWidth="123.0" style="-fx-background-color: orange; -fx-text-fill: white;" text="Visualizar">
+      <Button fx:id="btShow" layoutX="269.0" layoutY="548.0" mnemonicParsing="false" onAction="#btShow" prefHeight="0.0" prefWidth="123.0" style="-fx-background-color: orange; -fx-text-fill: white;" text="Informações">
          <font>
             <Font size="15.0" />
          </font>
@@ -65,7 +65,12 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="btDelete" layoutX="250.0" layoutY="548.0" mnemonicParsing="false" onAction="#btDelete" prefHeight="0.0" prefWidth="123.0" style="-fx-background-color: orange; -fx-text-fill: white;" text="Deletar">
+      <Button fx:id="btDelete" layoutX="126.0" layoutY="548.0" mnemonicParsing="false" onAction="#btDelete" prefHeight="0.0" prefWidth="123.0" style="-fx-background-color: orange; -fx-text-fill: white;" text="Deletar">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="btTimeTable" layoutX="409.0" layoutY="548.0" mnemonicParsing="false" onAction="#btTimeTable" prefHeight="0.0" prefWidth="123.0" style="-fx-background-color: orange; -fx-text-fill: white;" text="Horários">
          <font>
             <Font size="15.0" />
          </font>

@@ -40,9 +40,10 @@ public class MonitorScreenFXMLController {
 	
 	public void btReport(){
 		
+		
 	}
 	
-	public void btTimeTable(){
-		
+	public void btTimeTable() throws IOException{
+		method.setAndShowOnPrimaryStage("/findMe/UI/FXML/TimeTableMonitor.fxml", "Monitor Manager");
 	}
 }

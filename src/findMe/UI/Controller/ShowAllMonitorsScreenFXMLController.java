@@ -54,6 +54,8 @@ public class ShowAllMonitorsScreenFXMLController implements Initializable{
 	@FXML
 	private Button btDelete;
 	@FXML
+	private Button btTimeTable;
+	@FXML
 	private TextField txtName;
 	@FXML
 	private TextField txtId;
@@ -119,6 +121,15 @@ public class ShowAllMonitorsScreenFXMLController implements Initializable{
 	}
 	
 	
+	@FXML
+	public void btTimeTable() throws IOException{
+		
+		if(monitorView != null){
+			
+			method.setAndShowOnPrimaryStage("/findMe/UI/FXML/TimeTableView.fxml", "Monitor Manager");
+			
+		}
+	}
 	/*-----------------------------------------------------------------------------------------------*/
 	
 	

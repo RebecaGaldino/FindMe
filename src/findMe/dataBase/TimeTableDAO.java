@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import findMe.domain.Monitor;
 import findMe.domain.Student;
@@ -55,6 +56,7 @@ public class TimeTableDAO {
 			
 			st.execute();
 			st.close();
+			System.out.println("TimeTable deletada");
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
@@ -79,5 +81,4 @@ public class TimeTableDAO {
 			System.out.println(e.getMessage());
 		}
 	}
-	
 }

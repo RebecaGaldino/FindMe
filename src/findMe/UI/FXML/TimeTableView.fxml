@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="600.0" maxWidth="900.0" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: white; -fx-border-color: orange;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="findMe.UI.Controller.TimeTableViewFXMLController">
+   <children>
+      <HBox layoutX="30.0" layoutY="35.0" prefHeight="38.0" prefWidth="563.0">
+         <children>
+            <Label style="-fx-background-color: orange;" text="Pesquisar:" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtFilter" prefHeight="31.0" prefWidth="470.0" style="-fx-border-color: orange;" />
+         </children>
+      </HBox>
+      <TableView fx:id="tvTableView" layoutX="21.0" layoutY="90.0" prefHeight="324.0" prefWidth="860.0" style="-fx-border-color: orange; -fx-background-color: transparent: ;">
+         <columns>
+            <TableColumn fx:id="tcDay" prefWidth="225.0" text="Dia" />
+            <TableColumn fx:id="tcBegin_time" prefWidth="274.0" text="Horario Inicial" />
+            <TableColumn fx:id="tcEnd_time" prefWidth="234.0" text="Horário Final" />
+         </columns>
+      </TableView>
+      <Button fx:id="btBack" layoutX="732.0" layoutY="549.0" mnemonicParsing="false" onAction="#btBack" prefHeight="0.0" prefWidth="123.0" style="-fx-background-color: orange; -fx-text-fill: white;" text="Voltar">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
