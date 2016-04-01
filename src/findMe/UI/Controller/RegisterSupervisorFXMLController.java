@@ -8,6 +8,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 
+import DialogBox.AlertBox;
 import findMe.actions.ManagerActions;
 import findMe.dataBase.Supervisor_SchoolSubjectDAO;
 import findMe.domain.SchoolSubject;
@@ -69,7 +70,6 @@ public class RegisterSupervisorFXMLController implements Initializable{
 	private ComboBox cbSex;
 	@FXML
 	private Button btShowSubject;
-	
 	private Methods method = new Methods();
 	public static SchoolSubject subject = new SchoolSubject();
 	ObservableList<String> optionsCBSEX = 
@@ -98,34 +98,32 @@ public class RegisterSupervisorFXMLController implements Initializable{
 				supervisor.setCpf(txtCpf.getText());
 				supervisor.setRg(txtRg.getText());
 				supervisor.setEmail(txtEmail.getText());
-				Supervisor_SchoolSubject supervisorSubject = new Supervisor_SchoolSubject();
 				
-				Supervisor_SchoolSubjectDAO sd = new Supervisor_SchoolSubjectDAO();
+				Supervisor_SchoolSubject supervisorSubject = new Supervisor_SchoolSubject(supervisor, subject);
+			
+				Supervisor_SchoolSubjectDAO sdao = new Supervisor_SchoolSubjectDAO();
+				sdao.insertSupervisor_SchoolSubject(supervisorSubject);
 				
 				ManagerActions mac = new ManagerActions();
 				mac.registerSupervisor(supervisor);
+				method.setAndShowOnPrimaryStage("/findMe/UI/FXML/ManagerScreen.fxml", "Monitor Manager");
+
 			}
+			
 			else{
-				
+				 AlertBox.error("Cadastro inválido", "Digite os campos corretamente");
 			}
-			
-			
-			
-			
-			
-			
-			
-			
 			
 			
 			
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			AlertBox.error("Cadastro inválido", e.getMessage());
 		}
 	}
 	
+	@FXML
 	public void btShowSubject(){
 
 		try {

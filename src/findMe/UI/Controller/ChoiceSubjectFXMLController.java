@@ -70,6 +70,8 @@ public class ChoiceSubjectFXMLController implements Initializable{
 	
 	@FXML
 	public void btConfirm(){
+		
+		RegisterSupervisorFXMLController.subject.setId(getTableSchoolSubjectSelected().getId()) ;
 
 		RegisterMonitorFXMLController.subject.setId(getTableSchoolSubjectSelected().getId()) ;
 		RegisterMonitorFXMLController.method.getStage().close();

@@ -6,8 +6,10 @@ public class Supervisor_SchoolSubject {
 	private Supervisor supervisor;
 	private SchoolSubject schoolSubject;
 	
-	public Supervisor_SchoolSubject(){
+	public Supervisor_SchoolSubject( Supervisor supervisor, SchoolSubject schoolSubject) {
 		
+		setSupervisor(supervisor);
+		setSchoolSubject(schoolSubject);
 	}
 	public Supervisor_SchoolSubject(int id, Supervisor supervisor, SchoolSubject schoolSubject) {
 		setId(id);
