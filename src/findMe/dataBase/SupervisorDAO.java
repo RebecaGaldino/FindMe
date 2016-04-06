@@ -55,10 +55,7 @@ public class SupervisorDAO{
 		}
 		
 		/*------------------------DELETE----------------------------*/
-		/**
-		 * 
-		 * @param id
-		 */
+
 		public void deleteSupervisor(String id) {
 			String sql = "delete from supervisor where id = ?";
 			try {
@@ -75,30 +72,7 @@ public class SupervisorDAO{
 			}
 		}
 		
-		/**
-		 * 
-		 * @param cpf
-		 * @return
-		 */
-		public String getIdPerson(String cpf){
-			String idPerson = " "; 
-			String sql = "select id from pessoa where cpf = ?";
-			
-			try{
-				
-				PreparedStatement st = conn.prepareStatement(sql);
-				st.setString(1,cpf);
-				ResultSet rs = st.executeQuery();
-				while (rs.next()) {
-					 idPerson = rs.getString("id");
-				}
-				return idPerson;
-				
-			} catch(Exception e){
-				System.out.println("Exception is :"+e);
-			}
-			return " ";
-		}
+	
 		/*------------------------UPDATE----------------------------*/
 		public void updateSupervisor(Supervisor supervisor){
 			String sql = " update person set cpf = ?, namePerson = ?, birth_dt = ?, password = ? "
@@ -125,6 +99,30 @@ public class SupervisorDAO{
 			}
 		}
 		
+		/**
+		 * Returns the id based on a search by cpf
+		 * @param cpf
+		 * @return
+		 */
+			public String getIdPerson(String cpf){
+				String idPerson = " "; 
+				String sql = "select id from pessoa where cpf = ?";
+				
+				try{
+					
+					PreparedStatement st = conn.prepareStatement(sql);
+					st.setString(1,cpf);
+					ResultSet rs = st.executeQuery();
+					while (rs.next()) {
+						 idPerson = rs.getString("id");
+					}
+					return idPerson;
+					
+				} catch(Exception e){
+					System.out.println("Exception is :"+e);
+				}
+				return " ";
+			}
 		/*-------------------------CONSULTS-------------------------*/
 		/**
 		 * Lista e exibe todos os supervisores e suas matr�culas
@@ -163,8 +161,8 @@ public class SupervisorDAO{
 		
 		
 		/**
-		 * Pega apenas os supervisores que possuem disciplina
-		 * @return
+		 * Filter only the supervisors who have subjects
+		 * @return List of all supervisors
 		 */
 		public List<Supervisor> getInfoAllSupervisors(){
 			String sql = "SELECT schoolsubject.id id_subject, schoolsubject.namesubject, person.* "
@@ -215,7 +213,7 @@ public class SupervisorDAO{
 		
 		
 		/**
-		 * Pega todos os supervisores, inclusive os que n�o possuem disciplina
+		 * Return all the supervisors
 		 * @return
 		 */
 		public List<Supervisor> getAllInfoAllSupervisors(){
@@ -263,7 +261,7 @@ public class SupervisorDAO{
 		
 		
 		/**
-		 * Verifica a senha e id do usu�rio Supervisor
+		 * Verfies the password and the id from the user supervisor
 		 * @param id
 		 * @param password
 		 * @return boolean
@@ -302,7 +300,7 @@ public class SupervisorDAO{
 		
 		
 		/**
-		 * Verifica se um supervisor ja existe no bd a partir do id
+		 * Verifies if a supervisor already exists in the DB
 		 * @param id
 		 * @param password
 		 * @return boolean
@@ -333,7 +331,7 @@ public class SupervisorDAO{
 		
 		
 		/**
-		 * Verifica se um supervisor ja existe no bd a partir do seu nome
+		 * Verifies if a supervisor already exists in the DB based on his name
 		 * @param id
 		 * @param password
 		 * @return boolean
@@ -365,7 +363,7 @@ public class SupervisorDAO{
 		
 		
 		/**
-		 * Retorna um supervisor a partir do seu ID
+		 * Return a supervisor by his id 
 		 * @param id
 		 * @return
 		 * @author ViniFarias
@@ -412,7 +410,7 @@ public class SupervisorDAO{
 		
 		
 		/**
-		 * Retorna um supervisor a partir do seu Nome
+		 * Return a supervisor by his name
 		 * @param id
 		 * @return
 		 * @author ViniFarias

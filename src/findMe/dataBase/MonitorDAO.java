@@ -125,7 +125,7 @@ public class MonitorDAO{
 	}
 	
 	/**
-	 * Lista e exibe todos os monitores e suas matr�culas
+	 * Lists and show all the monitors and theirs enrolments
 	 * @return ArrayList
 	 * @author ViniFarias
 	 */
@@ -161,7 +161,11 @@ public class MonitorDAO{
 	}
 	
 	
-	
+	/**
+	 * Show the monitor's timetable, based on the id 
+	 * @param id
+	 * @return Timetable List
+	 */
 	public List<TimeTable> getMonitorsTimes(String id){
 		String sql = "SELECT timetable.id, timetable.id_monitor, timetable.dayname, timetable.begin_time, "
 				+ "timetable.end_time FROM person p INNER JOIN monitor ON p.id = monitor.id INNER JOIN "
@@ -203,9 +207,9 @@ public class MonitorDAO{
 	}
 	
 	/**
-	 * Retorna uma lista de monitores, com todas as suas informa��es relacionadas com outras tabelas
-	 * @param id
-	 * @return
+	 * Return a list of monitors, with all their informations from another tables
+	 * @param id 
+	 * @return List of monitors 
 	 */
 	public List<Monitor> getAllInfoMonitors(){
 		String sql = "SELECT p1.*, student.course course, student.grade grade, monitor.id_supervisor idSupervisor, "
@@ -272,9 +276,9 @@ public class MonitorDAO{
 	
 	
 	/**
-	 * Retorna todas as informa�oes de um monitor a partir de seu id
+	 * Return all the informations from a monitor based on the id
 	 * @param id
-	 * @return
+	 * @return Monitor
 	 */
 	public Monitor getMonitorById(String id){
 		String sql = "SELECT p1.*, student.course course, student.grade grade, monitor.id_supervisor idSupervisor, "
@@ -338,7 +342,7 @@ public class MonitorDAO{
 	}
 	
 	/**
-	 * Verifica a senha e id do usu�rio Monitor
+	 * Verifies a password and the id of a monitor
 	 * @param id
 	 * @param password
 	 * @return boolean
@@ -378,7 +382,7 @@ public class MonitorDAO{
 	
 	
 	/**
-	 * Verifica se um monitor ja existe no bd a partir do id
+	 * Verifies if a monitor already exists in the database based on his id
 	 * @param id
 	 * @param password
 	 * @return boolean

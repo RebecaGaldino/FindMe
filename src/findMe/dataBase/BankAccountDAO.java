@@ -11,6 +11,7 @@ import findMe.domain.Supervisor;
 public class BankAccountDAO {
 	private Connection conn;
 	
+	/*------------------------Connection method-----------------*/
 	public BankAccountDAO() {
 		conn = DBConnection.getConnection();
 		if(conn != null)
@@ -19,6 +20,7 @@ public class BankAccountDAO {
 		
 	}
 	
+	/*------------------------INSERT----------------------------*/
 	public void insertBankAccount(Monitor monitor) {
 		String sql = "insert into bankaccount(id, numberaccount, agency, typeaccount, notes) values(?, ?, ?, ?, ?)";
 		try {
@@ -41,6 +43,7 @@ public class BankAccountDAO {
 		}
 	}
 	
+	/*------------------------DELETE----------------------------*/
 	public void deleteBankAccount(String id) {
 		String sql = "delete from bankaccount where id = ?";
 		try {
