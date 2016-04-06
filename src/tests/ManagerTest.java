@@ -10,7 +10,7 @@ import org.junit.Test;
  * @author RebecaGaldino
  *
  */
-public class ManagerDAOTest {
+public class ManagerTest {
 
 	@Before
 	public void setUp() throws Exception {
