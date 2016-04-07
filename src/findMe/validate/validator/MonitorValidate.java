@@ -2,6 +2,12 @@ package findMe.validate.validator;
 
 import findMe.domain.Monitor;
 import findMe.validate.validator.StudentValidate;
+
+/**
+ * Validate Monitor as person and the others attributes
+ * @author thayanneLuiza
+ *
+ */
 public class MonitorValidate {
 	
 	public static boolean validate(Monitor monitor) {

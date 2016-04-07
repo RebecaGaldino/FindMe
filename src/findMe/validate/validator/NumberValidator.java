@@ -15,7 +15,7 @@ public class NumberValidator {
 	
 	
 	/**
-	 * 
+	 * Validate only positive numbers
 	 * @param email
 	 * @return
 	 * @throws CustomException 

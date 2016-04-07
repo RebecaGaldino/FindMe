@@ -14,7 +14,7 @@ public class RgValidator {
 	
 	private static final String RG_PATTERN = "[0-9]{1}?\\.[0-9]{3}?\\.[0-9]{3}?";
 	/**
-	 * 
+	 * Validate RG with RG_PATTERN
 	 * @param name
 	 * @return
 	 * @throws CustomException 

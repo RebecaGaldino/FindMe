@@ -17,7 +17,11 @@ public class CpfValidator {
 	 * 
 	 */
 	private static final String NUMBER_PATTERN = ("[0-9]*");
-
+	/**
+	 * CPF validator only numbers
+	 * @param cpf
+	 * @return
+	 */
 	public static boolean validate(String cpf) {
 
 	      if(cpf == null || cpf.equals(null))

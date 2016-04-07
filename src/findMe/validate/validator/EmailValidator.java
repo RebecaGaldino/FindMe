@@ -17,7 +17,7 @@ public class EmailValidator {
 	
 	
 	/**
-	 * 
+	 * Validate email on format nameEmail@email.com
 	 * @param email
 	 * @return
 	 * @throws CustomException 

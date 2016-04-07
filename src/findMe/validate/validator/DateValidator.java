@@ -12,7 +12,11 @@ public class DateValidator {
 	public static final int ANO_ZERO = 0;
 
 
-
+	/**
+	 * Validate date with the format dd/MM/yyyy
+	 * @param value
+	 * @return
+	 */
 	public static boolean validate(final String value) {
 	
 		if (value == null || value.trim().equals(""))
