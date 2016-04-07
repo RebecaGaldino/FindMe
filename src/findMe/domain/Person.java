@@ -62,6 +62,10 @@ public class Person {
 	
 	/*---------------------------------------------------------------------------------------------------------*/
 	
+	/**
+	 * Returns the id of the person
+	 * @return
+	 */
 	public String getId() {
 		return id;
 	}
@@ -70,6 +74,11 @@ public class Person {
 		this.id = id;
 	}
 	
+	
+	/**
+	 * Returns the id of the person
+	 * @return
+	 */
 	public String getCpf() {
 		return cpf;
 	}
@@ -78,6 +87,11 @@ public class Person {
 		this.cpf = cpf;
 	}
 	
+	
+	/**
+	 * Returns the id of the person
+	 * @return
+	 */
 	public String getBirth_dt() {
 		return birth_dt;
 	}
@@ -86,6 +100,11 @@ public class Person {
 		this.birth_dt = birth_dt;
 	}
 	
+	
+	/**
+	 * Returns the name of the person
+	 * @return
+	 */
 	public String getName() {
 		return name;
 	}
@@ -93,7 +112,12 @@ public class Person {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	
+	
+	/**
+	 * Returns the password of the person
+	 * @return
+	 */
 	public String getPassword() {
 		return password;
 	}
@@ -101,7 +125,12 @@ public class Person {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
+	
+	
+	/**
+	 * Returns the sex of the person
+	 * @return
+	 */
 	public String getSex() {
 		return sex;
 	}
@@ -109,7 +138,12 @@ public class Person {
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
-
+	
+	
+	/**
+	 * Returns the rg of the person
+	 * @return
+	 */
 	public String getRg() {
 		return rg;
 	}
@@ -117,7 +151,12 @@ public class Person {
 	public void setRg(String rg) {
 		this.rg = rg;
 	}
-
+	
+	
+	/**
+	 * Returns the email of the person
+	 * @return
+	 */
 	public String getEmail() {
 		return email;
 	}
@@ -141,7 +180,10 @@ public class Person {
 		result = prime * result + ((sex == null) ? 0 : sex.hashCode());
 		return result;
 	}
-
+	
+	/**
+	 * Method that checks whether a person is equal to another person
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

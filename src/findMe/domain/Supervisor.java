@@ -31,6 +31,9 @@ public class Supervisor extends Person{
 	}
 	
 	
+	/**
+	 * Method that checks whether a supervisor is equal to another supervisor
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

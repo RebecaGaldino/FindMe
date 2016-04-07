@@ -30,8 +30,9 @@ public class SupervisorDAO{
 			
 		}	
 		/*------------------------INSERT----------------------------*/
+		
 		/**
-		 * 
+		 * Method that inserts a new supervisor in the database
 		 * @param supervisor
 		 */
 		public void insertSupervisor(Supervisor supervisor) {
@@ -55,7 +56,11 @@ public class SupervisorDAO{
 		}
 		
 		/*------------------------DELETE----------------------------*/
-
+		
+		/**
+		 * Method that excludes a supervisor of the database
+		 * @param id
+		 */
 		public void deleteSupervisor(String id) {
 			String sql = "delete from supervisor where id = ?";
 			try {
@@ -72,8 +77,36 @@ public class SupervisorDAO{
 			}
 		}
 		
-	
+		/**
+		 * Returns a person's Id from your cpf
+		 * @param cpf
+		 * @return
+		 */
+		public String getIdPerson(String cpf){
+			String idPerson = " "; 
+			String sql = "select id from pessoa where cpf = ?";
+			
+			try{
+				
+				PreparedStatement st = conn.prepareStatement(sql);
+				st.setString(1,cpf);
+				ResultSet rs = st.executeQuery();
+				while (rs.next()) {
+					 idPerson = rs.getString("id");
+				}
+				return idPerson;
+				
+			} catch(Exception e){
+				System.out.println("Exception is :"+e);
+			}
+			return " ";
+		}
+		
 		/*------------------------UPDATE----------------------------*/
+		/**
+		 * Updates the information of a supervisor
+		 * @param supervisor
+		 */
 		public void updateSupervisor(Supervisor supervisor){
 			String sql = " update person set cpf = ?, namePerson = ?, birth_dt = ?, password = ? "
 					+ "sex = ?, email = ?, rg = ? where person.id = ?";
@@ -99,33 +132,9 @@ public class SupervisorDAO{
 			}
 		}
 		
-		/**
-		 * Returns the id based on a search by cpf
-		 * @param cpf
-		 * @return
-		 */
-			public String getIdPerson(String cpf){
-				String idPerson = " "; 
-				String sql = "select id from pessoa where cpf = ?";
-				
-				try{
-					
-					PreparedStatement st = conn.prepareStatement(sql);
-					st.setString(1,cpf);
-					ResultSet rs = st.executeQuery();
-					while (rs.next()) {
-						 idPerson = rs.getString("id");
-					}
-					return idPerson;
-					
-				} catch(Exception e){
-					System.out.println("Exception is :"+e);
-				}
-				return " ";
-			}
 		/*-------------------------CONSULTS-------------------------*/
 		/**
-		 * Lista e exibe todos os supervisores e suas matr�culas
+		 * Lists all supervisors and their Ids
 		 * @return ArrayList
 		 * @author ViniFarias
 		 */
@@ -161,8 +170,8 @@ public class SupervisorDAO{
 		
 		
 		/**
-		 * Filter only the supervisors who have subjects
-		 * @return List of all supervisors
+		 * List all supervisors who have a SchoolSubject and your information
+		 * @return
 		 */
 		public List<Supervisor> getInfoAllSupervisors(){
 			String sql = "SELECT schoolsubject.id id_subject, schoolsubject.namesubject, person.* "
@@ -213,7 +222,7 @@ public class SupervisorDAO{
 		
 		
 		/**
-		 * Return all the supervisors
+		 * Lists all supervisors and their information
 		 * @return
 		 */
 		public List<Supervisor> getAllInfoAllSupervisors(){
@@ -261,7 +270,7 @@ public class SupervisorDAO{
 		
 		
 		/**
-		 * Verfies the password and the id from the user supervisor
+		 * Checks the ID and password of the supervisor User
 		 * @param id
 		 * @param password
 		 * @return boolean
@@ -300,7 +309,7 @@ public class SupervisorDAO{
 		
 		
 		/**
-		 * Verifies if a supervisor already exists in the DB
+		 * Checks whether a supervisor exists in the database by his id
 		 * @param id
 		 * @param password
 		 * @return boolean
@@ -331,7 +340,7 @@ public class SupervisorDAO{
 		
 		
 		/**
-		 * Verifies if a supervisor already exists in the DB based on his name
+		 * checks whether a supervisor exists in the database by his name
 		 * @param id
 		 * @param password
 		 * @return boolean
@@ -363,7 +372,7 @@ public class SupervisorDAO{
 		
 		
 		/**
-		 * Return a supervisor by his id 
+		 * Returns a supervisor by his id
 		 * @param id
 		 * @return
 		 * @author ViniFarias
@@ -410,7 +419,7 @@ public class SupervisorDAO{
 		
 		
 		/**
-		 * Return a supervisor by his name
+		 * returns a supervisor by his name
 		 * @param id
 		 * @return
 		 * @author ViniFarias
@@ -453,4 +462,7 @@ public class SupervisorDAO{
 			}
 			return null;
 		}
+	
 }
+
+

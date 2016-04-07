@@ -31,7 +31,7 @@ public class PersonDAO {
 		
 		/*------------------------INSERT----------------------------*/
 		/**
-		 * 
+		 * Method that inserts a new person in the database
 		 * @param person
 		 */
 		public void insertPerson(Person person) {
@@ -63,7 +63,7 @@ public class PersonDAO {
 		}	
 		
 		/**
-		 * 
+		 * Method that inserts a person in the database from a supervisor
 		 * @param person
 		 */
 		public void insertPerson(Supervisor supervisor) {
@@ -95,7 +95,7 @@ public class PersonDAO {
 		}
 		
 		/**
-		 * 
+		 * Method that inserts a person in the database from a student
 		 * @param person
 		 */
 		public void insertPerson(Student student) {
@@ -125,8 +125,10 @@ public class PersonDAO {
 				throw new RuntimeException(e);
 			}
 		}
+		
+		
 		/**
-		 * 
+		 * Method that inserts a person in the database from a monitor
 		 * @param person
 		 */
 		public void insertPerson(Monitor monitor) {
@@ -156,6 +158,11 @@ public class PersonDAO {
 		}
 		
 		/*------------------------DELETE----------------------------*/
+		
+		/**
+		 * Method that excludes a person of the database
+		 * @param id
+		 */
 		public void deletePerson(String id) {
 			String sql = "delete from person where id = ?";
 			try {
@@ -174,7 +181,7 @@ public class PersonDAO {
 		
 		
 		/**
-		 * 
+		 * Updates the information of a person
 		 * @param person
 		 */
 		public void updatePerson(Person person) {
@@ -291,5 +298,3 @@ public class PersonDAO {
 		
 		
 }
-
-
