@@ -15,6 +15,7 @@ import findMe.domain.Supervisor;
 import findMe.extraMethods.Methods;
 import findMe.validate.validator.MonitorValidate;
 import findMe.validate.validator.NumberValidator;
+import findMe.validate.validator.PersonValidate;
 import findMe.validate.validator.StringValidator;
 
 public class MonitorValidatorTest {
@@ -37,9 +38,15 @@ public class MonitorValidatorTest {
 		
 		m1 = new Monitor("3111", "123.145.789-98", "10/02/1900", 
 				"Thayanne Luiza Victor Landim de Sousa", 
-				"52618241", "Feminino", "1.233.789", "thayannevls@gmail.com", "Informatica", "2", sb1, "Sala", b1, s1);
+				"Aa#Ç~12", "Feminino", "1.233.789", "thayannevls@gmail.com", "Informatica", "2", sb1, "Sala", b1, s1);
 	}
-
+	
+	@Test
+	public void testPersonValidator() {
+		
+		assertTrue(PersonValidate.validate(m1));
+	}
+	
 	@Test
 	public void testMonitorValidator() {
 		

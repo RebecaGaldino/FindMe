@@ -24,6 +24,7 @@ public class PersonValidatorTest {
 		p1 = new Person("20141003012", "912.236.570-70", "02/03/1999", "Marcus Vinicius de Farias Barbosa", 
 				"Aa#Ç~12", "Masculino", "4.123.133", "vinifarias@gmail.com");
 		
+		
 	}
 
 	@Test

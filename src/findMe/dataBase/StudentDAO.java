@@ -133,12 +133,12 @@ public class StudentDAO{
 		public String getIdPerson(String cpf){
 			
 			String idPerson = " "; 
-			String sql = "select id from pessoa where cpf = ?";
+			String sql = "select id from person where cpf = ?";
 			
 			try{
 				
 				PreparedStatement st = conn.prepareStatement(sql);
-				st.setString(1,cpf);
+				st.setString(1 , cpf);
 				ResultSet rs = st.executeQuery();
 				while (rs.next()) {
 					 idPerson = rs.getString("id");

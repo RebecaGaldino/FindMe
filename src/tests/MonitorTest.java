@@ -28,14 +28,14 @@ public class MonitorTest {
 	public void setUp() throws Exception {
 		mact = new ManagerActions();
 		mdao = new MonitorDAO();
-		BankAccount b1 = new BankAccount("31114", "242432423", "12", "nao gosto desse banco");
+		BankAccount b1 = new BankAccount("32984", "242432423", "12", "nao gosto desse banco");
 		Supervisor s1 = new Supervisor("20122003011", "912.236.570-70", "02/03/1999", "Marcus Vinicius de Farias Barbosa", 
 				"Aa#Ç~12", "Masculino", "4.123.133", "vinifarias@gmail.com");
 		SchoolSubject sb1 = new SchoolSubject("Informatica", "122");
 		
-		m1 = new Monitor("3111", "123.145.789-98", Methods.convertStringToSqlString("10/02/1900"), 
+		m1 = new Monitor("3921", "123.145.789-98", Methods.convertStringToSqlString("10/02/1900"), 
 				"Thayanne Luiza Victor Landim de Sousa", 
-				"52618241", "Feminino", "1.233.789", "thayannevls@gmail.com", "Informatica", "2", sb1, "Sala1", b1, s1);
+				"Aa#Ç~12", "Feminino", "1.233.789", "thayannevls@gmail.com", "Informatica", "2", sb1, "Sala1", b1, s1);
 		
 	}
 
