@@ -12,14 +12,21 @@ import findMe.domain.SchoolSubject;
 import findMe.domain.Supervisor;
 import findMe.validate.validator.MonitorValidate;
 import findMe.validate.validator.PersonValidate;
-
+/**
+ * This class provides register and delete actions from manager
+ * @author thayanneLuiza
+ *
+ */
 public class ManagerActions {
 	
 	
 	public void ManagerActions(){
 		
 	}
-	
+	/**
+	 * Register Monitor using MonitorDao
+	 * @param monitor
+	 */
 	public void registerMonitor(Monitor monitor){
 		try {
 			
@@ -29,14 +36,14 @@ public class ManagerActions {
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			AlertBox.error("Monitor Manager", e.getMessage() );
+			//AlertBox.error("Monitor Manager", e.getMessage() );
+			e.printStackTrace();
 		}
 	}
 	
-	/*!!!!
-	 * Receber como par�metro as informa��es que s�o setadas na interface Name, id etc
-	 * Validar essas informa��es com os validates 
-	 * Inserir no banco de dados
+	/**
+	 * Register Supervisor using supervisorDAO
+	 * @param supervisor
 	 */
 	public void registerSupervisor(Supervisor supervisor){
 		try {
@@ -50,7 +57,10 @@ public class ManagerActions {
 		}
 	}
 	
-	
+	/**
+	 * Register Subject using subjectDAO
+	 * @param school
+	 */
 	public void registerSubject(SchoolSubject school){
 		try {
 			
@@ -62,7 +72,10 @@ public class ManagerActions {
 			AlertBox.error("Monitor Manager", e.getMessage() );
 		}
 	}
-	
+	/**
+	 * Register Manager using managerDAO
+	 * @param manager
+	 */
 	public void registerManager(Manager manager){
 		try {
 			
@@ -76,23 +89,36 @@ public class ManagerActions {
 	}
 
 	
-	
+	/**
+	 * Delete Monitor using monitorDAO
+	 * @param monitor
+	 */
 	public void deleteMonitor(Monitor monitor){
 		MonitorDAO mdao = new MonitorDAO();
 		mdao.deleteMonitor(monitor.getId());
 		
 	}
-	
+	/**
+	 * Delete Supervisor using supervisorDAO
+	 * @param supervisor
+	 */
 	public void deleteSupervisor(Supervisor supervisor){
 		SupervisorDAO sdao = new SupervisorDAO();
 		sdao.deleteSupervisor(supervisor.getId());
 	}
 
+	/**
+	 * Delete Subject using schoolSubjectDAO
+	 * @param schoolSubject
+	 */
 	public void deleteSchoolSubject(SchoolSubject schoolSubject) {
 		SchoolSubjectDAO ssdao = new SchoolSubjectDAO();
 		ssdao.deleteSchoolSubject(schoolSubject.getId());
 	}
-
+	/**
+	 * Delete Manager using managerDAO
+	 * @param manager
+	 */
 	public void deleteManager(Manager manager) {
 		ManagerDAO mdao = new ManagerDAO();
 		mdao.deleteManager(manager.getId());

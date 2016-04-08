@@ -56,9 +56,11 @@ public class MonitorDAO{
 			
 			st.execute();
 			st.close();
-			AlertBox.confirm("Monitor Manager", "Monitor cadastrado com sucesso!" );
+			System.out.println( "Monitor cadastrado com sucesso!" );
+
+			//AlertBox.confirm("Monitor Manager", "Monitor cadastrado com sucesso!" );
 		} catch (SQLException e) {
-			AlertBox.error("Monitor Manager", e.getMessage() );
+			throw new RuntimeException(e);
 		}
 	}
 	
@@ -127,8 +129,8 @@ public class MonitorDAO{
 			return idStudent;
 			
 		} catch(Exception e){
-			
-			AlertBox.error("Monitor Manager", e.getMessage() );
+			e.printStackTrace();
+			//AlertBox.error("Monitor Manager", e.getMessage() );
 		}
 			return " ";
 	}
