@@ -14,8 +14,8 @@ public class StringValidator {
 	private static final String PASSWORD_PATTERN = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})";
 	
 	
-	private static final String LETTERS_PATTERN = "[a-zA-ZáàâãéèêíïóôõöúüçñÁÀÂÃÉÈÍÏÓÔÕÖÚÜÇÑ]*";
-	
+	private static final String LETTERS_PATTERN = "[a-zA-ZáàâãéèêíïóôõöúüçñÁÀÂÃÉÈÍÏÓÔÕÖÚÜÇÑ. ]*";
+	 
 	/**
 	 * Validate name with LETTERS_Pattern
 	 * @param name

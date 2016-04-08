@@ -16,12 +16,23 @@ import findMe.domain.Person;
 import findMe.domain.SchoolSubject;
 import findMe.domain.Student;
 import findMe.domain.Supervisor;
+import findMe.extraMethods.Methods;
+import findMe.validate.validator.CpfValidator;
+import findMe.validate.validator.DateValidator;
+import findMe.validate.validator.EmailValidator;
+import findMe.validate.validator.NumberValidator;
+import findMe.validate.validator.PersonValidate;
+import findMe.validate.validator.RgValidator;
+import findMe.validate.validator.StringValidator;
+import findMe.validate.validator.SupervisorValidator;
 
 public class TestVini {
 	public static void main(String[] args) throws ParseException {
 		
-		
-		
+		Supervisor s1 = new Supervisor("20141004012", "083.738.794-98", "02/03/1999", "Marcus Vinicius", "Aa#Ã‡~12", "Masculino", "4.123.133", "vinifarias@gmail.com");
+		System.out.println(SupervisorValidator.validate(s1));
+		System.out.println(RgValidator.validate(s1.getRg()));
+
 		/*----------------Teste getMonitorsAndIds-----------------------*/
 		/*MonitorDAO m = new MonitorDAO();
 		for(Person p : m.getMonitorsAndIds()){
@@ -79,9 +90,9 @@ public class TestVini {
 			System.out.println(p.getName()+" "+p.getId());
 		}*/
 		/*
-		BankAccount ba = new BankAccount("7374", "242432423", "12", "não gosto desse banco");
+		BankAccount ba = new BankAccount("7374", "242432423", "12", "nï¿½o gosto desse banco");
 		Supervisor s = new Supervisor("525", convertStringToSqlString("12/12/1222"), "", "Marcus Vinicius de farias Barbosa", "1231313", "Masculino", "1.232.234", "vinifarias.vf@gmail.com");
-		SchoolSubject ss = new SchoolSubject("Informática", "2324");
+		SchoolSubject ss = new SchoolSubject("Informï¿½tica", "2324");
 		
 		Monitor m = new Monitor("20141004003", "123.145.789-98", convertStringToSqlString("10/02/1900"), "Thayanne Luiza Victor Landim de Sousa", 
 				"52618241", "Feminino", "1.233.789", "Thayannevls@gmail.com", ss, "2", "Matematica", "Sala1", ba, s);*/

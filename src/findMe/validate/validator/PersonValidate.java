@@ -6,7 +6,7 @@ import findMe.domain.Person;
 public class PersonValidate {
 	
 	/**
-	 * Validate all atributtes on person
+	 * Validate all attributes on person
 	 * @param person
 	 * @return
 	 * @throws CustomException
@@ -27,8 +27,7 @@ public class PersonValidate {
 				return false;
 		if( !(NumberValidator.validate((person.getId()))))
 			return false;
-		if( !(person.getSex() == "Feminino") || !(person.getSex() == "Masculino") )
-			return false;
+		
 		
 		return true;
 	}
