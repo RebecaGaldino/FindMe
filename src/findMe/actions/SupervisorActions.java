@@ -2,7 +2,11 @@ package findMe.actions;
 
 import findMe.dataBase.SupervisorDAO;
 import findMe.domain.Supervisor;
-
+/**
+ * This class provides Supervisor Actions using SupervisorDAO
+ * @author thayanneLuiza
+ *
+ */
 public class SupervisorActions {
 
 	private SupervisorDAO sdao = new SupervisorDAO();

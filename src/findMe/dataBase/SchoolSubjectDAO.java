@@ -29,7 +29,10 @@ public class SchoolSubjectDAO {
 		
 	}
 	
-	/*------------------------INSERT----------------------------*/
+	/**
+	 * Insert school subject on data base
+	 * @param schoolSubject
+	 */
 	public void insertSchoolSubject(SchoolSubject schoolSubject) {
 		String sql = "insert into schoolsubject (id, namesubject) values (?, ?)";
 		try {

@@ -9,7 +9,11 @@ import findMe.dataBase.StudentDAO;
 import findMe.dataBase.TimeTableDAO;
 import findMe.domain.Monitor;
 import findMe.domain.TimeTable;
-
+/**
+ * This class provides Monitor Actions using MonitorDAO
+ * @author thayanneLuiza
+ *
+ */
 public class MonitorActions {
 	
 	MonitorDAO mdao = new MonitorDAO();
