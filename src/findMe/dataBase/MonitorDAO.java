@@ -31,7 +31,10 @@ public class MonitorDAO{
 		
 	}
 	
-	/*------------------------INSERT----------------------------*/
+	/**
+	 * Insert on monitor using studentDAO
+	 * @param monitor
+	 */
 	public void insertMonitor(Monitor monitor) {
 	
 		String sql = "insert into monitor (id, id_schoolsubject, id_supervisor, roomwork, id_bankaccount) values (?, ?, ?, ?, ?)";
@@ -59,7 +62,10 @@ public class MonitorDAO{
 		}
 	}
 	
-	/*------------------------DELETE----------------------------*/
+	/**
+	 * Delete Monitor by id
+	 * @param id
+	 */
 	public void deleteMonitor(String id) {
 		String sql = "delete from monitor where id = ?";
 		try {
@@ -78,7 +84,10 @@ public class MonitorDAO{
 	}
 	
 	
-	/*------------------------UPDATE----------------------------*/
+	/**
+	 * Update any monitors attribute 
+	 * @param monitor
+	 */
 	public void updateMonitor(Monitor monitor) {
 		String sql = "update monitor set id_supervisor = ?, id_schoolsubject = ?, roomwork = ?, id_bankAccount = ? where id = ?";
 		try {

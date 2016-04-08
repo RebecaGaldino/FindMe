@@ -5,6 +5,7 @@ import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+import findMe.actions.ManagerActions;
 import findMe.dataBase.MonitorDAO;
 import findMe.dataBase.PersonDAO;
 import findMe.dataBase.SchoolSubjectDAO;
@@ -29,9 +30,16 @@ import findMe.validate.validator.SupervisorValidator;
 public class TestVini {
 	public static void main(String[] args) throws ParseException {
 		
-		Supervisor s1 = new Supervisor("20141004012", "083.738.794-98", "02/03/1999", "Marcus Vinicius", "Aa#Ç~12", "Masculino", "4.123.133", "vinifarias@gmail.com");
-		System.out.println(SupervisorValidator.validate(s1));
-		System.out.println(RgValidator.validate(s1.getRg()));
+		BankAccount ba = new BankAccount("7374", "242432423", "12", "n�o gosto desse banco");
+		Supervisor s = new Supervisor("525", convertStringToSqlString("12/12/1222"), "", "Marcus Vinicius de farias Barbosa", "1231313", "Masculino", "1.232.234", "vinifarias.vf@gmail.com");
+		SchoolSubject ss = new SchoolSubject("Inform�tica", "2324");
+		
+		Monitor m1 = new Monitor("2014100203", "123.145.789-98", Methods.convertStringToSqlString("10/02/1900"), 
+				"Thayanne", 
+				"52618241", "Feminino", "1.233.789", "thayannevls@gmail.com", "Informatica", "2", ss, "Sala1", ba, s);
+		m1.setBirth_dt(Methods.convertStringToSqlString(m1.getBirth_dt()));
+		ManagerActions mao = new ManagerActions();
+		mao.registerMonitor(m1);
 
 		/*----------------Teste getMonitorsAndIds-----------------------*/
 		/*MonitorDAO m = new MonitorDAO();
@@ -97,8 +105,7 @@ public class TestVini {
 		Monitor m = new Monitor("20141004003", "123.145.789-98", convertStringToSqlString("10/02/1900"), "Thayanne Luiza Victor Landim de Sousa", 
 				"52618241", "Feminino", "1.233.789", "Thayannevls@gmail.com", ss, "2", "Matematica", "Sala1", ba, s);*/
 		
-		SchoolSubjectDAO sdao = new SchoolSubjectDAO();
-		sdao.deleteSchoolSubject("109");
+		
 	}
 	
 	/**

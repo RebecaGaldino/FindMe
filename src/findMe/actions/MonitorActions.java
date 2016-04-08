@@ -21,14 +21,21 @@ public class MonitorActions {
 	public MonitorActions() {
 		// TODO Auto-generated constructor stub
 	}
-	
+	/**
+	 * Update monitor by monitor attributes
+	 * @param monitor
+	 */
 	public void updateMonitor(Monitor monitor){
 		mdao.updateMonitor(monitor);
 		sdao.updateStudent(monitor);
 		pdao.updatePerson(monitor);
 		badao.updateBankAccount(monitor.getBankAccount());
 	}
-	
+	/**
+	 * Insert in your own timetable
+	 * @param t
+	 * @throws ParseException
+	 */
 	public void insertTimeTable(TimeTable t) throws ParseException{
 		tdao.insertTimeTable(t);
 	}

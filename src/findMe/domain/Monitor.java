@@ -48,7 +48,10 @@ public class Monitor extends Student{
 	}
 	
 	/*---------------------------------------------------------------------------------------------------------*/
-	
+	/**
+	 * Get monitor's supervisor
+	 * @return
+	 */
 	public Supervisor getSupervisor() {
 		if( supervisor == null){
 			return null;
