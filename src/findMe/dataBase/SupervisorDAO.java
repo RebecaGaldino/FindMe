@@ -84,7 +84,7 @@ public class SupervisorDAO{
 		 */
 		public String getIdPerson(String cpf){
 			String idPerson = " "; 
-			String sql = "select id from pessoa where cpf = ?";
+			String sql = "select id from person where cpf = ?";
 			
 			try{
 				
