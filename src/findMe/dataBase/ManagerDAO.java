@@ -26,25 +26,61 @@ public class ManagerDAO {
 	}
 	
 	/*------------------------INSERT----------------------------*/
+	/**
+	 * Method that inserts a new manager in the database
+	 * @param manager
+	 */
 	public void insertManager(Manager manager) {
-		String sql = "insert into bankaccount(id) values(?, ?, ?, ?, ?)";
+		String sql = "insert into manager(id) values(?)";
 		try {
 			
 			PreparedStatement st = conn.prepareStatement(sql);
+			PersonDAO pdao = new PersonDAO();
+			pdao.insertPerson(manager);
 			
 			st.setString(1, manager.getId());
 			
 			
 			
-			
 			st.execute();
 			st.close();
+			System.out.println("Gerenciador cadastrado com sucesso!");
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
 	}
 	
+	/**
+	 * Returns a person's Id from your cpf
+	 * @param cpf
+	 * @return the id or empty space
+	 */
+	public String getIdPerson(String cpf){
+		String idPerson = " "; 
+		String sql = "select id from person where cpf = ?";
+		
+		try{
+			
+			PreparedStatement st = conn.prepareStatement(sql);
+			st.setString(1,cpf);
+			ResultSet rs = st.executeQuery();
+			while (rs.next()) {
+				 idPerson = rs.getString("id");
+			}
+			return idPerson;
+			
+		} catch(Exception e){
+			System.out.println("Exception is :"+e);
+		}
+		return " ";
+	}
+	
 	/*------------------------DELETE----------------------------*/
+
+	/**
+	 * Method that excludes a manager of the database
+	 * @param id
+	 */
 	public void deleteManager(String id) {
 		String sql = "delete from manager where id = ?";
 		try {
@@ -61,6 +97,10 @@ public class ManagerDAO {
 	}
 	
 	/*------------------------UPDATE----------------------------*/
+	/**
+	 * Updates the information of a manager
+	 * @param manager
+	 */
 	public void updateManager(Manager manager) {
 		String sql = "update person set id = ?, cpf = ?, namePerson = ?, birth_dt = ?, password = ?, sex = ?, email = ?, rg = ? "
 				+ "where id = ?";
@@ -132,7 +172,7 @@ public class ManagerDAO {
 	}
 	
 	/**
-	 * Verfies the password and the id from the user manager
+	 * Verifies the password and the id from the user manager
 	 * @param id
 	 * @param password
 	 * @return boolean

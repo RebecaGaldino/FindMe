@@ -186,10 +186,10 @@ insert into bankaccount (id, numberaccount, agency, typeaccount, notes)
 
 values("000001", "1234567891", "Banco do Brasil", "Corrente", "."),
 
-("000002", "9876543211", "Bradesco", "Poupança", "."),
+("000002", "9876543211", "Bradesco", "Poupanï¿½a", "."),
 
-("000003", "9876543210", "Itaú", "Corrente", "."),
-("000005", "7623472410", "Banco da Suiça", "Poupança", "melhor banco de todos os tempos");
+("000003", "9876543210", "Itaï¿½", "Corrente", "."),
+("000005", "7623472410", "Banco da Suiï¿½a", "Poupanï¿½a", "melhor banco de todos os tempos");
 
 insert into person (id, cpf, birth_dt, namePerson, password,  sex, email, rg)
 
@@ -217,7 +217,7 @@ values("Informatica", "2Âº ano", "20141004019"),
 ("Mineracao", "1Âº ano", "20151004018"), 
 
 ("Petroleo e gas", "3Âº ano", "20131004017"),
-("Informatica", "3º ano", "20152000081"); 
+("Informatica", "3ï¿½ ano", "20152000081"); 
 
 insert into supervisor(id) values
 
@@ -347,74 +347,9 @@ DELIMITER $$
 
 
 
-
-/*Depois de deletar um supervisor apaga a pessoa com mesmo id*/
-DELIMITER $$
-CREATE TRIGGER afterDelete_Supervisor AFTER DELETE ON supervisor
-FOR EACH ROW
-BEGIN
-	DELETE FROM person WHERE id = OLD.id;
-END$$
-DELIMITER $$
-
-/*Antes de deletar um supervisor apaga na tabela supervisor_schoolsubject a linha com mesmo id
- * e coloca em monitor um valor null na linha onde existia tal supervisor
- */
-DELIMITER $$
-CREATE TRIGGER beforeDelete_Supervisor BEFORE DELETE ON supervisor
-FOR EACH ROW
-BEGIN
-    DELETE FROM supervisor_schoolsubject WHERE id_supervisor = OLD.id;
-    UPDATE monitor SET id_supervisor = null WHERE id_supervisor = OLD.id;
-END$$
-
-DELIMITER $$
-
-
-
-/*Depois de deletar um monitor apaga o estudante, a pessoa, e a bankAccount com seu id*/
-DELIMITER $$
-CREATE TRIGGER afterDelete_Monitor AFTER DELETE ON monitor
-FOR EACH ROW
-BEGIN
-	DELETE FROM student WHERE id = OLD.id;
-    DELETE FROM person WHERE id = OLD.id;
-    DELETE FROM bankaccount WHERE id = OLD.id_bankaccount;
-END$$
-DELIMITER $$
-
-
-
-/*Antes de deletar um monitor exclui as timetables com seu id*/
-DELIMITER $$
-CREATE TRIGGER beforeDelete_Monitor BEFORE DELETE ON monitor
-FOR EACH ROW
-BEGIN
-    DELETE FROM timetable WHERE id_monitor = OLD.id;
-    
-END$$
-DELIMITER $$
-
-
-/*Antes de deletar uma disciplina exclui os id_schoolsubject em monitor com seu id*/
-DELIMITER $$
-CREATE TRIGGER beforeDelete_SchoolSubject BEFORE DELETE ON schoolsubject
-FOR EACH ROW
-BEGIN
-    
-    UPDATE monitor 
-	SET id_schoolsubject = null
-	WHERE id_schoolsubject = old.id;
-    UPDATE supervisor_schoolsubject
-    SET id_schoolsubject = null
-    WHERE id_schoolsubject = old.id;
-    
-END$$
-DELIMITER $$
-
 /*-----------------------------------------------------------------------------------------*/
 
-/*Exibe todos os monitores e suas matrículas ---- getMonitorsAndIds() ---- OK*/
+/*Exibe todos os monitores e suas matrï¿½culas ---- getMonitorsAndIds() ---- OK*/
 SELECT person.namePerson Nome, person.id Matricula
 FROM monitor
 INNER JOIN student
@@ -424,7 +359,7 @@ ON student.id = person.id
 ORDER BY person.namePerson;
 
 
-/*Exibe todas as informações dos monitores - 
+/*Exibe todas as informaï¿½ï¿½es dos monitores - 
  * person, student e e ids do supervisor, schoolsubject e banckaccount*/
 SELECT person.*, student.course, student.grade, monitor.id_supervisor, monitor.id_schoolsubject, monitor.id_bankaccount, monitor.roomwork
 FROM monitor
@@ -435,7 +370,7 @@ ON student.id = person.id
 ORDER BY person.namePerson;
 
 
-/*Exibe todas as informações de um monitor - 
+/*Exibe todas as informaï¿½ï¿½es de um monitor - 
  * person, student e e ids do supervisor, schoolsubject e banckaccount*/
 SELECT person.*, student.course, student.grade, monitor.id_supervisor, monitor.id_schoolsubject, monitor.id_bankaccount, monitor.roomwork
 FROM monitor
@@ -446,7 +381,7 @@ ON student.id = person.id
 WHERE monitor.id = "20151004018";/*No DAO substituir isso por uma variavel*/
 
 
-/*Exibe os horários de um monitor*/
+/*Exibe os horï¿½rios de um monitor*/
 SELECT timetable.dayname, timetable.begin_time, timetable.end_time
 FROM person p
 INNER JOIN monitor
@@ -456,7 +391,7 @@ ON monitor.id = timetable.id_monitor
 WHERE monitor.id = "20151004018";/*No DAO substituir isso por uma variavel*/
 
 
-/*Exibe os horários de todos os monitores, em ordem alfabética */
+/*Exibe os horï¿½rios de todos os monitores, em ordem alfabï¿½tica */
 SELECT p.namePerson, timetable.dayname, timetable.begin_time, timetable.end_time
 FROM person p
 INNER JOIN monitor
@@ -466,7 +401,7 @@ ON monitor.id = timetable.id_monitor
 ORDER BY namePerson;
 
 
-/*Exibe os horários de todos os monitores em um dia específico*/
+/*Exibe os horï¿½rios de todos os monitores em um dia especï¿½fico*/
 SELECT p.namePerson, timetable.dayname, timetable.begin_time, timetable.end_time
 FROM person p
 INNER JOIN monitor
@@ -476,7 +411,7 @@ ON monitor.id = timetable.id_monitor
 HAVING timetable.dayname = "Quarta";/*No DAO substituir isso por uma variavel*/
 
 
-/*Exibe as informações bancárias de um monitor*/
+/*Exibe as informaï¿½ï¿½es bancï¿½rias de um monitor*/
 SELECT bankaccount.*
 FROM person p
 INNER JOIN monitor
@@ -497,7 +432,7 @@ WHERE supervisor.id = "20111002017"/*No DAO substituir isso por uma variavel*/
 ORDER BY p.id;
 
 
-/*Exibe todas as contas bancarias de todos os monitores, por ordem alfabética do namePerson*/
+/*Exibe todas as contas bancarias de todos os monitores, por ordem alfabï¿½tica do namePerson*/
 SELECT p.namePerson, bankaccount.*
 FROM person p
 INNER JOIN monitor
