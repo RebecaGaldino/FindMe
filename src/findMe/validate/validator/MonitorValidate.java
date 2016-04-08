@@ -9,7 +9,11 @@ import findMe.validate.validator.StudentValidate;
  *
  */
 public class MonitorValidate {
-	
+	/**
+	 * Validate Monitor using person validate and student validate
+	 * @param monitor
+	 * @return
+	 */
 	public static boolean validate(Monitor monitor) {
 		if (!(PersonValidate.validate(monitor)))
 			return false;

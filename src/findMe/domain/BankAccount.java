@@ -1,5 +1,9 @@
 package findMe.domain;
-
+/**
+ * This class provides attributes to monitor with Bank Accounts
+ * @author thayanneLuiza
+ *
+ */
 public class BankAccount {
 	private String id;
 	private String accountNumber;
@@ -10,11 +14,12 @@ public class BankAccount {
 	public BankAccount(){
 	}
 
-	public BankAccount(String id, String accountNumber, String agency, String notes){
+	public BankAccount(String id, String accountNumber, String agency, String type, String notes){
 		setId(id);
 		setAccountNumber(accountNumber);
 		setAgency(agency);
 		setNotes(notes);
+		setTypeAccount(type);
 		
 	}
 	
