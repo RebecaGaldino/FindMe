@@ -60,30 +60,13 @@ public class SupervisorTest {
 		saux.setName("Marcus Vinicius");
 		
 		sact.editSupervisor(saux);
-		assertEquals(sdao.getIdPerson(s1.getCpf()), s1.getId());
+		assertEquals(sdao.getIdPerson(saux.getCpf()), saux.getId());
 	}
-	
 	
 	@Test
 	public void testDeleteSupervisor() {
 		mact.deleteSupervisor(s1);
 		assertFalse(sdao.getIdPerson(s1.getCpf()).equals(s1.getId()));
-	}
-
-
-	@Test
-	public void testUserChecksSupervisor() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testUserChecksSupervisorId() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testUserChecksSupervisorName() {
-		fail("Not yet implemented");
 	}
 
 }

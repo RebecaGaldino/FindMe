@@ -11,6 +11,7 @@ import findMe.domain.Manager;
 import findMe.domain.Monitor;
 import findMe.domain.Person;
 import findMe.domain.SchoolSubject;
+import findMe.domain.Supervisor;
 
 public class ManagerDAO {
 	
@@ -207,5 +208,46 @@ public class ManagerDAO {
 		}
 			return false;
 	}
+	
+	/**
+	 * Returns a manager by his id
+	 * @param id
+	 * @return
+	 * @author ViniFarias
+	 */
+	public Manager getManagerById(String id){
+		String sql = "select manager.*, p1.* from manager "
+					+"left join person as p1 on manager.id = p1.id";
+		
+		try{
+			Manager m = new Manager();
+			
+			PreparedStatement st = conn.prepareStatement(sql);
+			
+			ResultSet rs = st.executeQuery();
+			
+			while(rs.next()){
+				
+				
+				
+				m.setId(rs.getString("id"));
+				m.setCpf(rs.getString("cpf"));
+				m.setBirth_dt(rs.getString("birth_dt"));
+				m.setName(rs.getString("namePerson"));
+				m.setRg(rs.getString("rg"));
+				m.setSex(rs.getString("sex"));
+				m.setEmail(rs.getString("email"));
+				
+			}
+			
+			rs.close();
+			st.close();
+			return m;
+		} catch(Exception e){
+			System.out.println("Exception is :"+e);
+		}
+		return null;
+	}
+	
 	
 }

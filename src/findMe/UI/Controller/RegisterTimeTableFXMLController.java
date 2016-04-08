@@ -53,8 +53,8 @@ public class RegisterTimeTableFXMLController implements Initializable{
 		t.setMonitor(m);
 		System.out.println(method.convertHourToSqlString(txtBegin_time.getText()).toString());
 		System.out.println(method.convertHourToSqlString(txtEnd_time.getText()).toString());
-		t.setBegin_time(method.convertHourToSqlString(txtBegin_time.getText()));
-		t.setEnd_time(method.convertHourToSqlString(txtEnd_time.getText()));
+		//t.setBegin_time(method.convertHourToSqlString(txtBegin_time.getText()));
+		//t.setEnd_time(method.convertHourToSqlString(txtEnd_time.getText()));
 		System.out.println(cbDay.getSelectionModel().getSelectedItem().toString());
 		t.setDayName(cbDay.getSelectionModel().getSelectedItem().toString());
 		mact.insertTimeTable(t);

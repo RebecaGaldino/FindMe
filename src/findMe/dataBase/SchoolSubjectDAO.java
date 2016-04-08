@@ -36,7 +36,6 @@ public class SchoolSubjectDAO {
 	public void insertSchoolSubject(SchoolSubject schoolSubject) {
 		String sql = "insert into schoolsubject (id, namesubject) values (?, ?)";
 		try {
-			System.out.println("alo");
 			PreparedStatement st = conn.prepareStatement(sql);
 			
 			st.setString(1, schoolSubject.getId());
@@ -299,6 +298,36 @@ public class SchoolSubjectDAO {
 	 */
 	public SchoolSubject getSchoolSubjectByName(String name){
 		String sql = "select schoolsubject.* from schoolsubject where schoolsubject.namesubject = \""+name+"\"";
+		
+		try{
+			SchoolSubject s = new SchoolSubject();
+			
+			PreparedStatement st = conn.prepareStatement(sql);
+			
+			ResultSet rs = st.executeQuery();
+			
+			while(rs.next()){
+				
+				s.setName(rs.getString("namesubject"));
+				s.setId(rs.getString("id"));
+			}
+			
+			rs.close();
+			st.close();
+			return s;
+		} catch(Exception e){
+			System.out.println("Exception is :"+e);
+		}
+		return null;
+	}
+	
+	/**
+	 * returns a SchoolSubject by id
+	 * @param id
+	 * @return
+	 */
+	public SchoolSubject getSchoolSubjectById(String id){
+		String sql = "select schoolsubject.* from schoolsubject where schoolsubject.namesubject = "+id;
 		
 		try{
 			SchoolSubject s = new SchoolSubject();
