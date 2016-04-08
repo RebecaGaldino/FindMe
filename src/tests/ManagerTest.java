@@ -16,11 +16,7 @@ import findMe.extraMethods.Methods;
 import findMe.validate.validator.PersonValidate;
 
 
-/**
- * 
- * @author RebecaGaldino
- *
- */
+
 public class ManagerTest {
 	
 	Manager m1;
