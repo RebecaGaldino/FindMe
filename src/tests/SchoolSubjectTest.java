@@ -30,8 +30,8 @@ public class SchoolSubjectTest {
 
 	@Test
 	public void testInsertSchoolSubject() {
-		/*mact.registerSubject(sb1);
-		assertEquals(ssdao.getSchoolSubjectById(sb1.getId()).getId(), sb1.getId());*/
+		mact.registerSubject(sb1);
+		assertEquals(ssdao.getSchoolSubjectById(sb1.getId()).getId(), sb1.getId());
 		//assertTrue(ssdao.getSchoolSubjectById(sb1.getId()).getId()== sb1.getId());
 	}
 	
