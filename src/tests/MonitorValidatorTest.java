@@ -33,13 +33,16 @@ public class MonitorValidatorTest {
 				"Aa#Ç~12", "Masculino", "4.123.133", "vinifarias@gmail.com");
 		SchoolSubject sb1 = new SchoolSubject("Informatica", "122");
 		
+		b1.setId(b1.getAccountNumber());
+		
 		m1 = new Monitor("3111", "123.145.789-98", "10/02/1900", 
 				"Thayanne Luiza Victor Landim de Sousa", 
-				"52618241", "Feminino", "1.233.789", "thayannevls@gmail.com", "Informatica", "2", sb1, "Sala1", b1, s1);
+				"52618241", "Feminino", "1.233.789", "thayannevls@gmail.com", "Informatica", "2", sb1, "Sala", b1, s1);
 	}
 
 	@Test
 	public void testMonitorValidator() {
+		
 		assertTrue(MonitorValidate.validate(m1));
 	}
 	@Test

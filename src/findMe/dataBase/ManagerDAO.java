@@ -30,6 +30,7 @@ public class ManagerDAO {
 	/**
 	 * Method that inserts a new manager in the database
 	 * @param manager
+	 * @throws SQLException sql's exception
 	 */
 	public void insertManager(Manager manager) {
 		String sql = "insert into manager(id) values(?)";
@@ -55,6 +56,7 @@ public class ManagerDAO {
 	 * Returns a person's Id from your cpf
 	 * @param cpf
 	 * @return the id or empty space
+	 * @throws SQLException sql's exception
 	 */
 	public String getIdPerson(String cpf){
 		String idPerson = " "; 
@@ -81,6 +83,7 @@ public class ManagerDAO {
 	/**
 	 * Method that excludes a manager of the database
 	 * @param id
+	 * @throws SQLException sql's exception
 	 */
 	public void deleteManager(String id) {
 		String sql = "delete from manager where id = ?";
@@ -101,6 +104,7 @@ public class ManagerDAO {
 	/**
 	 * Updates the information of a manager
 	 * @param manager
+	 * @throws SQLException sql's exception
 	 */
 	public void updateManager(Manager manager) {
 		String sql = "update person set id = ?, cpf = ?, namePerson = ?, birth_dt = ?, password = ?, sex = ?, email = ?, rg = ? "
@@ -133,6 +137,7 @@ public class ManagerDAO {
 	/**
 	 * Return the Managers' informations
 	 * @return ArrayList with managers' data  
+	 * @throws SQLException sql's exception
 	 * @author Rebeca Galdino
 	 */
 	public List<Person> getManagersInformations(){
@@ -177,6 +182,7 @@ public class ManagerDAO {
 	 * @param id
 	 * @param password
 	 * @return boolean
+	 * @throws SQLException sql's exception
 	 * @author ViniFarias
 	 */
 	public boolean userChecksManager(String id, String password){
@@ -212,7 +218,8 @@ public class ManagerDAO {
 	/**
 	 * Returns a manager by his id
 	 * @param id
-	 * @return
+	 * @return Manager
+	 * @throws SQLException sql's exception
 	 * @author ViniFarias
 	 */
 	public Manager getManagerById(String id){

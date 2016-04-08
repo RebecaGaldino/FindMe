@@ -21,6 +21,12 @@ public class BankAccountDAO {
 	}
 	
 	/*------------------------INSERT----------------------------*/
+	
+	/**
+	 * Method that inserts a new bankAccount in the database
+	 * @param manager
+	 * @throws SQLException sql's exception
+	 */
 	public void insertBankAccount(Monitor monitor) {
 		String sql = "insert into bankaccount(id, numberaccount, agency, typeaccount, notes) values(?, ?, ?, ?, ?)";
 		try {
@@ -44,6 +50,12 @@ public class BankAccountDAO {
 	}
 	
 	/*------------------------DELETE----------------------------*/
+	
+	/**
+	 * Method that excludes a bankAccount of the database
+	 * @param id
+	 * @throws SQLException sql's exception
+	 */
 	public void deleteBankAccount(String id) {
 		String sql = "delete from bankaccount where id = ?";
 		try {
@@ -60,6 +72,11 @@ public class BankAccountDAO {
 	}
 	
 	
+	/**
+	 * Updates the information of a bankAccount
+	 * @param ba
+	 * @throws SQLException sql's exception
+	 */
 	public void updateBankAccount(BankAccount ba) {
 		String sql = "update bankaccount set numberaccount = ?, agency = ?, typeaccount = ?, notes = ? where bankaccount.id = ?";
 		try {

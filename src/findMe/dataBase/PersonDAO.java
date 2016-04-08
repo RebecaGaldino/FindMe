@@ -33,6 +33,7 @@ public class PersonDAO {
 		/**
 		 * Method that inserts a new person in the database
 		 * @param person
+		 * @throws SQLException sql's exception
 		 */
 		public void insertPerson(Person person) {
 
@@ -65,6 +66,7 @@ public class PersonDAO {
 		/**
 		 * Method that inserts a person in the database from a supervisor
 		 * @param person
+		 * @throws SQLException sql's exception
 		 */
 		public void insertPerson(Supervisor supervisor) {
 
@@ -97,6 +99,7 @@ public class PersonDAO {
 		/**
 		 * Method that inserts a person in the database from a student
 		 * @param person
+		 * @throws SQLException sql's exception
 		 */
 		public void insertPerson(Student student) {
 
@@ -130,6 +133,7 @@ public class PersonDAO {
 		/**
 		 * Method that inserts a person in the database from a monitor
 		 * @param person
+		 * @throws SQLException sql's exception
 		 */
 		public void insertPerson(Monitor monitor) {
 
@@ -162,6 +166,7 @@ public class PersonDAO {
 		/**
 		 * Method that excludes a person of the database
 		 * @param id
+		 * @throws SQLException sql's exception
 		 */
 		public void deletePerson(String id) {
 			String sql = "delete from person where id = ?";
@@ -183,6 +188,7 @@ public class PersonDAO {
 		/**
 		 * Updates the information of a person
 		 * @param person
+		 * @throws SQLException sql's exception
 		 */
 		public void updatePerson(Person person) {
 			String sql = "update person set cpf = ?, namePerson = ?, birth_dt = ?, password = ?, sex = ?, email = ?, rg = ? where id = ?";
@@ -211,9 +217,10 @@ public class PersonDAO {
 		
 		
 		/**
-		 * Verifica se existe uma pessoa cadastrada com determinado id no banco
+		 * Check if a person registered with the given id bank
 		 * @param id
 		 * @return boolean
+		 * @throws SQLException sql's exception
 		 * @author ViniFarias
 		 */
 		public boolean checksId(String id){
@@ -240,10 +247,11 @@ public class PersonDAO {
 		
 		
 		/**
-		 * Verifica a senha e id do usuario
+		 * Checks the password and id
 		 * @param id
 		 * @param password
 		 * @return boolean
+		 * @throws SQLException sql's exception
 		 * @author ViniFarias
 		 */
 		public boolean userChecks(String id, String password){
@@ -280,7 +288,8 @@ public class PersonDAO {
 		/**
 		 * Convert String to sql date
 		 * @param date
-		 * @return
+		 * @return java.sql.Date
+		 * @throws SQLException sql's exception
 		 * @author ViniFarias
 		 */
 		public java.sql.Date convertStringToDate(String date){

@@ -34,6 +34,7 @@ public class SupervisorDAO{
 		/**
 		 * Method that inserts a new supervisor in the database
 		 * @param supervisor
+		 * @throws SQLException sql's exception
 		 */
 		public void insertSupervisor(Supervisor supervisor) {
 			String sql = "insert into supervisor(id) values(?)";
@@ -60,6 +61,7 @@ public class SupervisorDAO{
 		/**
 		 * Method that excludes a supervisor of the database
 		 * @param id
+		 * @throws SQLException sql's exception
 		 */
 		public void deleteSupervisor(String id) {
 			String sql = "delete from supervisor where id = ?";
@@ -80,7 +82,8 @@ public class SupervisorDAO{
 		/**
 		 * Returns a person's Id from your cpf
 		 * @param cpf
-		 * @return
+		 * @return id
+		 * @throws SQLException sql's exception
 		 */
 		public String getIdPerson(String cpf){
 			String idPerson = " "; 
@@ -106,6 +109,7 @@ public class SupervisorDAO{
 		/**
 		 * Updates the information of a supervisor
 		 * @param supervisor
+		 * @throws SQLException sql's exception
 		 */
 		public void updateSupervisor(Supervisor supervisor){
 			PersonDAO pdao = new PersonDAO();

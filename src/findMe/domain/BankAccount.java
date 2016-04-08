@@ -10,12 +10,40 @@ public class BankAccount {
 	private String agency;
 	private String notes;
 	private String typeAccount;
-	
+		
+	/**
+	 * Manager's default constructor
+	 */
 	public BankAccount(){
 	}
-
+	
+	
+	/**
+	 * BankAccount's constructor
+	 * @param id
+	 * @param accountNumber
+	 * @param agency
+	 * @param type
+	 * @param notes
+	 */
 	public BankAccount(String id, String accountNumber, String agency, String type, String notes){
 		setId(id);
+		setAccountNumber(accountNumber);
+		setAgency(agency);
+		setNotes(notes);
+		setTypeAccount(type);
+		
+	}
+	
+	
+	/**
+	 * BankAccount's constructor
+	 * @param accountNumber
+	 * @param agency
+	 * @param type
+	 * @param notes
+	 */
+	public BankAccount(String accountNumber, String agency, String type, String notes){
 		setAccountNumber(accountNumber);
 		setAgency(agency);
 		setNotes(notes);
@@ -74,7 +102,11 @@ public class BankAccount {
 		result = prime * result + ((typeAccount == null) ? 0 : typeAccount.hashCode());
 		return result;
 	}
-
+	
+	
+	/**
+	 * Method that checks whether a bankAccount is equal to another bankAccount
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

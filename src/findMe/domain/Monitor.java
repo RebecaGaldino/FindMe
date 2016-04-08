@@ -97,7 +97,11 @@ public class Monitor extends Student{
 		result = prime * result + ((supervisor == null) ? 0 : supervisor.hashCode());
 		return result;
 	}
-
+	
+	
+	/**
+	 * Method that checks whether a monitor is equal to another monitor
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

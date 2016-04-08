@@ -66,7 +66,11 @@ public class Student extends Person{
 		result = prime * result + ((grade == null) ? 0 : grade.hashCode());
 		return result;
 	}
-
+	
+	
+	/**
+	 * Method that checks whether a student is equal to another student
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

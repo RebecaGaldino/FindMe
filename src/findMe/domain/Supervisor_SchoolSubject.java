@@ -6,11 +6,25 @@ public class Supervisor_SchoolSubject {
 	private Supervisor supervisor;
 	private SchoolSubject schoolSubject;
 	
+	/**
+	 * Supervisor_SchoolSubject's constructor
+	 * @param supervisor
+	 * @param schoolSubject
+	 */
 	public Supervisor_SchoolSubject( Supervisor supervisor, SchoolSubject schoolSubject) {
 		
 		setSupervisor(supervisor);
 		setSchoolSubject(schoolSubject);
 	}
+	
+	
+	/**
+	 * 
+	 * Supervisor_SchoolSubject's default constructor
+	 * @param id
+	 * @param supervisor
+	 * @param schoolSubject
+	 */
 	public Supervisor_SchoolSubject(int id, Supervisor supervisor, SchoolSubject schoolSubject) {
 		setId(id);
 		setSupervisor(supervisor);

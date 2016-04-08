@@ -20,14 +20,10 @@ public class MonitorValidate {
 		if( !(StudentValidate.validate(monitor)))
 			return false;
 		if( !( BankAccountValidate.validate(monitor.getBankAccount())) )
+			return false;
 		if(!(StringValidator.onlyLetters(monitor.getRoomWork())))
 			return false;
-		if(!(StringValidator.onlyLetters(monitor.getName())))
-			return false;
-		if(!(StringValidator.onlyLetters(monitor.getName())))
-			return false;
-		if(!(StringValidator.onlyLetters(monitor.getName())))
-			return false;
+	
 		
 		
 		return true;

@@ -4,11 +4,20 @@ public class SchoolSubject {
 	private String name;
 	private String id;
 	
+	/**
+	 * SchoolSubject's constructor
+	 * @param name
+	 * @param id
+	 */
 	public SchoolSubject(String name, String id){
 		setName(name);
 		setId(id);
 	}
 	
+	
+	/**
+	 * SchoolSubject's default constructor
+	 */
 	public SchoolSubject(){
 		
 	}
@@ -37,7 +46,12 @@ public class SchoolSubject {
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
-
+	
+	
+	
+	/**
+	 * Method that checks whether a schoolSubject is equal to another schoolSubject
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

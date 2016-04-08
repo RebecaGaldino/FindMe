@@ -21,6 +21,11 @@ private Connection conn;
 	}
 	
 	/*------------------------INSERT----------------------------*/
+	/**
+	 * Insert Supervisor_SchoolSubject on data base
+	 * @param supervisor_SchoolSubject
+	 * @throws SQLException sql's exception
+	 */
 	public void insertSupervisor_SchoolSubject(Supervisor_SchoolSubject supervisor_SchoolSubject) {
 		String sql = "insert into supervisor_schoolsubject ( id_supervisor, id_schoolsubject) values (?, ?)";
 		try {
@@ -39,6 +44,11 @@ private Connection conn;
 	}
 	
 	/*------------------------DELETE----------------------------*/
+	/**
+	 * Method that excludes a Supervisor_SchoolSubject of the database
+	 * @param id
+	 * @throws SQLException sql's exception
+	 */ 
 	public void deleteSupervisor_SchoolSubject(int id) {
 		String sql = "delete from supervisor_schoolsubject where id = ?";
 		try {
@@ -56,6 +66,11 @@ private Connection conn;
 	
 	
 	/*------------------------UPDATE----------------------------*/
+	/**
+	 * Updates the information of a Supervisor_SchoolSubject
+	 * @param supervisor_SchoolSubject
+	 * @throws SQLException sql's exception
+	 */
 	public void updateSupervisor_SchoolSubject(Supervisor_SchoolSubject supervisor_SchoolSubject) {
 		String sql = "update supervisor_schoolsubject set id_supervisor = ?, id_schoolsubject = ? where id = ?";
 		try {

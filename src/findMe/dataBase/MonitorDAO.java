@@ -34,6 +34,7 @@ public class MonitorDAO{
 	/**
 	 * Insert on monitor using studentDAO
 	 * @param monitor
+	 * @throws SQLException sql's exception
 	 */
 	public void insertMonitor(Monitor monitor) {
 	
@@ -67,6 +68,7 @@ public class MonitorDAO{
 	/**
 	 * Delete Monitor by id
 	 * @param id
+	 * @throws SQLException sql's exception
 	 */
 	public void deleteMonitor(String id) {
 		String sql = "delete from monitor where id = ?";
@@ -89,6 +91,7 @@ public class MonitorDAO{
 	/**
 	 * Update any monitors attribute 
 	 * @param monitor
+	 * @throws SQLException sql's exception
 	 */
 	public void updateMonitor(Monitor monitor) {
 		String sql = "update monitor set id_supervisor = ?, id_schoolsubject = ?, roomwork = ?, id_bankAccount = ? where id = ?";
@@ -110,6 +113,13 @@ public class MonitorDAO{
 		}
 	}
 	
+	
+	/**
+	 * Return a id by cpf
+	 * @param cpf
+	 * @return
+	 * @throws SQLException sql's exception
+	 */
 	public String getIdStudent(String cpf){
 		
 		String idStudent = " "; 
@@ -138,6 +148,7 @@ public class MonitorDAO{
 	/**
 	 * Lists and show all the monitors and theirs enrolments
 	 * @return ArrayList
+	 * @throws SQLException sql's exception
 	 * @author ViniFarias
 	 */
 	public List<Person> getMonitorsAndIds(){
@@ -175,6 +186,7 @@ public class MonitorDAO{
 	/**
 	 * Show the monitor's timetable, based on the id 
 	 * @param id
+	 * @throws SQLException sql's exception
 	 * @return Timetable List
 	 */
 	public List<TimeTable> getMonitorsTimes(String id){
@@ -220,6 +232,7 @@ public class MonitorDAO{
 	/**
 	 * Return a list of monitors, with all their informations from another tables
 	 * @param id 
+	 * @throws SQLException sql's exception
 	 * @return List of monitors 
 	 */
 	public List<Monitor> getAllInfoMonitors(){
@@ -289,6 +302,7 @@ public class MonitorDAO{
 	/**
 	 * Return all the informations from a monitor based on the id
 	 * @param id
+	 * @throws SQLException sql's exception
 	 * @return Monitor
 	 */
 	public Monitor getMonitorById(String id){
@@ -357,6 +371,7 @@ public class MonitorDAO{
 	 * @param id
 	 * @param password
 	 * @return boolean
+	 * @throws SQLException sql's exception
 	 * @author ViniFarias
 	 */
 	public boolean userChecksMonitor(String id, String password){
@@ -397,6 +412,7 @@ public class MonitorDAO{
 	 * @param id
 	 * @param password
 	 * @return boolean
+	 * @throws SQLException sql's exception
 	 * @author ViniFarias
 	 */
 	public boolean userChecksMonitorId(String id, String password){

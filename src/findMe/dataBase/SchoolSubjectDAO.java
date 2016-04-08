@@ -32,6 +32,7 @@ public class SchoolSubjectDAO {
 	/**
 	 * Insert school subject on data base
 	 * @param schoolSubject
+	 * @throws SQLException sql's exception
 	 */
 	public void insertSchoolSubject(SchoolSubject schoolSubject) {
 		String sql = "insert into schoolsubject (id, namesubject) values (?, ?)";
@@ -51,6 +52,11 @@ public class SchoolSubjectDAO {
 	}
 	
 	/*------------------------DELETE----------------------------*/
+	/**
+	 * Method that excludes a SchoolSubject of the database
+	 * @param id
+	 * @throws SQLException sql's exception
+	 */ 
 	public void deleteSchoolSubject(String id) {
 		String sql = "delete from schoolsubject where id = ?";
 		try {
@@ -69,6 +75,11 @@ public class SchoolSubjectDAO {
 	
 	
 	/*------------------------UPDATE----------------------------*/
+	/**
+	 * Updates the information of a SchoolSubject
+	 * @param person
+	 * @throws SQLException sql's exception
+	 */
 	public void updateSchoolSubject(SchoolSubject schoolSubject) {
 		String sql = "update schoolsubject set name = ? where id = ?";
 		try {
@@ -89,7 +100,9 @@ public class SchoolSubjectDAO {
 	/**
 	 * Verify if one subject is already in the database 
 	 * @param nameSubject
+	 * @throws SQLException sql's exception
 	 * @return boolean
+	 * @throws SQLException sql's exception
 	 */
 	public boolean checksNameSubject(String nameSubject){
 		String sql = "SELECT schoolsubject.namesubject "
@@ -116,6 +129,7 @@ public class SchoolSubjectDAO {
 	/**
 	 * Return the subjects's name and the supervisor related to them 
 	 * @return List with the supervisors and subjects' names 
+	 * @throws SQLException sql's exception
 	 * @author Rebeca Galdino 
 	 */
 	public List<AuxiliarObject> getSubjectsandSupervisors(){
@@ -159,6 +173,7 @@ public class SchoolSubjectDAO {
 	/**
 	 * Show all the names of a subject's monitor
 	 * @return List with names of subjects and their monitors
+	 * @throws SQLException sql's exception
 	 * @author Rebeca Galdino
 	 */
 	public List<AuxiliarObject> getMonitorsofasubject(){
@@ -196,8 +211,9 @@ public class SchoolSubjectDAO {
 	
 	
 	/**
-	 * Retorna um array com todas as disciplinas e seu id e nome
-	 * @return
+	 * Returns an array of all SchoolSubject and its id and name
+	 * @return List<SchoolSUbject>
+	 * @throws SQLException sql's exception
 	 * @author ViniFarias
 	 */
 	public List<SchoolSubject> getInfoAllSubject(){
@@ -236,8 +252,9 @@ public class SchoolSubjectDAO {
 	
 	
 	/**
-	 * Retorna todas as informa��es de uma disciplina e seus monitores, supervisores e informa�oes basicas, pelo seu id
-	 * @return
+	 * Returns all information of a SchoolSubject and its monitors, supervisors and basic information, by its id
+	 * @return Monitor
+	 * @throws SQLException sql's exception
 	 * @author ViniFarias
 	 */
 	public Monitor getAllInfoSubject(String id){
@@ -291,9 +308,10 @@ public class SchoolSubjectDAO {
 	
 	
 	/**
-	 * Retorna uma schoolsubject a partir do seu Nome
+	 * Returns a SchoolSubject by his name
 	 * @param id
-	 * @return
+	 * @return SchoolSubject
+	 * @throws SQLException sql's exception
 	 * @author ViniFarias
 	 */
 	public SchoolSubject getSchoolSubjectByName(String name){
@@ -324,7 +342,8 @@ public class SchoolSubjectDAO {
 	/**
 	 * returns a SchoolSubject by id
 	 * @param id
-	 * @return
+	 * @return SchoolSubject
+	 * @throws SQLException sql's exception
 	 */
 	public SchoolSubject getSchoolSubjectById(String id){
 		String sql = "select schoolsubject.* from schoolsubject where schoolsubject.namesubject = "+id;

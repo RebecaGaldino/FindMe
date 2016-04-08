@@ -9,6 +9,9 @@ public class TimeTable {
 	private Date end_time;
 	private Monitor monitor;
 	
+	/**
+	 * Supervisor's default constructor
+	 */
 	public TimeTable(){
 		setDayName("0");
 		setBegin_time(begin_time);
@@ -16,6 +19,14 @@ public class TimeTable {
 		setMonitor(monitor);
 	}
 	
+	
+	/**
+	 * Supervisor's constructor
+	 * @param dayName
+	 * @param begin_time
+	 * @param end_time
+	 * @param monitor
+	 */
 	public TimeTable(String dayName, Date begin_time, Date end_time, Monitor monitor) {
 		setId(id);
 		setDayName(dayName);

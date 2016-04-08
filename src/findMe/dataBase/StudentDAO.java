@@ -22,6 +22,11 @@ public class StudentDAO{
 		}
 		
 		/*------------------------INSERT----------------------------*/
+		/**
+		 * Insert school student on data base
+		 * @param student
+		 * @throws SQLException sql's exception
+		 */
 		public void insertStudent(Student student) {
 			String sql = "insert into student (id, course, grade) values (?, ?, ?)";
 			try {
@@ -45,8 +50,9 @@ public class StudentDAO{
 		
 		
 		/**
-		 * Insere na tabela Student a partir de um objeto Monitor
+		 * Method that inserts a person in the database from a monitor
 		 * @param monitor
+		 * @throws SQLException sql's exception
 		 */
 		public void insertStudent(Monitor monitor) {
 			String sql = "insert into student(id, course, grade) values (?, ?, ?)";
@@ -70,6 +76,11 @@ public class StudentDAO{
 		}
 		
 		/*------------------------DELETE----------------------------*/
+		/**
+		 * Method that excludes a student of the database
+		 * @param id
+		 * @throws SQLException sql's exception
+		 */ 
 		public void deleteStudent(String id) {
 			String sql = "delete from student where id = ?";
 			try {
@@ -89,6 +100,11 @@ public class StudentDAO{
 		
 		
 		/*------------------------UPDATE----------------------------*/
+		/**
+		 * Updates the information of a Student
+		 * @param student
+		 * @throws SQLException sql's exception
+		 */
 		public void updateStudent(Student student) {
 			String sql = "update student set course = ?, grade = ? where id = ?";
 			try {
@@ -108,6 +124,12 @@ public class StudentDAO{
 		}
 		
 		
+		/**
+		 * Return a person's id by cpf
+		 * @param cpf
+		 * @return id
+		 * @throws SQLException sql's exception
+		 */
 		public String getIdPerson(String cpf){
 			
 			String idPerson = " "; 
