@@ -44,10 +44,11 @@ public class SchoolSubjectDAO {
 			
 			st.execute();
 			st.close();
-			AlertBox.confirm("Monitor Manager", "Disciplina " + schoolSubject.getName() +  " atualizada com sucesso!" );
+			//AlertBox.confirm("Monitor Manager", "Disciplina " + schoolSubject.getName() +  " atualizada com sucesso!" );
 
 		} catch (SQLException e) {
-			AlertBox.error("Monitor Manager", e.getMessage() );
+			//AlertBox.error("Monitor Manager", e.getMessage() );
+			System.out.println(e.getMessage());
 		}
 	}
 	
@@ -67,7 +68,7 @@ public class SchoolSubjectDAO {
 			
 			st.execute();
 			st.close();
-			AlertBox.confirm("Monitor Manager", "Disciplina deletada com sucesso!" );
+			//AlertBox.confirm("Monitor Manager", "Disciplina deletada com sucesso!" );
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
@@ -81,7 +82,7 @@ public class SchoolSubjectDAO {
 	 * @throws SQLException sql's exception
 	 */
 	public void updateSchoolSubject(SchoolSubject schoolSubject) {
-		String sql = "update schoolsubject set name = ? where id = ?";
+		String sql = "update schoolsubject set namesubject = ? where id = ?";
 		try {
 			
 			PreparedStatement st = conn.prepareStatement(sql);
@@ -346,7 +347,7 @@ public class SchoolSubjectDAO {
 	 * @throws SQLException sql's exception
 	 */
 	public SchoolSubject getSchoolSubjectById(String id){
-		String sql = "select schoolsubject.* from schoolsubject where schoolsubject.namesubject = "+id;
+		String sql = "select * from schoolsubject where id = "+id;
 		
 		try{
 			SchoolSubject s = new SchoolSubject();
