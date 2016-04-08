@@ -108,28 +108,23 @@ public class SupervisorDAO{
 		 * @param supervisor
 		 */
 		public void updateSupervisor(Supervisor supervisor){
-			String sql = " update person set cpf = ?, namePerson = ?, birth_dt = ?, password = ? "
-					+ "sex = ?, email = ?, rg = ? where person.id = ?";
-			try {
-				
-				PreparedStatement st = conn.prepareStatement(sql);
-				PersonDAO p = new PersonDAO();
-				
-				st.setString(1, supervisor.getCpf());
-				st.setString(2, supervisor.getName());
-				st.setDate(3, p.convertStringToDate(supervisor.getBirth_dt()));
-				st.setString(4, supervisor.getPassword());
-				st.setString(5, supervisor.getSex());
-				st.setString(6, supervisor.getEmail());
-				st.setString(7, supervisor.getRg());
-				st.setString(8, supervisor.getId());
-				
-				st.execute();
-				st.close();
-				System.out.println("Supervisor atualizado com sucesso!");
-			} catch (SQLException e) {
-				AlertBox.error("Monitor Manager", e.getMessage() );
-			}
+			PersonDAO pdao = new PersonDAO();
+			pdao.updatePerson(supervisor);
+			/*PreparedStatement st = conn.prepareStatement(sql);
+			PersonDAO p = new PersonDAO();
+			
+			st.setString(1, supervisor.getCpf());
+			st.setString(2, supervisor.getName());
+			st.setDate(3, p.convertStringToDate(supervisor.getBirth_dt()));
+			st.setString(4, supervisor.getPassword());
+			st.setString(5, supervisor.getSex());
+			st.setString(6, supervisor.getEmail());
+			st.setString(7, supervisor.getRg());
+			st.setString(8, supervisor.getId());
+			
+			st.execute();
+			st.close();*/
+			System.out.println("Supervisor atualizado com sucesso!");
 		}
 		
 		/*-------------------------CONSULTS-------------------------*/
@@ -404,6 +399,7 @@ public class SupervisorDAO{
 					s.setRg(rs.getString("rg"));
 					s.setSex(rs.getString("sex"));
 					s.setEmail(rs.getString("email"));
+					s.setPassword(rs.getString("password"));
 					
 				}
 				
