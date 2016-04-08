@@ -24,7 +24,7 @@ public class PersonValidate {
 		if( !(DateValidator.validate((person.getBirth_dt()))))
 			return false;
 		if( !(EmailValidator.validate((person.getEmail()))))
-				return false;
+			return false;
 		if( !(NumberValidator.validate((person.getId()))))
 			return false;
 		

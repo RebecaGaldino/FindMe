@@ -107,7 +107,9 @@ public class ManagerDAO {
 	 * @throws SQLException sql's exception
 	 */
 	public void updateManager(Manager manager) {
-		String sql = "update person set id = ?, cpf = ?, namePerson = ?, birth_dt = ?, password = ?, sex = ?, email = ?, rg = ? "
+		PersonDAO pdao = new PersonDAO();
+		pdao.updatePerson(manager);
+		/*String sql = "update person set id = ?, cpf = ?, namePerson = ?, birth_dt = ?, password = ?, sex = ?, email = ?, rg = ? "
 				+ "where id = ?";
 		try {
 			
@@ -129,7 +131,7 @@ public class ManagerDAO {
 			System.out.println("Gerenciador cadastrado com sucesso!");
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
-		}
+		}*/
 	}
 	
 	/*-------------------------CONSULTS-------------------------*/
