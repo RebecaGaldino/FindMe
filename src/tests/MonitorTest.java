@@ -26,11 +26,14 @@ public class MonitorTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		BankAccount b1 = new BankAccount("7274", "242432423", "12", "nao gosto desse banco");
-		Supervisor s1 = new Supervisor("525", Methods.convertStringToSqlString("12/12/1222"), "", "Marcus Vinicius de farias Barbosa", "1231313", "Masculino", "1.232.234", "vinifarias.vf@gmail.com");
+		mact = new ManagerActions();
+		mdao = new MonitorDAO();
+		BankAccount b1 = new BankAccount("7224", "242432423", "12", "nao gosto desse banco");
+		Supervisor s1 = new Supervisor("20141204012", "912.236.570-70", "02/03/1999", "Marcus Vinicius de Farias Barbosa", 
+				"Aa#Ç~12", "Masculino", "4.123.133", "vinifarias@gmail.com");
 		SchoolSubject sb1 = new SchoolSubject("Informatica", "2324");
 		
-		m1 = new Monitor("2014100203", "123.145.789-98", Methods.convertStringToSqlString("10/02/1900"), 
+		m1 = new Monitor("311321", "123.145.789-98", Methods.convertStringToSqlString("10/02/1900"), 
 				"Thayanne Luiza Victor Landim de Sousa", 
 				"52618241", "Feminino", "1.233.789", "thayannevls@gmail.com", "Informatica", "2", sb1, "Sala1", b1, s1);
 		
@@ -39,9 +42,9 @@ public class MonitorTest {
 	@Test
 	public void testInsertMonitor() {
 		try{
-			
-			mact.registerMonitor(m1);
-			assertEquals(mdao.getIdStudent(m1.getCpf()),m1.getId());
+			mact.registerMonitor(m1); 			
+
+			assertEquals(mdao.getIdStudent(m1.getCpf()), m1.getId());
 		}catch(Exception e){
 			e.printStackTrace();
 			fail("Não inseriu");
